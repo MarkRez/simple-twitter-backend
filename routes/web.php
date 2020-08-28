@@ -8,8 +8,8 @@ Route::get('/', function () {
 
 Route::prefix('api')->group(function () {
     Route::prefix('posts')->group(function () {
-        Route::get('/', 'PostController@get');
-        Route::get('/{id}', 'PostController@getById');
+        Route::get('/', 'PostController@getAll');
+        Route::get('/{id}', 'PostController@get');
         Route::post('/', 'PostController@add');
         Route::put('/{id}', 'PostController@update');
         Route::delete('/{id}', 'PostController@delete');
@@ -21,8 +21,8 @@ Route::prefix('api')->group(function () {
     });
 
     Route::prefix('users')->group(function () {
-//        Route::get('/', 'UserController@get');
-        Route::get('/{id}', 'UserController@getById');
+//        Route::get('/', 'UserController@getAll');
+        Route::get('/{id}', 'UserController@get');
         Route::post('/', 'UserController@add');
         Route::put('/{id}', 'UserController@update');
         Route::delete('/{id}', 'UserController@delete');
@@ -39,8 +39,8 @@ Route::prefix('api')->group(function () {
     });
 
     Route::prefix('messages')->group(function () {
-        Route::get('/', 'MessagesController@get');
-        Route::get('/{id}', 'MessagesController@getById');
+        Route::get('/', 'MessagesController@getAll');
+        Route::get('/{id}', 'MessagesController@get');
         Route::post('/{id}', 'MessagesController@sendMessage');
     });
 });

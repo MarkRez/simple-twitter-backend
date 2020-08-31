@@ -7,29 +7,18 @@ Route::get('/', function () {
 });
 
 Route::prefix('api')->group(function () {
-    Route::prefix('posts')->group(function () {
-        Route::get('/', 'PostController@getAll');
-        Route::get('/{id}', 'PostController@get');
-        Route::post('/', 'PostController@add');
-        Route::put('/{id}', 'PostController@update');
-        Route::delete('/{id}', 'PostController@delete');
+    Route::apiResource('posts', 'PostController', ['except' => ['index']]);
+    Route::apiResource('posts.comments', 'CommentsController', ['except' => ['show', 'update']]);
+    Route::apiResource('posts.likes', 'LikesController', ['except' => ['destroy', 'show', 'update']]);
+    Route::delete('posts/likes', 'LikesController@deleteLike');
 
-        Route::get('/{id}/comments', 'PostController@getComments');
-        Route::post('/{id}/comments', 'PostController@addComment');
-        Route::get('/{id}/likes-dislikes', 'PostController@getLikes');
-        Route::post('/{id}/likes-dislikes', 'PostController@addLike');
-    });
+    Route::apiResource('users', 'UserController');
+//        Route::get('/{id}/followings', 'UserController@getFollowings');
+    Route::apiResource('users.followings', 'FollowingsController');
 
     Route::prefix('users')->group(function () {
-//        Route::get('/', 'UserController@getAll');
-        Route::get('/{id}', 'UserController@get');
-        Route::post('/', 'UserController@add');
-        Route::put('/{id}', 'UserController@update');
-        Route::delete('/{id}', 'UserController@delete');
-
-        Route::get('/{id}/followings', 'UserController@getFollowings');
         Route::post('/{id}/followings', 'UserController@followUser');
-        Route::get('/{id}/blocked', 'UserController@getBlockedUsers');
+//        Route::get('/{id}/blocked', 'UserController@getBlockedUsers');
         Route::post('/{id}/blocked', 'UserController@blockUser');
     });
 
@@ -39,8 +28,8 @@ Route::prefix('api')->group(function () {
     });
 
     Route::prefix('messages')->group(function () {
-        Route::get('/', 'MessagesController@getAll');
-        Route::get('/{id}', 'MessagesController@get');
-        Route::post('/{id}', 'MessagesController@sendMessage');
+        Route::resource('/', 'MessageController',
+            ['only' => ['index, show']]);
+        Route::post('/{id}', 'MessageController@sendMessage');
     });
 });

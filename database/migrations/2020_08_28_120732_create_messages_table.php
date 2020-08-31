@@ -12,7 +12,7 @@ class CreateMessagesTable extends Migration
             $table->id();
             $table->foreignId('sender_id')->constrained('users');
             $table->foreignId('recipient_id')->constrained('users');
-            $table->longText('text');
+            $table->text('text');
             $table->timestamps();
         });
     }

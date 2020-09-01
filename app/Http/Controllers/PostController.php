@@ -2,26 +2,51 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostCreateRequest;
+use App\Http\Requests\PostDeleteRequest;
+use App\Http\Requests\PostUpdateRequest;
+use App\Post;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
-    public function show($id)
+    public function __construct()
     {
-        return "post $id";
+        $this->middleware('auth');
     }
 
-    public function store()
+    // TODO
+    public function index(User $user) {
+        return $user->posts;
+    }
+
+    public function show(Post $post)
     {
-        return 'post created';
+        return $post;
     }
 
-    public function update($id) {
-        return 'post $id updated';
+    // TODO
+    public function store(PostCreateRequest $request)
+    {
+        $post = Auth::user()->posts()->create([
+            'text' => $request->text,
+        ]);
+
+        return $post;
     }
 
-    public function destroy($id) {
-        return 'post $id deleted';
+    public function update(PostUpdateRequest $request, Post $post) {
+        $post->update([
+            'text' => $request->text,
+        ]);
+
+        return $post;
+    }
+
+    public function destroy(PostDeleteRequest $request, Post $post) {
+        return $post->delete();
     }
 
     public function getComments($id) {

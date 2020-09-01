@@ -40,4 +40,22 @@ class User extends Authenticatable
     public function posts() {
         return $this->hasMany(Post::class);
     }
+
+//    public function leadsPosts() {
+//        return $this->hasManyThrough(Post::class, User::class);
+//    }
+
+    // подписчики
+    public function followers() {
+        return $this->belongsToMany(User::class, 'followings', 'lead_id', 'follower_id');
+    }
+
+    // подписки
+    public function leads() {
+        return $this->belongsToMany(User::class, 'followings', 'follower_id', 'lead_id');
+    }
+
+    public function blocked() {
+        return $this->belongsToMany(User::class, 'blocked_users', 'user_id', 'blocked_user_id');
+    }
 }

@@ -7,6 +7,8 @@ use App\Http\Requests\RegisterRequest;
 use Cassandra\Exception\ValidationException;
 use App\User;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -28,5 +30,9 @@ class AuthController extends Controller
             'name' => $request->name,
             'password' => Hash::make($request->password)
         ]);
+    }
+
+    public function logOut (Request $request) {
+        $request->user()->currentAccessToken()->delete();
     }
 }

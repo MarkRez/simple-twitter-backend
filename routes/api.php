@@ -12,3 +12,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('users/{user}/posts', 'PostController@index');
 });
 
+Route::post('/login', 'LoginController@token');
+//
+//Auth::routes();

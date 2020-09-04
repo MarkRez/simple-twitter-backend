@@ -9,7 +9,15 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     public function profile() {
-        return Auth::user();
+        $user = Auth::user();
+
+        return [
+            'email' => $user->email,
+            'login' => $user->login,
+            'name' => $user->name,
+            'id' => $user->id,
+            'avatar' => $user->avatar
+        ];
     }
 
     public function index ()

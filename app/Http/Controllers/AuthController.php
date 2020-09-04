@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function login(LoginRequest $request) {
+    public function login(LoginRequest $request) { // TODO отдать существующий токен
         $user = User::where('login', $request->login)->first();
 
         if (! $user || ! Hash::check($request->password, $user->password)) {
@@ -24,12 +24,13 @@ class AuthController extends Controller
     }
 
     public function register(RegisterRequest $request) {
-        return User::create([
-            'login' => $request->login,
-            'email' => $request->email,
-            'name' => $request->name,
-            'password' => Hash::make($request->password)
-        ]);
+        $user = new User();
+        $user->login = $request->login;
+        $user->email = $request->email;
+        $user->name = $request->name;
+        $user->password = Hash::make($request->password);
+        return $user->save();
+
     }
 
     public function logOut (Request $request) {

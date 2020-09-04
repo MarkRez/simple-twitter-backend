@@ -2310,7 +2310,7 @@ module.exports = {
   var SELECTOR_DATA_TOGGLES = '[data-toggle="buttons"]';
   var SELECTOR_DATA_TOGGLE = '[data-toggle="button"]';
   var SELECTOR_DATA_TOGGLES_BUTTONS = '[data-toggle="buttons"] .btn';
-  var SELECTOR_INPUT = 'input:not([type="hidden"])';
+  var SELECTOR_INPUT = 'Input:not([type="hidden"])';
   var SELECTOR_ACTIVE = '.active';
   var SELECTOR_BUTTON = '.btn';
   var EVENT_CLICK_DATA_API$1 = "click" + EVENT_KEY$1 + DATA_API_KEY$1;
@@ -2353,7 +2353,7 @@ module.exports = {
           }
 
           if (triggerChangeEvent) {
-            // if it's not a radio button or checkbox don't add a pointless/invalid checked property to the input
+            // if it's not a radio button or checkbox don't add a pointless/invalid checked property to the Input
             if (input.type === 'checkbox' || input.type === 'radio') {
               input.checked = !this._element.classList.contains(CLASS_NAME_ACTIVE);
             }
@@ -3824,9 +3824,9 @@ module.exports = {
     ;
 
     Dropdown._dataApiKeydownHandler = function _dataApiKeydownHandler(event) {
-      // If not input/textarea:
+      // If not Input/textarea:
       //  - And not a key in REGEXP_KEYDOWN => not a dropdown command
-      // If input/textarea:
+      // If Input/textarea:
       //  - If space key => not a dropdown command
       //  - If key is other than escape
       //    - If key is not up or down => not a dropdown command
@@ -7319,7 +7319,7 @@ function siblingCheck( a, b ) {
 }
 
 /**
- * Returns a function to use in pseudos for input types
+ * Returns a function to use in pseudos for Input types
  * @param {String} type
  */
 function createInputPseudo( type ) {
@@ -7421,7 +7421,7 @@ function createPositionalPseudo( fn ) {
 /**
  * Checks a node for validity as a Sizzle context
  * @param {Element|Object=} context
- * @returns {Element|Object|Boolean} The input node if acceptable, otherwise a falsy value
+ * @returns {Element|Object|Boolean} The Input node if acceptable, otherwise a falsy value
  */
 function testContext( context ) {
 	return context && typeof context.getElementsByTagName !== "undefined" && context;
@@ -7808,7 +7808,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			return 0;
 		}
 
-		// Sort on method existence if only one input has compareDocumentPosition
+		// Sort on method existence if only one Input has compareDocumentPosition
 		var compare = !a.compareDocumentPosition - !b.compareDocumentPosition;
 		if ( compare ) {
 			return compare;
@@ -8031,7 +8031,7 @@ Sizzle.uniqueSort = function( results ) {
 		}
 	}
 
-	// Clear input after sorting to release objects
+	// Clear Input after sorting to release objects
 	// See https://github.com/jquery/sizzle/pull/225
 	sortInput = null;
 
@@ -8547,7 +8547,7 @@ Expr = Sizzle.selectors = {
 			return !Expr.pseudos[ "empty" ]( elem );
 		},
 
-		// Element/input types
+		// Element/Input types
 		"header": function( elem ) {
 			return rheader.test( elem.nodeName );
 		},
@@ -8625,7 +8625,7 @@ Expr = Sizzle.selectors = {
 
 Expr.pseudos[ "nth" ] = Expr.pseudos[ "eq" ];
 
-// Add button/input type pseudos
+// Add button/Input type pseudos
 for ( i in { radio: true, checkbox: true, file: true, password: true, image: true } ) {
 	Expr.pseudos[ i ] = createInputPseudo( i );
 }
@@ -8849,7 +8849,7 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 				[]
 			),
 
-			// Prefilter to get matcher input, preserving a map for seed-results synchronization
+			// Prefilter to get matcher Input, preserving a map for seed-results synchronization
 			matcherIn = preFilter && ( seed || !selector ) ?
 				condense( elems, preMap, preFilter, context, xml ) :
 				elems,
@@ -9270,7 +9270,7 @@ if ( !assert( function( el ) {
 // Support: IE<9
 // Use defaultValue in place of getAttribute("value")
 if ( !support.attributes || !assert( function( el ) {
-	el.innerHTML = "<input/>";
+	el.innerHTML = "<Input/>";
 	el.firstChild.setAttribute( "value", "" );
 	return el.firstChild.getAttribute( "value" ) === "";
 } ) ) {
@@ -14295,7 +14295,7 @@ jQuery.fn.delay = function( time, type ) {
 	support.optSelected = opt.selected;
 
 	// Support: IE <=11 only
-	// An input loses its value after becoming a radio
+	// An Input loses its value after becoming a radio
 	input = document.createElement( "input" );
 	input.value = "t";
 	input.type = "radio";
@@ -15190,7 +15190,7 @@ jQuery.parseXML = function( data ) {
 	}
 
 	// Support: IE 9 - 11 only
-	// IE throws on parseFromString with invalid input.
+	// IE throws on parseFromString with invalid Input.
 	try {
 		xml = ( new window.DOMParser() ).parseFromString( data, "text/xml" );
 	} catch ( e ) {
@@ -15557,7 +15557,7 @@ function ajaxConvert( s, response, jqXHR, isSuccess ) {
 						tmp = conv2.split( " " );
 						if ( tmp[ 1 ] === current ) {
 
-							// If prev can be converted to accepted input
+							// If prev can be converted to accepted Input
 							conv = converters[ prev + " " + tmp[ 0 ] ] ||
 								converters[ "* " + tmp[ 0 ] ];
 							if ( conv ) {
@@ -25990,7 +25990,7 @@ return jQuery;
      *
      * _([1, 2, 3])
      *  .tap(function(array) {
-     *    // Mutate input array.
+     *    // Mutate Input array.
      *    array.pop();
      *  })
      *  .reverse()
@@ -35594,10 +35594,10 @@ function disableEventListeners() {
 }
 
 /**
- * Tells if a given input is a number
+ * Tells if a given Input is a number
  * @method
  * @memberof Popper.Utils
- * @param {*} input to check
+ * @param {*} Input to check
  * @return {Boolean}
  */
 function isNumeric(n) {
@@ -39159,7 +39159,7 @@ function trackValueOnNode(node) {
   var currentValue = '' + node[valueField]; // if someone has already defined a value or Safari, then bail
   // and don't track value will cause over reporting of changes,
   // but it's better then a hard failure
-  // (needed for certain tests that spyOn input values and Safari)
+  // (needed for certain tests that spyOn Input values and Safari)
 
   if (node.hasOwnProperty(valueField) || typeof descriptor === 'undefined' || typeof descriptor.get !== 'function' || typeof descriptor.set !== 'function') {
     return;
@@ -39240,7 +39240,7 @@ function isControlled(props) {
   return usesChecked ? props.checked != null : props.value != null;
 }
 /**
- * Implements an <input> host component that allows setting these optional
+ * Implements an <Input> host component that allows setting these optional
  * props: `checked`, `value`, `defaultChecked`, and `defaultValue`.
  *
  * If `checked` or `value` are not supplied (or null/undefined), user actions
@@ -39275,13 +39275,13 @@ function initWrapperState(element, props) {
     ReactControlledValuePropTypes.checkPropTypes('input', props);
 
     if (props.checked !== undefined && props.defaultChecked !== undefined && !didWarnCheckedDefaultChecked) {
-      error('%s contains an input of type %s with both checked and defaultChecked props. ' + 'Input elements must be either controlled or uncontrolled ' + '(specify either the checked prop, or the defaultChecked prop, but not ' + 'both). Decide between using a controlled or uncontrolled input ' + 'element and remove one of these props. More info: ' + 'https://fb.me/react-controlled-components', getCurrentFiberOwnerNameInDevOrNull() || 'A component', props.type);
+      error('%s contains an Input of type %s with both checked and defaultChecked props. ' + 'Input elements must be either controlled or uncontrolled ' + '(specify either the checked prop, or the defaultChecked prop, but not ' + 'both). Decide between using a controlled or uncontrolled Input ' + 'element and remove one of these props. More info: ' + 'https://fb.me/react-controlled-components', getCurrentFiberOwnerNameInDevOrNull() || 'A component', props.type);
 
       didWarnCheckedDefaultChecked = true;
     }
 
     if (props.value !== undefined && props.defaultValue !== undefined && !didWarnValueDefaultValue) {
-      error('%s contains an input of type %s with both value and defaultValue props. ' + 'Input elements must be either controlled or uncontrolled ' + '(specify either the value prop, or the defaultValue prop, but not ' + 'both). Decide between using a controlled or uncontrolled input ' + 'element and remove one of these props. More info: ' + 'https://fb.me/react-controlled-components', getCurrentFiberOwnerNameInDevOrNull() || 'A component', props.type);
+      error('%s contains an Input of type %s with both value and defaultValue props. ' + 'Input elements must be either controlled or uncontrolled ' + '(specify either the value prop, or the defaultValue prop, but not ' + 'both). Decide between using a controlled or uncontrolled Input ' + 'element and remove one of these props. More info: ' + 'https://fb.me/react-controlled-components', getCurrentFiberOwnerNameInDevOrNull() || 'A component', props.type);
 
       didWarnValueDefaultValue = true;
     }
@@ -39310,13 +39310,13 @@ function updateWrapper(element, props) {
     var controlled = isControlled(props);
 
     if (!node._wrapperState.controlled && controlled && !didWarnUncontrolledToControlled) {
-      error('A component is changing an uncontrolled input of type %s to be controlled. ' + 'Input elements should not switch from uncontrolled to controlled (or vice versa). ' + 'Decide between using a controlled or uncontrolled input ' + 'element for the lifetime of the component. More info: https://fb.me/react-controlled-components', props.type);
+      error('A component is changing an uncontrolled Input of type %s to be controlled. ' + 'Input elements should not switch from uncontrolled to controlled (or vice versa). ' + 'Decide between using a controlled or uncontrolled Input ' + 'element for the lifetime of the component. More info: https://fb.me/react-controlled-components', props.type);
 
       didWarnUncontrolledToControlled = true;
     }
 
     if (node._wrapperState.controlled && !controlled && !didWarnControlledToUncontrolled) {
-      error('A component is changing a controlled input of type %s to be uncontrolled. ' + 'Input elements should not switch from controlled to uncontrolled (or vice versa). ' + 'Decide between using a controlled or uncontrolled input ' + 'element for the lifetime of the component. More info: https://fb.me/react-controlled-components', props.type);
+      error('A component is changing a controlled Input of type %s to be uncontrolled. ' + 'Input elements should not switch from controlled to uncontrolled (or vice versa). ' + 'Decide between using a controlled or uncontrolled Input ' + 'element for the lifetime of the component. More info: https://fb.me/react-controlled-components', props.type);
 
       didWarnControlledToUncontrolled = true;
     }
@@ -39358,14 +39358,14 @@ function updateWrapper(element, props) {
 
   {
     // When syncing the checked attribute, it only changes when it needs
-    // to be removed, such as transitioning from a checkbox into a text input
+    // to be removed, such as transitioning from a checkbox into a text Input
     if (props.checked == null && props.defaultChecked != null) {
       node.defaultChecked = !!props.defaultChecked;
     }
   }
 }
 function postMountWrapper(element, props, isHydrating) {
-  var node = element; // Do not assign value if it is already set. This prevents user text input
+  var node = element; // Do not assign value if it is already set. This prevents user text Input
   // from being lost during SSR hydration.
 
   if (props.hasOwnProperty('value') || props.hasOwnProperty('defaultValue')) {
@@ -39377,7 +39377,7 @@ function postMountWrapper(element, props, isHydrating) {
       return;
     }
 
-    var initialValue = toString(node._wrapperState.initialValue); // Do not assign value if it is already set. This prevents user text input
+    var initialValue = toString(node._wrapperState.initialValue); // Do not assign value if it is already set. This prevents user text Input
     // from being lost during SSR hydration.
 
     if (!isHydrating) {
@@ -39446,12 +39446,12 @@ function updateNamedCousins(rootNode, props) {
     // but that sometimes behaves strangely in IE8. We could also try using
     // `form.getElementsByName`, but that will only return direct children
     // and won't include inputs that use the HTML5 `form=` attribute. Since
-    // the input might not even be in a form. It might not even be in the
+    // the Input might not even be in a form. It might not even be in the
     // document. Let's just use the local `querySelectorAll` to ensure we don't
     // miss anything.
 
 
-    var group = queryRoot.querySelectorAll('input[name=' + JSON.stringify('' + name) + '][type="radio"]');
+    var group = queryRoot.querySelectorAll('Input[name=' + JSON.stringify('' + name) + '][type="radio"]');
 
     for (var i = 0; i < group.length; i++) {
       var otherNode = group[i];
@@ -39471,17 +39471,17 @@ function updateNamedCousins(rootNode, props) {
           throw Error( "ReactDOMInput: Mixing React and non-React radio inputs with the same `name` is not supported." );
         }
       } // We need update the tracked value on the named cousin since the value
-      // was changed but the input saw no event or value set
+      // was changed but the Input saw no event or value set
 
 
-      updateValueIfChanged(otherNode); // If this is a controlled radio button group, forcing the input that
+      updateValueIfChanged(otherNode); // If this is a controlled radio button group, forcing the Input that
       // was previously checked to update will cause it to be come re-checked
       // as appropriate.
 
       updateWrapper(otherNode, otherProps);
     }
   }
-} // In Chrome, assigning defaultValue to certain input types triggers input validation.
+} // In Chrome, assigning defaultValue to certain Input types triggers Input validation.
 // For number inputs, the display value loses trailing decimal points. For email inputs,
 // Chrome raises "The specified value <x> is not a valid email address".
 //
@@ -43698,7 +43698,7 @@ function updateProperties(domElement, updatePayload, tag, lastRawProps, nextRawP
   switch (tag) {
     case 'input':
       // Update the wrapper around inputs *after* updating props. This has to
-      // happen after `updateDOMProperties`. Otherwise HTML5 input validations
+      // happen after `updateDOMProperties`. Otherwise HTML5 Input validations
       // raise warnings and prevent the new value from being assigned.
       updateWrapper(domElement, nextRawProps);
       break;
@@ -43986,11 +43986,11 @@ function diffHydratedProperties(domElement, tag, rawProps, parentNamespace, root
 
     case 'select':
     case 'option':
-      // For input and textarea we current always set the value property at
+      // For Input and textarea we current always set the value property at
       // post mount to force it to diverge from attributes. However, for
       // option and select we don't quite do the same thing and select
       // is not resilient to the DOM state changing so we don't do that here.
-      // TODO: Consider not doing this for input and textarea.
+      // TODO: Consider not doing this for Input and textarea.
       break;
 
     default:
@@ -44177,7 +44177,7 @@ function getOffsets(outerNode) {
       anchorOffset = selection.anchorOffset,
       focusNode = selection.focusNode,
       focusOffset = selection.focusOffset; // In Firefox, anchorNode and focusNode can be "anonymous divs", e.g. the
-  // up/down buttons on an <input type="number">. Anonymous divs do not seem to
+  // up/down buttons on an <Input type="number">. Anonymous divs do not seem to
   // expose properties, triggering a "Permission denied error" if any of its
   // properties are accessed. The only seemingly possible way to avoid erroring
   // is to access a property that typically works for non-anonymous divs and
@@ -44200,7 +44200,7 @@ function getOffsets(outerNode) {
  * (anchorNode, anchorOffset) within the textContent of `outerNode`, and
  * `end` is the index of (focusNode, focusOffset).
  *
- * Returns null if you pass in garbage input but we should probably just crash.
+ * Returns null if you pass in garbage Input but we should probably just crash.
  *
  * Exported only for testing.
  */
@@ -44394,7 +44394,7 @@ function getActiveElementDeep() {
   return element;
 }
 /**
- * @ReactInputSelection: React input selection module. Based on Selection.js,
+ * @ReactInputSelection: React Input selection module. Based on Selection.js,
  * but modified to be suitable for react and has a couple of bug fixes (doesn't
  * assume buttons have range selections allowed).
  * Input selection module for React.
@@ -44462,9 +44462,9 @@ function restoreSelection(priorSelectionInformation) {
   }
 }
 /**
- * @getSelection: Gets the selection bounds of a focused textarea, input or
+ * @getSelection: Gets the selection bounds of a focused textarea, Input or
  * contentEditable node.
- * -@input: Look up selection bounds of this input
+ * -@Input: Look up selection bounds of this Input
  * -@return {start: selectionStart, end: selectionEnd}
  */
 
@@ -44472,7 +44472,7 @@ function getSelection(input) {
   var selection;
 
   if ('selectionStart' in input) {
-    // Modern browser with input or textarea.
+    // Modern browser with Input or textarea.
     selection = {
       start: input.selectionStart,
       end: input.selectionEnd
@@ -44488,9 +44488,9 @@ function getSelection(input) {
   };
 }
 /**
- * @setSelection: Sets the selection bounds of a textarea or input and focuses
- * the input.
- * -@input     Set selection bounds of this input or textarea
+ * @setSelection: Sets the selection bounds of a textarea or Input and focuses
+ * the Input.
+ * -@Input     Set selection bounds of this Input or textarea
  * -@offsets   Object of same form that is returned from get*
  */
 
@@ -46172,7 +46172,7 @@ function isFallbackCompositionStart(topLevelType, nativeEvent) {
 function isFallbackCompositionEnd(topLevelType, nativeEvent) {
   switch (topLevelType) {
     case TOP_KEY_UP:
-      // Command keys insert or clear IME input.
+      // Command keys insert or clear IME Input.
       return END_KEYCODES.indexOf(nativeEvent.keyCode) !== -1;
 
     case TOP_KEY_DOWN:
@@ -46360,7 +46360,7 @@ function getFallbackBeforeInputChars(topLevelType, nativeEvent) {
 
   switch (topLevelType) {
     case TOP_PASTE:
-      // If a paste event occurs after a keypress, throw out the input
+      // If a paste event occurs after a keypress, throw out the Input
       // chars. Paste events should not lead to BeforeInput events.
       return null;
 
@@ -46375,11 +46375,11 @@ function getFallbackBeforeInputChars(topLevelType, nativeEvent) {
        *   Ex: 'AltGr + d` in Polish. There is no modified character for
        *   this key combination and no character is inserted into the
        *   document, but FF fires the keypress for char code `100` anyway.
-       *   No `input` event will occur.
+       *   No `Input` event will occur.
        *
        * - `which` is the pressed key code, but a command combination is
        *   being used. Ex: `Cmd+C`. No character is inserted, and no
-       *   `input` event will occur.
+       *   `Input` event will occur.
        */
       if (!isKeypressCommand(nativeEvent)) {
         // IE fires the `keypress` event when a user types an emoji via
@@ -46441,7 +46441,7 @@ function extractBeforeInputEvent(topLevelType, targetInst, nativeEvent, nativeEv
  * `onKeyPress` and `onCompositionEnd`, but before `onInput`.
  *
  * `beforeInput` is spec'd but not implemented in any browsers, and
- * the `input` event does not provide any useful information about what has
+ * the `Input` event does not provide any useful information about what has
  * actually been added, contrary to the spec. Thus, `textInput` is the best
  * available event to identify the characters that have actually been inserted
  * into the target node.
@@ -46547,7 +46547,7 @@ function manualDispatchChangeEvent(nativeEvent) {
   //
   // Batching is necessary here in order to ensure that all event handlers run
   // before the next rerender (including event handlers attached to ancestor
-  // elements instead of directly on the input). Without this, controlled
+  // elements instead of directly on the Input). Without this, controlled
   // components don't work properly in conjunction with event bubbling because
   // the component is rerendered and the value reverted before all the event
   // handlers can run. See https://github.com/facebook/react/issues/708.
@@ -46573,15 +46573,15 @@ function getTargetInstForChangeEvent(topLevelType, targetInst) {
   }
 }
 /**
- * SECTION: handle `input` event
+ * SECTION: handle `Input` event
  */
 
 
 var isInputEventSupported = false;
 
 if (canUseDOM) {
-  // IE9 claims to support the input event but fails to trigger it when
-  // deleting text, so we ignore its input events.
+  // IE9 claims to support the Input event but fails to trigger it when
+  // deleting text, so we ignore its Input events.
   isInputEventSupported = isEventSupported('input') && (!document.documentMode || document.documentMode > 9);
 }
 /**
@@ -46629,7 +46629,7 @@ function handlePropertyChange(nativeEvent) {
 
 function handleEventsForInputEventPolyfill(topLevelType, target, targetInst) {
   if (topLevelType === TOP_FOCUS) {
-    // In IE9, propertychange fires for most input events but is buggy and
+    // In IE9, propertychange fires for most Input events but is buggy and
     // doesn't fire when text is deleted, but conveniently, selectionchange
     // appears to fire in all of the remaining cases so we catch those and
     // forward the event if the value has changed
@@ -46653,11 +46653,11 @@ function getTargetInstForInputEventPolyfill(topLevelType, targetInst) {
     // helpful for us so just check activeElement instead.
     //
     // 99% of the time, keydown and keyup aren't necessary. IE8 fails to fire
-    // propertychange on the first input event after setting `value` from a
+    // propertychange on the first Input event after setting `value` from a
     // script and fires only keydown, keypress, keyup. Catching keyup usually
     // gets it and catching keydown lets us fire an event for the first
     // keystroke if user does a key repeat (it'll be a little delayed: right
-    // before the second keystroke). Other input methods (e.g., paste) seem to
+    // before the second keystroke). Other Input methods (e.g., paste) seem to
     // fire selectionchange normally.
     return getInstIfValueChanged(activeElementInst);
   }
@@ -46705,7 +46705,7 @@ function handleControlledInputBlur(node) {
  * change the element's value without seeing a flicker.
  *
  * Supported elements are:
- * - input (see `isTextInputElement`)
+ * - Input (see `isTextInputElement`)
  * - textarea
  * - select
  */
@@ -47093,7 +47093,7 @@ function getEventTargetDocument(eventTarget) {
 function constructSelectEvent(nativeEvent, nativeEventTarget) {
   // Ensure we have the right element, and that the user is not dragging a
   // selection (this matches native `select` event behavior). In HTML5, select
-  // fires only on input and textarea thus if there's no focused element we
+  // fires only on Input and textarea thus if there's no focused element we
   // won't dispatch.
   var doc = getEventTargetDocument(nativeEventTarget);
 
@@ -47120,14 +47120,14 @@ function constructSelectEvent(nativeEvent, nativeEventTarget) {
  * across form elements.
  *
  * Supported elements are:
- * - input (see `isTextInputElement`)
+ * - Input (see `isTextInputElement`)
  * - textarea
  * - contentEditable
  *
  * This differs from native browser implementations in the following ways:
  * - Fires on contentEditable fields as well as inputs.
  * - Fires for collapsed selection.
- * - Fires after user input.
+ * - Fires after user Input.
  */
 
 
@@ -47144,7 +47144,7 @@ var SelectEventPlugin = {
     var targetNode = targetInst ? getNodeFromInstance$1(targetInst) : window;
 
     switch (topLevelType) {
-      // Track the input node that has focus.
+      // Track the Input node that has focus.
       case TOP_FOCUS:
         if (isTextInputElement(targetNode) || targetNode.contentEditable === 'true') {
           activeElement$1 = targetNode;
@@ -47173,7 +47173,7 @@ var SelectEventPlugin = {
         return constructSelectEvent(nativeEvent, nativeEventTarget);
       // Chrome and IE fire non-standard event when selection is changed (and
       // sometimes when it hasn't). IE's event fires out of order with respect
-      // to key and input events on deletion, so we discard it.
+      // to key and Input events on deletion, so we discard it.
       //
       // Firefox doesn't support selectionchange, so check selection status
       // after each key entry. The selection changes after keydown and before
@@ -64941,7 +64941,7 @@ typeof MessageChannel !== 'function') {
 
   {
     // `isInputPending` is not available. Since we have no way of knowing if
-    // there's pending input, always yield at the end of the frame.
+    // there's pending Input, always yield at the end of the frame.
     shouldYieldToHost = function () {
       return exports.unstable_now() >= deadline;
     }; // Since we yield every frame regardless, `requestPaint` has no effect.

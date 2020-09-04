@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,9 +17,9 @@ class UserController extends Controller
         return 'users list';
     }
 
-    public function show($id, Request $request)
+    public function show(User $user)
     {
-        return "user $id";
+        return $user;
     }
 
     public function store()

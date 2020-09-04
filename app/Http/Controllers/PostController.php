@@ -49,8 +49,8 @@ class PostController extends Controller
         return $post->delete();
     }
 
-    public function getComments($id) {
-        return 'comments for $id post';
+    public function getComments(Post $post) {
+        return $post->comments;
     }
 
     public function addComment($id, Request $request) {

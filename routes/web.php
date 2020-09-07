@@ -8,7 +8,7 @@ Route::get('/', function () {
 
 Route::prefix('api')->group(function () {
 //    Route::apiResource('posts', 'PostController');
-//    Route::apiResource('posts.comments', 'CommentsController', ['except' => ['show', 'update']]);
+//    Route::apiResource('posts.comments', 'CommentController', ['except' => ['show', 'update']]);
 //    Route::apiResource('posts.likes', 'LikesController', ['except' => ['destroy', 'show', 'update']]);
 //    Route::delete('posts/likes', 'LikesController@deleteLike');
 //

@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class LikesController extends Controller
 {
-    //
+    public function store() {
+
+    }
 }

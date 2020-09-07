@@ -5,35 +5,22 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
     use Notifiable, HasApiTokens;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'name', 'email', 'login',
     ];
+    protected $appends = ['followed', 'followings_count', 'followers_count'];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'email', 'password', 'remember_token', 'updated_at', 'created_at'
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
@@ -42,9 +29,6 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
-//    public function leadsPosts() {
-//        return $this->hasManyThrough(Post::class, User::class);
-//    }
 
     // подписчики
     public function followers() {
@@ -58,5 +42,23 @@ class User extends Authenticatable
 
     public function blocked() {
         return $this->belongsToMany(User::class, 'blocked_users', 'user_id', 'blocked_user_id');
+    }
+
+    public function getFollowedAttribute($value)
+    {
+        $currentUserId = Auth::id();
+        $follow = $this->followers()->wherePivot('follower_id', $currentUserId)->first();
+
+        return (bool) $follow;
+    }
+
+    public function getFollowingsCountAttribute()
+    {
+        return $this->leads()->count();
+    }
+
+    public function getFollowersCountAttribute()
+    {
+        return $this->followers()->count();
     }
 }

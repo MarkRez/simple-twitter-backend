@@ -8,7 +8,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('users', 'UserController');
 
     Route::apiResource('posts', 'PostController');
-    Route::get('posts/{post}/comments', 'PostController@getComments');
+    Route::get('posts/{post}/comments', 'CommentController@index');
     Route::get('users/{user}/posts', 'PostController@index');
     Route::post('/logout', 'AuthController@logOut');
 });

@@ -50,16 +50,4 @@ class PostController extends Controller
     public function destroy(PostDeleteRequest $request, Post $post) {
         return $post->delete();
     }
-
-    public function getComments(Post $post) {
-        return $post->comments;
-    }
-
-    public function addComment($id, Request $request) {
-        return 'add comment to $id post';
-    }
-
-    public function addLike($id, Request $request) {
-        return 'add like/dislike to $id post';
-    }
 }

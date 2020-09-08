@@ -10,6 +10,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('posts', 'PostController');
     Route::get('posts/{post}/comments', 'CommentController@index');
     Route::get('users/{user}/posts', 'PostController@index');
+
+    Route::get('/feed', 'FeedController@get');
+
     Route::post('/logout', 'AuthController@logOut');
 });
 

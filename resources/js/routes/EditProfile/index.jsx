@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import EditProfileForm from "./EditProfileForm";
+import allActions from "../../redux/actions";
 
 const EditProfile = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector(state => state.user.user);
 
-  const updateProfile = () => {
-    console.log("Update profile func")
+  const updateProfile = (values) => {
+    dispatch(allActions.userActions.updateProfileData(values));
   }
 
   return (

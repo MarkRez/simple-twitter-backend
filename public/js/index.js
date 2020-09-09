@@ -80417,7 +80417,7 @@ if(false) {}
 /*!***********************************!*\
   !*** ./resources/js/api/index.js ***!
   \***********************************/
-/*! exports provided: logIn, logOut, register, getProfile, getUser, getUserPosts, getPost, getPostComments, getFeed, default */
+/*! exports provided: logIn, logOut, register, getProfile, updateProfile, getUser, getUserPosts, getPost, getPostComments, getFeed, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -80426,6 +80426,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logOut", function() { return logOut; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "register", function() { return register; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getProfile", function() { return getProfile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateProfile", function() { return updateProfile; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUser", function() { return getUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUserPosts", function() { return getUserPosts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPost", function() { return getPost; });
@@ -80445,6 +80446,9 @@ var register = function register(payload) {
 };
 var getProfile = function getProfile() {
   return api.get('/profile');
+};
+var updateProfile = function updateProfile(payload) {
+  return api.put('/profile', payload);
 };
 var getUser = function getUser(id) {
   return api.get("/users/".concat(id));
@@ -80470,6 +80474,7 @@ var apis = {
   getPostComments: getPostComments,
   getUserPosts: getUserPosts,
   getProfile: getProfile,
+  updateProfile: updateProfile,
   getFeed: getFeed
 };
 /* harmony default export */ __webpack_exports__["default"] = (apis);
@@ -81263,6 +81268,24 @@ var skeletonPosts = [{
 
 /***/ }),
 
+/***/ "./resources/js/helpers/anotherMethods.js":
+/*!************************************************!*\
+  !*** ./resources/js/helpers/anotherMethods.js ***!
+  \************************************************/
+/*! exports provided: clearObject */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearObject", function() { return clearObject; });
+var clearObject = function clearObject(obj) {
+  Object.keys(obj).forEach(function (key) {
+    return (obj[key] == null || !obj[key]) && delete obj[key];
+  });
+};
+
+/***/ }),
+
 /***/ "./resources/js/helpers/axios.js":
 /*!***************************************!*\
   !*** ./resources/js/helpers/axios.js ***!
@@ -81881,11 +81904,48 @@ var getProfileData = function getProfileData() {
   }();
 };
 
+var updateProfileData = function updateProfileData(data) {
+  return /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(dispatch) {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _api__WEBPACK_IMPORTED_MODULE_2__["default"].updateProfile(data);
+
+            case 3:
+              response = _context2.sent;
+              dispatch(getProfileData());
+              _context2.next = 9;
+              break;
+
+            case 7:
+              _context2.prev = 7;
+              _context2.t0 = _context2["catch"](0);
+
+            case 9:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 7]]);
+    }));
+
+    return function (_x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   logIn: logIn,
   logOut: logOut,
   getProfileData: getProfileData,
-  setLoggedIn: setLoggedIn
+  setLoggedIn: setLoggedIn,
+  updateProfileData: updateProfileData
 });
 
 /***/ }),
@@ -82311,10 +82371,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! yup */ "./node_modules/yup/es/index.js");
-/* harmony import */ var _helpers_schemas__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../helpers/schemas */ "./resources/js/helpers/schemas.js");
-/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
-/* harmony import */ var _components_Input__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/Input */ "./resources/js/components/Input/index.jsx");
-/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../components/Button */ "./resources/js/components/Button/index.jsx");
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
+/* harmony import */ var _components_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/Input */ "./resources/js/components/Input/index.jsx");
+/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/Button */ "./resources/js/components/Button/index.jsx");
+/* harmony import */ var _helpers_anotherMethods__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../helpers/anotherMethods */ "./resources/js/helpers/anotherMethods.js");
 
 
 
@@ -82323,14 +82383,28 @@ __webpack_require__.r(__webpack_exports__);
 
 var EditProfileSchema = yup__WEBPACK_IMPORTED_MODULE_1__["object"]({
   name: yup__WEBPACK_IMPORTED_MODULE_1__["string"]().min(3, 'Too Short!').max(50, 'Too Long!').required('Required'),
-  email: yup__WEBPACK_IMPORTED_MODULE_1__["string"]().email('Invalid email').required('Required')
-}).concat(_helpers_schemas__WEBPACK_IMPORTED_MODULE_2__["loginPasswordSchema"]);
+  email: yup__WEBPACK_IMPORTED_MODULE_1__["string"]().email('Invalid email').required('Required'),
+  password: yup__WEBPACK_IMPORTED_MODULE_1__["string"]().min(4, 'Too Short!').max(35, 'Too Long!'),
+  password_confirmation: yup__WEBPACK_IMPORTED_MODULE_1__["string"]().when('password', {
+    is: function is(password) {
+      return password && password.length > 0;
+    },
+    then: yup__WEBPACK_IMPORTED_MODULE_1__["string"]().oneOf([yup__WEBPACK_IMPORTED_MODULE_1__["ref"]('password'), null], 'Passwords must match').required('Required'),
+    otherwise: yup__WEBPACK_IMPORTED_MODULE_1__["string"]().min(4, 'Too Short!').max(35, 'Too Long!')
+  }),
+  currentPassword: yup__WEBPACK_IMPORTED_MODULE_1__["string"]().when('password', {
+    is: function is(password) {
+      return password && password.length > 0;
+    },
+    then: yup__WEBPACK_IMPORTED_MODULE_1__["string"]().min(4, 'Too Short!').max(35, 'Too Long!').required('Required'),
+    otherwise: yup__WEBPACK_IMPORTED_MODULE_1__["string"]().min(4, 'Too Short!').max(35, 'Too Long!')
+  })
+});
 
 var EditProfileForm = function EditProfileForm(_ref) {
   var userData = _ref.userData,
       updateFunc = _ref.updateFunc;
-  var login = userData.login,
-      email = userData.email,
+  var email = userData.email,
       name = userData.name;
   var errorMessages = [];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -82339,27 +82413,29 @@ var EditProfileForm = function EditProfileForm(_ref) {
     className: "row justify-content-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-6"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_3__["Formik"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Formik"], {
     enableReinitialize: true,
     initialValues: {
       name: name || '',
-      login: login || '',
       email: email || '',
-      password: ''
+      password: '',
+      passwordConfirmation: '',
+      currentPassword: ''
     },
     validationSchema: EditProfileSchema,
     onSubmit: function onSubmit(values) {
-      updateFunc();
+      Object(_helpers_anotherMethods__WEBPACK_IMPORTED_MODULE_5__["clearObject"])(values);
+      updateFunc(values);
     }
   }, function (_ref2) {
     var errors = _ref2.errors,
         touched = _ref2.touched;
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_3__["Form"], {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Form"], {
       noValidate: true
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "form-group"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_3__["Field"], {
-      component: _components_Input__WEBPACK_IMPORTED_MODULE_4__["default"],
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+      component: _components_Input__WEBPACK_IMPORTED_MODULE_3__["default"],
       name: "name",
       type: "text",
       className: "form-control",
@@ -82367,17 +82443,8 @@ var EditProfileForm = function EditProfileForm(_ref) {
       labelText: "Name"
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "form-group"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_3__["Field"], {
-      component: _components_Input__WEBPACK_IMPORTED_MODULE_4__["default"],
-      name: "login",
-      type: "text",
-      className: "form-control",
-      id: "login",
-      labelText: "Login"
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "form-group"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_3__["Field"], {
-      component: _components_Input__WEBPACK_IMPORTED_MODULE_4__["default"],
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+      component: _components_Input__WEBPACK_IMPORTED_MODULE_3__["default"],
       name: "email",
       type: "email",
       className: "form-control",
@@ -82385,23 +82452,41 @@ var EditProfileForm = function EditProfileForm(_ref) {
       labelText: "Email"
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "form-group"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_3__["Field"], {
-      component: _components_Input__WEBPACK_IMPORTED_MODULE_4__["default"],
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+      component: _components_Input__WEBPACK_IMPORTED_MODULE_3__["default"],
       name: "password",
       type: "password",
       className: "form-control",
       id: "password",
-      labelText: "Password"
+      labelText: "New password"
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "form-group"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_3__["Field"], {
-      component: _components_Input__WEBPACK_IMPORTED_MODULE_4__["default"],
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+      component: _components_Input__WEBPACK_IMPORTED_MODULE_3__["default"],
+      name: "password_confirmation",
+      type: "password",
+      className: "form-control",
+      id: "password_confirmation",
+      labelText: "Confirm new password"
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "form-group"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+      component: _components_Input__WEBPACK_IMPORTED_MODULE_3__["default"],
+      name: "currentPassword",
+      type: "password",
+      className: "form-control",
+      id: "currentPassword",
+      labelText: "Current password"
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "form-group"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+      component: _components_Input__WEBPACK_IMPORTED_MODULE_3__["default"],
       name: "avatar",
       type: "file",
       className: "form-control",
       id: "avatar",
       labelText: "Avatar"
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
       type: "submit",
       style: "primary"
     }, "Update"));
@@ -82425,6 +82510,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _EditProfileForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EditProfileForm */ "./resources/js/routes/EditProfile/EditProfileForm/index.jsx");
+/* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../redux/actions */ "./resources/js/redux/actions/index.js");
+
 
 
 
@@ -82435,8 +82522,8 @@ var EditProfile = function EditProfile() {
     return state.user.user;
   });
 
-  var updateProfile = function updateProfile() {
-    console.log("Update profile func");
+  var updateProfile = function updateProfile(values) {
+    dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_3__["default"].userActions.updateProfileData(values));
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -83078,7 +83165,7 @@ __webpack_require__.r(__webpack_exports__);
 var SignUpSchema = yup__WEBPACK_IMPORTED_MODULE_3__["object"]({
   name: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().min(3, 'Too Short!').max(50, 'Too Long!').required('Required'),
   email: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().email('Invalid email').required('Required'),
-  passwordConfirmation: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().oneOf([yup__WEBPACK_IMPORTED_MODULE_3__["ref"]('password'), null], 'Passwords must match').required('Required')
+  password_confirmation: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().oneOf([yup__WEBPACK_IMPORTED_MODULE_3__["ref"]('password'), null], 'Passwords must match').required('Required')
 }).concat(_helpers_schemas__WEBPACK_IMPORTED_MODULE_4__["loginPasswordSchema"]);
 
 var RegistrationForm = function RegistrationForm(_ref) {
@@ -83159,10 +83246,10 @@ var RegistrationForm = function RegistrationForm(_ref) {
       className: "form-group"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
       component: _components_Input__WEBPACK_IMPORTED_MODULE_6__["default"],
-      name: "passwordConfirmation",
+      name: "password_confirmation",
       type: "password",
       className: "form-control",
-      id: "passwordConfirmation",
+      id: "password_confirmation",
       labelText: "Confirm password"
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
       type: "submit",

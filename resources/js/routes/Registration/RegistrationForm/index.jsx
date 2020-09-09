@@ -14,7 +14,7 @@ const SignUpSchema = Yup.object({
   email: Yup.string()
     .email('Invalid email')
     .required('Required'),
-  passwordConfirmation: Yup.string()
+  password_confirmation: Yup.string()
     .oneOf([Yup.ref('password'), null], 'Passwords must match')
     .required('Required'),
 }).concat(loginPasswordSchema);
@@ -91,10 +91,10 @@ const RegistrationForm = ({ messages, registerFunc }) => {
                 <div className="form-group">
                   <Field
                     component={Input}
-                    name="passwordConfirmation"
+                    name="password_confirmation"
                     type="password"
                     className="form-control"
-                    id="passwordConfirmation"
+                    id="password_confirmation"
                     labelText="Confirm password"
                   />
                 </div>

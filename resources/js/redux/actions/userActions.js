@@ -45,9 +45,21 @@ const getProfileData = () => {
   }
 };
 
+const updateProfileData = (data) => {
+  return async (dispatch) => {
+    try {
+      const response = await apis.updateProfile(data);
+      dispatch(getProfileData());
+    } catch (error) {
+      // console.log(error);
+    }
+  }
+}
+
 export default {
   logIn,
   logOut,
   getProfileData,
-  setLoggedIn
+  setLoggedIn,
+  updateProfileData
 }

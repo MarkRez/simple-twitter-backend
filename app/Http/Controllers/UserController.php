@@ -18,10 +18,4 @@ class UserController extends Controller
     {
         return $user;
     }
-
-    // move to ProfileController
-    public function update($id) {
-        return "user $id updated";
-    }
-
 }

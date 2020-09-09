@@ -5,7 +5,9 @@ const api = axios;
 export const logIn = payload => api.post('/login', payload);
 export const logOut = () => api.post('/logout');
 export const register = payload => api.post(`/registration`, payload);
+
 export const getProfile = () => api.get('/profile');
+export const updateProfile = payload => api.put('/profile', payload);
 
 export const getUser = id => api.get(`/users/${id}`);
 export const getUserPosts = id => api.get(`users/${id}/posts`);
@@ -24,6 +26,7 @@ const apis = {
   getPostComments,
   getUserPosts,
   getProfile,
+  updateProfile,
   getFeed
 };
 

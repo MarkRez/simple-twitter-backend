@@ -1,9 +1,9 @@
 import React from "react";
 import * as Yup from "yup";
-import {loginPasswordSchema} from "../../../helpers/schemas";
 import {Field, Form, Formik} from "formik";
 import Input from "../../../components/Input";
 import Button from "../../../components/Button";
+import {clearObject} from "../../../helpers/anotherMethods";
 
 const EditProfileSchema = Yup.object({
   name: Yup.string()
@@ -13,10 +13,34 @@ const EditProfileSchema = Yup.object({
   email: Yup.string()
     .email('Invalid email')
     .required('Required'),
-}).concat(loginPasswordSchema);
+  password: Yup.string()
+    .min(4, 'Too Short!')
+    .max(35, 'Too Long!'),
+  password_confirmation: Yup.string()
+    .when('password', {
+      is: (password) => password && password.length > 0,
+      then: Yup.string()
+        .oneOf([Yup.ref('password'), null], 'Passwords must match')
+        .required('Required'),
+      otherwise: Yup.string()
+        .min(4, 'Too Short!')
+        .max(35, 'Too Long!')
+    }),
+  currentPassword: Yup.string()
+    .when('password', {
+      is: (password) => password && password.length > 0,
+      then: Yup.string()
+        .min(4, 'Too Short!')
+        .max(35, 'Too Long!')
+        .required('Required'),
+      otherwise: Yup.string()
+        .min(4, 'Too Short!')
+        .max(35, 'Too Long!')
+    })
+});
 
 const EditProfileForm = ({ userData, updateFunc }) => {
-  const { login, email, name } = userData;
+  const { email, name } = userData;
   const errorMessages = [];
 
   return (
@@ -27,13 +51,15 @@ const EditProfileForm = ({ userData, updateFunc }) => {
             enableReinitialize={true}
             initialValues={{
               name: name || '',
-              login: login || '',
               email: email || '',
               password: '',
+              passwordConfirmation: '',
+              currentPassword: ''
             }}
             validationSchema={EditProfileSchema}
             onSubmit={values => {
-              updateFunc();
+              clearObject(values);
+              updateFunc(values)
             }}
           >
             {({ errors, touched }) => (
@@ -46,16 +72,6 @@ const EditProfileForm = ({ userData, updateFunc }) => {
                     className="form-control"
                     id="name"
                     labelText="Name"
-                  />
-                </div>
-                <div className="form-group">
-                  <Field
-                    component={Input}
-                    name="login"
-                    type="text"
-                    className="form-control"
-                    id="login"
-                    labelText="Login"
                   />
                 </div>
                 <div className="form-group">
@@ -75,7 +91,27 @@ const EditProfileForm = ({ userData, updateFunc }) => {
                     type="password"
                     className="form-control"
                     id="password"
-                    labelText="Password"
+                    labelText="New password"
+                  />
+                </div>
+                <div className="form-group">
+                  <Field
+                    component={Input}
+                    name="password_confirmation"
+                    type="password"
+                    className="form-control"
+                    id="password_confirmation"
+                    labelText="Confirm new password"
+                  />
+                </div>
+                <div className="form-group">
+                  <Field
+                    component={Input}
+                    name="currentPassword"
+                    type="password"
+                    className="form-control"
+                    id="currentPassword"
+                    labelText="Current password"
                   />
                 </div>
                 <div className="form-group">

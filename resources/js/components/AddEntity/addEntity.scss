@@ -1,0 +1,17 @@
+.add-entity {
+  background-color: #ffffff;
+  border: 1px solid rgb(230, 236, 240);
+  padding: 15px 20px 15px 20px;
+
+  .text-aria-div {
+    textarea {
+      border: 1px solid rgb(200, 201, 201);
+      background-color: #fcfcfc;
+      border-radius: 20px;
+      padding: 10px 15px;
+      resize: none;
+      font-weight: 500;
+      color: #525252;
+    }
+  }
+}

@@ -1,0 +1,92 @@
+.entity {
+  background-color: #ffffff;
+  border: 1px solid rgb(230, 236, 240);
+  padding: 15px 20px 15px 20px;
+  margin-top: -1px;
+
+  &:hover {
+    filter: brightness(95%);
+    transition: filter .5s;
+  }
+
+  .post-img {
+    img {
+      border-radius: 50%;
+      max-width: 50px;
+      height: auto;
+    }
+  }
+
+  .post-text-buttons {
+    .post-author {
+      margin-bottom: 5px;
+
+      a {
+        font-weight: 700;
+        color: #000000;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .react-loading-skeleton {
+        max-width: 250px;
+        line-height: 20px;
+      }
+    }
+
+    .post-text {
+      color: #000000;
+    }
+
+    .post-buttons {
+      margin-top: 25px;
+
+      span {
+        color: #6d6d6d;
+        padding: 9px 15px;
+        transition: all .3s;
+        border-radius: 30px;
+        cursor: pointer;
+
+        &.liked {
+          color: #2ecc71;
+          background-color: #ebfdf3;
+        }
+
+        &.disliked {
+          color: #e74c3c;
+          background-color: #ffecea;
+        }
+
+        &.up-span {
+          &:hover {
+            color: #2ecc71;
+            background-color: #ebfdf3;
+          }
+        }
+
+        &.down-span {
+          &:hover {
+            color: #e74c3c;
+            background-color: #ffecea;
+          }
+        }
+
+        &.comment-span {
+          &:hover {
+            color: #3498db;
+            background-color: #e3f4ff;
+          }
+
+        }
+
+        svg {
+          font-size: 1.25em;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}

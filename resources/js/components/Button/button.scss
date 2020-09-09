@@ -1,0 +1,29 @@
+.btn-twitter {
+    border: 1px solid rgb(29, 161, 242);
+    border-radius: 20px;
+    color: rgb(29, 161, 242) !important;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding: 8px 14px;
+    font-family: 'Fredoka One', cursive;
+
+    &:hover {
+        background-color: rgba(29, 161, 242, 0.1);
+    }
+}
+
+.btn-add {
+    border: 1px solid rgb(29, 161, 242);
+    background-color: rgb(29, 161, 242);
+    border-radius: 20px;
+    color: rgb(255, 255, 255) !important;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    padding: 8px 18px;
+    font-family: 'Fredoka One', cursive;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: rgba(29, 161, 242, 0.8) !important;
+    }
+}

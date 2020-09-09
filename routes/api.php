@@ -4,8 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/profile', 'UserController@profile');
-    Route::apiResource('users', 'UserController');
+    Route::apiResource('/profile', 'ProfileController')->only('index', 'update');
+    Route::apiResource('users', 'UserController')->except('store', 'destroy', 'update');
 
     Route::apiResource('posts', 'PostController');
     Route::get('posts/{post}/comments', 'CommentController@index');

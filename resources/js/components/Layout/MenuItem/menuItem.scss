@@ -1,0 +1,16 @@
+.menu-item {
+  font-family: 'Fredoka One', cursive;
+  letter-spacing: 0.01em;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #767676;
+  padding-left: 5px;
+
+  &:hover {
+    color: #3e3e3e;
+  }
+
+  svg {
+    margin-right: 10px;
+  }
+}

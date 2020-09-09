@@ -1,0 +1,22 @@
+body {
+    font-family: 'Syne', sans-serif!important;
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Fredoka One', cursive;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: #505050;
+
+    &:hover {
+        text-decoration: none;
+        color: #000000;
+    }
+}
+
+.btn:focus, textarea:focus {
+    outline: none;
+    box-shadow: none;
+}

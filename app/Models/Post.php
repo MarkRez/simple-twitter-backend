@@ -1,15 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use GuzzleHttp\Psr7\Request;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
 class Post extends Model
 {
     protected $fillable = ['text'];
-    protected $appends = ['liked'];
     protected $with = ['user'];
     protected $withCount = ['likes', 'dislikes', 'comments'];
 
@@ -43,10 +41,9 @@ class Post extends Model
         return $this->reactions()->where('liked', false);
     }
 
-    public function getLikedAttribute($value)
+    public function liked()
     {
-        $currentUserId = Auth::id();
-        $like = $this->reactions()->where('user_id', $currentUserId)->first();
+        $like = $this->reactions()->where('user_id', Auth::id())->first();
 
         if (!$like) {
             return null;

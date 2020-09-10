@@ -1,14 +1,19 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import EditProfileForm from "./EditProfileForm";
 import allActions from "../../redux/actions";
 
 const EditProfile = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const currentUser = useSelector(state => state.user.user);
 
   const updateProfile = (values) => {
-    dispatch(allActions.userActions.updateProfileData(values));
+    dispatch(allActions.userActions.updateProfileData(values))
+      .then((res) => {
+        history.push(`/users/${currentUser.id}`)
+      })
   }
 
   return (

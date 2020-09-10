@@ -1,9 +1,12 @@
-import React from "react";
+import React, {useState, useEffect, useRef} from "react";
 import * as Yup from "yup";
 import {Field, Form, Formik} from "formik";
 import Input from "../../../components/Input";
+import InputFile from "../../../components/inputFile";
 import Button from "../../../components/Button";
-import {clearObject} from "../../../helpers/anotherMethods";
+import './editProfileForm.scss';
+import Skeleton from "react-loading-skeleton";
+
 
 const EditProfileSchema = Yup.object({
   name: Yup.string()
@@ -39,12 +42,34 @@ const EditProfileSchema = Yup.object({
     })
 });
 
-const EditProfileForm = ({ userData, updateFunc }) => {
-  const { email, name } = userData;
-  const errorMessages = [];
+const EditProfileForm = ({userData, updateFunc}) => {
+  const {email, name, avatar} = userData;
+  const isDefaultAvatar = /.+default.+/.test(avatar)
+  const photoRef = useRef(null);
+  const [updatedAvatar, setUpdatedAvatar] = useState('');
+
+  const handleImageError = (e) => {
+    e.target.src = '/storage/avatars/default.jpg';
+  }
+
+  const handleFileUpload = (event, setFieldValue) => {
+    const reader = new FileReader();
+    const file = event.target.files[0];
+    setFieldValue('avatar', file);
+    reader.onloadend = () => {
+      setUpdatedAvatar(reader.result);
+    }
+    reader.readAsDataURL(file);
+  }
+
+
+  console.log(avatar)
+  // const isDefaultAvatar = avatarFile.test(/.+default\.jpg/)
+
 
   return (
     <div className="edit-profile-form">
+      <div>bla:{isDefaultAvatar} </div>
       <div className="row justify-content-center">
         <div className="col-lg-6">
           <Formik
@@ -53,17 +78,19 @@ const EditProfileForm = ({ userData, updateFunc }) => {
               name: name || '',
               email: email || '',
               password: '',
-              passwordConfirmation: '',
-              currentPassword: ''
+              password_confirmation: '',
+              currentPassword: '',
+              avatar: ''
             }}
             validationSchema={EditProfileSchema}
             onSubmit={values => {
-              clearObject(values);
-              updateFunc(values)
+              updateFunc(values);
             }}
           >
-            {({ errors, touched }) => (
+            {({errors, touched, setFieldValue, isValid}) => (
+
               <Form noValidate>
+                {isValid}
                 <div className="form-group">
                   <Field
                     component={Input}
@@ -116,15 +143,25 @@ const EditProfileForm = ({ userData, updateFunc }) => {
                 </div>
                 <div className="form-group">
                   <Field
-                    component={Input}
+                    component={InputFile}
+                    onChange={(e) => handleFileUpload(e, setFieldValue)}
                     name="avatar"
-                    type="file"
                     className="form-control"
                     id="avatar"
-                    labelText="Avatar"
+                    inputRef={photoRef}
                   />
+                  {/*{updatedAvatar}*/}
+                  <div className="current-avatar-div">
+                    {
+                      !avatar ? <Skeleton width={150} height={150}/> :
+                        <img onClick={() => photoRef.current.click()}
+                             src={updatedAvatar ? updatedAvatar : avatar}
+                             onError={handleImageError}
+                        />
+                    }
+                  </div>
                 </div>
-                <Button type="submit" style="primary">
+                <Button type="submit" style="primary" disabled={!isValid}>
                   Update
                 </Button>
               </Form>

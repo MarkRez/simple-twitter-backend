@@ -39,7 +39,7 @@ const RegistrationForm = ({ messages, registerFunc }) => {
               login: '',
               email: '',
               password: '',
-              passwordConfirmation: '',
+              password_confirmation: '',
             }}
             validationSchema={SignUpSchema}
             onSubmit={values => {

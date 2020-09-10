@@ -17641,6 +17641,25 @@ exports.push([module.i, "body {\n  font-family: \"Syne\", sans-serif !important;
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/routes/EditProfile/EditProfileForm/editProfileForm.scss":
+/*!*****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/postcss-loader/src??ref--6-2!./node_modules/sass-loader/dist/cjs.js??ref--6-3!./resources/js/routes/EditProfile/EditProfileForm/editProfileForm.scss ***!
+  \*****************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".edit-profile-form form .current-avatar-div {\n  position: relative;\n  margin-top: 15px;\n  width: 150px;\n  height: 150px;\n}\n.edit-profile-form form .current-avatar-div img {\n  border-radius: 10px;\n  border: 1px solid silver;\n  width: 100%;\n  height: 100%;\n  cursor: pointer;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/routes/Login/LoginForm/loginForm.scss":
 /*!***********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader!./node_modules/postcss-loader/src??ref--6-2!./node_modules/sass-loader/dist/cjs.js??ref--6-3!./resources/js/routes/Login/LoginForm/loginForm.scss ***!
@@ -80448,7 +80467,11 @@ var getProfile = function getProfile() {
   return api.get('/profile');
 };
 var updateProfile = function updateProfile(payload) {
-  return api.put('/profile', payload);
+  return api.post('/profile', payload, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  });
 };
 var getUser = function getUser(id) {
   return api.get("/users/".concat(id));
@@ -80609,11 +80632,14 @@ var Button = function Button(_ref) {
   var children = _ref.children,
       onClickFunc = _ref.onClickFunc,
       type = _ref.type,
-      style = _ref.style;
+      style = _ref.style,
+      _ref$disabled = _ref.disabled,
+      disabled = _ref$disabled === void 0 ? false : _ref$disabled;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: 'button-component btn btn-' + style,
     type: type,
-    onClick: onClickFunc
+    onClick: onClickFunc,
+    disabled: disabled
   }, children);
 };
 
@@ -80834,6 +80860,7 @@ var Input = function Input(props) {
       placeholder = props.placeholder,
       type = props.type,
       field = props.field,
+      onChange = props.onChange,
       _props$form = props.form,
       errors = _props$form.errors,
       touched = _props$form.touched;
@@ -81244,6 +81271,56 @@ var ProtectedRoute = function ProtectedRoute(props) {
 
 /***/ }),
 
+/***/ "./resources/js/components/inputFile/index.jsx":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/inputFile/index.jsx ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+
+
+var InputFile = function InputFile(props) {
+  var id = props.id,
+      _props$field = props.field,
+      value = _props$field.value,
+      fieldProps = _objectWithoutProperties(_props$field, ["value"]),
+      _onChange = props.onChange,
+      inputRef = props.inputRef;
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
+    ref: inputRef,
+    className: "form-control",
+    id: id,
+    type: "file"
+  }, fieldProps, {
+    style: {
+      display: 'none'
+    },
+    onChange: function onChange(event) {
+      if (typeof _onChange === 'function') {
+        _onChange(event);
+      } else {
+        fieldProps.onChange(event);
+      }
+    }
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (InputFile);
+
+/***/ }),
+
 /***/ "./resources/js/helpers/anotherConstants.js":
 /*!**************************************************!*\
   !*** ./resources/js/helpers/anotherConstants.js ***!
@@ -81272,16 +81349,19 @@ var skeletonPosts = [{
 /*!************************************************!*\
   !*** ./resources/js/helpers/anotherMethods.js ***!
   \************************************************/
-/*! exports provided: clearObject */
+/*! exports provided: cleanObject */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearObject", function() { return clearObject; });
-var clearObject = function clearObject(obj) {
-  Object.keys(obj).forEach(function (key) {
-    return (obj[key] == null || !obj[key]) && delete obj[key];
-  });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cleanObject", function() { return cleanObject; });
+var cleanObject = function cleanObject(obj) {
+  return Object.keys(obj).filter(function (key) {
+    return !!obj[key];
+  }).reduce(function (prev, current, cu) {
+    prev[current] = obj[current];
+    return prev;
+  }, {});
 };
 
 /***/ }),
@@ -81820,8 +81900,9 @@ var getPostComments = function getPostComments(id) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants */ "./resources/js/redux/constants/index.js");
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api */ "./resources/js/api/index.js");
+/* harmony import */ var _helpers_anotherMethods__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../helpers/anotherMethods */ "./resources/js/helpers/anotherMethods.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../constants */ "./resources/js/redux/constants/index.js");
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../api */ "./resources/js/api/index.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -81831,16 +81912,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 var setLoggedIn = function setLoggedIn(loggedIn) {
   return {
-    type: _constants__WEBPACK_IMPORTED_MODULE_1__["SET_LOGGED_IN"],
+    type: _constants__WEBPACK_IMPORTED_MODULE_2__["SET_LOGGED_IN"],
     loggedIn: loggedIn
   };
 };
 
 var setUserData = function setUserData(userData) {
   return {
-    type: _constants__WEBPACK_IMPORTED_MODULE_1__["SET_USER_DATA"],
+    type: _constants__WEBPACK_IMPORTED_MODULE_2__["SET_USER_DATA"],
     userData: userData
   };
 };
@@ -81857,7 +81939,7 @@ var logOut = function logOut() {
     dispatch(setLoggedIn(false));
 
     try {
-      _api__WEBPACK_IMPORTED_MODULE_2__["default"].logOut();
+      _api__WEBPACK_IMPORTED_MODULE_3__["default"].logOut();
     } finally {
       localStorage.removeItem('_token');
     }
@@ -81874,28 +81956,32 @@ var getProfileData = function getProfileData() {
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return _api__WEBPACK_IMPORTED_MODULE_2__["default"].getProfile();
+              return _api__WEBPACK_IMPORTED_MODULE_3__["default"].getProfile();
 
             case 3:
               response = _context.sent;
 
-              if (response.status === 200) {
-                dispatch(setUserData(response.data));
+              if (!(response.status === 200)) {
+                _context.next = 6;
+                break;
               }
 
-              _context.next = 9;
+              return _context.abrupt("return", dispatch(setUserData(response.data)));
+
+            case 6:
+              _context.next = 10;
               break;
 
-            case 7:
-              _context.prev = 7;
+            case 8:
+              _context.prev = 8;
               _context.t0 = _context["catch"](0);
 
-            case 9:
+            case 10:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[0, 7]]);
+      }, _callee, null, [[0, 8]]);
     }));
 
     return function (_x) {
@@ -81907,31 +81993,46 @@ var getProfileData = function getProfileData() {
 var updateProfileData = function updateProfileData(data) {
   return /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(dispatch) {
-      var response;
+      var addEmptyAvatar, clearData, form, response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              _context2.prev = 0;
-              _context2.next = 3;
-              return _api__WEBPACK_IMPORTED_MODULE_2__["default"].updateProfile(data);
+              addEmptyAvatar = false;
 
-            case 3:
-              response = _context2.sent;
-              dispatch(getProfileData());
-              _context2.next = 9;
-              break;
+              if (data.avatar === null) {
+                addEmptyAvatar = true;
+              }
 
-            case 7:
+              clearData = Object(_helpers_anotherMethods__WEBPACK_IMPORTED_MODULE_1__["cleanObject"])(data);
+              form = new FormData();
+              Object.keys(clearData).forEach(function (key) {
+                clearData[key] && form.append(key, clearData[key]);
+              });
+              addEmptyAvatar && form.append('avatar', '');
+              form.append('_method', 'put');
               _context2.prev = 7;
-              _context2.t0 = _context2["catch"](0);
+              _context2.next = 10;
+              return _api__WEBPACK_IMPORTED_MODULE_3__["default"].updateProfile(form);
 
-            case 9:
+            case 10:
+              response = _context2.sent;
+              _context2.next = 13;
+              return dispatch(getProfileData());
+
+            case 13:
+              return _context2.abrupt("return", response);
+
+            case 16:
+              _context2.prev = 16;
+              _context2.t0 = _context2["catch"](7);
+
+            case 18:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[0, 7]]);
+      }, _callee2, null, [[7, 16]]);
     }));
 
     return function (_x2) {
@@ -82359,6 +82460,36 @@ var Users = function Users() {
 
 /***/ }),
 
+/***/ "./resources/js/routes/EditProfile/EditProfileForm/editProfileForm.scss":
+/*!******************************************************************************!*\
+  !*** ./resources/js/routes/EditProfile/EditProfileForm/editProfileForm.scss ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--6-3!./editProfileForm.scss */ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/routes/EditProfile/EditProfileForm/editProfileForm.scss");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./resources/js/routes/EditProfile/EditProfileForm/index.jsx":
 /*!*******************************************************************!*\
   !*** ./resources/js/routes/EditProfile/EditProfileForm/index.jsx ***!
@@ -82373,8 +82504,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! yup */ "./node_modules/yup/es/index.js");
 /* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
 /* harmony import */ var _components_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/Input */ "./resources/js/components/Input/index.jsx");
-/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/Button */ "./resources/js/components/Button/index.jsx");
-/* harmony import */ var _helpers_anotherMethods__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../helpers/anotherMethods */ "./resources/js/helpers/anotherMethods.js");
+/* harmony import */ var _components_inputFile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/inputFile */ "./resources/js/components/inputFile/index.jsx");
+/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../components/Button */ "./resources/js/components/Button/index.jsx");
+/* harmony import */ var _editProfileForm_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./editProfileForm.scss */ "./resources/js/routes/EditProfile/EditProfileForm/editProfileForm.scss");
+/* harmony import */ var _editProfileForm_scss__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_editProfileForm_scss__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-loading-skeleton */ "./node_modules/react-loading-skeleton/lib/index.js");
+/* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
 
 
 
@@ -82405,11 +82554,37 @@ var EditProfileForm = function EditProfileForm(_ref) {
   var userData = _ref.userData,
       updateFunc = _ref.updateFunc;
   var email = userData.email,
-      name = userData.name;
-  var errorMessages = [];
+      name = userData.name,
+      avatar = userData.avatar;
+  var isDefaultAvatar = /.+default.+/.test(avatar);
+  var photoRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState2 = _slicedToArray(_useState, 2),
+      updatedAvatar = _useState2[0],
+      setUpdatedAvatar = _useState2[1];
+
+  var handleImageError = function handleImageError(e) {
+    e.target.src = '/storage/avatars/default.jpg';
+  };
+
+  var handleFileUpload = function handleFileUpload(event, setFieldValue) {
+    var reader = new FileReader();
+    var file = event.target.files[0];
+    setFieldValue('avatar', file);
+
+    reader.onloadend = function () {
+      setUpdatedAvatar(reader.result);
+    };
+
+    reader.readAsDataURL(file);
+  };
+
+  console.log(avatar); // const isDefaultAvatar = avatarFile.test(/.+default\.jpg/)
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "edit-profile-form"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "bla:", isDefaultAvatar, " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row justify-content-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-6"
@@ -82419,20 +82594,22 @@ var EditProfileForm = function EditProfileForm(_ref) {
       name: name || '',
       email: email || '',
       password: '',
-      passwordConfirmation: '',
-      currentPassword: ''
+      password_confirmation: '',
+      currentPassword: '',
+      avatar: ''
     },
     validationSchema: EditProfileSchema,
     onSubmit: function onSubmit(values) {
-      Object(_helpers_anotherMethods__WEBPACK_IMPORTED_MODULE_5__["clearObject"])(values);
       updateFunc(values);
     }
   }, function (_ref2) {
     var errors = _ref2.errors,
-        touched = _ref2.touched;
+        touched = _ref2.touched,
+        setFieldValue = _ref2.setFieldValue,
+        isValid = _ref2.isValid;
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Form"], {
       noValidate: true
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, isValid, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "form-group"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
       component: _components_Input__WEBPACK_IMPORTED_MODULE_3__["default"],
@@ -82480,15 +82657,29 @@ var EditProfileForm = function EditProfileForm(_ref) {
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "form-group"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
-      component: _components_Input__WEBPACK_IMPORTED_MODULE_3__["default"],
+      component: _components_inputFile__WEBPACK_IMPORTED_MODULE_4__["default"],
+      onChange: function onChange(e) {
+        return handleFileUpload(e, setFieldValue);
+      },
       name: "avatar",
-      type: "file",
       className: "form-control",
       id: "avatar",
-      labelText: "Avatar"
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      inputRef: photoRef
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "current-avatar-div"
+    }, !avatar ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7___default.a, {
+      width: 150,
+      height: 150
+    }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      onClick: function onClick() {
+        return photoRef.current.click();
+      },
+      src: updatedAvatar ? updatedAvatar : avatar,
+      onError: handleImageError
+    }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
       type: "submit",
-      style: "primary"
+      style: "primary",
+      disabled: !isValid
     }, "Update"));
   }))));
 };
@@ -82509,28 +82700,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _EditProfileForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EditProfileForm */ "./resources/js/routes/EditProfile/EditProfileForm/index.jsx");
-/* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../redux/actions */ "./resources/js/redux/actions/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _EditProfileForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EditProfileForm */ "./resources/js/routes/EditProfile/EditProfileForm/index.jsx");
+/* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../redux/actions */ "./resources/js/redux/actions/index.js");
+
 
 
 
 
 
 var EditProfile = function EditProfile() {
+  var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useHistory"])();
   var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useDispatch"])();
   var currentUser = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(function (state) {
     return state.user.user;
   });
 
   var updateProfile = function updateProfile(values) {
-    dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_3__["default"].userActions.updateProfileData(values));
+    dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].userActions.updateProfileData(values)).then(function (res) {
+      history.push("/users/".concat(currentUser.id));
+    });
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "edit-profile-page"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "text-center"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Edit profile")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EditProfileForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Edit profile")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EditProfileForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
     userData: currentUser,
     updateFunc: updateProfile
   }));
@@ -83195,7 +83391,7 @@ var RegistrationForm = function RegistrationForm(_ref) {
       login: '',
       email: '',
       password: '',
-      passwordConfirmation: ''
+      password_confirmation: ''
     },
     validationSchema: SignUpSchema,
     onSubmit: function onSubmit(values) {
@@ -83436,7 +83632,6 @@ var UserInfo = function UserInfo(_ref) {
       followings_count = userData.followings_count,
       followed = userData.followed,
       login = userData.login;
-  console.log(avatar);
 
   var handleImageError = function handleImageError(e) {
     e.target.src = '/storage/avatars/default.jpg';

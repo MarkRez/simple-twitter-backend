@@ -7,7 +7,7 @@ export const logOut = () => api.post('/logout');
 export const register = payload => api.post(`/registration`, payload);
 
 export const getProfile = () => api.get('/profile');
-export const updateProfile = payload => api.put('/profile', payload);
+export const updateProfile = payload => api.post('/profile', payload, {headers: {'Content-Type': 'multipart/form-data'}});
 
 export const getUser = id => api.get(`/users/${id}`);
 export const getUserPosts = id => api.get(`users/${id}/posts`);

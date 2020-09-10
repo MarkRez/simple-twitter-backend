@@ -1,3 +1,6 @@
-export const clearObject = (obj) => {
-  Object.keys(obj).forEach(key => (obj[key] == null || !obj[key]) && delete obj[key]);
-}
+export const cleanObject = (obj) => Object.keys(obj)
+  .filter((key) => !!obj[key])
+  .reduce((prev, current, cu) => {
+    prev[current] = obj[current];
+    return prev;
+  }, {})

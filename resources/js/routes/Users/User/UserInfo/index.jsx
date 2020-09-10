@@ -7,7 +7,6 @@ import {ROUTES} from "../../../../helpers/routes";
 
 const UserInfo = ({ userData, followFunc, theSameUser }) => {
   const { name, avatar, followers_count, followings_count, followed, login } = userData;
-  console.log(avatar);
 
   const handleImageError = (e) => {
       e.target.src = '/storage/avatars/default.jpg';

@@ -17615,7 +17615,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".entity {\n  background-color: #ffffff;\n  border: 1px solid #e6ecf0;\n  padding: 15px 20px 15px 20px;\n  margin-top: -1px;\n}\n.entity:hover {\n  filter: brightness(95%);\n  transition: filter 0.5s;\n}\n.entity .post-img img {\n  border-radius: 50%;\n  max-width: 50px;\n  height: auto;\n}\n.entity .post-text-buttons .post-author {\n  margin-bottom: 5px;\n}\n.entity .post-text-buttons .post-author a {\n  font-weight: 700;\n  color: #000000;\n}\n.entity .post-text-buttons .post-author a:hover {\n  text-decoration: underline;\n}\n.entity .post-text-buttons .post-author .react-loading-skeleton {\n  max-width: 250px;\n  line-height: 20px;\n}\n.entity .post-text-buttons .post-text {\n  color: #000000;\n}\n.entity .post-text-buttons .post-buttons {\n  margin-top: 25px;\n}\n.entity .post-text-buttons .post-buttons span {\n  color: #6d6d6d;\n  padding: 9px 15px;\n  transition: all 0.3s;\n  border-radius: 30px;\n  cursor: pointer;\n}\n.entity .post-text-buttons .post-buttons span.liked {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.entity .post-text-buttons .post-buttons span.disliked {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.entity .post-text-buttons .post-buttons span.up-span:hover {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.entity .post-text-buttons .post-buttons span.down-span:hover {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.entity .post-text-buttons .post-buttons span.comment-span:hover {\n  color: #3498db;\n  background-color: #e3f4ff;\n}\n.entity .post-text-buttons .post-buttons span svg {\n  font-size: 1.25em;\n  margin-right: 5px;\n}", ""]);
+exports.push([module.i, ".entity {\n  background-color: #ffffff;\n  border: 1px solid #e6ecf0;\n  padding: 15px 20px 15px 20px;\n  margin-top: -1px;\n}\n.entity:hover {\n  filter: brightness(95%);\n  transition: filter 0.5s;\n}\n.entity .post-img img {\n  border-radius: 50%;\n  max-width: 50px;\n  height: 50px;\n}\n.entity .post-text-buttons .post-author {\n  margin-bottom: 5px;\n}\n.entity .post-text-buttons .post-author a {\n  font-weight: 700;\n  color: #000000;\n}\n.entity .post-text-buttons .post-author a:hover {\n  text-decoration: underline;\n}\n.entity .post-text-buttons .post-author .react-loading-skeleton {\n  max-width: 250px;\n  line-height: 20px;\n}\n.entity .post-text-buttons .post-text {\n  color: #000000;\n}\n.entity .post-text-buttons .post-buttons {\n  margin-top: 25px;\n}\n.entity .post-text-buttons .post-buttons span {\n  color: #6d6d6d;\n  padding: 9px 15px;\n  transition: all 0.3s;\n  border-radius: 30px;\n  cursor: pointer;\n}\n.entity .post-text-buttons .post-buttons span.liked {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.entity .post-text-buttons .post-buttons span.disliked {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.entity .post-text-buttons .post-buttons span.up-span:hover {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.entity .post-text-buttons .post-buttons span.down-span:hover {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.entity .post-text-buttons .post-buttons span.comment-span:hover {\n  color: #3498db;\n  background-color: #e3f4ff;\n}\n.entity .post-text-buttons .post-buttons span svg {\n  font-size: 1.25em;\n  margin-right: 5px;\n}", ""]);
 
 // exports
 
@@ -17653,7 +17653,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".edit-profile-form form .current-avatar-div {\n  position: relative;\n  margin-top: 15px;\n  width: 150px;\n  height: 150px;\n}\n.edit-profile-form form .current-avatar-div img {\n  border-radius: 10px;\n  border: 1px solid silver;\n  width: 100%;\n  height: 100%;\n  cursor: pointer;\n  transition: filter 0.3s ease;\n}\n.edit-profile-form form .current-avatar-div img:hover {\n  filter: brightness(85%);\n  -webkit-filter: brightness(85%);\n}", ""]);
+exports.push([module.i, ".edit-profile-form form .current-avatar-div {\n  position: relative;\n  margin-top: 15px;\n  width: 150px;\n  height: 150px;\n}\n.edit-profile-form form .current-avatar-div img {\n  border-radius: 10px;\n  border: 1px solid silver;\n  width: 100%;\n  height: 100%;\n  cursor: pointer;\n  object-fit: cover;\n  transition: filter 0.3s ease;\n}\n.edit-profile-form form .current-avatar-div img:hover {\n  filter: brightness(85%);\n  -webkit-filter: brightness(85%);\n}", ""]);
 
 // exports
 
@@ -17729,7 +17729,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".user-info {\n  padding: 0;\n  margin-bottom: 30px;\n  border: 1px solid #e6ecf0;\n  border-radius: 10px;\n}\n.user-info .user-info-inner {\n  padding: 0 15px 15px 15px;\n}\n.user-info .user-info-inner .img-div-wrapper {\n  min-height: 175px;\n  background-color: #63a4ff;\n  background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);\n  border-radius: 10px;\n  margin-bottom: 30px;\n}\n.user-info .user-info-inner .img-div-wrapper .img-div {\n  position: absolute;\n  bottom: -60px;\n  left: 0;\n  right: 0;\n  margin-left: auto;\n  margin-right: auto;\n  width: 150px;\n}\n.user-info .user-info-inner .img-div-wrapper .img-div img {\n  border-radius: 50%;\n  max-height: 175px;\n  border: 2px solid #ffffff;\n}\n.user-info .user-info-inner .user-info-div {\n  color: #5f5f5f;\n}\n.user-info .user-info-inner .user-info-div span {\n  color: #000000;\n  font-weight: 800;\n}\n.user-info .user-info-inner .user-info-div .p-name {\n  margin-bottom: -8px;\n  font-size: 1.2em;\n  color: #000000;\n  font-weight: 800;\n}", ""]);
+exports.push([module.i, ".user-info {\n  padding: 0;\n  margin-bottom: 30px;\n  border: 1px solid #e6ecf0;\n  border-radius: 10px;\n}\n.user-info .user-info-inner {\n  padding: 0 15px 15px 15px;\n}\n.user-info .user-info-inner .img-div-wrapper {\n  min-height: 175px;\n  background-color: #63a4ff;\n  background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);\n  border-radius: 10px;\n  margin-bottom: 30px;\n}\n.user-info .user-info-inner .img-div-wrapper .img-div {\n  position: absolute;\n  bottom: -60px;\n  left: 0;\n  right: 0;\n  margin-left: auto;\n  margin-right: auto;\n  width: 150px;\n  height: 150px;\n}\n.user-info .user-info-inner .img-div-wrapper .img-div img {\n  border-radius: 50%;\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  border: 2px solid #ffffff;\n}\n.user-info .user-info-inner .user-info-div {\n  color: #5f5f5f;\n}\n.user-info .user-info-inner .user-info-div span {\n  color: #000000;\n  font-weight: 800;\n}\n.user-info .user-info-inner .user-info-div .p-name {\n  margin-bottom: -8px;\n  font-size: 1.2em;\n  color: #000000;\n  font-weight: 800;\n}", ""]);
 
 // exports
 
@@ -80394,6 +80394,7 @@ var App = function App() {
     path: _helpers_routes__WEBPACK_IMPORTED_MODULE_15__["ROUTES"].POST
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ProtectedRoute__WEBPACK_IMPORTED_MODULE_7__["default"], {
     Component: _routes_EditProfile__WEBPACK_IMPORTED_MODULE_12__["default"],
+    currentUser: data,
     exact: true,
     path: _helpers_routes__WEBPACK_IMPORTED_MODULE_15__["ROUTES"].EDIT
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ProtectedRoute__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -80443,7 +80444,7 @@ if(false) {}
 /*!***********************************!*\
   !*** ./resources/js/api/index.js ***!
   \***********************************/
-/*! exports provided: logIn, logOut, register, updateProfile, getUser, getUserPosts, getPostComments, getFeed, default */
+/*! exports provided: logIn, logOut, register, updateProfile, getFeed, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -80452,9 +80453,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logOut", function() { return logOut; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "register", function() { return register; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateProfile", function() { return updateProfile; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUser", function() { return getUser; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUserPosts", function() { return getUserPosts; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPostComments", function() { return getPostComments; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFeed", function() { return getFeed; });
 /* harmony import */ var _helpers_axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/axios */ "./resources/js/helpers/axios.js");
 
@@ -80475,17 +80473,11 @@ var updateProfile = function updateProfile(payload) {
       'Content-Type': 'multipart/form-data'
     }
   });
-};
-var getUser = function getUser(id) {
-  return api.get("/users/".concat(id));
-};
-var getUserPosts = function getUserPosts(id) {
-  return api.get("users/".concat(id, "/posts"));
-}; // export const getPost = id => api.get(`/posts/${id}`);
+}; // export const getUser = id => api.get(`/users/${id}`);
+// export const getUserPosts = id => api.get(`users/${id}/posts`);
+// export const getPost = id => api.get(`/posts/${id}`);
+// export const getPostComments = id => api.get(`/posts/${id}/comments`);
 
-var getPostComments = function getPostComments(id) {
-  return api.get("/posts/".concat(id, "/comments"));
-};
 var getFeed = function getFeed(page) {
   return api.get("/feed?page=".concat(page));
 };
@@ -80493,9 +80485,6 @@ var apis = {
   logIn: logIn,
   logOut: logOut,
   register: register,
-  getUser: getUser,
-  getPostComments: getPostComments,
-  getUserPosts: getUserPosts,
   updateProfile: updateProfile,
   getFeed: getFeed
 };
@@ -80547,6 +80536,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Button */ "./resources/js/components/Button/index.jsx");
 /* harmony import */ var _addEntity_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./addEntity.scss */ "./resources/js/components/AddEntity/addEntity.scss");
 /* harmony import */ var _addEntity_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_addEntity_scss__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-loading-skeleton */ "./node_modules/react-loading-skeleton/lib/index.js");
+/* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -80556,25 +80548,32 @@ var AddEntity = function AddEntity(_ref) {
       _ref$rows = _ref.rows,
       rows = _ref$rows === void 0 ? 2 : _ref$rows,
       _ref$type = _ref.type,
-      type = _ref$type === void 0 ? "" : _ref$type;
+      type = _ref$type === void 0 ? "" : _ref$type,
+      _ref$loading = _ref.loading,
+      loading = _ref$loading === void 0 ? false : _ref$loading;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "add-entity w-100"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row px-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-12 text-aria-div"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+  }, !loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
     className: "w-100 mb-2",
     rows: rows,
     placeholder: "Share your opinion"
+  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    height: 40
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-6 mentioned-div"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-6 button-div text-right"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, !loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
     onClickFunc: addFunc,
     style: "add"
-  }, "Add ", type))));
+  }, "Add ", type) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    height: 35,
+    width: 100
+  }))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (AddEntity);
@@ -81111,7 +81110,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var ListEntity = function ListEntity(_ref) {
   var data = _ref.data,
-      type = _ref.type;
+      type = _ref.type,
+      loading = _ref.loading;
   var id = data.id,
       text = data.text,
       user_id = data.user_id,
@@ -81152,7 +81152,7 @@ var ListEntity = function ListEntity(_ref) {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "post-img col-1"
-  }, avatar ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, !loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/users/".concat(user_id)
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: avatar,
@@ -81169,11 +81169,11 @@ var ListEntity = function ListEntity(_ref) {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-12 post-author px-3"
-  }, name && created_at ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, !loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/users/".concat(user_id)
   }, name), " \xB7 @", login, " \xB7 ", Object(_helpers_dateConverter__WEBPACK_IMPORTED_MODULE_6__["prettyDate"])(created_at)) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-12 post-text px-3"
-  }, text ? shortText(text) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  }, !loading && text ? shortText(text) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, {
     count: type === "post" ? 3 : 2
   })), type === "post" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-12 post-buttons row"
@@ -81527,7 +81527,7 @@ var loginPasswordSchema = yup__WEBPACK_IMPORTED_MODULE_0__["object"]({
 /*!*******************************************!*\
   !*** ./resources/js/helpers/selectors.js ***!
   \*******************************************/
-/*! exports provided: profileSelector, currentPostSelector, currentPostCommentsSelector */
+/*! exports provided: profileSelector, currentPostSelector, currentPostCommentsSelector, userSelector, userPostsSelector */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -81535,6 +81535,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "profileSelector", function() { return profileSelector; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "currentPostSelector", function() { return currentPostSelector; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "currentPostCommentsSelector", function() { return currentPostCommentsSelector; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userSelector", function() { return userSelector; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userPostsSelector", function() { return userPostsSelector; });
 /* harmony import */ var _redux_requests_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @redux-requests/core */ "./node_modules/@redux-requests/core/es/index.js");
 /* harmony import */ var _redux_constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../redux/constants */ "./resources/js/redux/constants/index.js");
 
@@ -81549,13 +81551,33 @@ var currentPostSelector = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0
 });
 var currentPostCommentsSelector = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["getQuerySelector"])({
   type: _redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_CURRENT_POST_COMMENTS"],
-  defaultData: [{
-    id: "skeleton 1"
-  }, {
-    id: "skeleton 2"
-  }, {
-    id: "skeleton 3"
-  }]
+  defaultData: {
+    data: [{
+      id: "skeleton 1"
+    }, {
+      id: "skeleton 2"
+    }, {
+      id: "skeleton 3"
+    }]
+  }
+});
+var userSelector = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["getQuerySelector"])({
+  type: _redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_USER"],
+  defaultData: false
+});
+var userPostsSelector = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["getQuerySelector"])({
+  type: _redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_USER_POSTS"],
+  defaultData: {
+    data: [{
+      id: "skeleton 1"
+    }, {
+      id: "skeleton 2"
+    }, {
+      id: "skeleton 3"
+    }, {
+      id: "skeleton 4"
+    }]
+  }
 });
 
 /***/ }),
@@ -81959,126 +81981,29 @@ var updateProfileData = function updateProfileData(data) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api */ "./resources/js/api/index.js");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../constants */ "./resources/js/redux/constants/index.js");
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api */ "./resources/js/api/index.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants */ "./resources/js/redux/constants/index.js");
 
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-
-
-
-var setUser = function setUser(userData) {
-  return {
-    type: _constants__WEBPACK_IMPORTED_MODULE_2__["SET_USER"],
-    userData: userData
-  };
-};
-
-var setUserPosts = function setUserPosts(posts) {
-  return {
-    type: _constants__WEBPACK_IMPORTED_MODULE_2__["SET_USER_POSTS"],
-    posts: posts
-  };
-};
-
-var setUserNotFound = function setUserNotFound(status) {
-  return {
-    type: _constants__WEBPACK_IMPORTED_MODULE_2__["SET_USER_NOT_FOUND"],
-    status: status
-  };
-};
 
 var getUser = function getUser(id) {
-  return /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(dispatch) {
-      var response, responseStatus;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.prev = 0;
-              _context.next = 3;
-              return _api__WEBPACK_IMPORTED_MODULE_1__["default"].getUser(id);
-
-            case 3:
-              response = _context.sent;
-
-              if (response.status === 200) {
-                dispatch(setUser(response.data));
-                dispatch(setUserNotFound(false));
-              }
-
-              _context.next = 11;
-              break;
-
-            case 7:
-              _context.prev = 7;
-              _context.t0 = _context["catch"](0);
-              responseStatus = _context.t0.response.status;
-
-              if (responseStatus === 404) {
-                dispatch(setUserNotFound(true));
-              } else {
-                console.log("Error");
-              }
-
-            case 11:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee, null, [[0, 7]]);
-    }));
-
-    return function (_x) {
-      return _ref.apply(this, arguments);
-    };
-  }();
+  return {
+    type: _constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_USER"],
+    request: {
+      url: "/users/".concat(id),
+      method: 'get'
+    }
+  };
 };
 
 var getUserPosts = function getUserPosts(id) {
-  return /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(dispatch) {
-      var response;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              _context2.prev = 0;
-              _context2.next = 3;
-              return _api__WEBPACK_IMPORTED_MODULE_1__["default"].getUserPosts(id);
-
-            case 3:
-              response = _context2.sent;
-
-              if (response.status === 200) {
-                dispatch(setUserPosts(response.data));
-              }
-
-              _context2.next = 9;
-              break;
-
-            case 7:
-              _context2.prev = 7;
-              _context2.t0 = _context2["catch"](0);
-
-            case 9:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2, null, [[0, 7]]);
-    }));
-
-    return function (_x2) {
-      return _ref2.apply(this, arguments);
-    };
-  }();
+  return {
+    type: _constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_USER_POSTS"],
+    request: {
+      url: "users/".concat(id, "/posts"),
+      method: 'get'
+    }
+  };
 };
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -82092,41 +82017,37 @@ var getUserPosts = function getUserPosts(id) {
 /*!***********************************************!*\
   !*** ./resources/js/redux/constants/index.js ***!
   \***********************************************/
-/*! exports provided: SET_LOGGED_IN, FETCH_PROFILE, SET_POST_COMMENTS, FETCH_CURRENT_POST, FETCH_CURRENT_POST_COMMENTS, SET_USER, SET_USER_POSTS, SET_USER_NOT_FOUND, FETCH_USER, ADD_FEED_POSTS, SET_FEED_LOADING, SET_FEED_CURRENT_PAGE, SET_FEED_TOTAL_PAGES */
+/*! exports provided: SET_LOGGED_IN, FETCH_PROFILE, FETCH_CURRENT_POST, FETCH_CURRENT_POST_COMMENTS, FETCH_USER, FETCH_USER_POSTS, ADD_FEED_POSTS, SET_FEED_LOADING, SET_FEED_CURRENT_PAGE, SET_FEED_TOTAL_PAGES, FETCH_FEED */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_LOGGED_IN", function() { return SET_LOGGED_IN; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_PROFILE", function() { return FETCH_PROFILE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_POST_COMMENTS", function() { return SET_POST_COMMENTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_CURRENT_POST", function() { return FETCH_CURRENT_POST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_CURRENT_POST_COMMENTS", function() { return FETCH_CURRENT_POST_COMMENTS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_USER", function() { return SET_USER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_USER_POSTS", function() { return SET_USER_POSTS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_USER_NOT_FOUND", function() { return SET_USER_NOT_FOUND; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_USER", function() { return FETCH_USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_USER_POSTS", function() { return FETCH_USER_POSTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_FEED_POSTS", function() { return ADD_FEED_POSTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_FEED_LOADING", function() { return SET_FEED_LOADING; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_FEED_CURRENT_PAGE", function() { return SET_FEED_CURRENT_PAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_FEED_TOTAL_PAGES", function() { return SET_FEED_TOTAL_PAGES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_FEED", function() { return FETCH_FEED; });
 // current user constants
 var SET_LOGGED_IN = 'SET_LOGGED_IN';
 var FETCH_PROFILE = 'FETCH_PROFILE'; // posts constants
 
-var SET_POST_COMMENTS = 'SET_POST_COMMENTS';
 var FETCH_CURRENT_POST = 'FETCH_CURRENT_POST';
 var FETCH_CURRENT_POST_COMMENTS = 'FETCH_CURRENT_POST_COMMENTS'; // users constants
 
-var SET_USER = 'SET_USER';
-var SET_USER_POSTS = 'SET_USER_POSTS';
-var SET_USER_NOT_FOUND = 'SET_USER_NOT_FOUND';
-var FETCH_USER = 'FETCH_USER'; //feed constants
+var FETCH_USER = 'FETCH_USER';
+var FETCH_USER_POSTS = 'FETCH_USER_POSTS'; //feed constants
 
 var ADD_FEED_POSTS = 'ADD_FEED_POSTS';
 var SET_FEED_LOADING = 'SET_FEED_LOADING';
 var SET_FEED_CURRENT_PAGE = 'SET_FEED_CURRENT_PAGE';
 var SET_FEED_TOTAL_PAGES = 'SET_FEED_TOTAL_PAGES';
+var FETCH_FEED = 'FETCH_FEED';
 
 /***/ }),
 
@@ -82210,15 +82131,7 @@ var Feed = function Feed() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Posts", function() { return Posts; });
-var initialState = {
-  currentPostComments: [{
-    id: "skeleton 1"
-  }, {
-    id: "skeleton 2"
-  }, {
-    id: "skeleton 3"
-  }]
-};
+var initialState = {};
 var Posts = function Posts() {
   var store = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
@@ -82284,50 +82197,11 @@ var User = function User() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Users", function() { return Users; });
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants */ "./resources/js/redux/constants/index.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-var initialState = {
-  user: {},
-  userPosts: [{
-    id: 'skeleton 1'
-  }, {
-    id: 'skeleton 2'
-  }, {
-    id: 'skeleton 3'
-  }, {
-    id: 'skeleton 4'
-  }],
-  userNotFound: false
-};
+var initialState = {};
 var Users = function Users() {
   var store = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case _constants__WEBPACK_IMPORTED_MODULE_0__["SET_USER"]:
-      return _objectSpread(_objectSpread({}, store), {}, {
-        user: action.userData
-      });
-
-    case _constants__WEBPACK_IMPORTED_MODULE_0__["SET_USER_POSTS"]:
-      return _objectSpread(_objectSpread({}, store), {}, {
-        userPosts: action.posts
-      });
-
-    case _constants__WEBPACK_IMPORTED_MODULE_0__["SET_USER_NOT_FOUND"]:
-      return _objectSpread(_objectSpread({}, store), {}, {
-        userNotFound: action.status
-      });
-
-    default:
-      return store;
-  }
+  return store;
 };
 
 /***/ }),
@@ -82544,10 +82418,10 @@ var EditProfileForm = function EditProfileForm(_ref) {
       },
       src: updatedAvatar ? updatedAvatar : avatar,
       onError: handleImageError
-    }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }))), userData && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
       type: "submit",
       style: "primary"
-    }, "Save"));
+    }, " Save "));
   }))));
 };
 
@@ -82576,12 +82450,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var EditProfile = function EditProfile() {
+var EditProfile = function EditProfile(_ref) {
+  var currentUser = _ref.currentUser;
   var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useHistory"])();
   var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useDispatch"])();
-  var currentUser = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(function (state) {
-    return state.user.user;
-  });
 
   var updateProfile = function updateProfile(values) {
     dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].userActions.updateProfileData(values)).then(function (res) {
@@ -82973,14 +82845,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 var PostComments = function PostComments(_ref) {
-  var comments = _ref.comments;
+  var comments = _ref.comments,
+      loading = _ref.loading;
   var commentsList = [];
 
   if (comments) {
     commentsList = comments.map(function (comment) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ListEntity__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        loading: loading,
         key: comment.id,
         data: comment,
         type: "comment"
@@ -83082,7 +82955,7 @@ var PostInfo = function PostInfo(_ref) {
     count: 2
   }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-12 post-text"
-  }, text || /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_4___default.a, {
+  }, !loading && text ? text : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_4___default.a, {
     count: 3
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-12 post-date-buttons"
@@ -83192,7 +83065,7 @@ var PostPage = function PostPage(props) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddEntity__WEBPACK_IMPORTED_MODULE_5__["default"], {
     type: "comment"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PostComments__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    comments: postComments.data,
+    comments: postComments.data.data,
     loading: postComments.loading
   }));
 };
@@ -83476,13 +83349,13 @@ var Registration = function Registration() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _userInfo_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./userInfo.scss */ "./resources/js/routes/Users/User/UserInfo/userInfo.scss");
-/* harmony import */ var _userInfo_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_userInfo_scss__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../components/Button */ "./resources/js/components/Button/index.jsx");
-/* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-loading-skeleton */ "./node_modules/react-loading-skeleton/lib/index.js");
-/* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _helpers_routes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../helpers/routes */ "./resources/js/helpers/routes.js");
+/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../components/Button */ "./resources/js/components/Button/index.jsx");
+/* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-loading-skeleton */ "./node_modules/react-loading-skeleton/lib/index.js");
+/* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _helpers_routes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../helpers/routes */ "./resources/js/helpers/routes.js");
+/* harmony import */ var _userInfo_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./userInfo.scss */ "./resources/js/routes/Users/User/UserInfo/userInfo.scss");
+/* harmony import */ var _userInfo_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_userInfo_scss__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
@@ -83493,7 +83366,8 @@ __webpack_require__.r(__webpack_exports__);
 var UserInfo = function UserInfo(_ref) {
   var userData = _ref.userData,
       followFunc = _ref.followFunc,
-      theSameUser = _ref.theSameUser;
+      theSameUser = _ref.theSameUser,
+      loading = _ref.loading;
   var name = userData.name,
       avatar = userData.avatar,
       followers_count = userData.followers_count,
@@ -83515,16 +83389,16 @@ var UserInfo = function UserInfo(_ref) {
     className: "col-lg-12 img-div-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "img-div"
-  }, avatar ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+  }, !loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: avatar,
     onError: handleImageError,
     alt: "name",
     className: "img-thumbnail img-circle"
-  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, {
     height: 150,
     width: 150,
     circle: true
-  }))), name ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }))), !loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-7 user-info-div"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "p-name"
@@ -83532,19 +83406,19 @@ var UserInfo = function UserInfo(_ref) {
     className: "ml-3"
   }, followers_count), " Followers")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-5 buttons-div text-right"
-  }, theSameUser !== undefined ? theSameUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
-    to: _helpers_routes__WEBPACK_IMPORTED_MODULE_5__["ROUTES"].EDIT
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, theSameUser !== undefined ? theSameUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+    to: _helpers_routes__WEBPACK_IMPORTED_MODULE_4__["ROUTES"].EDIT
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
     style: "twitter"
-  }, "Edit profile")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, "Edit profile")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
     onClickFunc: followFunc,
     style: "twitter"
-  }, followed ? "Unfollow" : "Follow") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, followed ? "Unfollow" : "Follow") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, {
     width: 125,
     height: 30
   }))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, {
     count: 3
   })))));
 };
@@ -83608,22 +83482,16 @@ __webpack_require__.r(__webpack_exports__);
 
 var UserPosts = function UserPosts(_ref) {
   var posts = _ref.posts,
-      login = _ref.login,
-      name = _ref.name,
-      avatar = _ref.avatar;
+      loading = _ref.loading;
   var postsList = [];
 
   if (posts) {
     postsList = posts.map(function (post) {
-      post.user = {
-        login: login,
-        name: name,
-        avatar: avatar
-      };
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
         key: post.id,
         to: "/posts/".concat(post.id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ListEntity__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        loading: loading,
         data: post,
         type: "post"
       }));
@@ -83632,7 +83500,7 @@ var UserPosts = function UserPosts(_ref) {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "user-posts w-100 p-0"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, name ? "".concat(name, " posts") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default.a, null)), postsList);
+  }, postsList);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (UserPosts);
@@ -83685,6 +83553,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _UserPosts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UserPosts */ "./resources/js/routes/Users/User/UserPosts/index.jsx");
 /* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../redux/actions */ "./resources/js/redux/actions/index.js");
 /* harmony import */ var _helpers_selectors__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../helpers/selectors */ "./resources/js/helpers/selectors.js");
+/* harmony import */ var _components_AddEntity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../components/AddEntity */ "./resources/js/components/AddEntity/index.jsx");
+/* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-loading-skeleton */ "./node_modules/react-loading-skeleton/lib/index.js");
+/* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7__);
+
+
 
 
 
@@ -83695,17 +83568,13 @@ __webpack_require__.r(__webpack_exports__);
 var User = function User(props) {
   var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useDispatch"])();
   var userId = props.computedMatch.params.id;
+  var user = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["userSelector"]);
+  var userPosts = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["userPostsSelector"]);
   var currentUser = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["profileSelector"]);
-  var user = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(function (state) {
-    return state.users;
-  });
-  var userData = user.user;
-  var userPosts = user.userPosts;
-  var userNotFound = user.userNotFound;
   var theSameUser = undefined;
 
-  if (currentUser.data) {
-    theSameUser = currentUser.data.id === userData.id;
+  if (currentUser.data && user.data) {
+    theSameUser = currentUser.data.id === user.data.id;
   }
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
@@ -83717,10 +83586,8 @@ var User = function User(props) {
     e.preventDefault();
   };
 
-  if (userNotFound) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "w-100 text-center"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "User not found :("));
+  if (user.error) {
+    return user.error.response.status === 404 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "User not found!") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Internal server error!");
   }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -83728,14 +83595,15 @@ var User = function User(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserInfo__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    userData: userData,
+    userData: user.data,
+    loading: user.loading,
     theSameUser: theSameUser,
     followFunc: followUser
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, user.data.name ? "".concat(user.data.name, " posts") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7___default.a, null)), theSameUser && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddEntity__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    loading: userPosts.loading
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserPosts__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    name: userData.name,
-    login: userData.login,
-    avatar: userData.avatar,
-    posts: userPosts
+    loading: userPosts.loading,
+    posts: userPosts.data.data
   })));
 };
 

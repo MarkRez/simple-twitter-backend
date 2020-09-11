@@ -34,7 +34,7 @@ const PostPage = (props) => {
         type="comment"
       />
       <PostComments
-        comments={postComments.data}
+        comments={postComments.data.data}
         loading={postComments.loading}
       />
     </div>

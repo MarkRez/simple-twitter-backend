@@ -52,7 +52,7 @@ const PostInfo = ({ post = {}, loading }) => {
         </div>
       </div>
       <div className="col-lg-12 post-text">
-        {text || <Skeleton count={3} />}
+        {!loading && text ? text : <Skeleton count={3} />}
       </div>
       <div className="col-lg-12 post-date-buttons">
         <div className="row">

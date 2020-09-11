@@ -7,7 +7,6 @@ import InputFile from "../../../components/inputFile";
 import Button from "../../../components/Button";
 import './editProfileForm.scss';
 
-
 const EditProfileSchema = Yup.object({
   name: Yup.string()
     .min(3, 'Too Short!')
@@ -152,9 +151,7 @@ const EditProfileForm = ({userData, updateFunc}) => {
                     }
                   </div>
                 </div>
-                <Button type="submit" style="primary">
-                  Save
-                </Button>
+                {userData && <Button type="submit" style="primary"> Save </Button>}
               </Form>
             )}
           </Formik>

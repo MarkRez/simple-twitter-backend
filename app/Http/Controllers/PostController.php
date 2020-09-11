@@ -19,7 +19,7 @@ class PostController extends Controller
 
     // TODO
     public function index(User $user) {
-        return $user->posts;
+        return $user->posts()->orderBy('updated_at', 'desc')->paginate(10);
     }
 
     public function show(Post $post)

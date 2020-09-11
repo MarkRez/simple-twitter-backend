@@ -1,11 +1,11 @@
 import React from "react";
-import './userInfo.scss';
 import Button from "../../../../components/Button";
 import Skeleton from "react-loading-skeleton";
 import {Link} from "react-router-dom";
 import {ROUTES} from "../../../../helpers/routes";
+import './userInfo.scss';
 
-const UserInfo = ({ userData, followFunc, theSameUser }) => {
+const UserInfo = ({ userData, followFunc, theSameUser, loading }) => {
   const { name, avatar, followers_count, followings_count, followed, login } = userData;
 
   const handleImageError = (e) => {
@@ -18,13 +18,13 @@ const UserInfo = ({ userData, followFunc, theSameUser }) => {
         <div className="row">
           <div className="col-lg-12 img-div-wrapper">
             <div className="img-div">
-                {avatar
+                {!loading
                     ? <img src={avatar} onError={handleImageError} alt="name" className="img-thumbnail img-circle"/>
                     : <Skeleton height={150} width={150} circle={true}/>
                 }
             </div>
           </div>
-          { name
+          { !loading
             ? <>
               <div className="col-lg-7 user-info-div">
                 <p className="p-name">{name}</p>

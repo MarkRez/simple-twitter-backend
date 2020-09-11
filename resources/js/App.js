@@ -75,6 +75,7 @@ const App = () => {
           />
           <ProtectedRoute
             Component={EditProfile}
+            currentUser={data}
             exact
             path={ROUTES.EDIT}
           />

@@ -1,13 +1,13 @@
 import React from 'react';
 import Comment from "../../../components/ListEntity";
-import Post from "../../../components/ListEntity";
 
-const PostComments = ({ comments }) => {
+const PostComments = ({ comments, loading }) => {
   let commentsList = []
 
   if (comments) {
     commentsList = comments.map(comment => (
       <Comment
+        loading={loading}
         key={comment.id}
         data={comment}
         type="comment"

@@ -7,7 +7,7 @@ import '@fortawesome/fontawesome-svg-core';
 import { prettyDate } from "../../helpers/dateConverter";
 import './listEntity.scss';
 
-const ListEntity = ({ data, type }) => {
+const ListEntity = ({ data, type, loading }) => {
   const { id, text, user_id, created_at, likes_count, dislikes_count, comments_count, liked, user = {}} = data;
   const { login, avatar, name } = user;
 
@@ -37,7 +37,7 @@ const ListEntity = ({ data, type }) => {
     <div className="entity w-100">
       <div className="row">
         <div className="post-img col-1">
-          {avatar
+          {!loading
             ?
             <Link to={`/users/${user_id}`}>
               <img src={avatar} onError={handleImageError} alt="name" className="img-fluid" />
@@ -48,7 +48,7 @@ const ListEntity = ({ data, type }) => {
         <div className="post-text-buttons col-11">
           <div className="row">
             <div className="col-lg-12 post-author px-3">
-              {(name && created_at)
+              {!loading
                 ? <>
                   <Link to={`/users/${user_id}`}>{name}</Link> · @{login} · {prettyDate(created_at)}
                 </>
@@ -56,7 +56,7 @@ const ListEntity = ({ data, type }) => {
               }
             </div>
             <div className="col-lg-12 post-text px-3">
-              {text ? shortText(text) : <Skeleton count={type === "post" ? 3 : 2}/>}
+              {!loading && text ? shortText(text) : <Skeleton count={type === "post" ? 3 : 2}/>}
             </div>
             { type === "post"
               ?

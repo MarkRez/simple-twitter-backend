@@ -12,6 +12,7 @@
         width: 100%;
         height: 100%;
         cursor: pointer;
+        object-fit: cover;
         transition: filter 0.3s ease;
 
         &:hover {

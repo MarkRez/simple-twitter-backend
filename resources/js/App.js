@@ -16,7 +16,7 @@ import {Layout} from "./components/Layout";
 import {ROUTES} from "./helpers/routes";
 import allActions from "./redux/actions";
 import {useSelector, useDispatch} from 'react-redux';
-import {profileSelector, profileSelector1} from "./helpers/selectors";
+import {profileSelector} from "./helpers/selectors";
 
 const App = () => {
   const dispatch = useDispatch();

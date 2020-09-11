@@ -7,7 +7,7 @@ import { prettyDate } from "../../../helpers/dateConverter";
 import './postInfo.scss';
 import { Link } from "react-router-dom";
 
-const PostInfo = ({ post = {} }) => {
+const PostInfo = ({ post = {}, loading }) => {
   const { text, created_at, likes_count, dislikes_count, liked, user = {} } = post;
   const { name, login, avatar, id } = user;
 
@@ -30,7 +30,7 @@ const PostInfo = ({ post = {} }) => {
       <div className="col-lg-12 post-user-info">
         <div className="row">
           <div className="col-lg-1 img-div">
-            {avatar
+            {!loading
               ?
               <Link to={`/users/${id}`}>
                 <img className="img-fluid" src={avatar} alt={name}/>
@@ -39,7 +39,7 @@ const PostInfo = ({ post = {} }) => {
             }
           </div>
           <div className="col-lg-10 name-login-div">
-            { name
+            {!loading
               ? <>
                 <p><Link to={`/users/${id}`}>{name}</Link></p>
                 <span>@{login}</span>
@@ -57,7 +57,7 @@ const PostInfo = ({ post = {} }) => {
       <div className="col-lg-12 post-date-buttons">
         <div className="row">
           <div className="col-lg-6 date-div">
-            {created_at ? prettyDate(created_at, true) : <Skeleton className="w-50"/>}
+            {!loading ? prettyDate(created_at, true) : <Skeleton className="w-50"/>}
           </div>
           <div className="col-lg-6 buttons-div d-flex justify-content-end">
             <div className="col-lg-4">

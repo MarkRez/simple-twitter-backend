@@ -16,8 +16,8 @@ const User = (props) => {
   const userNotFound = user.userNotFound;
 
   let theSameUser = undefined;
-  if (currentUser) {
-    theSameUser = (currentUser.id === userData.id);
+  if (currentUser.data) {
+    theSameUser = (currentUser.data.id === userData.id);
   }
 
   useEffect(() => {

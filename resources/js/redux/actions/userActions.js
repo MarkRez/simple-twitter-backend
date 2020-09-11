@@ -11,13 +11,6 @@ const setLoggedIn = (loggedIn) => ({
   loggedIn,
 });
 
-const fetchProfile = () => ({
-  type: FETCH_PROFILE,
-  request: {
-    url: '/profile',
-    method: 'get',
-  }
-});
 
 const logIn = () => {
   return (dispatch) => {

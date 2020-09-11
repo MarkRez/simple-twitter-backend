@@ -1,8 +1,6 @@
 import {
   FETCH_PROFILE,
-  SET_LOGGED_IN,
-  SET_PROFILE_DATA,
-  SET_PROFILE_IS_LOADING,
+  SET_LOGGED_IN
 } from '../constants';
 import {success, error} from "@redux-requests/core";
 

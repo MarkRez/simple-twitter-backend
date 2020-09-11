@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import './App.scss';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import {Redirect, Route, Switch} from 'react-router-dom';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Login from "./routes/Login";
@@ -12,21 +12,21 @@ import Feed from "./routes/Feed";
 import PostPage from "./routes/PostPage";
 import EditProfile from "./routes/EditProfile";
 import Messages from "./routes/Messages";
-import { Layout } from "./components/Layout";
-import { ROUTES } from "./helpers/routes";
+import {Layout} from "./components/Layout";
+import {ROUTES} from "./helpers/routes";
 import allActions from "./redux/actions";
-import { useSelector, useDispatch } from 'react-redux';
-
+import {useSelector, useDispatch} from 'react-redux';
+import {profileSelector, profileSelector1} from "./helpers/selectors";
 
 const App = () => {
   const dispatch = useDispatch();
-  const user = useSelector(state => state.user);
+  const {data, loading} = useSelector(profileSelector);
+  const userLoggedIn = useSelector(state => state.user.loggedIn);
 
   useEffect(() => {
     const isAuthenticated = localStorage.getItem('_token');
     if (isAuthenticated) {
       dispatch(allActions.userActions.logIn());
-      dispatch(allActions.userActions.getProfileData());
     } else {
       dispatch(allActions.userActions.setLoggedIn(false));
     }
@@ -35,11 +35,12 @@ const App = () => {
   return (
     <>
       <Header
-        isAuthenticated={user.loggedIn}
+        isAuthenticated={userLoggedIn}
       />
       <Layout
-        isAuthenticated={user.loggedIn}
-        user={user.user}
+        isAuthenticated={userLoggedIn}
+        user={data}
+        loading={loading}
       >
         <Switch>
           <Redirect
@@ -82,10 +83,10 @@ const App = () => {
             exact
             path={ROUTES.MESSAGES}
           />
-          <Route component={NotFound} />
+          <Route component={NotFound}/>
         </Switch>
       </Layout>
-      <Footer />
+      <Footer/>
     </>
   );
 };

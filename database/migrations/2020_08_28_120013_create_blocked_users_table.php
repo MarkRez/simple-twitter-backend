@@ -12,6 +12,8 @@ class CreateBlockedUsersTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('blocked_user_id')->constrained('users');
             $table->timestamps();
+
+            $table->unique(['user_id', 'blocked_user_id']);
         });
     }
 

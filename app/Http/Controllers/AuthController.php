@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function login(LoginRequest $request) { // TODO отдать существующий токен
+    public function login(LoginRequest $request) {
         $user = User::where('login', $request->login)->first();
 
         if (! $user || ! Hash::check($request->password, $user->password)) {

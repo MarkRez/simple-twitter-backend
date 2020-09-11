@@ -2,7 +2,7 @@ import {cleanObject} from "../../helpers/anotherMethods";
 
 import {
   SET_LOGGED_IN,
-  SET_USER_DATA,
+  FETCH_PROFILE
 } from '../constants';
 import apis from "../../api";
 
@@ -11,15 +11,18 @@ const setLoggedIn = (loggedIn) => ({
   loggedIn,
 });
 
-const setUserData = (userData) => ({
-  type: SET_USER_DATA,
-  userData,
+const fetchProfile = () => ({
+  type: FETCH_PROFILE,
+  request: {
+    url: '/profile',
+    method: 'get',
+  }
 });
 
 const logIn = () => {
   return (dispatch) => {
-    dispatch(setLoggedIn(true));
-    dispatch(getProfileData());
+    dispatch(getProfileData())
+    dispatch(setLoggedIn(true))
   }
 };
 
@@ -34,18 +37,14 @@ const logOut = () => {
   }
 };
 
-const getProfileData = () => {
-  return async (dispatch) => {
-    try {
-      const response = await apis.getProfile();
-      if (response.status === 200) {
-        return dispatch(setUserData(response.data))
-      }
-    } catch (error) {
-      // throw new Error(error);
-    }
+const getProfileData = () => ({
+  type: FETCH_PROFILE,
+  request: {
+    url: '/profile',
+    method: 'get',
   }
-};
+});
+
 
 const updateProfileData = (data) => async (dispatch) => {
   let addEmptyAvatar = false;

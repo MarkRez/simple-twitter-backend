@@ -1,11 +1,11 @@
 import React, {useState, useEffect, useRef} from "react";
 import * as Yup from "yup";
 import {Field, Form, Formik} from "formik";
+import Skeleton from "react-loading-skeleton";
 import Input from "../../../components/Input";
 import InputFile from "../../../components/inputFile";
 import Button from "../../../components/Button";
 import './editProfileForm.scss';
-import Skeleton from "react-loading-skeleton";
 
 
 const EditProfileSchema = Yup.object({
@@ -44,7 +44,6 @@ const EditProfileSchema = Yup.object({
 
 const EditProfileForm = ({userData, updateFunc}) => {
   const {email, name, avatar} = userData;
-  const isDefaultAvatar = /.+default.+/.test(avatar)
   const photoRef = useRef(null);
   const [updatedAvatar, setUpdatedAvatar] = useState('');
 
@@ -62,14 +61,8 @@ const EditProfileForm = ({userData, updateFunc}) => {
     reader.readAsDataURL(file);
   }
 
-
-  console.log(avatar)
-  // const isDefaultAvatar = avatarFile.test(/.+default\.jpg/)
-
-
   return (
     <div className="edit-profile-form">
-      <div>bla:{isDefaultAvatar} </div>
       <div className="row justify-content-center">
         <div className="col-lg-6">
           <Formik
@@ -87,10 +80,9 @@ const EditProfileForm = ({userData, updateFunc}) => {
               updateFunc(values);
             }}
           >
-            {({errors, touched, setFieldValue, isValid}) => (
+            {({errors, touched, setFieldValue}) => (
 
               <Form noValidate>
-                {isValid}
                 <div className="form-group">
                   <Field
                     component={Input}
@@ -150,7 +142,6 @@ const EditProfileForm = ({userData, updateFunc}) => {
                     id="avatar"
                     inputRef={photoRef}
                   />
-                  {/*{updatedAvatar}*/}
                   <div className="current-avatar-div">
                     {
                       !avatar ? <Skeleton width={150} height={150}/> :
@@ -161,8 +152,8 @@ const EditProfileForm = ({userData, updateFunc}) => {
                     }
                   </div>
                 </div>
-                <Button type="submit" style="primary" disabled={!isValid}>
-                  Update
+                <Button type="submit" style="primary">
+                  Save
                 </Button>
               </Form>
             )}

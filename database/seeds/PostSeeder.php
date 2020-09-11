@@ -15,7 +15,7 @@ class PostSeeder extends Seeder
     public function run(Faker $faker)
     {
         User::all()->each(function ($user) use ($faker) {
-            $user->posts()->createMany(factory(Post::class, $faker->numberBetween(1, 50))->make()->toArray());
+            $user->posts()->saveMany(factory(Post::class, $faker->numberBetween(1, 50))->make());
         });
     }
 }

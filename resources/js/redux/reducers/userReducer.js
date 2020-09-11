@@ -1,11 +1,13 @@
 import {
+  FETCH_PROFILE,
   SET_LOGGED_IN,
-  SET_USER_DATA,
+  SET_PROFILE_DATA,
+  SET_PROFILE_IS_LOADING,
 } from '../constants';
+import {success, error} from "@redux-requests/core";
 
 export const initialState = {
   loggedIn: null,
-  user: {}
 };
 
 export const User = (store = initialState, action) => {
@@ -15,11 +17,11 @@ export const User = (store = initialState, action) => {
         ...store,
         loggedIn: action.loggedIn,
       };
-    case SET_USER_DATA:
+    case success('FETCH_PROFILE'):
       return {
         ...store,
-        user: action.userData,
-      };
+        user: action.response.data
+      }
     default:
       return store;
   }

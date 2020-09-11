@@ -4,12 +4,12 @@ import { authenticatedLinks, NonAuthenticatedLinks } from '../../helpers/layoutL
 import Skeleton from "react-loading-skeleton";
 import MenuItem from "./MenuItem";
 
-export const Layout = ({ children, isAuthenticated, user }) => {
+export const Layout = ({ children, isAuthenticated, user, loading }) => {
   let menuItems = [];
   let links = [];
 
   if (isAuthenticated !== null) {
-    links = isAuthenticated ? authenticatedLinks : NonAuthenticatedLinks;
+    links = isAuthenticated && user ? authenticatedLinks : NonAuthenticatedLinks;
 
     menuItems = links.map(item => {
         const link = (item.text === 'My page' ? `${item.link}${user.id}` : item.link);
@@ -29,7 +29,7 @@ export const Layout = ({ children, isAuthenticated, user }) => {
         <nav className="col-md-2 d-none d-md-block sidebar">
           <div className="sidebar-sticky">
             <ul className="nav flex-column">
-              { isAuthenticated !== null
+              { isAuthenticated !== null && !loading
                 ? menuItems
                 : <Skeleton height={25} count={3} />
               }

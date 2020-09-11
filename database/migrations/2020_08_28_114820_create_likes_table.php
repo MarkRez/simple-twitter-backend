@@ -13,6 +13,8 @@ class CreateLikesTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->boolean('liked');
             $table->timestamps();
+
+            $table->unique(['post_id', 'user_id']);
         });
     }
 

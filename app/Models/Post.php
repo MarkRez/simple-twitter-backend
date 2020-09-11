@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class Post extends Model
 {
     protected $fillable = ['text'];
+    protected $appends = ['liked'];
     protected $with = ['user'];
     protected $withCount = ['likes', 'dislikes', 'comments'];
 
@@ -41,14 +42,10 @@ class Post extends Model
         return $this->reactions()->where('liked', false);
     }
 
-    public function liked()
+    public function getLikedAttribute()
     {
         $like = $this->reactions()->where('user_id', Auth::id())->first();
 
-        if (!$like) {
-            return null;
-        }
-
-        return !!$like->liked;
+        return $like ? (bool) $like->liked : null;
     }
 }

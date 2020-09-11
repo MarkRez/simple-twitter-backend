@@ -1,6 +1,8 @@
 // current user constants
 export const SET_LOGGED_IN = 'SET_LOGGED_IN';
-export const SET_USER_DATA = 'SET_USER_DATA';
+export const SET_PROFILE_IS_LOADING='SET_PROFILE_IS_LOADING';
+export const SET_PROFILE_DATA = 'SET_PROFILE_DATA';
+export const FETCH_PROFILE = 'FETCH_PROFILE';
 
 // posts constants
 export const SET_CURRENT_POST = 'SET_CURRENT_POST';

@@ -3,20 +3,21 @@ import { useSelector, useDispatch } from 'react-redux';
 import UserInfo from "./UserInfo";
 import UserPosts from "./UserPosts";
 import allActions from "../../../redux/actions";
+import {profileSelector} from "../../../helpers/selectors";
 
 const User = (props) => {
   const dispatch = useDispatch();
   const userId = props.computedMatch.params.id;
 
-  const currentUserId = useSelector(state => state.user.user.id)
+  const currentUser = useSelector(profileSelector);
   const user = useSelector(state => state.users)
   const userData = user.user;
   const userPosts = user.userPosts;
   const userNotFound = user.userNotFound;
 
   let theSameUser = undefined;
-  if (currentUserId) {
-    theSameUser = (currentUserId === userData.id);
+  if (currentUser) {
+    theSameUser = (currentUser.id === userData.id);
   }
 
   useEffect(() => {

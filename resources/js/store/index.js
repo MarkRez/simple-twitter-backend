@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
-import axios from 'axios';
+import client from "../helpers/axios";
 import thunk from 'redux-thunk';
 import { handleRequests } from '@redux-requests/core';
 import { createDriver } from '@redux-requests/axios';
@@ -8,16 +8,14 @@ import { Posts } from "../redux/reducers/postsReducer";
 import { Users } from "../redux/reducers/usersReducer";
 import { Feed } from "../redux/reducers/feedReducer";
 
+
 export const configureStore = () => {
-    const { requestsMiddleware } = handleRequests({
-        driver: createDriver(
-            axios.create({
-                baseURL: 'https://jsonplaceholder.typicode.com',
-            }),
-        ),
+    const { requestsReducer, requestsMiddleware } = handleRequests({
+        driver: createDriver(client),
     });
 
     const reducers = combineReducers({
+        requests: requestsReducer,
         user: User,
         posts: Posts,
         users: Users,

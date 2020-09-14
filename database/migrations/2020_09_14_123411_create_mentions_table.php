@@ -15,7 +15,7 @@ class CreateMentionsTable extends Migration
     {
         Schema::create('mentions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('mentionable_id');
             $table->string('mentionable_type');
             $table->index(['mentionable_id', 'mentionable_type']);

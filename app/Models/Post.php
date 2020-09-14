@@ -9,7 +9,7 @@ class Post extends Model
 {
     protected $fillable = ['text'];
     protected $appends = ['liked'];
-    protected $with = ['user'];
+    protected $with = ['user', 'mentionedUser:users.login,id'];
     protected $withCount = ['likes', 'dislikes', 'comments'];
 
     public function user()
@@ -47,5 +47,15 @@ class Post extends Model
         $like = $this->reactions()->where('user_id', Auth::id())->first();
 
         return $like ? (bool) $like->liked : null;
+    }
+
+    public function mentions()
+    {
+        return $this->morphMany(Mention::class, 'mentionable');
+    }
+
+    // TODO add where type
+    public function mentionedUser() {
+        return $this->hasManyThrough(User::class, Mention::class, 'mentionable_id', 'id', 'id', 'user_id');
     }
 }

@@ -19,7 +19,7 @@ class User extends Authenticatable
     protected $appends = ['followed', 'followings_count', 'followers_count'];
 
     protected $hidden = [
-        'email', 'password', 'remember_token', 'updated_at', 'created_at'
+        'email', 'password', 'remember_token', 'updated_at', 'created_at', 'laravel_through_key'
     ];
 
     protected $casts = [

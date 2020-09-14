@@ -41,7 +41,14 @@ const User = (props) => {
   }
 
   const addPost = (text, mentioned_user) => {
-    apis.addPost({text, mentioned_user});
+    dispatch(allActions.usersActions.addUserPost({
+      'text': text,
+      'mentioned_user': mentioned_user
+    }));
+  }
+
+  const deletePost = (id) => {
+    dispatch(allActions.usersActions.deleteUserPost(id));
   }
 
   if (user.error) {
@@ -68,6 +75,8 @@ const User = (props) => {
           />
         }
         <UserPosts
+          delFunc={deletePost}
+          showDropdown={theSameUser}
           loading={userPosts.loading}
           posts={userPosts.data.data}
         />

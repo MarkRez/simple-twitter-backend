@@ -3,10 +3,10 @@
   border: 1px solid rgb(230, 236, 240);
   padding: 15px 20px 15px 20px;
   margin-top: -1px;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    filter: brightness(95%);
-    transition: filter .5s;
+    background-color: #fafafa;
   }
 
   .post-img {
@@ -34,6 +34,45 @@
         max-width: 250px;
         line-height: 20px;
       }
+
+      .dropdown-div {
+        margin-left: auto;
+
+        button {
+          border: none;
+          transform: rotate(90deg);
+          font-size: 1.4em;
+          color: #6f6f6f;
+          font-weight: 800;
+          width: 30px;
+          height: 30px;
+          line-height: 30px;
+          border-radius: 50%;
+          padding: 0;
+          background-color: #e8e8e8;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #8f8f8f;
+          }
+
+          &:focus {
+            border: none;
+            outline: none;
+          }
+        }
+
+        .dropdown-item {
+          //z-index: 5;
+          cursor: pointer;
+          background-color: #ffffff;
+
+          &:hover {
+            background-color: #dcdcdc;
+          }
+        }
+      }
+
     }
 
     .post-text {

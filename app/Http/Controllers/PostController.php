@@ -17,8 +17,9 @@ class PostController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(User $user) {
-        return $user->posts()->orderBy('updated_at', 'desc')->paginate(10);
+    public function index(User $user)
+    {
+        return $user->posts()->orderBy('created_at', 'desc')->paginate(10);
     }
 
     public function show(Post $post)
@@ -32,12 +33,13 @@ class PostController extends Controller
     {
         $post = Auth::user()->posts()->create([
             'text' => $request->text,
-        ]);
+        ])->refresh()->load(['user']);
 
         return $post;
     }
 
-    public function update(PostUpdateRequest $request, Post $post) {
+    public function update(PostUpdateRequest $request, Post $post)
+    {
         $post->update([
             'text' => $request->text,
         ]);
@@ -45,7 +47,8 @@ class PostController extends Controller
         return $post;
     }
 
-    public function destroy(PostDeleteRequest $request, Post $post) {
+    public function destroy(PostDeleteRequest $request, Post $post)
+    {
         return $post->delete();
     }
 }

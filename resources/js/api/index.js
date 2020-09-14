@@ -15,6 +15,7 @@ export const updateProfile = payload => api.post('/profile', payload, {headers: 
 // export const getPost = id => api.get(`/posts/${id}`);
 // export const getPostComments = id => api.get(`/posts/${id}/comments`);
 export const addPost = payload => api.post(`/posts`, payload);
+// export const deletePost = id => api.delete(`/posts/${id}`);
 
 export const getFeed = page => api.get(`/feed?page=${page}`);
 
@@ -24,7 +25,7 @@ const apis = {
   register,
   updateProfile,
   getFeed,
-  addPost
+  addPost,
 };
 
 export default apis;

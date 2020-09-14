@@ -1,10 +1,9 @@
 import React from "react";
 import './userPosts.scss';
 import Post from "../../../../components/ListEntity";
-import Skeleton from "react-loading-skeleton";
 import { Link } from "react-router-dom";
 
-const UserPosts = ({ posts, loading }) => {
+const UserPosts = ({ posts, loading, showDropdown, delFunc }) => {
   let postsList = [];
 
   if (posts) {
@@ -14,6 +13,8 @@ const UserPosts = ({ posts, loading }) => {
           key={post.id}
           to={`/posts/${post.id}`}>
           <Post
+            delFunc={delFunc}
+            showDropdown={showDropdown}
             loading={loading}
             data={post}
             type="post"

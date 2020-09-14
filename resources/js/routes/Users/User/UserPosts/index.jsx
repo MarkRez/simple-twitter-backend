@@ -3,7 +3,7 @@ import './userPosts.scss';
 import Post from "../../../../components/ListEntity";
 import { Link } from "react-router-dom";
 
-const UserPosts = ({ posts, loading, showDropdown, delFunc }) => {
+const UserPosts = ({ posts, loading, showDropdown, delFunc, updateFunc }) => {
   let postsList = [];
 
   if (posts) {
@@ -13,6 +13,7 @@ const UserPosts = ({ posts, loading, showDropdown, delFunc }) => {
           key={post.id}
           to={`/posts/${post.id}`}>
           <Post
+            updateFunc={updateFunc}
             delFunc={delFunc}
             showDropdown={showDropdown}
             loading={loading}

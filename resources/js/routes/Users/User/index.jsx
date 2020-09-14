@@ -12,7 +12,6 @@ import {
 } from "../../../helpers/selectors";
 import AddEntity from "../../../components/AddEntity";
 import Skeleton from "react-loading-skeleton";
-import apis from "../../../api";
 
 const User = (props) => {
   const dispatch = useDispatch();
@@ -41,14 +40,15 @@ const User = (props) => {
   }
 
   const addPost = (text, mentioned_user) => {
-    dispatch(allActions.usersActions.addUserPost({
-      'text': text,
-      'mentioned_user': mentioned_user
-    }));
+    dispatch(allActions.usersActions.addUserPost({text, mentioned_user}));
   }
 
   const deletePost = (id) => {
     dispatch(allActions.usersActions.deleteUserPost(id));
+  }
+
+  const updatePost = (id, text) => {
+    dispatch(allActions.usersActions.updateUserPost(id, {text}));
   }
 
   if (user.error) {
@@ -76,6 +76,7 @@ const User = (props) => {
         }
         <UserPosts
           delFunc={deletePost}
+          updateFunc={updatePost}
           showDropdown={theSameUser}
           loading={userPosts.loading}
           posts={userPosts.data.data}

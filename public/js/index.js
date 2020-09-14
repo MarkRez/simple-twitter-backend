@@ -17615,7 +17615,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".entity {\n  background-color: #ffffff;\n  border: 1px solid #e6ecf0;\n  padding: 15px 20px 15px 20px;\n  margin-top: -1px;\n  transition: background-color 0.3s ease;\n}\n.entity:hover {\n  background-color: #fafafa;\n}\n.entity .post-img img {\n  border-radius: 50%;\n  max-width: 50px;\n  height: 50px;\n}\n.entity .post-text-buttons .post-author {\n  margin-bottom: 5px;\n}\n.entity .post-text-buttons .post-author a {\n  font-weight: 700;\n  color: #000000;\n}\n.entity .post-text-buttons .post-author a:hover {\n  text-decoration: underline;\n}\n.entity .post-text-buttons .post-author .react-loading-skeleton {\n  max-width: 250px;\n  line-height: 20px;\n}\n.entity .post-text-buttons .post-author .dropdown-div {\n  margin-left: auto;\n}\n.entity .post-text-buttons .post-author .dropdown-div button {\n  border: none;\n  transform: rotate(90deg);\n  font-size: 1.4em;\n  color: #6f6f6f;\n  font-weight: 800;\n  width: 30px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 50%;\n  padding: 0;\n  background-color: #e8e8e8;\n  transition: background-color 0.3s ease;\n}\n.entity .post-text-buttons .post-author .dropdown-div button:hover {\n  background-color: #8f8f8f;\n}\n.entity .post-text-buttons .post-author .dropdown-div button:focus {\n  border: none;\n  outline: none;\n}\n.entity .post-text-buttons .post-author .dropdown-div .dropdown-item {\n  cursor: pointer;\n  background-color: #ffffff;\n}\n.entity .post-text-buttons .post-author .dropdown-div .dropdown-item:hover {\n  background-color: #dcdcdc;\n}\n.entity .post-text-buttons .post-text {\n  color: #000000;\n}\n.entity .post-text-buttons .post-buttons {\n  margin-top: 25px;\n}\n.entity .post-text-buttons .post-buttons span {\n  color: #6d6d6d;\n  padding: 9px 15px;\n  transition: all 0.3s;\n  border-radius: 30px;\n  cursor: pointer;\n}\n.entity .post-text-buttons .post-buttons span.liked {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.entity .post-text-buttons .post-buttons span.disliked {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.entity .post-text-buttons .post-buttons span.up-span:hover {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.entity .post-text-buttons .post-buttons span.down-span:hover {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.entity .post-text-buttons .post-buttons span.comment-span:hover {\n  color: #3498db;\n  background-color: #e3f4ff;\n}\n.entity .post-text-buttons .post-buttons span svg {\n  font-size: 1.25em;\n  margin-right: 5px;\n}", ""]);
+exports.push([module.i, ".entity {\n  background-color: #ffffff;\n  border: 1px solid #e6ecf0;\n  padding: 15px 20px 15px 20px;\n  margin-top: -1px;\n  transition: background-color 0.3s ease;\n}\n.entity:hover {\n  background-color: #fafafa;\n}\n.entity .post-img img {\n  border-radius: 50%;\n  max-width: 50px;\n  height: 50px;\n}\n.entity .post-text-buttons .post-author {\n  margin-bottom: 5px;\n}\n.entity .post-text-buttons .post-author a {\n  font-weight: 700;\n  color: #000000;\n}\n.entity .post-text-buttons .post-author a:hover {\n  text-decoration: underline;\n}\n.entity .post-text-buttons .post-author .react-loading-skeleton {\n  max-width: 250px;\n  line-height: 20px;\n}\n.entity .post-text-buttons .post-author .dropdown-div {\n  margin-left: auto;\n}\n.entity .post-text-buttons .post-author .dropdown-div button {\n  border: none;\n  transform: rotate(90deg);\n  font-size: 1.4em;\n  color: #6f6f6f;\n  font-weight: 800;\n  width: 30px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 50%;\n  padding: 0;\n  background-color: #e8e8e8;\n  transition: background-color 0.3s ease;\n}\n.entity .post-text-buttons .post-author .dropdown-div button:hover {\n  background-color: #8f8f8f;\n}\n.entity .post-text-buttons .post-author .dropdown-div button:focus {\n  border: none;\n  outline: none;\n}\n.entity .post-text-buttons .post-author .dropdown-div .dropdown-item {\n  cursor: pointer;\n  background-color: #ffffff;\n}\n.entity .post-text-buttons .post-author .dropdown-div .dropdown-item:hover {\n  background-color: #dcdcdc;\n}\n.entity .post-text-buttons .post-text {\n  color: #000000;\n}\n.entity .post-text-buttons .post-text textarea {\n  border: 1px solid #c8c9c9;\n  background-color: #fcfcfc;\n  border-radius: 20px;\n  padding: 10px 15px;\n  resize: none;\n  font-weight: 500;\n  color: #525252;\n}\n.entity .post-text-buttons .post-buttons {\n  margin-top: 25px;\n}\n.entity .post-text-buttons .post-buttons span {\n  color: #6d6d6d;\n  padding: 9px 15px;\n  transition: all 0.3s;\n  border-radius: 30px;\n  cursor: pointer;\n}\n.entity .post-text-buttons .post-buttons span.liked {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.entity .post-text-buttons .post-buttons span.disliked {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.entity .post-text-buttons .post-buttons span.up-span:hover {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.entity .post-text-buttons .post-buttons span.down-span:hover {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.entity .post-text-buttons .post-buttons span.comment-span:hover {\n  color: #3498db;\n  background-color: #e3f4ff;\n}\n.entity .post-text-buttons .post-buttons span svg {\n  font-size: 1.25em;\n  margin-right: 5px;\n}", ""]);
 
 // exports
 
@@ -80444,7 +80444,7 @@ if(false) {}
 /*!***********************************!*\
   !*** ./resources/js/api/index.js ***!
   \***********************************/
-/*! exports provided: logIn, logOut, register, updateProfile, addPost, getFeed, default */
+/*! exports provided: logIn, logOut, register, updateProfile, getFeed, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -80453,7 +80453,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logOut", function() { return logOut; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "register", function() { return register; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateProfile", function() { return updateProfile; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addPost", function() { return addPost; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFeed", function() { return getFeed; });
 /* harmony import */ var _helpers_axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/axios */ "./resources/js/helpers/axios.js");
 
@@ -80478,10 +80477,8 @@ var updateProfile = function updateProfile(payload) {
 // export const getUserPosts = id => api.get(`users/${id}/posts`);
 // export const getPost = id => api.get(`/posts/${id}`);
 // export const getPostComments = id => api.get(`/posts/${id}/comments`);
-
-var addPost = function addPost(payload) {
-  return api.post("/posts", payload);
-}; // export const deletePost = id => api.delete(`/posts/${id}`);
+// export const addPost = payload => api.post(`/posts`, payload);
+// export const deletePost = id => api.delete(`/posts/${id}`);
 
 var getFeed = function getFeed(page) {
   return api.get("/feed?page=".concat(page));
@@ -80491,8 +80488,7 @@ var apis = {
   logOut: logOut,
   register: register,
   updateProfile: updateProfile,
-  getFeed: getFeed,
-  addPost: addPost
+  getFeed: getFeed
 };
 /* harmony default export */ __webpack_exports__["default"] = (apis);
 
@@ -81137,6 +81133,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_dateConverter__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../helpers/dateConverter */ "./resources/js/helpers/dateConverter.js");
 /* harmony import */ var _listEntity_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./listEntity.scss */ "./resources/js/components/ListEntity/listEntity.scss");
 /* harmony import */ var _listEntity_scss__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_listEntity_scss__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Button */ "./resources/js/components/Button/index.jsx");
+/* harmony import */ var _helpers_anotherMethods__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../helpers/anotherMethods */ "./resources/js/helpers/anotherMethods.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
 
 
 
@@ -81149,10 +81161,10 @@ __webpack_require__.r(__webpack_exports__);
 var ListEntity = function ListEntity(_ref) {
   var data = _ref.data,
       type = _ref.type,
-      loading = _ref.loading,
       _ref$showDropdown = _ref.showDropdown,
       showDropdown = _ref$showDropdown === void 0 ? false : _ref$showDropdown,
-      delFunc = _ref.delFunc;
+      delFunc = _ref.delFunc,
+      updateFunc = _ref.updateFunc;
   var id = data.id,
       text = data.text,
       user_id = data.user_id,
@@ -81167,20 +81179,18 @@ var ListEntity = function ListEntity(_ref) {
       avatar = user.avatar,
       name = user.name;
 
-  var shortText = function shortText(text) {
-    if (text.length <= 500) {
-      return text;
-    } else {
-      return "".concat(text.slice(0, 500), " ...");
-    }
-  };
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      editMode = _useState2[0],
+      setEditMode = _useState2[1];
 
-  var handleLikeClick = function handleLikeClick(e) {
-    e.preventDefault(); // likeFunc();
-  };
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(text),
+      _useState4 = _slicedToArray(_useState3, 2),
+      textAreaValue = _useState4[0],
+      setTextAreaValue = _useState4[1];
 
-  var handleDislikeClick = function handleDislikeClick(e) {
-    e.preventDefault(); // dislikeFunc();
+  var handleImageError = function handleImageError(e) {
+    e.target.src = '/storage/avatars/default.jpg';
   };
 
   var handleDeleteClick = function handleDeleteClick(e) {
@@ -81188,8 +81198,20 @@ var ListEntity = function ListEntity(_ref) {
     delFunc(id);
   };
 
-  var handleImageError = function handleImageError(e) {
-    e.target.src = '/storage/avatars/default.jpg';
+  var handleTextAreaChange = function handleTextAreaChange(e) {
+    e.preventDefault();
+    setTextAreaValue(e.target.value);
+  };
+
+  var changeMode = function changeMode(e) {
+    e.preventDefault();
+    setEditMode(!editMode);
+  };
+
+  var handleSaveClick = function handleSaveClick(e) {
+    e.preventDefault();
+    updateFunc(id, textAreaValue);
+    setEditMode(false);
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -81230,28 +81252,37 @@ var ListEntity = function ListEntity(_ref) {
     "aria-labelledby": "dropdownMenuButton"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "dropdown-item",
-    onClick: function onClick() {}
-  }, "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    onClick: changeMode
+  }, editMode ? "Cancel" : 'Edit'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "dropdown-item",
     onClick: handleDeleteClick
-  }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C"))) : null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Delete"))) : null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-12 post-text px-3"
-  }, !loading && text ? shortText(text) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  }, editMode ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+    className: "w-100",
+    onClick: function onClick(e) {
+      return e.preventDefault();
+    },
+    value: textAreaValue,
+    onChange: handleTextAreaChange,
+    rows: "4"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    onClickFunc: handleSaveClick,
+    style: "add"
+  }, "Save")) : text ? Object(_helpers_anotherMethods__WEBPACK_IMPORTED_MODULE_9__["cropText"])(text) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, {
     count: type === "post" ? 3 : 2
   })), type === "post" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-12 post-buttons row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-4"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "up-span " + (liked === true ? "liked" : ""),
-    onClick: handleLikeClick
+    className: "up-span " + (liked === true ? "liked" : "")
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
     icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faThumbsUp"]
   }), " ", likes_count)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-4"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "down-span " + (liked === false ? "disliked" : ""),
-    onClick: handleDislikeClick
+    className: "down-span " + (liked === false ? "disliked" : "")
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
     icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faThumbsDown"]
   }), " ", dislikes_count)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -81412,12 +81443,13 @@ var skeletonPosts = [{
 /*!************************************************!*\
   !*** ./resources/js/helpers/anotherMethods.js ***!
   \************************************************/
-/*! exports provided: cleanObject */
+/*! exports provided: cleanObject, cropText */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cleanObject", function() { return cleanObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cropText", function() { return cropText; });
 var cleanObject = function cleanObject(obj) {
   return Object.keys(obj).filter(function (key) {
     return !!obj[key];
@@ -81425,6 +81457,13 @@ var cleanObject = function cleanObject(obj) {
     prev[current] = obj[current];
     return prev;
   }, {});
+};
+var cropText = function cropText(text) {
+  if (text.length <= 500) {
+    return text;
+  } else {
+    return "".concat(text.slice(0, 500), " ...");
+  }
 };
 
 /***/ }),
@@ -82145,11 +82184,37 @@ var addUserPost = function addUserPost(payload) {
   };
 };
 
+var updateUserPost = function updateUserPost(id, payload) {
+  return {
+    type: _constants__WEBPACK_IMPORTED_MODULE_0__["UPDATE_USER_POST"],
+    request: {
+      url: "/posts/".concat(id),
+      method: 'put',
+      data: payload
+    },
+    meta: {
+      mutations: _defineProperty({}, _constants__WEBPACK_IMPORTED_MODULE_0__["FETCH_USER_POSTS"], {
+        updateData: function updateData(data, mutationData) {
+          var updatedPostIndex = data.data.findIndex(function (post) {
+            return post.id === id;
+          });
+          console.log(updatedPostIndex);
+          data.data[updatedPostIndex] = mutationData;
+          return _objectSpread(_objectSpread({}, data), {}, {
+            data: data.data
+          });
+        }
+      })
+    }
+  };
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   getUser: getUser,
   getUserPosts: getUserPosts,
   deleteUserPost: deleteUserPost,
-  addUserPost: addUserPost
+  addUserPost: addUserPost,
+  updateUserPost: updateUserPost
 });
 
 /***/ }),
@@ -82158,7 +82223,7 @@ var addUserPost = function addUserPost(payload) {
 /*!***********************************************!*\
   !*** ./resources/js/redux/constants/index.js ***!
   \***********************************************/
-/*! exports provided: SET_LOGGED_IN, FETCH_PROFILE, FETCH_CURRENT_POST, FETCH_CURRENT_POST_COMMENTS, FETCH_USER, FETCH_USER_POSTS, DELETE_USER_POST, ADD_USER_POST, ADD_FEED_POSTS, SET_FEED_LOADING, SET_FEED_CURRENT_PAGE, SET_FEED_TOTAL_PAGES, FETCH_FEED */
+/*! exports provided: SET_LOGGED_IN, FETCH_PROFILE, FETCH_CURRENT_POST, FETCH_CURRENT_POST_COMMENTS, FETCH_USER, FETCH_USER_POSTS, DELETE_USER_POST, ADD_USER_POST, UPDATE_USER_POST, ADD_FEED_POSTS, SET_FEED_LOADING, SET_FEED_CURRENT_PAGE, SET_FEED_TOTAL_PAGES, FETCH_FEED */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -82171,6 +82236,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_USER_POSTS", function() { return FETCH_USER_POSTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_USER_POST", function() { return DELETE_USER_POST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_USER_POST", function() { return ADD_USER_POST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_USER_POST", function() { return UPDATE_USER_POST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_FEED_POSTS", function() { return ADD_FEED_POSTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_FEED_LOADING", function() { return SET_FEED_LOADING; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_FEED_CURRENT_PAGE", function() { return SET_FEED_CURRENT_PAGE; });
@@ -82186,7 +82252,8 @@ var FETCH_CURRENT_POST_COMMENTS = 'FETCH_CURRENT_POST_COMMENTS'; // users consta
 var FETCH_USER = 'FETCH_USER';
 var FETCH_USER_POSTS = 'FETCH_USER_POSTS';
 var DELETE_USER_POST = 'DELETE_USER_POST';
-var ADD_USER_POST = 'ADD_USER_POST'; //feed constants
+var ADD_USER_POST = 'ADD_USER_POST';
+var UPDATE_USER_POST = 'UPDATE_USER_POST'; //feed constants
 
 var ADD_FEED_POSTS = 'ADD_FEED_POSTS';
 var SET_FEED_LOADING = 'SET_FEED_LOADING';
@@ -83631,7 +83698,8 @@ var UserPosts = function UserPosts(_ref) {
   var posts = _ref.posts,
       loading = _ref.loading,
       showDropdown = _ref.showDropdown,
-      delFunc = _ref.delFunc;
+      delFunc = _ref.delFunc,
+      updateFunc = _ref.updateFunc;
   var postsList = [];
 
   if (posts) {
@@ -83640,6 +83708,7 @@ var UserPosts = function UserPosts(_ref) {
         key: post.id,
         to: "/posts/".concat(post.id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ListEntity__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        updateFunc: updateFunc,
         delFunc: delFunc,
         showDropdown: showDropdown,
         loading: loading,
@@ -83707,8 +83776,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_AddEntity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../components/AddEntity */ "./resources/js/components/AddEntity/index.jsx");
 /* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-loading-skeleton */ "./node_modules/react-loading-skeleton/lib/index.js");
 /* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../api */ "./resources/js/api/index.js");
-
 
 
 
@@ -83745,13 +83812,19 @@ var User = function User(props) {
 
   var addPost = function addPost(text, mentioned_user) {
     dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].usersActions.addUserPost({
-      'text': text,
-      'mentioned_user': mentioned_user
+      text: text,
+      mentioned_user: mentioned_user
     }));
   };
 
   var deletePost = function deletePost(id) {
     dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].usersActions.deleteUserPost(id));
+  };
+
+  var updatePost = function updatePost(id, text) {
+    dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].usersActions.updateUserPost(id, {
+      text: text
+    }));
   };
 
   if (user.error) {
@@ -83773,6 +83846,7 @@ var User = function User(props) {
     addFunc: addPost
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserPosts__WEBPACK_IMPORTED_MODULE_3__["default"], {
     delFunc: deletePost,
+    updateFunc: updatePost,
     showDropdown: theSameUser,
     loading: userPosts.loading,
     posts: userPosts.data.data

@@ -11,6 +11,7 @@ export const FETCH_USER = 'FETCH_USER';
 export const FETCH_USER_POSTS = 'FETCH_USER_POSTS';
 export const DELETE_USER_POST = 'DELETE_USER_POST';
 export const ADD_USER_POST = 'ADD_USER_POST';
+export const UPDATE_USER_POST='UPDATE_USER_POST';
 
 //feed constants
 export const ADD_FEED_POSTS = 'ADD_FEED_POSTS';

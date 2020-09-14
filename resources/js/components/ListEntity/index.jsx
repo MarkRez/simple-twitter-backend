@@ -1,32 +1,23 @@
-import React from "react";
-import {Link} from "react-router-dom";
+import React, {useState} from "react";
+import { Link } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faThumbsUp, faThumbsDown, faCommentDots} from '@fortawesome/free-regular-svg-icons';
 import '@fortawesome/fontawesome-svg-core';
 import {prettyDate} from "../../helpers/dateConverter";
 import './listEntity.scss';
+import Button from "../Button";
+import { cropText } from "../../helpers/anotherMethods";
 
-const ListEntity = ({data, type, loading, showDropdown = false, delFunc}) => {
+const ListEntity = ({data, type, showDropdown = false, delFunc, updateFunc}) => {
   const {id, text, user_id, created_at, likes_count, dislikes_count, comments_count, liked, user = {}} = data;
   const {login, avatar, name} = user;
 
-  const shortText = (text) => {
-    if (text.length <= 500) {
-      return text;
-    } else {
-      return `${text.slice(0, 500)} ...`
-    }
-  };
+  const [editMode, setEditMode] = useState(false);
+  const [textAreaValue, setTextAreaValue] = useState(text);
 
-  const handleLikeClick = (e) => {
-    e.preventDefault();
-    // likeFunc();
-  }
-
-  const handleDislikeClick = (e) => {
-    e.preventDefault();
-    // dislikeFunc();
+  const handleImageError = (e) => {
+    e.target.src = '/storage/avatars/default.jpg';
   }
 
   const handleDeleteClick = (e) => {
@@ -34,8 +25,20 @@ const ListEntity = ({data, type, loading, showDropdown = false, delFunc}) => {
     delFunc(id);
   }
 
-  const handleImageError = (e) => {
-    e.target.src = '/storage/avatars/default.jpg';
+  const handleTextAreaChange = (e) => {
+    e.preventDefault();
+    setTextAreaValue(e.target.value);
+  }
+
+  const changeMode = (e) => {
+    e.preventDefault();
+    setEditMode(!editMode);
+  }
+
+  const handleSaveClick = (e) => {
+    e.preventDefault();
+    updateFunc(id, textAreaValue);
+    setEditMode(false);
   }
 
   return (
@@ -69,10 +72,8 @@ const ListEntity = ({data, type, loading, showDropdown = false, delFunc}) => {
                         &#8250;
                       </button>
                       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <span className="dropdown-item" onClick={()=>{}}>Редактировать</span>
-                        <span className="dropdown-item" onClick={handleDeleteClick}>
-                          Удалить
-                        </span>
+                        <span className="dropdown-item" onClick={changeMode}>{editMode ? "Cancel" : 'Edit'}</span>
+                        <span className="dropdown-item" onClick={handleDeleteClick}>Delete</span>
                       </div>
                     </div>
                     : null}
@@ -81,18 +82,29 @@ const ListEntity = ({data, type, loading, showDropdown = false, delFunc}) => {
               }
             </div>
             <div className="col-lg-12 post-text px-3">
-              {!loading && text ? shortText(text) : <Skeleton count={type === "post" ? 3 : 2}/>}
+              {editMode
+                ? <>
+                  <textarea
+                    className="w-100"
+                    onClick={e=>e.preventDefault()}
+                    value={textAreaValue}
+                    onChange={handleTextAreaChange}
+                    rows="4"
+                  />
+                  <Button onClickFunc={handleSaveClick} style='add'>Save</Button>
+                </>
+                : text ? cropText(text) : <Skeleton count={type === "post" ? 3 : 2}/>}
             </div>
             {type === "post"
               ?
               <div className="col-lg-12 post-buttons row">
                 <div className="col-lg-4">
-                  <span className={"up-span " + (liked === true ? "liked" : "")} onClick={handleLikeClick}>
+                  <span className={"up-span " + (liked === true ? "liked" : "")}>
                     <FontAwesomeIcon icon={faThumbsUp}/> {likes_count}
                   </span>
                 </div>
                 <div className="col-lg-4">
-                  <span className={"down-span " + (liked === false ? "disliked" : "")} onClick={handleDislikeClick}>
+                  <span className={"down-span " + (liked === false ? "disliked" : "")}>
                     <FontAwesomeIcon icon={faThumbsDown}/> {dislikes_count}
                   </span>
                 </div>

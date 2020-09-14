@@ -2,7 +2,7 @@ import {
   ADD_USER_POST,
   DELETE_USER_POST,
   FETCH_USER,
-  FETCH_USER_POSTS,
+  FETCH_USER_POSTS, UPDATE_USER_POST,
 } from '../constants';
 
 const getUser = (id) => ({
@@ -61,9 +61,34 @@ const addUserPost = (payload) => ({
   },
 });
 
+const updateUserPost = (id, payload) => ({
+  type: UPDATE_USER_POST,
+  request: {
+    url: `/posts/${id}`,
+    method: 'put',
+    data: payload
+  },
+  meta: {
+    mutations: {
+      [FETCH_USER_POSTS]: {
+        updateData: (data, mutationData) => {
+          let updatedPostIndex = data.data.findIndex(post => post.id === id);
+          console.log(updatedPostIndex);
+          data.data[updatedPostIndex] = mutationData;
+          return ({
+            ...data,
+            data: data.data,
+          })
+        }
+      },
+    },
+  },
+});
+
 export default {
   getUser,
   getUserPosts,
   deleteUserPost,
-  addUserPost
+  addUserPost,
+  updateUserPost
 };

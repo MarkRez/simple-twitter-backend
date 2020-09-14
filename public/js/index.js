@@ -82198,11 +82198,8 @@ var updateUserPost = function updateUserPost(id, payload) {
           var updatedPostIndex = data.data.findIndex(function (post) {
             return post.id === id;
           });
-          console.log(updatedPostIndex);
           data.data[updatedPostIndex] = mutationData;
-          return _objectSpread(_objectSpread({}, data), {}, {
-            data: data.data
-          });
+          return _objectSpread({}, data);
         }
       })
     }

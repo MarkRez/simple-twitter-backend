@@ -73,12 +73,8 @@ const updateUserPost = (id, payload) => ({
       [FETCH_USER_POSTS]: {
         updateData: (data, mutationData) => {
           let updatedPostIndex = data.data.findIndex(post => post.id === id);
-          console.log(updatedPostIndex);
           data.data[updatedPostIndex] = mutationData;
-          return ({
-            ...data,
-            data: data.data,
-          })
+          return ({...data})
         }
       },
     },

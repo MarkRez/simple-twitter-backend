@@ -80444,7 +80444,7 @@ if(false) {}
 /*!***********************************!*\
   !*** ./resources/js/api/index.js ***!
   \***********************************/
-/*! exports provided: logIn, logOut, register, updateProfile, getFeed, default */
+/*! exports provided: logIn, logOut, register, updateProfile, addPost, getFeed, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -80453,6 +80453,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logOut", function() { return logOut; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "register", function() { return register; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateProfile", function() { return updateProfile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addPost", function() { return addPost; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFeed", function() { return getFeed; });
 /* harmony import */ var _helpers_axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/axios */ "./resources/js/helpers/axios.js");
 
@@ -80478,6 +80479,9 @@ var updateProfile = function updateProfile(payload) {
 // export const getPost = id => api.get(`/posts/${id}`);
 // export const getPostComments = id => api.get(`/posts/${id}/comments`);
 
+var addPost = function addPost(payload) {
+  return api.post("/posts", payload);
+};
 var getFeed = function getFeed(page) {
   return api.get("/feed?page=".concat(page));
 };
@@ -80486,7 +80490,8 @@ var apis = {
   logOut: logOut,
   register: register,
   updateProfile: updateProfile,
-  getFeed: getFeed
+  getFeed: getFeed,
+  addPost: addPost
 };
 /* harmony default export */ __webpack_exports__["default"] = (apis);
 
@@ -80538,6 +80543,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _addEntity_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_addEntity_scss__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-loading-skeleton */ "./node_modules/react-loading-skeleton/lib/index.js");
 /* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -80550,7 +80567,25 @@ var AddEntity = function AddEntity(_ref) {
       _ref$type = _ref.type,
       type = _ref$type === void 0 ? "" : _ref$type,
       _ref$loading = _ref.loading,
-      loading = _ref$loading === void 0 ? false : _ref$loading;
+      loading = _ref$loading === void 0 ? false : _ref$loading,
+      placeholder = _ref.placeholder;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState2 = _slicedToArray(_useState, 2),
+      textAreaValue = _useState2[0],
+      setTextAreaValue = _useState2[1];
+
+  var handleClick = function handleClick(e) {
+    e.preventDefault();
+    addFunc(textAreaValue);
+    setTextAreaValue('');
+  };
+
+  var handleTextAreaChange = function handleTextAreaChange(e) {
+    e.preventDefault();
+    setTextAreaValue(e.target.value);
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "add-entity w-100"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -80560,7 +80595,9 @@ var AddEntity = function AddEntity(_ref) {
   }, !loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
     className: "w-100 mb-2",
     rows: rows,
-    placeholder: "Share your opinion"
+    onChange: handleTextAreaChange,
+    value: textAreaValue,
+    placeholder: placeholder
   }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default.a, {
     height: 40
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -80568,7 +80605,7 @@ var AddEntity = function AddEntity(_ref) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-6 button-div text-right"
   }, !loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    onClickFunc: addFunc,
+    onClickFunc: handleClick,
     style: "add"
   }, "Add ", type) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default.a, {
     height: 35,
@@ -81152,7 +81189,7 @@ var ListEntity = function ListEntity(_ref) {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "post-img col-1"
-  }, !loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, avatar ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/users/".concat(user_id)
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: avatar,
@@ -81169,7 +81206,7 @@ var ListEntity = function ListEntity(_ref) {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-12 post-author px-3"
-  }, !loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, created_at ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/users/".concat(user_id)
   }, name), " \xB7 @", login, " \xB7 ", Object(_helpers_dateConverter__WEBPACK_IMPORTED_MODULE_6__["prettyDate"])(created_at)) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-12 post-text px-3"
@@ -81527,7 +81564,7 @@ var loginPasswordSchema = yup__WEBPACK_IMPORTED_MODULE_0__["object"]({
 /*!*******************************************!*\
   !*** ./resources/js/helpers/selectors.js ***!
   \*******************************************/
-/*! exports provided: profileSelector, currentPostSelector, currentPostCommentsSelector, userSelector, userPostsSelector */
+/*! exports provided: profileSelector, currentPostSelector, currentPostCommentsSelector, currentPostReset, currentPostCommentsReset, userSelector, userPostsSelector, currentUserReset, currentUserPostsReset, feedSelector, feedReset */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -81535,16 +81572,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "profileSelector", function() { return profileSelector; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "currentPostSelector", function() { return currentPostSelector; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "currentPostCommentsSelector", function() { return currentPostCommentsSelector; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "currentPostReset", function() { return currentPostReset; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "currentPostCommentsReset", function() { return currentPostCommentsReset; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userSelector", function() { return userSelector; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userPostsSelector", function() { return userPostsSelector; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "currentUserReset", function() { return currentUserReset; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "currentUserPostsReset", function() { return currentUserPostsReset; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "feedSelector", function() { return feedSelector; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "feedReset", function() { return feedReset; });
 /* harmony import */ var _redux_requests_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @redux-requests/core */ "./node_modules/@redux-requests/core/es/index.js");
 /* harmony import */ var _redux_constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../redux/constants */ "./resources/js/redux/constants/index.js");
 
 
+var skeletonArr = [{
+  id: "skltn 1"
+}, {
+  id: "skltn 2"
+}, {
+  id: "skltn 3"
+}, {
+  id: "skltn 4"
+}, {
+  id: "skltn 5"
+}]; // profile selectors
+
 var profileSelector = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["getQuerySelector"])({
   type: _redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_PROFILE"],
   defaultData: false
-});
+}); // post selectors
+
 var currentPostSelector = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["getQuerySelector"])({
   type: _redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_CURRENT_POST"],
   defaultData: false
@@ -81552,15 +81608,12 @@ var currentPostSelector = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0
 var currentPostCommentsSelector = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["getQuerySelector"])({
   type: _redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_CURRENT_POST_COMMENTS"],
   defaultData: {
-    data: [{
-      id: "skeleton 1"
-    }, {
-      id: "skeleton 2"
-    }, {
-      id: "skeleton 3"
-    }]
+    data: skeletonArr.slice(0, 3)
   }
 });
+var currentPostReset = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["resetRequests"])([_redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_CURRENT_POST"]]);
+var currentPostCommentsReset = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["resetRequests"])([_redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_CURRENT_POST_COMMENTS"]]); // user selectors
+
 var userSelector = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["getQuerySelector"])({
   type: _redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_USER"],
   defaultData: false
@@ -81568,17 +81621,19 @@ var userSelector = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["get
 var userPostsSelector = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["getQuerySelector"])({
   type: _redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_USER_POSTS"],
   defaultData: {
-    data: [{
-      id: "skeleton 1"
-    }, {
-      id: "skeleton 2"
-    }, {
-      id: "skeleton 3"
-    }, {
-      id: "skeleton 4"
-    }]
+    data: skeletonArr.slice(0, 3)
   }
 });
+var currentUserReset = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["resetRequests"])([_redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_USER"]]);
+var currentUserPostsReset = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["resetRequests"])([_redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_USER_POSTS"]]); // feed selectors
+
+var feedSelector = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["getQuerySelector"])({
+  type: _redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_FEED"],
+  defaultData: {
+    data: skeletonArr.slice(0, 4)
+  }
+});
+var feedReset = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["resetRequests"])([_redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_FEED"]]);
 
 /***/ }),
 
@@ -83051,6 +83106,10 @@ var PostPage = function PostPage(props) {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_2__["default"].postsActions.getPost(postId));
     dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_2__["default"].postsActions.getPostComments(postId));
+    return function () {
+      dispatch(_helpers_selectors__WEBPACK_IMPORTED_MODULE_6__["currentPostReset"]);
+      dispatch(_helpers_selectors__WEBPACK_IMPORTED_MODULE_6__["currentPostCommentsReset"]);
+    };
   }, []);
 
   if (post.error) {
@@ -83063,7 +83122,8 @@ var PostPage = function PostPage(props) {
     post: post.data,
     loading: post.loading
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddEntity__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    type: "comment"
+    type: "comment",
+    placeholder: "Share your opinion"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PostComments__WEBPACK_IMPORTED_MODULE_4__["default"], {
     comments: postComments.data.data,
     loading: postComments.loading
@@ -83556,6 +83616,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_AddEntity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../components/AddEntity */ "./resources/js/components/AddEntity/index.jsx");
 /* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-loading-skeleton */ "./node_modules/react-loading-skeleton/lib/index.js");
 /* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../api */ "./resources/js/api/index.js");
+
 
 
 
@@ -83580,10 +83642,21 @@ var User = function User(props) {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].usersActions.getUser(userId));
     dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].usersActions.getUserPosts(userId));
+    return function () {
+      dispatch(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["currentUserReset"]);
+      dispatch(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["currentUserPostsReset"]);
+    };
   }, [userId]);
 
   var followUser = function followUser(e) {
     e.preventDefault();
+  };
+
+  var addPost = function addPost(text, mentioned_user) {
+    _api__WEBPACK_IMPORTED_MODULE_8__["default"].addPost({
+      text: text,
+      mentioned_user: mentioned_user
+    });
   };
 
   if (user.error) {
@@ -83600,7 +83673,9 @@ var User = function User(props) {
     theSameUser: theSameUser,
     followFunc: followUser
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, user.data.name ? "".concat(user.data.name, " posts") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7___default.a, null)), theSameUser && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddEntity__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    loading: userPosts.loading
+    loading: userPosts.loading,
+    placeholder: "Write new post",
+    addFunc: addPost
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserPosts__WEBPACK_IMPORTED_MODULE_3__["default"], {
     loading: userPosts.loading,
     posts: userPosts.data.data

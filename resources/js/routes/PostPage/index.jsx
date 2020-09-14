@@ -4,7 +4,12 @@ import allActions from "../../redux/actions";
 import PostInfo from "./PostInfo";
 import PostComments from "./PostComments";
 import AddEntity from "../../components/AddEntity";
-import {currentPostSelector, currentPostCommentsSelector} from "../../helpers/selectors";
+import {
+  currentPostSelector,
+  currentPostCommentsSelector,
+  currentPostReset,
+  currentPostCommentsReset
+} from "../../helpers/selectors";
 
 const PostPage = (props) => {
   const dispatch = useDispatch();
@@ -16,6 +21,10 @@ const PostPage = (props) => {
   useEffect(() => {
     dispatch(allActions.postsActions.getPost(postId));
     dispatch(allActions.postsActions.getPostComments(postId));
+    return () => {
+      dispatch(currentPostReset);
+      dispatch(currentPostCommentsReset);
+    };
   }, []);
 
   if (post.error) {
@@ -32,6 +41,7 @@ const PostPage = (props) => {
       />
       <AddEntity
         type="comment"
+        placeholder="Share your opinion"
       />
       <PostComments
         comments={postComments.data.data}

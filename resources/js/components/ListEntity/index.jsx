@@ -37,7 +37,7 @@ const ListEntity = ({ data, type, loading }) => {
     <div className="entity w-100">
       <div className="row">
         <div className="post-img col-1">
-          {!loading
+          {avatar
             ?
             <Link to={`/users/${user_id}`}>
               <img src={avatar} onError={handleImageError} alt="name" className="img-fluid" />
@@ -48,7 +48,7 @@ const ListEntity = ({ data, type, loading }) => {
         <div className="post-text-buttons col-11">
           <div className="row">
             <div className="col-lg-12 post-author px-3">
-              {!loading
+              {created_at
                 ? <>
                   <Link to={`/users/${user_id}`}>{name}</Link> · @{login} · {prettyDate(created_at)}
                 </>

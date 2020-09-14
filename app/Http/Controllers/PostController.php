@@ -17,7 +17,6 @@ class PostController extends Controller
         $this->middleware('auth');
     }
 
-    // TODO
     public function index(User $user) {
         return $user->posts()->orderBy('updated_at', 'desc')->paginate(10);
     }
@@ -29,7 +28,6 @@ class PostController extends Controller
         return $post;
     }
 
-    // TODO
     public function store(PostCreateRequest $request)
     {
         $post = Auth::user()->posts()->create([

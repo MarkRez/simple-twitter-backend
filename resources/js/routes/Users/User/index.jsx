@@ -3,9 +3,16 @@ import {useSelector, useDispatch} from 'react-redux';
 import UserInfo from "./UserInfo";
 import UserPosts from "./UserPosts";
 import allActions from "../../../redux/actions";
-import {userSelector, userPostsSelector, profileSelector} from "../../../helpers/selectors";
+import {
+  userSelector,
+  userPostsSelector,
+  profileSelector,
+  currentUserReset,
+  currentUserPostsReset
+} from "../../../helpers/selectors";
 import AddEntity from "../../../components/AddEntity";
 import Skeleton from "react-loading-skeleton";
+import apis from "../../../api";
 
 const User = (props) => {
   const dispatch = useDispatch();
@@ -23,10 +30,18 @@ const User = (props) => {
   useEffect(() => {
     dispatch(allActions.usersActions.getUser(userId));
     dispatch(allActions.usersActions.getUserPosts(userId));
+    return () => {
+      dispatch(currentUserReset);
+      dispatch(currentUserPostsReset);
+    };
   }, [userId]);
 
   const followUser = (e) => {
     e.preventDefault();
+  }
+
+  const addPost = (text, mentioned_user) => {
+    apis.addPost({text, mentioned_user});
   }
 
   if (user.error) {
@@ -48,6 +63,8 @@ const User = (props) => {
         { theSameUser
           && <AddEntity
             loading={userPosts.loading}
+            placeholder="Write new post"
+            addFunc={addPost}
           />
         }
         <UserPosts

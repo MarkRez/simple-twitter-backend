@@ -33,9 +33,9 @@ class PostController extends Controller
     {
         $post = Auth::user()->posts()->create([
             'text' => $request->text,
-        ])->refresh()->load(['user']);
+        ]);
 
-        return $post;
+        return $post->refresh()->load(['user', 'mentionedUsers:users.id,users.login']);
     }
 
     public function update(PostUpdateRequest $request, Post $post)
@@ -44,7 +44,7 @@ class PostController extends Controller
             'text' => $request->text,
         ]);
 
-        return $post;
+        return $post->refresh()->load(['mentionedUsers:users.id,users.login']);
     }
 
     public function destroy(PostDeleteRequest $request, Post $post)

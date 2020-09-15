@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    protected $with = ['user'];
+    protected $with = ['user', 'mentionedUsers:users.id,users.login'];
 
     public function posts() {
         return $this->belongsTo(Post::Class);
@@ -19,5 +19,14 @@ class Comment extends Model
     public function mentions()
     {
         return $this->morphMany(Mention::class, 'mentionable');
+    }
+
+    public function mentionedUsers() {
+        return $this->hasManyThrough(User::class,
+            Mention::class,
+            'mentionable_id',
+            'id',
+            'id',
+            'user_id')->where('mentionable_type', 'App\Models\Comment');
     }
 }

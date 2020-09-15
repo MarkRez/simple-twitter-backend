@@ -2,7 +2,6 @@
 
 namespace App\Observers;
 
-use App\Models\Mention;
 use App\Models\Post;
 use App\Models\User;
 
@@ -22,5 +21,10 @@ class PostObserver
                 ]);
             }
         }
+    }
+
+    public function deleted(Post $post)
+    {
+        $post->mentions()->delete();
     }
 }

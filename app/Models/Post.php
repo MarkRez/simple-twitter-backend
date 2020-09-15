@@ -9,7 +9,7 @@ class Post extends Model
 {
     protected $fillable = ['text'];
     protected $appends = ['liked'];
-    protected $with = ['user', 'mentionedUser:users.login,id'];
+    protected $with = ['user', 'mentionedUsers:users.id,users.login'];
     protected $withCount = ['likes', 'dislikes', 'comments'];
 
     public function user()
@@ -54,8 +54,12 @@ class Post extends Model
         return $this->morphMany(Mention::class, 'mentionable');
     }
 
-    // TODO add where type
-    public function mentionedUser() {
-        return $this->hasManyThrough(User::class, Mention::class, 'mentionable_id', 'id', 'id', 'user_id');
+    public function mentionedUsers() {
+        return $this->hasManyThrough(User::class,
+            Mention::class,
+            'mentionable_id',
+            'id',
+            'id',
+            'user_id')->where('mentionable_type', 'App\Models\Post');
     }
 }

@@ -17470,7 +17470,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".entity {\n  background-color: #ffffff;\n  border: 1px solid #e6ecf0;\n  padding: 15px 20px 15px 20px;\n  margin-top: -1px;\n  transition: background-color 0.3s ease;\n}\n.entity:hover {\n  background-color: #fafafa;\n}\n.entity .post-img img {\n  border-radius: 50%;\n  max-width: 50px;\n  height: 50px;\n}\n.entity .post-text-buttons .post-author {\n  margin-bottom: 5px;\n}\n.entity .post-text-buttons .post-author a {\n  font-weight: 700;\n  color: #000000;\n}\n.entity .post-text-buttons .post-author a:hover {\n  text-decoration: underline;\n}\n.entity .post-text-buttons .post-author .react-loading-skeleton {\n  max-width: 250px;\n  line-height: 20px;\n}\n.entity .post-text-buttons .post-author .dropdown-div {\n  margin-left: auto;\n}\n.entity .post-text-buttons .post-author .dropdown-div button {\n  border: none;\n  transform: rotate(90deg);\n  font-size: 1.4em;\n  color: #6f6f6f;\n  font-weight: 800;\n  width: 30px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 50%;\n  padding: 0;\n  background-color: #e8e8e8;\n  transition: background-color 0.3s ease;\n}\n.entity .post-text-buttons .post-author .dropdown-div button:hover {\n  background-color: #8f8f8f;\n}\n.entity .post-text-buttons .post-author .dropdown-div button:focus {\n  border: none;\n  outline: none;\n}\n.entity .post-text-buttons .post-author .dropdown-div .dropdown-item {\n  cursor: pointer;\n  background-color: #ffffff;\n}\n.entity .post-text-buttons .post-author .dropdown-div .dropdown-item:hover {\n  background-color: #dcdcdc;\n}\n.entity .post-text-buttons .post-text {\n  color: #000000;\n}\n.entity .post-text-buttons .post-text textarea {\n  border: 1px solid #c8c9c9;\n  background-color: #fcfcfc;\n  border-radius: 20px;\n  padding: 10px 15px;\n  resize: none;\n  font-weight: 500;\n  color: #525252;\n}\n.entity .post-text-buttons .post-buttons {\n  margin-top: 25px;\n}\n.entity .post-text-buttons .post-buttons span {\n  color: #6d6d6d;\n  padding: 9px 15px;\n  transition: all 0.3s;\n  border-radius: 30px;\n  cursor: pointer;\n}\n.entity .post-text-buttons .post-buttons span.liked {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.entity .post-text-buttons .post-buttons span.disliked {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.entity .post-text-buttons .post-buttons span.up-span:hover {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.entity .post-text-buttons .post-buttons span.down-span:hover {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.entity .post-text-buttons .post-buttons span.comment-span:hover {\n  color: #3498db;\n  background-color: #e3f4ff;\n}\n.entity .post-text-buttons .post-buttons span svg {\n  font-size: 1.25em;\n  margin-right: 5px;\n}", ""]);
+exports.push([module.i, ".entity {\n  background-color: #ffffff;\n  border: 1px solid #e6ecf0;\n  padding: 15px 20px 15px 20px;\n  margin-top: -1px;\n  transition: background-color 0.3s ease;\n}\n.entity:hover {\n  background-color: #fafafa;\n}\n.entity .post-img img {\n  border-radius: 50%;\n  max-width: 50px;\n  height: 50px;\n}\n.entity .post-text-buttons .post-author {\n  margin-bottom: 5px;\n}\n.entity .post-text-buttons .post-author a {\n  font-weight: 700;\n  color: #000000;\n}\n.entity .post-text-buttons .post-author a:hover {\n  text-decoration: underline;\n}\n.entity .post-text-buttons .post-author .react-loading-skeleton {\n  max-width: 250px;\n  line-height: 20px;\n}\n.entity .post-text-buttons .post-author .dropdown-div {\n  margin-left: auto;\n}\n.entity .post-text-buttons .post-author .dropdown-div button {\n  border: none;\n  transform: rotate(90deg);\n  font-size: 1.4em;\n  color: #6f6f6f;\n  font-weight: 800;\n  width: 30px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 50%;\n  padding: 0;\n  background-color: #e8e8e8;\n  transition: background-color 0.3s ease;\n}\n.entity .post-text-buttons .post-author .dropdown-div button:hover {\n  background-color: #8f8f8f;\n}\n.entity .post-text-buttons .post-author .dropdown-div button:focus {\n  border: none;\n  outline: none;\n}\n.entity .post-text-buttons .post-author .dropdown-div .dropdown-item {\n  cursor: pointer;\n  background-color: #ffffff;\n}\n.entity .post-text-buttons .post-author .dropdown-div .dropdown-item:hover {\n  background-color: #dcdcdc;\n}\n.entity .post-text-buttons .post-text {\n  color: #000000;\n}\n.entity .post-text-buttons .post-text textarea {\n  border: 1px solid #c8c9c9;\n  background-color: #fcfcfc;\n  border-radius: 20px;\n  padding: 10px 15px;\n  resize: none;\n  font-weight: 500;\n  color: #525252;\n}\n.entity .post-text-buttons .post-text span {\n  cursor: pointer;\n  color: #1da1f2;\n}\n.entity .post-text-buttons .post-buttons {\n  margin-top: 25px;\n}\n.entity .post-text-buttons .post-buttons span {\n  color: #6d6d6d;\n  padding: 9px 15px;\n  transition: all 0.3s;\n  border-radius: 30px;\n  cursor: pointer;\n}\n.entity .post-text-buttons .post-buttons span.liked {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.entity .post-text-buttons .post-buttons span.disliked {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.entity .post-text-buttons .post-buttons span.up-span:hover {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.entity .post-text-buttons .post-buttons span.down-span:hover {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.entity .post-text-buttons .post-buttons span.comment-span:hover {\n  color: #3498db;\n  background-color: #e3f4ff;\n}\n.entity .post-text-buttons .post-buttons span svg {\n  font-size: 1.25em;\n  margin-right: 5px;\n}", ""]);
 
 // exports
 
@@ -17546,7 +17546,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".post-info {\n  border: 1px solid #e6ecf0;\n}\n.post-info .post-user-info {\n  padding-top: 15px;\n}\n.post-info .post-user-info .img-div img {\n  border-radius: 50%;\n  max-width: 50px;\n}\n.post-info .post-user-info .name-login-div {\n  color: #5f5f5f;\n  padding-left: 20px;\n}\n.post-info .post-user-info .name-login-div p {\n  font-size: 1.2em;\n  color: #000000;\n  font-weight: 800;\n  margin-bottom: -5px;\n}\n.post-info .post-user-info .name-login-div p a:hover {\n  text-decoration: underline;\n}\n.post-info .post-user-info .name-login-div span {\n  margin-top: -10px;\n}\n.post-info .post-user-info .name-login-div .react-loading-skeleton {\n  width: 200px;\n}\n.post-info .post-text {\n  font-size: 1.3em;\n}\n.post-info .post-date-buttons .date-div {\n  color: #5f5f5f;\n}\n.post-info .post-date-buttons .buttons-div span {\n  color: #6d6d6d;\n  padding: 9px 15px;\n  transition: all 0.3s;\n  border-radius: 30px;\n  cursor: pointer;\n}\n.post-info .post-date-buttons .buttons-div span.liked {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.post-info .post-date-buttons .buttons-div span.disliked {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.post-info .post-date-buttons .buttons-div span.up-span:hover {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.post-info .post-date-buttons .buttons-div span.down-span:hover {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.post-info .post-date-buttons .buttons-div span.comment-span:hover {\n  color: #3498db;\n  background-color: #e3f4ff;\n}\n.post-info .post-date-buttons .buttons-div span svg {\n  font-size: 1.25em;\n  margin-right: 5px;\n}\n.post-info > div {\n  margin-bottom: 25px;\n}", ""]);
+exports.push([module.i, ".post-info {\n  border: 1px solid #e6ecf0;\n}\n.post-info .post-user-info {\n  padding-top: 15px;\n}\n.post-info .post-user-info .img-div img {\n  border-radius: 50%;\n  max-width: 50px;\n}\n.post-info .post-user-info .name-login-div {\n  color: #5f5f5f;\n  padding-left: 20px;\n}\n.post-info .post-user-info .name-login-div p {\n  font-size: 1.2em;\n  color: #000000;\n  font-weight: 800;\n  margin-bottom: -5px;\n}\n.post-info .post-user-info .name-login-div p a:hover {\n  text-decoration: underline;\n}\n.post-info .post-user-info .name-login-div span {\n  margin-top: -10px;\n}\n.post-info .post-user-info .name-login-div .react-loading-skeleton {\n  width: 200px;\n}\n.post-info .post-text {\n  font-size: 1.3em;\n}\n.post-info .post-text span {\n  cursor: pointer;\n  color: #1da1f2;\n}\n.post-info .post-date-buttons .date-div {\n  color: #5f5f5f;\n}\n.post-info .post-date-buttons .buttons-div span {\n  color: #6d6d6d;\n  padding: 9px 15px;\n  transition: all 0.3s;\n  border-radius: 30px;\n  cursor: pointer;\n}\n.post-info .post-date-buttons .buttons-div span.liked {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.post-info .post-date-buttons .buttons-div span.disliked {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.post-info .post-date-buttons .buttons-div span.up-span:hover {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.post-info .post-date-buttons .buttons-div span.down-span:hover {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.post-info .post-date-buttons .buttons-div span.comment-span:hover {\n  color: #3498db;\n  background-color: #e3f4ff;\n}\n.post-info .post-date-buttons .buttons-div span svg {\n  font-size: 1.25em;\n  margin-right: 5px;\n}\n.post-info > div {\n  margin-bottom: 25px;\n}", ""]);
 
 // exports
 
@@ -80589,7 +80589,7 @@ var AddEntity = function AddEntity(_ref) {
     className: "row px-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-12 text-aria-div"
-  }, !loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+  }, type ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
     className: "w-100 mb-2",
     rows: rows,
     onChange: handleTextAreaChange,
@@ -80601,7 +80601,7 @@ var AddEntity = function AddEntity(_ref) {
     className: "col-lg-6 mentioned-div"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-6 button-div text-right"
-  }, !loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, type ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
     onClickFunc: handleClick,
     style: "add"
   }, "Add ", type) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default.a, {
@@ -80732,7 +80732,7 @@ var Footer = function Footer(props) {
     className: "container-fluid"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Footer"))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Copyright \xA9 2020"))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Footer);
@@ -81134,7 +81134,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _listEntity_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./listEntity.scss */ "./resources/js/components/ListEntity/listEntity.scss");
 /* harmony import */ var _listEntity_scss__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_listEntity_scss__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Button */ "./resources/js/components/Button/index.jsx");
-/* harmony import */ var _helpers_anotherMethods__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../helpers/anotherMethods */ "./resources/js/helpers/anotherMethods.js");
+/* harmony import */ var _TextWithMentions__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../TextWithMentions */ "./resources/js/components/TextWithMentions/index.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -81173,6 +81173,8 @@ var ListEntity = function ListEntity(_ref) {
       dislikes_count = data.dislikes_count,
       comments_count = data.comments_count,
       liked = data.liked,
+      _data$mentioned_users = data.mentioned_users,
+      mentioned_users = _data$mentioned_users === void 0 ? [] : _data$mentioned_users,
       _data$user = data.user,
       user = _data$user === void 0 ? {} : _data$user;
   var login = user.login,
@@ -81269,7 +81271,10 @@ var ListEntity = function ListEntity(_ref) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
     onClickFunc: handleSaveClick,
     style: "add"
-  }, "Save")) : text ? Object(_helpers_anotherMethods__WEBPACK_IMPORTED_MODULE_9__["cropText"])(text) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  }, "Save")) : text ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TextWithMentions__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    text: text,
+    mentions: mentioned_users
+  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, {
     count: type === "post" ? 3 : 2
   })), type === "post" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-12 post-buttons row"
@@ -81362,6 +81367,73 @@ var ProtectedRoute = function ProtectedRoute(props) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ProtectedRoute);
+
+/***/ }),
+
+/***/ "./resources/js/components/TextWithMentions/index.jsx":
+/*!************************************************************!*\
+  !*** ./resources/js/components/TextWithMentions/index.jsx ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+
+
+
+var TextWithMentions = function TextWithMentions(_ref) {
+  var text = _ref.text,
+      mentions = _ref.mentions;
+  var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["useHistory"])();
+  var textWithMentions = '';
+
+  var changePage = function changePage(e, id) {
+    e.preventDefault();
+    history.push("/users/".concat(id));
+  };
+
+  if (text) {
+    var reg = new RegExp(/(@(?:\w+[.]?\w+)+)/, 'g');
+    var parts = text.split(reg);
+    textWithMentions = parts.map(function (part, i) {
+      var mention = part.match(reg);
+
+      if (mention) {
+        if (mentions && mentions.length > 0) {
+          var _loop = function _loop(_i) {
+            if (mention[0].split('@')[1] === mentions[_i].login) {
+              return {
+                v: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+                  onClick: function onClick(e) {
+                    return changePage(e, mentions[_i].id);
+                  }
+                }, mention)
+              };
+            }
+          };
+
+          for (var _i = 0; _i < mentions.length; _i += 1) {
+            var _ret = _loop(_i);
+
+            if (_typeof(_ret) === "object") return _ret.v;
+          }
+        }
+      }
+
+      return part;
+    });
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, textWithMentions);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (TextWithMentions);
 
 /***/ }),
 
@@ -81941,6 +82013,24 @@ var allActions = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api */ "./resources/js/api/index.js");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants */ "./resources/js/redux/constants/index.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -81964,9 +82054,30 @@ var getPostComments = function getPostComments(id) {
   };
 };
 
+var addPostComments = function addPostComments(id, payload) {
+  return {
+    type: _constants__WEBPACK_IMPORTED_MODULE_1__["ADD_POST_COMMENT"],
+    request: {
+      url: "/posts/".concat(id, "/comments"),
+      method: 'post',
+      data: payload
+    },
+    meta: {
+      mutations: _defineProperty({}, _constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_CURRENT_POST_COMMENTS"], {
+        updateData: function updateData(data, mutationData) {
+          return _objectSpread(_objectSpread({}, data), {}, {
+            data: [mutationData].concat(_toConsumableArray(data.data))
+          });
+        }
+      })
+    }
+  };
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   getPost: getPost,
-  getPostComments: getPostComments
+  getPostComments: getPostComments,
+  addPostComments: addPostComments
 });
 
 /***/ }),
@@ -82220,7 +82331,7 @@ var updateUserPost = function updateUserPost(id, payload) {
 /*!***********************************************!*\
   !*** ./resources/js/redux/constants/index.js ***!
   \***********************************************/
-/*! exports provided: SET_LOGGED_IN, FETCH_PROFILE, FETCH_CURRENT_POST, FETCH_CURRENT_POST_COMMENTS, FETCH_USER, FETCH_USER_POSTS, DELETE_USER_POST, ADD_USER_POST, UPDATE_USER_POST, ADD_FEED_POSTS, SET_FEED_LOADING, SET_FEED_CURRENT_PAGE, SET_FEED_TOTAL_PAGES, FETCH_FEED */
+/*! exports provided: SET_LOGGED_IN, FETCH_PROFILE, FETCH_CURRENT_POST, FETCH_CURRENT_POST_COMMENTS, ADD_POST_COMMENT, FETCH_USER, FETCH_USER_POSTS, DELETE_USER_POST, ADD_USER_POST, UPDATE_USER_POST, ADD_FEED_POSTS, SET_FEED_LOADING, SET_FEED_CURRENT_PAGE, SET_FEED_TOTAL_PAGES, FETCH_FEED */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -82229,6 +82340,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_PROFILE", function() { return FETCH_PROFILE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_CURRENT_POST", function() { return FETCH_CURRENT_POST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_CURRENT_POST_COMMENTS", function() { return FETCH_CURRENT_POST_COMMENTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_POST_COMMENT", function() { return ADD_POST_COMMENT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_USER", function() { return FETCH_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_USER_POSTS", function() { return FETCH_USER_POSTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_USER_POST", function() { return DELETE_USER_POST; });
@@ -82244,7 +82356,8 @@ var SET_LOGGED_IN = 'SET_LOGGED_IN';
 var FETCH_PROFILE = 'FETCH_PROFILE'; // posts constants
 
 var FETCH_CURRENT_POST = 'FETCH_CURRENT_POST';
-var FETCH_CURRENT_POST_COMMENTS = 'FETCH_CURRENT_POST_COMMENTS'; // users constants
+var FETCH_CURRENT_POST_COMMENTS = 'FETCH_CURRENT_POST_COMMENTS';
+var ADD_POST_COMMENT = 'ADD_POST_COMMENT'; // users constants
 
 var FETCH_USER = 'FETCH_USER';
 var FETCH_USER_POSTS = 'FETCH_USER_POSTS';
@@ -83095,10 +83208,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js");
 /* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-loading-skeleton */ "./node_modules/react-loading-skeleton/lib/index.js");
 /* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _helpers_dateConverter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../helpers/dateConverter */ "./resources/js/helpers/dateConverter.js");
-/* harmony import */ var _postInfo_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./postInfo.scss */ "./resources/js/routes/PostPage/PostInfo/postInfo.scss");
-/* harmony import */ var _postInfo_scss__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_postInfo_scss__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _helpers_dateConverter__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../helpers/dateConverter */ "./resources/js/helpers/dateConverter.js");
+/* harmony import */ var _postInfo_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./postInfo.scss */ "./resources/js/routes/PostPage/PostInfo/postInfo.scss");
+/* harmony import */ var _postInfo_scss__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_postInfo_scss__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _components_TextWithMentions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../components/TextWithMentions */ "./resources/js/components/TextWithMentions/index.jsx");
+
 
 
 
@@ -83117,6 +83232,8 @@ var PostInfo = function PostInfo(_ref) {
       likes_count = post.likes_count,
       dislikes_count = post.dislikes_count,
       liked = post.liked,
+      _post$mentioned_users = post.mentioned_users,
+      mentioned_users = _post$mentioned_users === void 0 ? [] : _post$mentioned_users,
       _post$user = post.user,
       user = _post$user === void 0 ? {} : _post$user;
   var name = user.name,
@@ -83144,7 +83261,7 @@ var PostInfo = function PostInfo(_ref) {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-1 img-div"
-  }, !loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Link"], {
+  }, !loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
     to: "/users/".concat(id)
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "img-fluid",
@@ -83156,7 +83273,7 @@ var PostInfo = function PostInfo(_ref) {
     circle: true
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-10 name-login-div"
-  }, !loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Link"], {
+  }, !loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
     to: "/users/".concat(id)
   }, name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "@", login)) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-3"
@@ -83164,7 +83281,10 @@ var PostInfo = function PostInfo(_ref) {
     count: 2
   }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-12 post-text"
-  }, !loading && text ? text : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_4___default.a, {
+  }, !loading && text ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TextWithMentions__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    text: text,
+    mentions: mentioned_users
+  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_4___default.a, {
     count: 3
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-12 post-date-buttons"
@@ -83172,7 +83292,7 @@ var PostInfo = function PostInfo(_ref) {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-6 date-div"
-  }, !loading ? Object(_helpers_dateConverter__WEBPACK_IMPORTED_MODULE_5__["prettyDate"])(created_at, true) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_4___default.a, {
+  }, !loading ? Object(_helpers_dateConverter__WEBPACK_IMPORTED_MODULE_6__["prettyDate"])(created_at, true) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_4___default.a, {
     className: "w-50"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-6 buttons-div d-flex justify-content-end"
@@ -83266,6 +83386,12 @@ var PostPage = function PostPage(props) {
     };
   }, []);
 
+  var addComment = function addComment(text) {
+    dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_2__["default"].postsActions.addPostComments(postId, {
+      text: text
+    }));
+  };
+
   if (post.error) {
     return post.error.response.status === 404 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Post not found!") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Internal server error!");
   }
@@ -83277,7 +83403,8 @@ var PostPage = function PostPage(props) {
     loading: post.loading
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddEntity__WEBPACK_IMPORTED_MODULE_5__["default"], {
     type: "comment",
-    placeholder: "Share your opinion"
+    placeholder: "Share your opinion",
+    addFunc: addComment
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PostComments__WEBPACK_IMPORTED_MODULE_4__["default"], {
     comments: postComments.data.data,
     loading: postComments.loading
@@ -83807,10 +83934,9 @@ var User = function User(props) {
     e.preventDefault();
   };
 
-  var addPost = function addPost(text, mentioned_user) {
+  var addPost = function addPost(text) {
     dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].usersActions.addUserPost({
-      text: text,
-      mentioned_user: mentioned_user
+      text: text
     }));
   };
 
@@ -83838,7 +83964,7 @@ var User = function User(props) {
     theSameUser: theSameUser,
     followFunc: followUser
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, user.data.name ? "".concat(user.data.name, " posts") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7___default.a, null)), theSameUser && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddEntity__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    loading: userPosts.loading,
+    type: "post",
     placeholder: "Write new post",
     addFunc: addPost
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserPosts__WEBPACK_IMPORTED_MODULE_3__["default"], {

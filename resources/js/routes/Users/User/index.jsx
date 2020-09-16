@@ -39,8 +39,8 @@ const User = (props) => {
     e.preventDefault();
   }
 
-  const addPost = (text, mentioned_user) => {
-    dispatch(allActions.usersActions.addUserPost({text, mentioned_user}));
+  const addPost = (text) => {
+    dispatch(allActions.usersActions.addUserPost({text}));
   }
 
   const deletePost = (id) => {
@@ -67,12 +67,12 @@ const User = (props) => {
           followFunc={followUser}
         />
         <h2>{user.data.name ? `${user.data.name} posts` : <Skeleton/>}</h2>
-        { theSameUser
-          && <AddEntity
-            loading={userPosts.loading}
-            placeholder="Write new post"
-            addFunc={addPost}
-          />
+        {theSameUser
+        && <AddEntity
+          type="post"
+          placeholder="Write new post"
+          addFunc={addPost}
+        />
         }
         <UserPosts
           delFunc={deletePost}

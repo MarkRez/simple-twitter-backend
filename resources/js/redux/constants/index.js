@@ -5,6 +5,7 @@ export const FETCH_PROFILE = 'FETCH_PROFILE';
 // posts constants
 export const FETCH_CURRENT_POST = 'FETCH_CURRENT_POST';
 export const FETCH_CURRENT_POST_COMMENTS = 'FETCH_CURRENT_POST_COMMENTS';
+export const ADD_POST_COMMENT = 'ADD_POST_COMMENT';
 
 // users constants
 export const FETCH_USER = 'FETCH_USER';

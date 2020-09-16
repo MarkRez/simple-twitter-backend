@@ -3,7 +3,7 @@ import Button from "../Button";
 import './addEntity.scss'
 import Skeleton from "react-loading-skeleton";
 
-const AddEntity = ({ addFunc, rows = 2, type="", loading = false, placeholder }) => {
+const AddEntity = ({addFunc, rows = 2, type = "", loading = false, placeholder}) => {
   const [textAreaValue, setTextAreaValue] = useState('');
 
   const handleClick = (e) => {
@@ -21,7 +21,7 @@ const AddEntity = ({ addFunc, rows = 2, type="", loading = false, placeholder })
     <div className="add-entity w-100">
       <div className="row px-2">
         <div className="col-lg-12 text-aria-div">
-          { !loading
+          {type
             ? <textarea
               className="w-100 mb-2"
               rows={rows}
@@ -36,9 +36,9 @@ const AddEntity = ({ addFunc, rows = 2, type="", loading = false, placeholder })
           {/*<b>mention</b>*/}
         </div>
         <div className="col-lg-6 button-div text-right">
-          { !loading
-          ? <Button onClickFunc={handleClick} style="add">Add {type}</Button>
-          : <Skeleton height={35} width={100} />}
+          {type
+            ? <Button onClickFunc={handleClick} style="add">Add {type}</Button>
+            : <Skeleton height={35} width={100}/>}
         </div>
       </div>
     </div>

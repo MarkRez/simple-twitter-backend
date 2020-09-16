@@ -7,10 +7,10 @@ import '@fortawesome/fontawesome-svg-core';
 import {prettyDate} from "../../helpers/dateConverter";
 import './listEntity.scss';
 import Button from "../Button";
-import { cropText } from "../../helpers/anotherMethods";
+import TextWithMentions from "../TextWithMentions";
 
 const ListEntity = ({data, type, showDropdown = false, delFunc, updateFunc}) => {
-  const {id, text, user_id, created_at, likes_count, dislikes_count, comments_count, liked, user = {}} = data;
+  const {id, text, user_id, created_at, likes_count, dislikes_count, comments_count, liked, mentioned_users = [], user = {}} = data;
   const {login, avatar, name} = user;
 
   const [editMode, setEditMode] = useState(false);
@@ -93,7 +93,9 @@ const ListEntity = ({data, type, showDropdown = false, delFunc, updateFunc}) => 
                   />
                   <Button onClickFunc={handleSaveClick} style='add'>Save</Button>
                 </>
-                : text ? cropText(text) : <Skeleton count={type === "post" ? 3 : 2}/>}
+                : text
+                  ? <TextWithMentions text={text} mentions={mentioned_users}/>
+                  : <Skeleton count={type === "post" ? 3 : 2}/>}
             </div>
             {type === "post"
               ?

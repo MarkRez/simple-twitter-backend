@@ -38,6 +38,11 @@
 
   .post-text {
     font-size: 1.3em;
+
+    span {
+      cursor: pointer;
+      color: #1da1f2;
+    }
   }
 
   .post-date-buttons {

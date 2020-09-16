@@ -3,12 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-regular-svg-icons';
 import '@fortawesome/fontawesome-svg-core';
 import Skeleton from "react-loading-skeleton";
+import { Link } from "react-router-dom";
 import { prettyDate } from "../../../helpers/dateConverter";
 import './postInfo.scss';
-import { Link } from "react-router-dom";
+import TextWithMentions from "../../../components/TextWithMentions";
+
 
 const PostInfo = ({ post = {}, loading }) => {
-  const { text, created_at, likes_count, dislikes_count, liked, user = {} } = post;
+  const { text, created_at, likes_count, dislikes_count, liked, mentioned_users=[], user = {} } = post;
   const { name, login, avatar, id } = user;
 
   const handleLikeClick = (e) => {
@@ -52,7 +54,7 @@ const PostInfo = ({ post = {}, loading }) => {
         </div>
       </div>
       <div className="col-lg-12 post-text">
-        {!loading && text ? text : <Skeleton count={3} />}
+        {!loading && text ? <TextWithMentions text={text} mentions={mentioned_users} /> : <Skeleton count={3} />}
       </div>
       <div className="col-lg-12 post-date-buttons">
         <div className="row">

@@ -27,6 +27,10 @@ const PostPage = (props) => {
     };
   }, []);
 
+  const addComment = (text) => {
+    dispatch(allActions.postsActions.addPostComments(postId, {text}));
+  }
+
   if (post.error) {
     return post.error.response.status === 404
       ? <h1>Post not found!</h1>
@@ -42,6 +46,7 @@ const PostPage = (props) => {
       <AddEntity
         type="comment"
         placeholder="Share your opinion"
+        addFunc={addComment}
       />
       <PostComments
         comments={postComments.data.data}

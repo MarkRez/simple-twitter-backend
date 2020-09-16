@@ -84108,8 +84108,8 @@ var User = function User(props) {
   var userId = props.computedMatch.params.id;
   var user = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["userSelector"]);
   var userPosts = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["userPostsSelector"]);
-  var currentUser = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["profileSelector"]);
-  var tags = Object(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["userSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["tagsSelector"]);
+  var currentUser = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["profileSelector"]); // const tags = userSelector(tagsSelector);
+
   var theSameUser = undefined;
 
   if (currentUser.data && user.data) {
@@ -84118,6 +84118,7 @@ var User = function User(props) {
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].usersActions.getUser(userId));
+    dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].tagsActions.getTags('rs'));
     dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].usersActions.getUserPosts(userId));
     return function () {
       dispatch(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["currentUserReset"]);

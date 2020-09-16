@@ -13,7 +13,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('posts/{post}/comments', 'CommentController@store');
     Route::get('users/{user}/posts', 'PostController@index');
 
-    Route::get('tags', 'TagsController@index');
+    Route::get('tags', 'TagController@index');
 
     Route::get('/feed', 'FeedController@get');
 

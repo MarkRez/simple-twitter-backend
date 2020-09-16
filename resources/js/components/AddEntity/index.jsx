@@ -4,7 +4,17 @@ import './addEntity.scss'
 import Skeleton from "react-loading-skeleton";
 import DropdownInput from "../DropdownInput";
 
-const AddEntity = ({addFunc, rows = 2, type = "", loading = false, placeholder, tagsList}) => {
+const AddEntity = (
+  {
+    addFunc,
+    getTagsFunc,
+    rows = 2,
+    type = "",
+    loading = false,
+    placeholder,
+    tagsList,
+    showTagsInput = false
+  }) => {
   const [textAreaValue, setTextAreaValue] = useState('');
   const [tags, setTags] = useState([]);
 
@@ -35,7 +45,7 @@ const AddEntity = ({addFunc, rows = 2, type = "", loading = false, placeholder, 
           }
         </div>
         <div className="col-lg-6 tags-div">
-          <DropdownInput items={tagsList}/>
+          {showTagsInput && <DropdownInput onChangeFunc={getTagsFunc} items={tagsList}/>}
         </div>
         <div className="col-lg-6 button-div text-right">
           {type

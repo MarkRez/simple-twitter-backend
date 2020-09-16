@@ -38,4 +38,5 @@ export const feedSelector = getQuerySelector({
 export const feedReset = resetRequests([FETCH_FEED]);
 
 // tags selectors
-export const tagsSelector = getQuerySelector({type: FETCH_TAGS, defaultData: []});
+export const tagsSelector = getQuerySelector({ type: FETCH_TAGS, multiple: true});
+

@@ -80580,6 +80580,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var AddEntity = function AddEntity(_ref) {
   var addFunc = _ref.addFunc,
+      getTagsFunc = _ref.getTagsFunc,
       _ref$rows = _ref.rows,
       rows = _ref$rows === void 0 ? 2 : _ref$rows,
       _ref$type = _ref.type,
@@ -80587,7 +80588,9 @@ var AddEntity = function AddEntity(_ref) {
       _ref$loading = _ref.loading,
       loading = _ref$loading === void 0 ? false : _ref$loading,
       placeholder = _ref.placeholder,
-      tagsList = _ref.tagsList;
+      tagsList = _ref.tagsList,
+      _ref$showTagsInput = _ref.showTagsInput,
+      showTagsInput = _ref$showTagsInput === void 0 ? false : _ref$showTagsInput;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
       _useState2 = _slicedToArray(_useState, 2),
@@ -80626,7 +80629,8 @@ var AddEntity = function AddEntity(_ref) {
     height: 40
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-6 tags-div"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DropdownInput__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, showTagsInput && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DropdownInput__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    onChangeFunc: getTagsFunc,
     items: tagsList
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-6 button-div text-right"
@@ -80758,7 +80762,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var DropdownInput = function DropdownInput(_ref) {
   var _ref$items = _ref.items,
-      items = _ref$items === void 0 ? [] : _ref$items;
+      items = _ref$items === void 0 ? [] : _ref$items,
+      onChangeFunc = _ref.onChangeFunc;
   var itemsList = [];
 
   if (items.length > 0) {
@@ -80771,13 +80776,19 @@ var DropdownInput = function DropdownInput(_ref) {
     });
   }
 
+  var handleChange = function handleChange(e) {
+    e.preventDefault();
+    onChangeFunc(e.target.value);
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
     type: "text",
-    placeholder: "Add tags"
+    placeholder: "Add tags",
+    onChangeFunc: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "dropdown-menu dropdown-input",
-    style: items.length > 0 && {
-      display: "block"
+    style: {
+      display: items.length > 0 ? "block" : "none"
     },
     "aria-labelledby": "dropdownMenu2"
   }, itemsList));
@@ -80998,9 +81009,9 @@ var Input = function Input(props) {
   var id = props.id,
       labelText = props.labelText,
       placeholder = props.placeholder,
+      onChangeFunc = props.onChangeFunc,
       type = props.type,
       field = props.field,
-      onChange = props.onChange,
       _props$form = props.form,
       form = _props$form === void 0 ? {} : _props$form;
   var errors = form.errors,
@@ -81012,7 +81023,8 @@ var Input = function Input(props) {
     className: "form-control",
     id: id,
     type: type,
-    placeholder: placeholder
+    placeholder: placeholder,
+    onChange: onChangeFunc
   }, field)), errors && errors[field.name] && touched[field.name] ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
     className: "form-text small-error text-muted"
   }, errors[field.name]) : null);
@@ -81916,7 +81928,7 @@ var feedReset = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["resetR
 
 var tagsSelector = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["getQuerySelector"])({
   type: _redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_TAGS"],
-  defaultData: []
+  multiple: true
 });
 
 /***/ }),
@@ -82161,8 +82173,7 @@ var allActions = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api */ "./resources/js/api/index.js");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants */ "./resources/js/redux/constants/index.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants */ "./resources/js/redux/constants/index.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -82183,10 +82194,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-
 var getPost = function getPost(id) {
   return {
-    type: _constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_CURRENT_POST"],
+    type: _constants__WEBPACK_IMPORTED_MODULE_0__["FETCH_CURRENT_POST"],
     request: {
       url: "/posts/".concat(id),
       method: 'get'
@@ -82196,7 +82206,7 @@ var getPost = function getPost(id) {
 
 var getPostComments = function getPostComments(id) {
   return {
-    type: _constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_CURRENT_POST_COMMENTS"],
+    type: _constants__WEBPACK_IMPORTED_MODULE_0__["FETCH_CURRENT_POST_COMMENTS"],
     request: {
       url: "/posts/".concat(id, "/comments"),
       method: 'get'
@@ -82206,14 +82216,14 @@ var getPostComments = function getPostComments(id) {
 
 var addPostComments = function addPostComments(id, payload) {
   return {
-    type: _constants__WEBPACK_IMPORTED_MODULE_1__["ADD_POST_COMMENT"],
+    type: _constants__WEBPACK_IMPORTED_MODULE_0__["ADD_POST_COMMENT"],
     request: {
       url: "/posts/".concat(id, "/comments"),
       method: 'post',
       data: payload
     },
     meta: {
-      mutations: _defineProperty({}, _constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_CURRENT_POST_COMMENTS"], {
+      mutations: _defineProperty({}, _constants__WEBPACK_IMPORTED_MODULE_0__["FETCH_CURRENT_POST_COMMENTS"], {
         updateData: function updateData(data, mutationData) {
           return _objectSpread(_objectSpread({}, data), {}, {
             data: [mutationData].concat(_toConsumableArray(data.data))
@@ -84108,8 +84118,8 @@ var User = function User(props) {
   var userId = props.computedMatch.params.id;
   var user = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["userSelector"]);
   var userPosts = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["userPostsSelector"]);
-  var currentUser = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["profileSelector"]); // const tags = userSelector(tagsSelector);
-
+  var currentUser = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["profileSelector"]);
+  var tags = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["tagsSelector"]);
   var theSameUser = undefined;
 
   if (currentUser.data && user.data) {
@@ -84118,7 +84128,6 @@ var User = function User(props) {
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].usersActions.getUser(userId));
-    dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].tagsActions.getTags('rs'));
     dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].usersActions.getUserPosts(userId));
     return function () {
       dispatch(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["currentUserReset"]);
@@ -84167,7 +84176,9 @@ var User = function User(props) {
     type: "post",
     placeholder: "Write new post",
     addFunc: addPost,
-    tags: tags.data
+    tagsList: tags.data,
+    showTagsInput: true,
+    getTagsFunc: getTags
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserPosts__WEBPACK_IMPORTED_MODULE_3__["default"], {
     delFunc: deletePost,
     updateFunc: updatePost,
@@ -84233,8 +84244,6 @@ var configureStore = function configureStore() {
   var reducers = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
     requests: requestsReducer,
     user: _redux_reducers_userReducer__WEBPACK_IMPORTED_MODULE_5__["User"],
-    posts: _redux_reducers_postsReducer__WEBPACK_IMPORTED_MODULE_6__["Posts"],
-    users: _redux_reducers_usersReducer__WEBPACK_IMPORTED_MODULE_7__["Users"],
     feed: _redux_reducers_feedReducer__WEBPACK_IMPORTED_MODULE_8__["Feed"],
     tags: _redux_reducers_tagsReducer__WEBPACK_IMPORTED_MODULE_9__["Tags"]
   });

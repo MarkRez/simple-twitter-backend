@@ -1,4 +1,5 @@
 import {
+  FETCH_CURRENT_POST,
   FETCH_TAGS
 } from '../constants';
 

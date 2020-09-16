@@ -1,4 +1,3 @@
-import apis from "../../api";
 import {
   FETCH_CURRENT_POST,
   FETCH_CURRENT_POST_COMMENTS,

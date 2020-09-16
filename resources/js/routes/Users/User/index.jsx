@@ -21,7 +21,7 @@ const User = (props) => {
   const user = useSelector(userSelector);
   const userPosts = useSelector(userPostsSelector);
   const currentUser = useSelector(profileSelector);
-  // const tags = userSelector(tagsSelector);
+  const tags = useSelector(tagsSelector);
 
   let theSameUser = undefined;
   if (currentUser.data && user.data) {
@@ -30,7 +30,6 @@ const User = (props) => {
 
   useEffect(() => {
     dispatch(allActions.usersActions.getUser(userId));
-    dispatch(allActions.tagsActions.getTags('rs'));
     dispatch(allActions.usersActions.getUserPosts(userId));
     return () => {
       dispatch(currentUserReset);
@@ -79,7 +78,9 @@ const User = (props) => {
           type="post"
           placeholder="Write new post"
           addFunc={addPost}
-          tags={tags.data}
+          tagsList={tags.data}
+          showTagsInput={true}
+          getTagsFunc={getTags}
         />
         }
         <UserPosts

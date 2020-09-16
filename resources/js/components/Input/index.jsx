@@ -2,7 +2,7 @@ import React from "react";
 import './input.scss'
 
 const Input = (props) => {
-  const {  id, labelText, placeholder, type, field, onChange, form = {} }= props;
+  const {  id, labelText, placeholder, onChangeFunc, type, field, form = {} }= props;
   const { errors, touched } = form;
   return (
     <>
@@ -17,6 +17,7 @@ const Input = (props) => {
         id={id}
         type={type}
         placeholder={placeholder}
+        onChange={onChangeFunc}
         {...field}
       />
       {

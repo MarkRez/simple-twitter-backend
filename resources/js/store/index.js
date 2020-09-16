@@ -18,8 +18,6 @@ export const configureStore = () => {
   const reducers = combineReducers({
     requests: requestsReducer,
     user: User,
-    posts: Posts,
-    users: Users,
     feed: Feed,
     tags: Tags
   });

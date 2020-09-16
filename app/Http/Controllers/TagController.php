@@ -9,7 +9,10 @@ class TagController extends Controller
 {
     public function index(Request $request)
     {
-        $tags = Tag::where('name', 'LIKE', "%$request->name%")->get();
+        $tags = [];
+        if ($request->name) {
+            $tags = Tag::where('name', 'LIKE', "%$request->name%")->take(5)->get();
+        }
 
         return $tags;
     }

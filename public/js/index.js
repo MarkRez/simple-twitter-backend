@@ -17363,6 +17363,25 @@ exports.push([module.i, ".btn-twitter {\n  border: 1px solid #1da1f2;\n  border-
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/components/DropdownInput/dropdownInput.scss":
+/*!*****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/postcss-loader/src??ref--6-2!./node_modules/sass-loader/dist/cjs.js??ref--6-3!./resources/js/components/DropdownInput/dropdownInput.scss ***!
+  \*****************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".dropdown-input {\n  top: inherit;\n  left: inherit;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/components/Footer/footer.scss":
 /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader!./node_modules/postcss-loader/src??ref--6-2!./node_modules/sass-loader/dist/cjs.js??ref--6-3!./resources/js/components/Footer/footer.scss ***!
@@ -80540,6 +80559,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _addEntity_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_addEntity_scss__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-loading-skeleton */ "./node_modules/react-loading-skeleton/lib/index.js");
 /* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _DropdownInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../DropdownInput */ "./resources/js/components/DropdownInput/index.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -80557,6 +80577,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var AddEntity = function AddEntity(_ref) {
   var addFunc = _ref.addFunc,
       _ref$rows = _ref.rows,
@@ -80565,14 +80586,20 @@ var AddEntity = function AddEntity(_ref) {
       type = _ref$type === void 0 ? "" : _ref$type,
       _ref$loading = _ref.loading,
       loading = _ref$loading === void 0 ? false : _ref$loading,
-      placeholder = _ref.placeholder;
+      placeholder = _ref.placeholder,
+      tagsList = _ref.tagsList;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
       _useState2 = _slicedToArray(_useState, 2),
       textAreaValue = _useState2[0],
       setTextAreaValue = _useState2[1];
 
-  var handleClick = function handleClick(e) {
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      tags = _useState4[0],
+      setTags = _useState4[1];
+
+  var handleClickAdd = function handleClickAdd(e) {
     e.preventDefault();
     addFunc(textAreaValue);
     setTextAreaValue('');
@@ -80598,11 +80625,13 @@ var AddEntity = function AddEntity(_ref) {
   }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default.a, {
     height: 40
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-lg-6 mentioned-div"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-lg-6 tags-div"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DropdownInput__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    items: tagsList
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-6 button-div text-right"
   }, type ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    onClickFunc: handleClick,
+    onClickFunc: handleClickAdd,
     style: "add"
   }, "Add ", type) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default.a, {
     height: 35,
@@ -80676,6 +80705,85 @@ var Button = function Button(_ref) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Button);
+
+/***/ }),
+
+/***/ "./resources/js/components/DropdownInput/dropdownInput.scss":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/DropdownInput/dropdownInput.scss ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--6-3!./dropdownInput.scss */ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/components/DropdownInput/dropdownInput.scss");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./resources/js/components/DropdownInput/index.jsx":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/DropdownInput/index.jsx ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _dropdownInput_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dropdownInput.scss */ "./resources/js/components/DropdownInput/dropdownInput.scss");
+/* harmony import */ var _dropdownInput_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_dropdownInput_scss__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Input */ "./resources/js/components/Input/index.jsx");
+
+
+
+
+var DropdownInput = function DropdownInput(_ref) {
+  var _ref$items = _ref.items,
+      items = _ref$items === void 0 ? [] : _ref$items;
+  var itemsList = [];
+
+  if (items.length > 0) {
+    itemsList = items.map(function (item) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        key: item.id,
+        className: "dropdown-item",
+        type: "button"
+      }, item.name);
+    });
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    type: "text",
+    placeholder: "Add tags"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "dropdown-menu dropdown-input",
+    style: items.length > 0 && {
+      display: "block"
+    },
+    "aria-labelledby": "dropdownMenu2"
+  }, itemsList));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (DropdownInput);
 
 /***/ }),
 
@@ -80894,8 +81002,9 @@ var Input = function Input(props) {
       field = props.field,
       onChange = props.onChange,
       _props$form = props.form,
-      errors = _props$form.errors,
-      touched = _props$form.touched;
+      form = _props$form === void 0 ? {} : _props$form;
+  var errors = form.errors,
+      touched = form.touched;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, labelText ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     htmlFor: id,
     className: "input-component-label"
@@ -80904,7 +81013,7 @@ var Input = function Input(props) {
     id: id,
     type: type,
     placeholder: placeholder
-  }, field)), errors[field.name] && touched[field.name] ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
+  }, field)), errors && errors[field.name] && touched[field.name] ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
     className: "form-text small-error text-muted"
   }, errors[field.name]) : null);
 };
@@ -81733,7 +81842,7 @@ var loginPasswordSchema = yup__WEBPACK_IMPORTED_MODULE_0__["object"]({
 /*!*******************************************!*\
   !*** ./resources/js/helpers/selectors.js ***!
   \*******************************************/
-/*! exports provided: profileSelector, currentPostSelector, currentPostCommentsSelector, currentPostReset, currentPostCommentsReset, userSelector, userPostsSelector, currentUserReset, currentUserPostsReset, feedSelector, feedReset */
+/*! exports provided: profileSelector, currentPostSelector, currentPostCommentsSelector, currentPostReset, currentPostCommentsReset, userSelector, userPostsSelector, currentUserReset, currentUserPostsReset, feedSelector, feedReset, tagsSelector */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -81749,6 +81858,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "currentUserPostsReset", function() { return currentUserPostsReset; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "feedSelector", function() { return feedSelector; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "feedReset", function() { return feedReset; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tagsSelector", function() { return tagsSelector; });
 /* harmony import */ var _redux_requests_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @redux-requests/core */ "./node_modules/@redux-requests/core/es/index.js");
 /* harmony import */ var _redux_constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../redux/constants */ "./resources/js/redux/constants/index.js");
 
@@ -81802,7 +81912,12 @@ var feedSelector = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["get
     data: skeletonArr.slice(0, 4)
   }
 });
-var feedReset = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["resetRequests"])([_redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_FEED"]]);
+var feedReset = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["resetRequests"])([_redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_FEED"]]); // tags selectors
+
+var tagsSelector = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["getQuerySelector"])({
+  type: _redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_TAGS"],
+  defaultData: []
+});
 
 /***/ }),
 
@@ -82020,6 +82135,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _postsActions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./postsActions */ "./resources/js/redux/actions/postsActions.js");
 /* harmony import */ var _usersActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./usersActions */ "./resources/js/redux/actions/usersActions.js");
 /* harmony import */ var _feedActions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./feedActions */ "./resources/js/redux/actions/feedActions.js");
+/* harmony import */ var _tagsActions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./tagsActions */ "./resources/js/redux/actions/tagsActions.js");
+
 
 
 
@@ -82028,7 +82145,8 @@ var allActions = {
   userActions: _userActions__WEBPACK_IMPORTED_MODULE_0__["default"],
   postsActions: _postsActions__WEBPACK_IMPORTED_MODULE_1__["default"],
   usersActions: _usersActions__WEBPACK_IMPORTED_MODULE_2__["default"],
-  feedActions: _feedActions__WEBPACK_IMPORTED_MODULE_3__["default"]
+  feedActions: _feedActions__WEBPACK_IMPORTED_MODULE_3__["default"],
+  tagsActions: _tagsActions__WEBPACK_IMPORTED_MODULE_4__["default"]
 };
 /* harmony default export */ __webpack_exports__["default"] = (allActions);
 
@@ -82110,6 +82228,34 @@ var addPostComments = function addPostComments(id, payload) {
   getPost: getPost,
   getPostComments: getPostComments,
   addPostComments: addPostComments
+});
+
+/***/ }),
+
+/***/ "./resources/js/redux/actions/tagsActions.js":
+/*!***************************************************!*\
+  !*** ./resources/js/redux/actions/tagsActions.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants */ "./resources/js/redux/constants/index.js");
+
+
+var getTags = function getTags(name) {
+  return {
+    type: _constants__WEBPACK_IMPORTED_MODULE_0__["FETCH_TAGS"],
+    request: {
+      url: "/tags?name=".concat(name),
+      method: 'get'
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  getTags: getTags
 });
 
 /***/ }),
@@ -82363,7 +82509,7 @@ var updateUserPost = function updateUserPost(id, payload) {
 /*!***********************************************!*\
   !*** ./resources/js/redux/constants/index.js ***!
   \***********************************************/
-/*! exports provided: SET_LOGGED_IN, FETCH_PROFILE, FETCH_CURRENT_POST, FETCH_CURRENT_POST_COMMENTS, ADD_POST_COMMENT, FETCH_USER, FETCH_USER_POSTS, DELETE_USER_POST, ADD_USER_POST, UPDATE_USER_POST, ADD_FEED_POSTS, SET_FEED_LOADING, SET_FEED_CURRENT_PAGE, SET_FEED_TOTAL_PAGES, FETCH_FEED */
+/*! exports provided: SET_LOGGED_IN, FETCH_PROFILE, FETCH_CURRENT_POST, FETCH_CURRENT_POST_COMMENTS, ADD_POST_COMMENT, FETCH_USER, FETCH_USER_POSTS, DELETE_USER_POST, ADD_USER_POST, UPDATE_USER_POST, ADD_FEED_POSTS, SET_FEED_LOADING, SET_FEED_CURRENT_PAGE, SET_FEED_TOTAL_PAGES, FETCH_FEED, FETCH_TAGS */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -82383,6 +82529,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_FEED_CURRENT_PAGE", function() { return SET_FEED_CURRENT_PAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_FEED_TOTAL_PAGES", function() { return SET_FEED_TOTAL_PAGES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_FEED", function() { return FETCH_FEED; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_TAGS", function() { return FETCH_TAGS; });
 // current user constants
 var SET_LOGGED_IN = 'SET_LOGGED_IN';
 var FETCH_PROFILE = 'FETCH_PROFILE'; // posts constants
@@ -82401,7 +82548,9 @@ var ADD_FEED_POSTS = 'ADD_FEED_POSTS';
 var SET_FEED_LOADING = 'SET_FEED_LOADING';
 var SET_FEED_CURRENT_PAGE = 'SET_FEED_CURRENT_PAGE';
 var SET_FEED_TOTAL_PAGES = 'SET_FEED_TOTAL_PAGES';
-var FETCH_FEED = 'FETCH_FEED';
+var FETCH_FEED = 'FETCH_FEED'; //tags constants
+
+var FETCH_TAGS = 'FETCH_TAGS';
 
 /***/ }),
 
@@ -82494,6 +82643,26 @@ var Posts = function Posts() {
 
 /***/ }),
 
+/***/ "./resources/js/redux/reducers/tagsReducer.js":
+/*!****************************************************!*\
+  !*** ./resources/js/redux/reducers/tagsReducer.js ***!
+  \****************************************************/
+/*! exports provided: initialState, Tags */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tags", function() { return Tags; });
+var initialState = {};
+var Tags = function Tags() {
+  var store = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  return store;
+};
+
+/***/ }),
+
 /***/ "./resources/js/redux/reducers/userReducer.js":
 /*!****************************************************!*\
   !*** ./resources/js/redux/reducers/userReducer.js ***!
@@ -82506,13 +82675,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants */ "./resources/js/redux/constants/index.js");
-/* harmony import */ var _redux_requests_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @redux-requests/core */ "./node_modules/@redux-requests/core/es/index.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 var initialState = {
@@ -82526,11 +82693,6 @@ var User = function User() {
     case _constants__WEBPACK_IMPORTED_MODULE_0__["SET_LOGGED_IN"]:
       return _objectSpread(_objectSpread({}, store), {}, {
         loggedIn: action.loggedIn
-      });
-
-    case Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_1__["success"])('FETCH_PROFILE'):
-      return _objectSpread(_objectSpread({}, store), {}, {
-        user: action.response.data
       });
 
     default:
@@ -83947,6 +84109,7 @@ var User = function User(props) {
   var user = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["userSelector"]);
   var userPosts = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["userPostsSelector"]);
   var currentUser = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["profileSelector"]);
+  var tags = Object(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["userSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["tagsSelector"]);
   var theSameUser = undefined;
 
   if (currentUser.data && user.data) {
@@ -83964,6 +84127,10 @@ var User = function User(props) {
 
   var followUser = function followUser(e) {
     e.preventDefault();
+  };
+
+  var getTags = function getTags(name) {
+    dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].tagsActions.getTags(name));
   };
 
   var addPost = function addPost(text) {
@@ -83998,7 +84165,8 @@ var User = function User(props) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, user.data.name ? "".concat(user.data.name, " posts") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7___default.a, null)), theSameUser && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddEntity__WEBPACK_IMPORTED_MODULE_6__["default"], {
     type: "post",
     placeholder: "Write new post",
-    addFunc: addPost
+    addFunc: addPost,
+    tags: tags.data
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserPosts__WEBPACK_IMPORTED_MODULE_3__["default"], {
     delFunc: deletePost,
     updateFunc: updatePost,
@@ -84031,6 +84199,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _redux_reducers_postsReducer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../redux/reducers/postsReducer */ "./resources/js/redux/reducers/postsReducer.js");
 /* harmony import */ var _redux_reducers_usersReducer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../redux/reducers/usersReducer */ "./resources/js/redux/reducers/usersReducer.js");
 /* harmony import */ var _redux_reducers_feedReducer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../redux/reducers/feedReducer */ "./resources/js/redux/reducers/feedReducer.js");
+/* harmony import */ var _redux_reducers_tagsReducer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../redux/reducers/tagsReducer */ "./resources/js/redux/reducers/tagsReducer.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -84042,6 +84211,7 @@ function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.it
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 
 
 
@@ -84064,7 +84234,8 @@ var configureStore = function configureStore() {
     user: _redux_reducers_userReducer__WEBPACK_IMPORTED_MODULE_5__["User"],
     posts: _redux_reducers_postsReducer__WEBPACK_IMPORTED_MODULE_6__["Posts"],
     users: _redux_reducers_usersReducer__WEBPACK_IMPORTED_MODULE_7__["Users"],
-    feed: _redux_reducers_feedReducer__WEBPACK_IMPORTED_MODULE_8__["Feed"]
+    feed: _redux_reducers_feedReducer__WEBPACK_IMPORTED_MODULE_8__["Feed"],
+    tags: _redux_reducers_tagsReducer__WEBPACK_IMPORTED_MODULE_9__["Tags"]
   });
   var composeEnhancers = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || redux__WEBPACK_IMPORTED_MODULE_0__["compose"];
   var store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(reducers, composeEnhancers(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"].apply(void 0, _toConsumableArray(requestsMiddleware).concat([redux_thunk__WEBPACK_IMPORTED_MODULE_2__["default"]]))));

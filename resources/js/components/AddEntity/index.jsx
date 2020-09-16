@@ -2,11 +2,13 @@ import React, {useState} from "react";
 import Button from "../Button";
 import './addEntity.scss'
 import Skeleton from "react-loading-skeleton";
+import DropdownInput from "../DropdownInput";
 
-const AddEntity = ({addFunc, rows = 2, type = "", loading = false, placeholder}) => {
+const AddEntity = ({addFunc, rows = 2, type = "", loading = false, placeholder, tagsList}) => {
   const [textAreaValue, setTextAreaValue] = useState('');
+  const [tags, setTags] = useState([]);
 
-  const handleClick = (e) => {
+  const handleClickAdd = (e) => {
     e.preventDefault();
     addFunc(textAreaValue);
     setTextAreaValue('');
@@ -32,12 +34,12 @@ const AddEntity = ({addFunc, rows = 2, type = "", loading = false, placeholder})
             : <Skeleton height={40}/>
           }
         </div>
-        <div className="col-lg-6 mentioned-div">
-          {/*<b>mention</b>*/}
+        <div className="col-lg-6 tags-div">
+          <DropdownInput items={tagsList}/>
         </div>
         <div className="col-lg-6 button-div text-right">
           {type
-            ? <Button onClickFunc={handleClick} style="add">Add {type}</Button>
+            ? <Button onClickFunc={handleClickAdd} style="add">Add {type}</Button>
             : <Skeleton height={35} width={100}/>}
         </div>
       </div>

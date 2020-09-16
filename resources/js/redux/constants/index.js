@@ -20,3 +20,6 @@ export const SET_FEED_LOADING = 'SET_FEED_LOADING';
 export const SET_FEED_CURRENT_PAGE = 'SET_FEED_CURRENT_PAGE';
 export const SET_FEED_TOTAL_PAGES = 'SET_FEED_TOTAL_PAGES';
 export const FETCH_FEED='FETCH_FEED';
+
+//tags constants
+export const FETCH_TAGS = 'FETCH_TAGS';

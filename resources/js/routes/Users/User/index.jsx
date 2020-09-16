@@ -8,7 +8,8 @@ import {
   userPostsSelector,
   profileSelector,
   currentUserReset,
-  currentUserPostsReset
+  currentUserPostsReset,
+  tagsSelector
 } from "../../../helpers/selectors";
 import AddEntity from "../../../components/AddEntity";
 import Skeleton from "react-loading-skeleton";
@@ -20,6 +21,7 @@ const User = (props) => {
   const user = useSelector(userSelector);
   const userPosts = useSelector(userPostsSelector);
   const currentUser = useSelector(profileSelector);
+  const tags = userSelector(tagsSelector);
 
   let theSameUser = undefined;
   if (currentUser.data && user.data) {
@@ -37,6 +39,10 @@ const User = (props) => {
 
   const followUser = (e) => {
     e.preventDefault();
+  }
+
+  const getTags = (name) => {
+    dispatch(allActions.tagsActions.getTags(name));
   }
 
   const addPost = (text) => {
@@ -72,6 +78,7 @@ const User = (props) => {
           type="post"
           placeholder="Write new post"
           addFunc={addPost}
+          tags={tags.data}
         />
         }
         <UserPosts

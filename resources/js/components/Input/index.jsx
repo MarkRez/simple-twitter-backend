@@ -2,7 +2,8 @@ import React from "react";
 import './input.scss'
 
 const Input = (props) => {
-  const {  id, labelText, placeholder, type, field, onChange, form: { errors, touched } }= props;
+  const {  id, labelText, placeholder, type, field, onChange, form = {} }= props;
+  const { errors, touched } = form;
   return (
     <>
       { labelText
@@ -19,7 +20,7 @@ const Input = (props) => {
         {...field}
       />
       {
-        (errors[field.name] && touched[field.name]) ? <small className="form-text small-error text-muted">{errors[field.name]}</small> : null
+        errors && (errors[field.name] && touched[field.name]) ? <small className="form-text small-error text-muted">{errors[field.name]}</small> : null
       }
     </>
   );

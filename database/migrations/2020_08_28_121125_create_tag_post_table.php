@@ -9,9 +9,11 @@ class CreateTagPostTable extends Migration
     public function up()
     {
         Schema::create('tag_post', function (Blueprint $table) {
-            $table->foreignId('post_id')->constrained();
+            $table->foreignId('post_id')->constrained()->onDelete('cascade');
             $table->foreignId('tag_id')->constrained();
             $table->timestamps();
+
+            $table->index(['post_id', 'tag_id']);
         });
     }
 

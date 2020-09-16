@@ -5,7 +5,9 @@ import {
   FETCH_CURRENT_POST,
   FETCH_CURRENT_POST_COMMENTS,
   FETCH_USER,
-  FETCH_USER_POSTS, FETCH_FEED
+  FETCH_USER_POSTS,
+  FETCH_FEED,
+  FETCH_TAGS
 } from "../redux/constants";
 
 const skeletonArr = [{id: "skltn 1"}, {id: "skltn 2"}, {id: "skltn 3"}, {id: "skltn 4"}, {id: "skltn 5"}];
@@ -34,3 +36,6 @@ export const feedSelector = getQuerySelector({
   type: FETCH_FEED,
   defaultData:{data: skeletonArr.slice(0,4) }});
 export const feedReset = resetRequests([FETCH_FEED]);
+
+// tags selectors
+export const tagsSelector = getQuerySelector({type: FETCH_TAGS, defaultData: []});

@@ -5,9 +5,9 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faThumbsUp, faThumbsDown, faCommentDots} from '@fortawesome/free-regular-svg-icons';
 import '@fortawesome/fontawesome-svg-core';
 import {prettyDate} from "../../helpers/dateConverter";
-import './listEntity.scss';
-import Button from "../Button";
 import TextWithMentions from "../TextWithMentions";
+import EditEntity from "./EditEntity";
+import './listEntity.scss';
 
 const ListEntity = ({data, type, showDropdown = false, delFunc, updateFunc}) => {
   const {id, text, user_id, created_at, likes_count, dislikes_count, comments_count, liked, mentioned_users = [], user = {}} = data;
@@ -23,11 +23,6 @@ const ListEntity = ({data, type, showDropdown = false, delFunc, updateFunc}) => 
   const handleDeleteClick = (e) => {
     e.preventDefault();
     delFunc(id);
-  }
-
-  const handleTextAreaChange = (e) => {
-    e.preventDefault();
-    setTextAreaValue(e.target.value);
   }
 
   const changeMode = (e) => {
@@ -83,16 +78,7 @@ const ListEntity = ({data, type, showDropdown = false, delFunc, updateFunc}) => 
             </div>
             <div className="col-lg-12 post-text px-3">
               {editMode
-                ? <>
-                  <textarea
-                    className="w-100"
-                    onClick={e=>e.preventDefault()}
-                    value={textAreaValue}
-                    onChange={handleTextAreaChange}
-                    rows="4"
-                  />
-                  <Button onClickFunc={handleSaveClick} style='add'>Save</Button>
-                </>
+                ? <EditEntity saveFunc={handleSaveClick} setValueFunc={setTextAreaValue} value={textAreaValue}/>
                 : text
                   ? <TextWithMentions text={text} mentions={mentioned_users}/>
                   : <Skeleton count={type === "post" ? 3 : 2}/>}

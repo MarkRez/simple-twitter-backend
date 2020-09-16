@@ -60,6 +60,6 @@ class Post extends Model
             'mentionable_id',
             'id',
             'id',
-            'user_id')->where('mentionable_type', 'App\Models\Post');
+            'user_id')->where('mentionable_type', self::class);
     }
 }

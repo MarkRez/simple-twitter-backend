@@ -13,13 +13,18 @@ const TextWithMentions = ({text, mentions}) => {
   if (text) {
     const reg = new RegExp(/(@(?:\w+[.]?\w+)+)/, 'g');
     const parts = text.split(reg);
-    textWithMentions = parts.map((part, i) => {
+    textWithMentions = parts.map((part, index) => {
       let mention = part.match(reg);
       if (mention) {
         if (mentions && mentions.length > 0) {
           for (let i = 0; i < mentions.length; i+=1) {
             if (mention[0].split('@')[1] === mentions[i].login) {
-              return <span onClick={(e) => changePage(e, mentions[i].id)}>{mention}</span>;
+              return <span
+                key={`mention ${index}`}
+                onClick={(e) => changePage(e, mentions[i].id)}
+              >
+                {mention}
+              </span>;
             }
           }
         }

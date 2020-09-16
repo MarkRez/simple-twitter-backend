@@ -81113,6 +81113,49 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./resources/js/components/ListEntity/EditEntity/index.jsx":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/ListEntity/EditEntity/index.jsx ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Button */ "./resources/js/components/Button/index.jsx");
+
+
+
+var EditEntity = function EditEntity(_ref) {
+  var setValueFunc = _ref.setValueFunc,
+      saveFunc = _ref.saveFunc,
+      value = _ref.value;
+
+  var handleTextAreaChange = function handleTextAreaChange(e) {
+    e.preventDefault();
+    setValueFunc(e.target.value);
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+    className: "w-100",
+    onClick: function onClick(e) {
+      return e.preventDefault();
+    },
+    value: value,
+    onChange: handleTextAreaChange,
+    rows: "4"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    onClickFunc: saveFunc,
+    style: "add"
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (EditEntity);
+
+/***/ }),
+
 /***/ "./resources/js/components/ListEntity/index.jsx":
 /*!******************************************************!*\
   !*** ./resources/js/components/ListEntity/index.jsx ***!
@@ -81131,10 +81174,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/free-regular-svg-icons */ "./node_modules/@fortawesome/free-regular-svg-icons/index.es.js");
 /* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js");
 /* harmony import */ var _helpers_dateConverter__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../helpers/dateConverter */ "./resources/js/helpers/dateConverter.js");
-/* harmony import */ var _listEntity_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./listEntity.scss */ "./resources/js/components/ListEntity/listEntity.scss");
-/* harmony import */ var _listEntity_scss__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_listEntity_scss__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Button */ "./resources/js/components/Button/index.jsx");
-/* harmony import */ var _TextWithMentions__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../TextWithMentions */ "./resources/js/components/TextWithMentions/index.jsx");
+/* harmony import */ var _TextWithMentions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../TextWithMentions */ "./resources/js/components/TextWithMentions/index.jsx");
+/* harmony import */ var _EditEntity__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./EditEntity */ "./resources/js/components/ListEntity/EditEntity/index.jsx");
+/* harmony import */ var _listEntity_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./listEntity.scss */ "./resources/js/components/ListEntity/listEntity.scss");
+/* harmony import */ var _listEntity_scss__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_listEntity_scss__WEBPACK_IMPORTED_MODULE_9__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -81200,11 +81243,6 @@ var ListEntity = function ListEntity(_ref) {
     delFunc(id);
   };
 
-  var handleTextAreaChange = function handleTextAreaChange(e) {
-    e.preventDefault();
-    setTextAreaValue(e.target.value);
-  };
-
   var changeMode = function changeMode(e) {
     e.preventDefault();
     setEditMode(!editMode);
@@ -81260,18 +81298,11 @@ var ListEntity = function ListEntity(_ref) {
     onClick: handleDeleteClick
   }, "Delete"))) : null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-12 post-text px-3"
-  }, editMode ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
-    className: "w-100",
-    onClick: function onClick(e) {
-      return e.preventDefault();
-    },
-    value: textAreaValue,
-    onChange: handleTextAreaChange,
-    rows: "4"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
-    onClickFunc: handleSaveClick,
-    style: "add"
-  }, "Save")) : text ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TextWithMentions__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }, editMode ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EditEntity__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    saveFunc: handleSaveClick,
+    setValueFunc: setTextAreaValue,
+    value: textAreaValue
+  }) : text ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TextWithMentions__WEBPACK_IMPORTED_MODULE_7__["default"], {
     text: text,
     mentions: mentioned_users
   }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -81401,25 +81432,26 @@ var TextWithMentions = function TextWithMentions(_ref) {
   if (text) {
     var reg = new RegExp(/(@(?:\w+[.]?\w+)+)/, 'g');
     var parts = text.split(reg);
-    textWithMentions = parts.map(function (part, i) {
+    textWithMentions = parts.map(function (part, index) {
       var mention = part.match(reg);
 
       if (mention) {
         if (mentions && mentions.length > 0) {
-          var _loop = function _loop(_i) {
-            if (mention[0].split('@')[1] === mentions[_i].login) {
+          var _loop = function _loop(i) {
+            if (mention[0].split('@')[1] === mentions[i].login) {
               return {
                 v: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+                  key: "mention ".concat(index),
                   onClick: function onClick(e) {
-                    return changePage(e, mentions[_i].id);
+                    return changePage(e, mentions[i].id);
                   }
                 }, mention)
               };
             }
           };
 
-          for (var _i = 0; _i < mentions.length; _i += 1) {
-            var _ret = _loop(_i);
+          for (var i = 0; i < mentions.length; i += 1) {
+            var _ret = _loop(i);
 
             if (_typeof(_ret) === "object") return _ret.v;
           }

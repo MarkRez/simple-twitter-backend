@@ -17,7 +17,6 @@ class PostObserver
             if ($user) {
                 $post->mentions()->create([
                     'user_id' => $user->id,
-                    'mentionable_id' => $post->id,
                 ]);
             }
         }

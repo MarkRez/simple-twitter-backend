@@ -17,7 +17,6 @@ class CommentObserver
             if ($user) {
                 $comment->mentions()->create([
                     'user_id' => $user->id,
-                    'mentionable_id' => $comment->id,
                 ]);
             }
         }

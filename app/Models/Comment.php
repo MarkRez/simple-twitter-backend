@@ -28,6 +28,6 @@ class Comment extends Model
             'mentionable_id',
             'id',
             'id',
-            'user_id')->where('mentionable_type', 'App\Models\Comment');
+            'user_id')->where('mentionable_type', self::class);
     }
 }

@@ -4,5 +4,13 @@
 }
 
 .small-error {
-  color: #ff0000!important;
+  color: #ff0000 !important;
+}
+
+.component-input {
+  &:focus {
+    outline:0 !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+  }
 }

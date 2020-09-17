@@ -9,7 +9,7 @@ class Post extends Model
 {
     protected $fillable = ['text'];
     protected $appends = ['liked'];
-    protected $with = ['user', 'mentionedUsers:users.id,users.login'];
+    protected $with = ['user', 'mentionedUsers:users.id,users.login', 'tags'];
     protected $withCount = ['likes', 'dislikes', 'comments'];
 
     public function user()

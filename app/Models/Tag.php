@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $fillable = ['tag_id'];
+    protected $hidden = ['created_at', 'updated_at', 'pivot'];
     public function posts() {
         return $this->belongsToMany(Post::Class);
     }

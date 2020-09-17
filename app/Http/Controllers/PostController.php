@@ -35,7 +35,13 @@ class PostController extends Controller
             'text' => $request->text,
         ]);
 
-        return $post->refresh()->load(['user', 'mentionedUsers:users.id,users.login']);
+        $post->tags()->attach(array_map( function($tag)
+            {
+                return ['tag_id' => $tag['id']];
+            }, $request->tags)
+        );
+
+        return $post->refresh()->load(['user', 'mentionedUsers:users.id,users.login', 'tags']);
     }
 
     public function update(PostUpdateRequest $request, Post $post)

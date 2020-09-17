@@ -17337,7 +17337,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".add-entity {\n  background-color: #ffffff;\n  border: 1px solid #e6ecf0;\n  padding: 15px 20px 15px 20px;\n}\n.add-entity .text-aria-div textarea {\n  border: 1px solid #c8c9c9;\n  background-color: #fcfcfc;\n  border-radius: 20px;\n  padding: 10px 15px;\n  resize: none;\n  font-weight: 500;\n  color: #525252;\n}", ""]);
+exports.push([module.i, ".add-entity {\n  background-color: #ffffff;\n  border: 1px solid #e6ecf0;\n  padding: 15px 20px 15px 20px;\n}\n.add-entity .text-aria-div textarea {\n  border: 1px solid #c8c9c9;\n  background-color: #fcfcfc;\n  border-radius: 20px;\n  padding: 10px 15px;\n  resize: none;\n  font-weight: 500;\n  color: #525252;\n}\n.add-entity .tags-div {\n  padding-top: 7px;\n}\n.add-entity .tags-div .tag {\n  padding: 9px 14px;\n  border-radius: 15px;\n  background-color: #efefef;\n  color: #7b7b7b;\n  margin-right: 5px;\n  line-height: 1.25em;\n  vertical-align: middle;\n}\n.add-entity .tags-div .tag span {\n  cursor: pointer;\n  font-size: 1.25em;\n}\n.add-entity .tags-div .tag span:hover {\n  color: #575757;\n}", ""]);
 
 // exports
 
@@ -17432,7 +17432,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".input-component-label {\n  font-family: \"Fredoka One\", cursive;\n  color: #555555;\n}\n\n.small-error {\n  color: #ff0000 !important;\n}", ""]);
+exports.push([module.i, ".input-component-label {\n  font-family: \"Fredoka One\", cursive;\n  color: #555555;\n}\n\n.small-error {\n  color: #ff0000 !important;\n}\n\n.component-input:focus {\n  outline: 0 !important;\n  -webkit-appearance: none;\n  box-shadow: none !important;\n}", ""]);
 
 // exports
 
@@ -80560,6 +80560,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-loading-skeleton */ "./node_modules/react-loading-skeleton/lib/index.js");
 /* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _DropdownInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../DropdownInput */ "./resources/js/components/DropdownInput/index.jsx");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -80604,13 +80612,39 @@ var AddEntity = function AddEntity(_ref) {
 
   var handleClickAdd = function handleClickAdd(e) {
     e.preventDefault();
-    addFunc(textAreaValue);
-    setTextAreaValue('');
+
+    if (textAreaValue) {
+      addFunc(textAreaValue, tags);
+      setTextAreaValue('');
+      setTags([]);
+    }
   };
 
   var handleTextAreaChange = function handleTextAreaChange(e) {
     e.preventDefault();
     setTextAreaValue(e.target.value);
+  };
+
+  var addTag = function addTag(id) {
+    for (var i = 0; i < tagsList.length; i += 1) {
+      if (tagsList[i].id === id) {
+        var exist = false;
+        tags.forEach(function (tag) {
+          if (tag.id === id) {
+            exist = true;
+          }
+        });
+        !exist && setTags([].concat(_toConsumableArray(tags), [tagsList[i]]));
+        break;
+      }
+    }
+  };
+
+  var deleteTag = function deleteTag(id) {
+    var withoutDeleted = tags.filter(function (tag) {
+      return tag.id !== id;
+    });
+    setTags(withoutDeleted);
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -80627,13 +80661,25 @@ var AddEntity = function AddEntity(_ref) {
     placeholder: placeholder
   }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default.a, {
     height: 40
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-lg-6 tags-div"
-  }, showTagsInput && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DropdownInput__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  })), showTagsInput && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, tags.length < 3 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-lg-6 tags-dropdown-div"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DropdownInput__WEBPACK_IMPORTED_MODULE_4__["default"], {
     onChangeFunc: getTagsFunc,
+    onClickFunc: addTag,
     items: tagsList
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-lg-6 button-div text-right"
+    className: "col-lg-6 tags-div"
+  }, tags.map(function (tag, i) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      key: "tag ".concat(i),
+      className: "tag"
+    }, tag.name, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      onClick: function onClick() {
+        return deleteTag(tag.id);
+      }
+    }, " \xD7"));
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-lg-12 button-div text-right"
   }, type ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
     onClickFunc: handleClickAdd,
     style: "add"
@@ -80763,7 +80809,8 @@ __webpack_require__.r(__webpack_exports__);
 var DropdownInput = function DropdownInput(_ref) {
   var _ref$items = _ref.items,
       items = _ref$items === void 0 ? [] : _ref$items,
-      onChangeFunc = _ref.onChangeFunc;
+      onChangeFunc = _ref.onChangeFunc,
+      onClickFunc = _ref.onClickFunc;
   var itemsList = [];
 
   if (items.length > 0) {
@@ -80771,7 +80818,10 @@ var DropdownInput = function DropdownInput(_ref) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         key: item.id,
         className: "dropdown-item",
-        type: "button"
+        type: "button",
+        onClick: function onClick() {
+          return onClickFunc(item.id);
+        }
       }, item.name);
     });
   }
@@ -81020,7 +81070,7 @@ var Input = function Input(props) {
     htmlFor: id,
     className: "input-component-label"
   }, labelText) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
-    className: "form-control",
+    className: "form-control component-input",
     id: id,
     type: type,
     placeholder: placeholder,
@@ -81854,7 +81904,7 @@ var loginPasswordSchema = yup__WEBPACK_IMPORTED_MODULE_0__["object"]({
 /*!*******************************************!*\
   !*** ./resources/js/helpers/selectors.js ***!
   \*******************************************/
-/*! exports provided: profileSelector, currentPostSelector, currentPostCommentsSelector, currentPostReset, currentPostCommentsReset, userSelector, userPostsSelector, currentUserReset, currentUserPostsReset, feedSelector, feedReset, tagsSelector */
+/*! exports provided: profileSelector, currentPostSelector, currentPostCommentsSelector, currentPostReset, currentPostCommentsReset, userSelector, userPostsSelector, currentUserReset, currentUserPostsReset, feedSelector, feedReset, tagsSelector, tagsReset */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -81871,6 +81921,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "feedSelector", function() { return feedSelector; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "feedReset", function() { return feedReset; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tagsSelector", function() { return tagsSelector; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tagsReset", function() { return tagsReset; });
 /* harmony import */ var _redux_requests_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @redux-requests/core */ "./node_modules/@redux-requests/core/es/index.js");
 /* harmony import */ var _redux_constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../redux/constants */ "./resources/js/redux/constants/index.js");
 
@@ -81930,6 +81981,7 @@ var tagsSelector = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["get
   type: _redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_TAGS"],
   multiple: true
 });
+var tagsReset = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["resetRequests"])([_redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_TAGS"]]);
 
 /***/ }),
 
@@ -84143,20 +84195,24 @@ var User = function User(props) {
     dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].tagsActions.getTags(name));
   };
 
-  var addPost = function addPost(text) {
+  var addPost = function addPost(text, tags) {
     dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].usersActions.addUserPost({
-      text: text
+      text: text,
+      tags: tags
     }));
+    dispatch(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["tagsReset"]);
   };
 
   var deletePost = function deletePost(id) {
     dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].usersActions.deleteUserPost(id));
   };
 
-  var updatePost = function updatePost(id, text) {
+  var updatePost = function updatePost(id, text, tags) {
     dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].usersActions.updateUserPost(id, {
-      text: text
+      text: text,
+      tags: tags
     }));
+    dispatch(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["tagsReset"]);
   };
 
   if (user.error) {

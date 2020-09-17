@@ -20,13 +20,36 @@ const AddEntity = (
 
   const handleClickAdd = (e) => {
     e.preventDefault();
-    addFunc(textAreaValue);
-    setTextAreaValue('');
+    if (textAreaValue) {
+      addFunc(textAreaValue, tags);
+      setTextAreaValue('');
+      setTags([]);
+    }
   }
 
   const handleTextAreaChange = (e) => {
     e.preventDefault();
     setTextAreaValue(e.target.value);
+  }
+
+  const addTag = (id) => {
+    for (let i = 0; i < tagsList.length; i += 1) {
+      if (tagsList[i].id === id) {
+        let exist = false;
+        tags.forEach(tag => {
+          if (tag.id === id) {
+            exist = true;
+          }
+        })
+        !exist && setTags([...tags, tagsList[i]]);
+        break;
+      }
+    }
+  }
+
+  const deleteTag = (id) => {
+    const withoutDeleted = tags.filter(tag => tag.id !== id);
+    setTags(withoutDeleted);
   }
 
   return (
@@ -44,14 +67,30 @@ const AddEntity = (
             : <Skeleton height={40}/>
           }
         </div>
-        <div className="col-lg-6 tags-div">
-          {showTagsInput && <DropdownInput onChangeFunc={getTagsFunc} items={tagsList}/>}
-        </div>
-        <div className="col-lg-6 button-div text-right">
+        {showTagsInput &&
+        <>
+          {
+            tags.length < 3 &&
+            <div className="col-lg-6 tags-dropdown-div">
+              <DropdownInput onChangeFunc={getTagsFunc} onClickFunc={addTag} items={tagsList}/>
+            </div>
+          }
+          <div className="col-lg-6 tags-div">
+            {tags.map((tag, i) =>
+                <span key={`tag ${i}`} className="tag">
+              {tag.name}
+                  <span onClick={() => deleteTag(tag.id)}> &times;</span>
+            </span>
+            )}
+          </div>
+        </>
+        }
+        <div className="col-lg-12 button-div text-right">
           {type
             ? <Button onClickFunc={handleClickAdd} style="add">Add {type}</Button>
             : <Skeleton height={35} width={100}/>}
         </div>
+
       </div>
     </div>
   )

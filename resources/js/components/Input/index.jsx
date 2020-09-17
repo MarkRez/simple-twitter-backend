@@ -13,7 +13,7 @@ const Input = (props) => {
         </label>
         : null }
       <input
-        className="form-control"
+        className="form-control component-input"
         id={id}
         type={type}
         placeholder={placeholder}

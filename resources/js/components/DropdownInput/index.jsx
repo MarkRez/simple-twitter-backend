@@ -2,11 +2,19 @@ import React from "react";
 import './dropdownInput.scss';
 import Input from "../Input";
 
-const DropdownInput = ({items = [], onChangeFunc}) => {
+const DropdownInput = ({items = [], onChangeFunc, onClickFunc}) => {
   let itemsList = [];
 
   if (items.length > 0) {
-    itemsList = items.map(item => <button key={item.id} className="dropdown-item" type="button">{item.name}</button>)
+    itemsList = items.map(item =>
+      <button
+        key={item.id}
+        className="dropdown-item"
+        type="button"
+        onClick={()=>onClickFunc(item.id)}
+      >
+        {item.name}
+      </button>)
   }
 
   const handleChange = (e) => {

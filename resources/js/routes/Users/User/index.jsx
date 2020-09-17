@@ -9,7 +9,8 @@ import {
   profileSelector,
   currentUserReset,
   currentUserPostsReset,
-  tagsSelector
+  tagsSelector,
+  tagsReset
 } from "../../../helpers/selectors";
 import AddEntity from "../../../components/AddEntity";
 import Skeleton from "react-loading-skeleton";
@@ -45,16 +46,18 @@ const User = (props) => {
     dispatch(allActions.tagsActions.getTags(name));
   }
 
-  const addPost = (text) => {
-    dispatch(allActions.usersActions.addUserPost({text}));
+  const addPost = (text, tags) => {
+    dispatch(allActions.usersActions.addUserPost({text, tags}));
+    dispatch(tagsReset);
   }
 
   const deletePost = (id) => {
     dispatch(allActions.usersActions.deleteUserPost(id));
   }
 
-  const updatePost = (id, text) => {
-    dispatch(allActions.usersActions.updateUserPost(id, {text}));
+  const updatePost = (id, text, tags) => {
+    dispatch(allActions.usersActions.updateUserPost(id, {text, tags}));
+    dispatch(tagsReset);
   }
 
   if (user.error) {

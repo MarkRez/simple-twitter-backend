@@ -16,6 +16,7 @@ class PostCreateRequest extends FormRequest
     {
         return [
             'text' => 'required',
+            'tags' => 'array|max:3'
         ];
     }
 }

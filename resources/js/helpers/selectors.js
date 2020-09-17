@@ -39,4 +39,5 @@ export const feedReset = resetRequests([FETCH_FEED]);
 
 // tags selectors
 export const tagsSelector = getQuerySelector({ type: FETCH_TAGS, multiple: true});
+export const tagsReset = resetRequests([FETCH_TAGS]);
 

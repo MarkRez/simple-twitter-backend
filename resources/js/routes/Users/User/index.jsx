@@ -9,7 +9,6 @@ import {
   profileSelector,
   currentUserReset,
   currentUserPostsReset,
-  tagsReset
 } from "../../../helpers/selectors";
 import AddEntity from "../../../components/AddEntity";
 import Skeleton from "react-loading-skeleton";
@@ -51,7 +50,6 @@ const User = (props) => {
   }
 
   const updatePost = (id, text, tags) => {
-    console.log({text, tags})
     dispatch(allActions.usersActions.updateUserPost(id, {text, tags}));
     dispatch(tagsReset);
   }

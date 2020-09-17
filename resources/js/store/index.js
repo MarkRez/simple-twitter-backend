@@ -4,10 +4,7 @@ import thunk from 'redux-thunk';
 import {handleRequests} from '@redux-requests/core';
 import {createDriver} from '@redux-requests/axios';
 import {User} from "../redux/reducers/userReducer";
-import {Posts} from "../redux/reducers/postsReducer";
-import {Users} from "../redux/reducers/usersReducer";
 import {Feed} from "../redux/reducers/feedReducer";
-import {Tags} from "../redux/reducers/tagsReducer";
 
 
 export const configureStore = () => {
@@ -19,7 +16,6 @@ export const configureStore = () => {
     requests: requestsReducer,
     user: User,
     feed: Feed,
-    tags: Tags
   });
 
   const composeEnhancers =

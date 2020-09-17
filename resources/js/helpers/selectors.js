@@ -36,8 +36,3 @@ export const feedSelector = getQuerySelector({
   type: FETCH_FEED,
   defaultData:{data: skeletonArr.slice(0,4) }});
 export const feedReset = resetRequests([FETCH_FEED]);
-
-// tags selectors
-export const tagsSelector = getQuerySelector({ type: FETCH_TAGS, multiple: true});
-export const tagsReset = resetRequests([FETCH_TAGS]);
-

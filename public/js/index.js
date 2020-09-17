@@ -82015,7 +82015,7 @@ var loginPasswordSchema = yup__WEBPACK_IMPORTED_MODULE_0__["object"]({
 /*!*******************************************!*\
   !*** ./resources/js/helpers/selectors.js ***!
   \*******************************************/
-/*! exports provided: profileSelector, currentPostSelector, currentPostCommentsSelector, currentPostReset, currentPostCommentsReset, userSelector, userPostsSelector, currentUserReset, currentUserPostsReset, feedSelector, feedReset, tagsSelector, tagsReset */
+/*! exports provided: profileSelector, currentPostSelector, currentPostCommentsSelector, currentPostReset, currentPostCommentsReset, userSelector, userPostsSelector, currentUserReset, currentUserPostsReset, feedSelector, feedReset */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -82031,8 +82031,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "currentUserPostsReset", function() { return currentUserPostsReset; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "feedSelector", function() { return feedSelector; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "feedReset", function() { return feedReset; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tagsSelector", function() { return tagsSelector; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tagsReset", function() { return tagsReset; });
 /* harmony import */ var _redux_requests_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @redux-requests/core */ "./node_modules/@redux-requests/core/es/index.js");
 /* harmony import */ var _redux_constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../redux/constants */ "./resources/js/redux/constants/index.js");
 
@@ -82086,13 +82084,7 @@ var feedSelector = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["get
     data: skeletonArr.slice(0, 4)
   }
 });
-var feedReset = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["resetRequests"])([_redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_FEED"]]); // tags selectors
-
-var tagsSelector = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["getQuerySelector"])({
-  type: _redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_TAGS"],
-  multiple: true
-});
-var tagsReset = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["resetRequests"])([_redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_TAGS"]]);
+var feedReset = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["resetRequests"])([_redux_constants__WEBPACK_IMPORTED_MODULE_1__["FETCH_FEED"]]);
 
 /***/ }),
 
@@ -82310,8 +82302,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _postsActions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./postsActions */ "./resources/js/redux/actions/postsActions.js");
 /* harmony import */ var _usersActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./usersActions */ "./resources/js/redux/actions/usersActions.js");
 /* harmony import */ var _feedActions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./feedActions */ "./resources/js/redux/actions/feedActions.js");
-/* harmony import */ var _tagsActions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./tagsActions */ "./resources/js/redux/actions/tagsActions.js");
-
 
 
 
@@ -82320,8 +82310,7 @@ var allActions = {
   userActions: _userActions__WEBPACK_IMPORTED_MODULE_0__["default"],
   postsActions: _postsActions__WEBPACK_IMPORTED_MODULE_1__["default"],
   usersActions: _usersActions__WEBPACK_IMPORTED_MODULE_2__["default"],
-  feedActions: _feedActions__WEBPACK_IMPORTED_MODULE_3__["default"],
-  tagsActions: _tagsActions__WEBPACK_IMPORTED_MODULE_4__["default"]
+  feedActions: _feedActions__WEBPACK_IMPORTED_MODULE_3__["default"]
 };
 /* harmony default export */ __webpack_exports__["default"] = (allActions);
 
@@ -82401,34 +82390,6 @@ var addPostComments = function addPostComments(id, payload) {
   getPost: getPost,
   getPostComments: getPostComments,
   addPostComments: addPostComments
-});
-
-/***/ }),
-
-/***/ "./resources/js/redux/actions/tagsActions.js":
-/*!***************************************************!*\
-  !*** ./resources/js/redux/actions/tagsActions.js ***!
-  \***************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants */ "./resources/js/redux/constants/index.js");
-
-
-var getTags = function getTags(name) {
-  return {
-    type: _constants__WEBPACK_IMPORTED_MODULE_0__["FETCH_TAGS"],
-    request: {
-      url: "/tags?name=".concat(name),
-      method: 'get'
-    }
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  getTags: getTags
 });
 
 /***/ }),
@@ -82796,46 +82757,6 @@ var Feed = function Feed() {
 
 /***/ }),
 
-/***/ "./resources/js/redux/reducers/postsReducer.js":
-/*!*****************************************************!*\
-  !*** ./resources/js/redux/reducers/postsReducer.js ***!
-  \*****************************************************/
-/*! exports provided: initialState, Posts */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Posts", function() { return Posts; });
-var initialState = {};
-var Posts = function Posts() {
-  var store = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-  return store;
-};
-
-/***/ }),
-
-/***/ "./resources/js/redux/reducers/tagsReducer.js":
-/*!****************************************************!*\
-  !*** ./resources/js/redux/reducers/tagsReducer.js ***!
-  \****************************************************/
-/*! exports provided: initialState, Tags */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tags", function() { return Tags; });
-var initialState = {};
-var Tags = function Tags() {
-  var store = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-  return store;
-};
-
-/***/ }),
-
 /***/ "./resources/js/redux/reducers/userReducer.js":
 /*!****************************************************!*\
   !*** ./resources/js/redux/reducers/userReducer.js ***!
@@ -82871,26 +82792,6 @@ var User = function User() {
     default:
       return store;
   }
-};
-
-/***/ }),
-
-/***/ "./resources/js/redux/reducers/usersReducer.js":
-/*!*****************************************************!*\
-  !*** ./resources/js/redux/reducers/usersReducer.js ***!
-  \*****************************************************/
-/*! exports provided: initialState, Users */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Users", function() { return Users; });
-var initialState = {};
-var Users = function Users() {
-  var store = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-  return store;
 };
 
 /***/ }),
@@ -84311,7 +84212,7 @@ var User = function User(props) {
       text: text,
       tags: tags
     }));
-    dispatch(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["tagsReset"]);
+    dispatch(tagsReset);
   };
 
   var deletePost = function deletePost(id) {
@@ -84319,15 +84220,11 @@ var User = function User(props) {
   };
 
   var updatePost = function updatePost(id, text, tags) {
-    console.log({
-      text: text,
-      tags: tags
-    });
     dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].usersActions.updateUserPost(id, {
       text: text,
       tags: tags
     }));
-    dispatch(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["tagsReset"]);
+    dispatch(tagsReset);
   };
 
   if (user.error) {
@@ -84380,10 +84277,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _redux_requests_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @redux-requests/core */ "./node_modules/@redux-requests/core/es/index.js");
 /* harmony import */ var _redux_requests_axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @redux-requests/axios */ "./node_modules/@redux-requests/axios/es/index.js");
 /* harmony import */ var _redux_reducers_userReducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../redux/reducers/userReducer */ "./resources/js/redux/reducers/userReducer.js");
-/* harmony import */ var _redux_reducers_postsReducer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../redux/reducers/postsReducer */ "./resources/js/redux/reducers/postsReducer.js");
-/* harmony import */ var _redux_reducers_usersReducer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../redux/reducers/usersReducer */ "./resources/js/redux/reducers/usersReducer.js");
-/* harmony import */ var _redux_reducers_feedReducer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../redux/reducers/feedReducer */ "./resources/js/redux/reducers/feedReducer.js");
-/* harmony import */ var _redux_reducers_tagsReducer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../redux/reducers/tagsReducer */ "./resources/js/redux/reducers/tagsReducer.js");
+/* harmony import */ var _redux_reducers_feedReducer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../redux/reducers/feedReducer */ "./resources/js/redux/reducers/feedReducer.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -84403,9 +84297,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 
 
-
-
-
 var configureStore = function configureStore() {
   var _handleRequests = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_3__["handleRequests"])({
     driver: Object(_redux_requests_axios__WEBPACK_IMPORTED_MODULE_4__["createDriver"])(_helpers_axios__WEBPACK_IMPORTED_MODULE_1__["default"])
@@ -84416,8 +84307,7 @@ var configureStore = function configureStore() {
   var reducers = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
     requests: requestsReducer,
     user: _redux_reducers_userReducer__WEBPACK_IMPORTED_MODULE_5__["User"],
-    feed: _redux_reducers_feedReducer__WEBPACK_IMPORTED_MODULE_8__["Feed"],
-    tags: _redux_reducers_tagsReducer__WEBPACK_IMPORTED_MODULE_9__["Tags"]
+    feed: _redux_reducers_feedReducer__WEBPACK_IMPORTED_MODULE_6__["Feed"]
   });
   var composeEnhancers = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || redux__WEBPACK_IMPORTED_MODULE_0__["compose"];
   var store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(reducers, composeEnhancers(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"].apply(void 0, _toConsumableArray(requestsMiddleware).concat([redux_thunk__WEBPACK_IMPORTED_MODULE_2__["default"]]))));

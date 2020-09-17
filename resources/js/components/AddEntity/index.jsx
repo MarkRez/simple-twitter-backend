@@ -8,10 +8,10 @@ const AddEntity = (
     getTagsFunc,
     type = "",
     placeholder,
-    tagsList,
   }) => {
   const [textValue, setTextValue] = useState('');
   const [tags, setTags] = useState([]);
+  const [tagsForDropdown, setTagsForDropdown] = useState([]);
 
   const handleClickAdd = (e) => {
     e.preventDefault();
@@ -19,7 +19,16 @@ const AddEntity = (
       addEntityFunc(textValue, tags);
       setTextValue('');
       setTags([]);
+      setTagsForDropdown([]);
     }
+  }
+
+  const getTagsForDropdown = (name) => {
+    getTagsFunc(name).then(
+      tags => {
+        setTagsForDropdown(tags.data)
+      }
+    );
   }
 
   return (
@@ -28,13 +37,14 @@ const AddEntity = (
         setTextFunc={setTextValue}
         finalFunc={handleClickAdd}
         setTagsFunc={setTags}
-        getDropdownTagsFunc={getTagsFunc}
+        getDropdownTagsFunc={getTagsForDropdown}
         text={textValue}
         currentTags={tags}
-        dropdownTags={tagsList}
+        dropdownTags={tagsForDropdown}
         type={type}
         placeholder={placeholder}
         rows={3}
+        buttonText="Add"
       />
     </div>
   )

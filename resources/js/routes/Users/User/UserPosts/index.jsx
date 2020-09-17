@@ -9,10 +9,8 @@ const UserPosts = ({ posts, loading, showDropdown, delFunc, updateFunc, type, ge
   if (posts) {
     postsList = posts.map(post => {
       return (
-        <Link
-          key={post.id}
-          to={`/posts/${post.id}`}>
           <Post
+            key={post.id}
             updateFunc={updateFunc}
             delFunc={delFunc}
             showDropdown={showDropdown}
@@ -22,7 +20,6 @@ const UserPosts = ({ posts, loading, showDropdown, delFunc, updateFunc, type, ge
             getTagsFunc={getTagsFunc}
             tagsList={tagsList}
           />
-        </Link>
       )});
   }
 

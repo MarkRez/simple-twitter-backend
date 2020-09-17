@@ -9,11 +9,11 @@ import {
   profileSelector,
   currentUserReset,
   currentUserPostsReset,
-  tagsSelector,
   tagsReset
 } from "../../../helpers/selectors";
 import AddEntity from "../../../components/AddEntity";
 import Skeleton from "react-loading-skeleton";
+import {getTags} from "../../../api";
 
 const User = (props) => {
   const dispatch = useDispatch();
@@ -22,7 +22,6 @@ const User = (props) => {
   const user = useSelector(userSelector);
   const userPosts = useSelector(userPostsSelector);
   const currentUser = useSelector(profileSelector);
-  const tags = useSelector(tagsSelector);
 
   let theSameUser = undefined;
   if (currentUser.data && user.data) {
@@ -42,10 +41,6 @@ const User = (props) => {
     e.preventDefault();
   }
 
-  const getTags = (name) => {
-    dispatch(allActions.tagsActions.getTags(name));
-  }
-
   const addPost = (text, tags) => {
     dispatch(allActions.usersActions.addUserPost({text, tags}));
     dispatch(tagsReset);
@@ -56,6 +51,7 @@ const User = (props) => {
   }
 
   const updatePost = (id, text, tags) => {
+    console.log({text, tags})
     dispatch(allActions.usersActions.updateUserPost(id, {text, tags}));
     dispatch(tagsReset);
   }
@@ -81,7 +77,6 @@ const User = (props) => {
           type="post"
           placeholder="Write new post"
           addEntityFunc={addPost}
-          tagsList={tags.data}
           showTagsInput={true}
           getTagsFunc={getTags}
         />
@@ -90,7 +85,6 @@ const User = (props) => {
           type="post"
           delFunc={deletePost}
           updateFunc={updatePost}
-          tagsList={tags.data}
           showDropdown={theSameUser}
           loading={userPosts.loading}
           posts={userPosts.data.data}

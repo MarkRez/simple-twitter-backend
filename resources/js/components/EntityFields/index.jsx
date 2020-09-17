@@ -14,7 +14,8 @@ const EntityFields = (
     dropdownTags,
     type = '',
     rows = 4,
-    placeholder
+    placeholder,
+    buttonText = 'Add'
   }) => {
   const handleTextAreaChange = (e) => {
     e.preventDefault();
@@ -65,8 +66,8 @@ const EntityFields = (
             <div className="col-lg-6 tags-div">
               {currentTags.map((tag, i) =>
                   <span key={`tag ${i}`} className="tag">
-              {tag.name}
-                    <span onClick={(e) => deleteTag(e, tag.id)}> &times;</span>
+                    {tag.name}
+                  <span onClick={(e) => deleteTag(e, tag.id)}> &times;</span>
             </span>
               )}
             </div>
@@ -74,7 +75,7 @@ const EntityFields = (
           : null
       }
       <div className="col-lg-12 text-right">
-        <Button onClickFunc={finalFunc} style='add'>Save</Button>
+        <Button onClickFunc={finalFunc} style='add'>{buttonText}</Button>
       </div>
     </div>
   )

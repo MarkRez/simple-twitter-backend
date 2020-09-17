@@ -9,7 +9,7 @@ import TextWithMentions from "../TextWithMentions";
 import './listEntity.scss';
 import EntityFields from "../EntityFields";
 
-const ListEntity = ({data, type, showDropdown = false, delFunc, updateFunc, tagsList = [], getTagsFunc}) => {
+const ListEntity = ({data, type, showDropdown = false, delFunc, updateFunc, getTagsFunc}) => {
   const {
     id,
     text,
@@ -28,6 +28,7 @@ const ListEntity = ({data, type, showDropdown = false, delFunc, updateFunc, tags
   const [editMode, setEditMode] = useState(false);
   const [textValue, setTextValue] = useState(text);
   const [currentTags, setTags] = useState(tags);
+  const [tagsForDropdown, setTagsForDropdown] = useState([]);
 
   const handleImageError = (e) => {
     e.target.src = '/storage/avatars/default.jpg';
@@ -47,6 +48,15 @@ const ListEntity = ({data, type, showDropdown = false, delFunc, updateFunc, tags
     e.preventDefault();
     updateFunc(id, textValue, currentTags);
     setEditMode(false);
+    setTagsForDropdown([]);
+  }
+
+  const getTagsForDropdown = (name) => {
+    getTagsFunc(name).then(
+      tags => {
+        setTagsForDropdown(tags.data)
+      }
+    );
   }
 
   return (
@@ -95,12 +105,13 @@ const ListEntity = ({data, type, showDropdown = false, delFunc, updateFunc, tags
                 setTextFunc={setTextValue}
                 finalFunc={handleSaveClick}
                 setTagsFunc={setTags}
-                getDropdownTagsFunc={getTagsFunc}
+                getDropdownTagsFunc={getTagsForDropdown}
                 text={textValue}
                 currentTags={currentTags}
-                dropdownTags={tagsList}
+                dropdownTags={tagsForDropdown}
                 type={type}
                 rows={4}
+                buttonText="Save"
               />
               : <div className="col-lg-12 post-text px-3">
                 {text
@@ -123,19 +134,21 @@ const ListEntity = ({data, type, showDropdown = false, delFunc, updateFunc, tags
                 }
                 <div className="col-lg-12 post-buttons row">
                   <div className="col-lg-4">
-              <span className={"up-span " + (liked === true ? "liked" : "")}>
-              <FontAwesomeIcon icon={faThumbsUp}/> {likes_count}
-              </span>
+                    <span className={"up-span " + (liked === true ? "liked" : "")}>
+                      <FontAwesomeIcon icon={faThumbsUp}/> {likes_count}
+                    </span>
                   </div>
                   <div className="col-lg-4">
-              <span className={"down-span " + (liked === false ? "disliked" : "")}>
-              <FontAwesomeIcon icon={faThumbsDown}/> {dislikes_count}
-              </span>
+                    <span className={"down-span " + (liked === false ? "disliked" : "")}>
+                      <FontAwesomeIcon icon={faThumbsDown}/> {dislikes_count}
+                    </span>
                   </div>
                   <div className="col-lg-4">
-              <span className="comment-span">
-              <FontAwesomeIcon icon={faCommentDots}/> {comments_count}
-              </span>
+                    <Link to={`/posts/${id}`}>
+                      <span className="comment-span">
+                        <FontAwesomeIcon icon={faCommentDots}/> {comments_count}
+                      </span>
+                    </Link>
                   </div>
                 </div>
               </>

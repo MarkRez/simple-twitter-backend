@@ -18,6 +18,7 @@ export const updateProfile = payload => api.post('/profile', payload, {headers: 
 // export const deletePost = id => api.delete(`/posts/${id}`);
 
 export const getFeed = page => api.get(`/feed?page=${page}`);
+export const getTags = name => api.get(`/tags?name=${name}`);
 
 const apis = {
   logIn,
@@ -25,6 +26,7 @@ const apis = {
   register,
   updateProfile,
   getFeed,
+  getTags
 };
 
 export default apis;

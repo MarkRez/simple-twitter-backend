@@ -17394,7 +17394,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".edit-entity .tags-dropdown-div input, .edit-entity .textarea-div textarea {\n  border: 1px solid #c8c9c9;\n  background-color: #fcfcfc;\n  border-radius: 20px;\n  padding: 10px 15px;\n  resize: none;\n  font-weight: 500;\n  color: #525252;\n}\n\n.edit-entity .textarea-div {\n  margin-bottom: 10px;\n}\n.edit-entity .tags-div .tag {\n  padding: 9px 14px;\n  border-radius: 15px;\n  background-color: #efefef;\n  color: #7b7b7b;\n  margin-right: 7px;\n}", ""]);
+exports.push([module.i, ".edit-entity .tags-dropdown-div input, .edit-entity .textarea-div textarea {\n  border: 1px solid #c8c9c9;\n  background-color: #fcfcfc;\n  border-radius: 20px;\n  padding: 10px 15px;\n  resize: none;\n  font-weight: 500;\n  color: #525252;\n}\n\n.edit-entity .textarea-div {\n  margin-bottom: 10px;\n}\n.edit-entity .tags-div .tag {\n  padding: 9px 14px;\n  border-radius: 15px;\n  background-color: #efefef;\n  color: #7b7b7b;\n  margin-right: 7px;\n}\n.edit-entity .tags-div .tag span {\n  cursor: pointer;\n  font-size: 1.2em;\n}\n.edit-entity .tags-div .tag span:hover {\n  color: #404040;\n}", ""]);
 
 // exports
 
@@ -17508,7 +17508,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".entity {\n  background-color: #ffffff;\n  border: 1px solid #e6ecf0;\n  padding: 15px 20px 15px 20px;\n  margin-top: -1px;\n  transition: background-color 0.3s ease;\n}\n.entity:hover {\n  background-color: #fafafa;\n}\n.entity .post-img img {\n  border-radius: 50%;\n  max-width: 50px;\n  height: 50px;\n}\n.entity .post-text-buttons .post-author {\n  margin-bottom: 5px;\n}\n.entity .post-text-buttons .post-author a {\n  font-weight: 700;\n  color: #000000;\n}\n.entity .post-text-buttons .post-author a:hover {\n  text-decoration: underline;\n}\n.entity .post-text-buttons .post-author .react-loading-skeleton {\n  max-width: 250px;\n  line-height: 20px;\n}\n.entity .post-text-buttons .post-author .dropdown-div {\n  margin-left: auto;\n}\n.entity .post-text-buttons .post-author .dropdown-div button {\n  border: none;\n  transform: rotate(90deg);\n  font-size: 1.4em;\n  color: #6f6f6f;\n  font-weight: 800;\n  width: 30px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 50%;\n  padding: 0;\n  background-color: #e8e8e8;\n  transition: background-color 0.3s ease;\n}\n.entity .post-text-buttons .post-author .dropdown-div button:hover {\n  background-color: #8f8f8f;\n}\n.entity .post-text-buttons .post-author .dropdown-div button:focus {\n  border: none;\n  outline: none;\n}\n.entity .post-text-buttons .post-author .dropdown-div .dropdown-item {\n  cursor: pointer;\n  background-color: #ffffff;\n}\n.entity .post-text-buttons .post-author .dropdown-div .dropdown-item:hover {\n  background-color: #dcdcdc;\n}\n.entity .post-text-buttons .post-text {\n  color: #000000;\n}\n.entity .post-text-buttons .post-text span {\n  cursor: pointer;\n  color: #1da1f2;\n}\n.entity .post-text-buttons .post-current-tags {\n  margin-top: 15px;\n}\n.entity .post-text-buttons .post-current-tags .tag {\n  padding: 9px 14px;\n  border-radius: 15px;\n  background-color: #efefef;\n  color: #7b7b7b;\n  margin-right: 7px;\n}\n.entity .post-text-buttons .post-buttons {\n  margin-top: 25px;\n}\n.entity .post-text-buttons .post-buttons span {\n  color: #6d6d6d;\n  padding: 9px 15px;\n  transition: all 0.3s;\n  border-radius: 30px;\n  cursor: pointer;\n}\n.entity .post-text-buttons .post-buttons span.liked {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.entity .post-text-buttons .post-buttons span.disliked {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.entity .post-text-buttons .post-buttons span.up-span:hover {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.entity .post-text-buttons .post-buttons span.down-span:hover {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.entity .post-text-buttons .post-buttons span.comment-span:hover {\n  color: #3498db;\n  background-color: #e3f4ff;\n}\n.entity .post-text-buttons .post-buttons span svg {\n  font-size: 1.25em;\n  margin-right: 5px;\n}", ""]);
+exports.push([module.i, ".entity {\n  background-color: #ffffff;\n  border: 1px solid #e6ecf0;\n  padding: 15px 20px 15px 20px;\n  margin-top: -1px;\n  transition: background-color 0.3s ease;\n}\n.entity .post-img img {\n  border-radius: 50%;\n  max-width: 50px;\n  height: 50px;\n}\n.entity .post-text-buttons .post-author {\n  margin-bottom: 5px;\n}\n.entity .post-text-buttons .post-author a {\n  font-weight: 700;\n  color: #000000;\n}\n.entity .post-text-buttons .post-author a:hover {\n  text-decoration: underline;\n}\n.entity .post-text-buttons .post-author .react-loading-skeleton {\n  max-width: 250px;\n  line-height: 20px;\n}\n.entity .post-text-buttons .post-author .dropdown-div {\n  margin-left: auto;\n}\n.entity .post-text-buttons .post-author .dropdown-div button {\n  border: none;\n  transform: rotate(90deg);\n  font-size: 1.4em;\n  color: #6f6f6f;\n  font-weight: 800;\n  width: 30px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 50%;\n  padding: 0;\n  background-color: #e8e8e8;\n  transition: background-color 0.3s ease;\n}\n.entity .post-text-buttons .post-author .dropdown-div button:hover {\n  background-color: #8f8f8f;\n}\n.entity .post-text-buttons .post-author .dropdown-div button:focus {\n  border: none;\n  outline: none;\n}\n.entity .post-text-buttons .post-author .dropdown-div .dropdown-item {\n  cursor: pointer;\n  background-color: #ffffff;\n}\n.entity .post-text-buttons .post-author .dropdown-div .dropdown-item:hover {\n  background-color: #dcdcdc;\n}\n.entity .post-text-buttons .post-text {\n  color: #000000;\n}\n.entity .post-text-buttons .post-text span {\n  cursor: pointer;\n  color: #1da1f2;\n}\n.entity .post-text-buttons .post-current-tags {\n  margin-top: 15px;\n}\n.entity .post-text-buttons .post-current-tags .tag {\n  padding: 9px 14px;\n  border-radius: 15px;\n  background-color: #efefef;\n  color: #7b7b7b;\n  margin-right: 7px;\n}\n.entity .post-text-buttons .post-buttons {\n  margin-top: 25px;\n}\n.entity .post-text-buttons .post-buttons span {\n  color: #6d6d6d;\n  padding: 9px 15px;\n  transition: all 0.3s;\n  border-radius: 30px;\n  cursor: pointer;\n}\n.entity .post-text-buttons .post-buttons span.liked {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.entity .post-text-buttons .post-buttons span.disliked {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.entity .post-text-buttons .post-buttons span.up-span:hover {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.entity .post-text-buttons .post-buttons span.down-span:hover {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.entity .post-text-buttons .post-buttons span.comment-span:hover {\n  color: #3498db;\n  background-color: #e3f4ff;\n}\n.entity .post-text-buttons .post-buttons span svg {\n  font-size: 1.25em;\n  margin-right: 5px;\n}", ""]);
 
 // exports
 
@@ -80482,7 +80482,7 @@ if(false) {}
 /*!***********************************!*\
   !*** ./resources/js/api/index.js ***!
   \***********************************/
-/*! exports provided: logIn, logOut, register, updateProfile, getFeed, default */
+/*! exports provided: logIn, logOut, register, updateProfile, getFeed, getTags, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -80492,6 +80492,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "register", function() { return register; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateProfile", function() { return updateProfile; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFeed", function() { return getFeed; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTags", function() { return getTags; });
 /* harmony import */ var _helpers_axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/axios */ "./resources/js/helpers/axios.js");
 
 var api = _helpers_axios__WEBPACK_IMPORTED_MODULE_0__["default"];
@@ -80521,12 +80522,16 @@ var updateProfile = function updateProfile(payload) {
 var getFeed = function getFeed(page) {
   return api.get("/feed?page=".concat(page));
 };
+var getTags = function getTags(name) {
+  return api.get("/tags?name=".concat(name));
+};
 var apis = {
   logIn: logIn,
   logOut: logOut,
   register: register,
   updateProfile: updateProfile,
-  getFeed: getFeed
+  getFeed: getFeed,
+  getTags: getTags
 };
 /* harmony default export */ __webpack_exports__["default"] = (apis);
 
@@ -80597,8 +80602,7 @@ var AddEntity = function AddEntity(_ref) {
       getTagsFunc = _ref.getTagsFunc,
       _ref$type = _ref.type,
       type = _ref$type === void 0 ? "" : _ref$type,
-      placeholder = _ref.placeholder,
-      tagsList = _ref.tagsList;
+      placeholder = _ref.placeholder;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
       _useState2 = _slicedToArray(_useState, 2),
@@ -80610,6 +80614,11 @@ var AddEntity = function AddEntity(_ref) {
       tags = _useState4[0],
       setTags = _useState4[1];
 
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState6 = _slicedToArray(_useState5, 2),
+      tagsForDropdown = _useState6[0],
+      setTagsForDropdown = _useState6[1];
+
   var handleClickAdd = function handleClickAdd(e) {
     e.preventDefault();
 
@@ -80617,7 +80626,14 @@ var AddEntity = function AddEntity(_ref) {
       addEntityFunc(textValue, tags);
       setTextValue('');
       setTags([]);
+      setTagsForDropdown([]);
     }
+  };
+
+  var getTagsForDropdown = function getTagsForDropdown(name) {
+    getTagsFunc(name).then(function (tags) {
+      setTagsForDropdown(tags.data);
+    });
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -80626,13 +80642,14 @@ var AddEntity = function AddEntity(_ref) {
     setTextFunc: setTextValue,
     finalFunc: handleClickAdd,
     setTagsFunc: setTags,
-    getDropdownTagsFunc: getTagsFunc,
+    getDropdownTagsFunc: getTagsForDropdown,
     text: textValue,
     currentTags: tags,
-    dropdownTags: tagsList,
+    dropdownTags: tagsForDropdown,
     type: type,
     placeholder: placeholder,
-    rows: 3
+    rows: 3,
+    buttonText: "Add"
   }));
 };
 
@@ -80872,7 +80889,9 @@ var EntityFields = function EntityFields(_ref) {
       type = _ref$type === void 0 ? '' : _ref$type,
       _ref$rows = _ref.rows,
       rows = _ref$rows === void 0 ? 4 : _ref$rows,
-      placeholder = _ref.placeholder;
+      placeholder = _ref.placeholder,
+      _ref$buttonText = _ref.buttonText,
+      buttonText = _ref$buttonText === void 0 ? 'Add' : _ref$buttonText;
 
   var handleTextAreaChange = function handleTextAreaChange(e) {
     e.preventDefault();
@@ -80937,7 +80956,7 @@ var EntityFields = function EntityFields(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
     onClickFunc: finalFunc,
     style: "add"
-  }, "Save")));
+  }, buttonText)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (EntityFields);
@@ -81435,8 +81454,6 @@ var ListEntity = function ListEntity(_ref) {
       showDropdown = _ref$showDropdown === void 0 ? false : _ref$showDropdown,
       delFunc = _ref.delFunc,
       updateFunc = _ref.updateFunc,
-      _ref$tagsList = _ref.tagsList,
-      tagsList = _ref$tagsList === void 0 ? [] : _ref$tagsList,
       getTagsFunc = _ref.getTagsFunc;
   var id = data.id,
       text = data.text,
@@ -81471,6 +81488,11 @@ var ListEntity = function ListEntity(_ref) {
       currentTags = _useState6[0],
       setTags = _useState6[1];
 
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState8 = _slicedToArray(_useState7, 2),
+      tagsForDropdown = _useState8[0],
+      setTagsForDropdown = _useState8[1];
+
   var handleImageError = function handleImageError(e) {
     e.target.src = '/storage/avatars/default.jpg';
   };
@@ -81489,6 +81511,13 @@ var ListEntity = function ListEntity(_ref) {
     e.preventDefault();
     updateFunc(id, textValue, currentTags);
     setEditMode(false);
+    setTagsForDropdown([]);
+  };
+
+  var getTagsForDropdown = function getTagsForDropdown(name) {
+    getTagsFunc(name).then(function (tags) {
+      setTagsForDropdown(tags.data);
+    });
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -81537,12 +81566,13 @@ var ListEntity = function ListEntity(_ref) {
     setTextFunc: setTextValue,
     finalFunc: handleSaveClick,
     setTagsFunc: setTags,
-    getDropdownTagsFunc: getTagsFunc,
+    getDropdownTagsFunc: getTagsForDropdown,
     text: textValue,
     currentTags: currentTags,
-    dropdownTags: tagsList,
+    dropdownTags: tagsForDropdown,
     type: type,
-    rows: 4
+    rows: 4,
+    buttonText: "Save"
   }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-12 post-text px-3"
   }, text ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TextWithMentions__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -81573,11 +81603,13 @@ var ListEntity = function ListEntity(_ref) {
     icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faThumbsDown"]
   }), " ", dislikes_count)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/posts/".concat(id)
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "comment-span"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
     icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faCommentDots"]
-  }), " ", comments_count)))) : null))));
+  }), " ", comments_count))))) : null))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ListEntity);
@@ -84166,10 +84198,8 @@ var UserPosts = function UserPosts(_ref) {
 
   if (posts) {
     postsList = posts.map(function (post) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ListEntity__WEBPACK_IMPORTED_MODULE_2__["default"], {
         key: post.id,
-        to: "/posts/".concat(post.id)
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ListEntity__WEBPACK_IMPORTED_MODULE_2__["default"], {
         updateFunc: updateFunc,
         delFunc: delFunc,
         showDropdown: showDropdown,
@@ -84178,7 +84208,7 @@ var UserPosts = function UserPosts(_ref) {
         type: type,
         getTagsFunc: getTagsFunc,
         tagsList: tagsList
-      }));
+      });
     });
   }
 
@@ -84240,6 +84270,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_AddEntity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../components/AddEntity */ "./resources/js/components/AddEntity/index.jsx");
 /* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-loading-skeleton */ "./node_modules/react-loading-skeleton/lib/index.js");
 /* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../api */ "./resources/js/api/index.js");
+
 
 
 
@@ -84255,7 +84287,6 @@ var User = function User(props) {
   var user = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["userSelector"]);
   var userPosts = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["userPostsSelector"]);
   var currentUser = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["profileSelector"]);
-  var tags = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_5__["tagsSelector"]);
   var theSameUser = undefined;
 
   if (currentUser.data && user.data) {
@@ -84275,10 +84306,6 @@ var User = function User(props) {
     e.preventDefault();
   };
 
-  var getTags = function getTags(name) {
-    dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].tagsActions.getTags(name));
-  };
-
   var addPost = function addPost(text, tags) {
     dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].usersActions.addUserPost({
       text: text,
@@ -84292,6 +84319,10 @@ var User = function User(props) {
   };
 
   var updatePost = function updatePost(id, text, tags) {
+    console.log({
+      text: text,
+      tags: tags
+    });
     dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].usersActions.updateUserPost(id, {
       text: text,
       tags: tags
@@ -84316,18 +84347,16 @@ var User = function User(props) {
     type: "post",
     placeholder: "Write new post",
     addEntityFunc: addPost,
-    tagsList: tags.data,
     showTagsInput: true,
-    getTagsFunc: getTags
+    getTagsFunc: _api__WEBPACK_IMPORTED_MODULE_8__["getTags"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserPosts__WEBPACK_IMPORTED_MODULE_3__["default"], {
     type: "post",
     delFunc: deletePost,
     updateFunc: updatePost,
-    tagsList: tags.data,
     showDropdown: theSameUser,
     loading: userPosts.loading,
     posts: userPosts.data.data,
-    getTagsFunc: getTags
+    getTagsFunc: _api__WEBPACK_IMPORTED_MODULE_8__["getTags"]
   })));
 };
 

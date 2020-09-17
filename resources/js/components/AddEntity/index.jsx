@@ -16,10 +16,10 @@ const AddEntity = (
   const handleClickAdd = (e) => {
     e.preventDefault();
     if (textValue) {
-      addEntityFunc(textValue, tags);
       setTextValue('');
       setTags([]);
       setTagsForDropdown([]);
+      addEntityFunc(textValue, tags);
     }
   }
 

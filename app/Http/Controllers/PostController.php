@@ -50,7 +50,14 @@ class PostController extends Controller
             'text' => $request->text,
         ]);
 
-        return $post->refresh()->load(['mentionedUsers:users.id,users.login']);
+        $post->tags()->detach();
+        $post->tags()->attach(array_map( function($tag)
+            {
+                return ['tag_id' => $tag['id']];
+            }, $request->tags)
+        );
+
+        return $post->refresh()->load(['user', 'mentionedUsers:users.id,users.login', 'tags']);
     }
 
     public function destroy(PostDeleteRequest $request, Post $post)

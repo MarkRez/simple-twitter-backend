@@ -80623,10 +80623,10 @@ var AddEntity = function AddEntity(_ref) {
     e.preventDefault();
 
     if (textValue) {
-      addEntityFunc(textValue, tags);
       setTextValue('');
       setTags([]);
       setTagsForDropdown([]);
+      addEntityFunc(textValue, tags);
     }
   };
 
@@ -81509,9 +81509,9 @@ var ListEntity = function ListEntity(_ref) {
 
   var handleSaveClick = function handleSaveClick(e) {
     e.preventDefault();
-    updateFunc(id, textValue, currentTags);
     setEditMode(false);
     setTagsForDropdown([]);
+    updateFunc(id, textValue, currentTags);
   };
 
   var getTagsForDropdown = function getTagsForDropdown(name) {

@@ -19,6 +19,7 @@ class PostUpdateRequest extends FormRequest
     {
         return [
             'text' => 'required|string',
+            'tags' => 'array|max:3'
         ];
     }
 }

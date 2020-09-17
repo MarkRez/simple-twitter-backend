@@ -46,9 +46,9 @@ const ListEntity = ({data, type, showDropdown = false, delFunc, updateFunc, getT
 
   const handleSaveClick = (e) => {
     e.preventDefault();
-    updateFunc(id, textValue, currentTags);
     setEditMode(false);
     setTagsForDropdown([]);
+    updateFunc(id, textValue, currentTags);
   }
 
   const getTagsForDropdown = (name) => {

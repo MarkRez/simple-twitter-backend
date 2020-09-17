@@ -31,9 +31,9 @@ const deleteUserPost = (deletedPostId) => ({
     requestKey: deletedPostId,
     mutations: {
       [FETCH_USER_POSTS]: {
-        updateData: data => ({
-          ...data,
-          data: data.data.filter(post => post.id !== deletedPostId)
+        updateData: currentData => ({
+          ...currentData,
+          data: currentData.data.filter(post => post.id !== deletedPostId)
         })
       },
     },
@@ -50,10 +50,10 @@ const addUserPost = (payload) => ({
   meta: {
     mutations: {
       [FETCH_USER_POSTS]: {
-        updateData: (data, mutationData) => {
+        updateData: (currentData, mutationData) => {
           return ({
-            ...data,
-            data: [mutationData, ...data.data]
+            ...currentData,
+            data: [mutationData, ...currentData.data]
           })
         }
       },
@@ -71,11 +71,10 @@ const updateUserPost = (id, payload) => ({
   meta: {
     mutations: {
       [FETCH_USER_POSTS]: {
-        updateData: (data, mutationData) => {
-          let updatedPostIndex = data.data.findIndex(post => post.id === id);
-          data.data[updatedPostIndex] = mutationData;
-          return ({...data})
-        }
+        updateData: (currentData, mutationData) => ({
+          ...current,
+          data: currentData.data.map(post => post.id === id ? mutationData : post)
+        })
       },
     },
   },

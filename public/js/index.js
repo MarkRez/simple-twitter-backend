@@ -82224,9 +82224,9 @@ var addPostComments = function addPostComments(id, payload) {
     },
     meta: {
       mutations: _defineProperty({}, _constants__WEBPACK_IMPORTED_MODULE_0__["FETCH_CURRENT_POST_COMMENTS"], {
-        updateData: function updateData(data, mutationData) {
-          return _objectSpread(_objectSpread({}, data), {}, {
-            data: [mutationData].concat(_toConsumableArray(data.data))
+        updateData: function updateData(currentData, mutationData) {
+          return _objectSpread(_objectSpread({}, currentData), {}, {
+            data: [mutationData].concat(_toConsumableArray(currentData.data))
           });
         }
       })
@@ -82451,9 +82451,9 @@ var deleteUserPost = function deleteUserPost(deletedPostId) {
     meta: {
       requestKey: deletedPostId,
       mutations: _defineProperty({}, _constants__WEBPACK_IMPORTED_MODULE_0__["FETCH_USER_POSTS"], {
-        updateData: function updateData(data) {
-          return _objectSpread(_objectSpread({}, data), {}, {
-            data: data.data.filter(function (post) {
+        updateData: function updateData(currentData) {
+          return _objectSpread(_objectSpread({}, currentData), {}, {
+            data: currentData.data.filter(function (post) {
               return post.id !== deletedPostId;
             })
           });
@@ -82473,9 +82473,9 @@ var addUserPost = function addUserPost(payload) {
     },
     meta: {
       mutations: _defineProperty({}, _constants__WEBPACK_IMPORTED_MODULE_0__["FETCH_USER_POSTS"], {
-        updateData: function updateData(data, mutationData) {
-          return _objectSpread(_objectSpread({}, data), {}, {
-            data: [mutationData].concat(_toConsumableArray(data.data))
+        updateData: function updateData(currentData, mutationData) {
+          return _objectSpread(_objectSpread({}, currentData), {}, {
+            data: [mutationData].concat(_toConsumableArray(currentData.data))
           });
         }
       })
@@ -82493,12 +82493,12 @@ var updateUserPost = function updateUserPost(id, payload) {
     },
     meta: {
       mutations: _defineProperty({}, _constants__WEBPACK_IMPORTED_MODULE_0__["FETCH_USER_POSTS"], {
-        updateData: function updateData(data, mutationData) {
-          var updatedPostIndex = data.data.findIndex(function (post) {
-            return post.id === id;
+        updateData: function updateData(currentData, mutationData) {
+          return _objectSpread(_objectSpread({}, current), {}, {
+            data: currentData.data.map(function (post) {
+              return post.id === id ? mutationData : post;
+            })
           });
-          data.data[updatedPostIndex] = mutationData;
-          return _objectSpread({}, data);
         }
       })
     }

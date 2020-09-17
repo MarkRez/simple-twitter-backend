@@ -30,10 +30,10 @@ const addPostComments = (id, payload) => ({
   meta: {
     mutations: {
       [FETCH_CURRENT_POST_COMMENTS]: {
-        updateData: (data, mutationData) => {
+        updateData: (currentData, mutationData) => {
           return ({
-            ...data,
-            data: [mutationData, ...data.data]
+            ...currentData,
+            data: [mutationData, ...currentData.data]
           })
         }
       },

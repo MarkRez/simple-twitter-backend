@@ -72,7 +72,7 @@ const updateUserPost = (id, payload) => ({
     mutations: {
       [FETCH_USER_POSTS]: {
         updateData: (currentData, mutationData) => ({
-          ...current,
+          ...currentData,
           data: currentData.data.map(post => post.id === id ? mutationData : post)
         })
       },

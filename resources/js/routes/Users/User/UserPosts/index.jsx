@@ -3,7 +3,7 @@ import './userPosts.scss';
 import Post from "../../../../components/ListEntity";
 import { Link } from "react-router-dom";
 
-const UserPosts = ({ posts, loading, showDropdown, delFunc, updateFunc }) => {
+const UserPosts = ({ posts, loading, showDropdown, delFunc, updateFunc, type, getTagsFunc, tagsList }) => {
   let postsList = [];
 
   if (posts) {
@@ -18,7 +18,9 @@ const UserPosts = ({ posts, loading, showDropdown, delFunc, updateFunc }) => {
             showDropdown={showDropdown}
             loading={loading}
             data={post}
-            type="post"
+            type={type}
+            getTagsFunc={getTagsFunc}
+            tagsList={tagsList}
           />
         </Link>
       )});

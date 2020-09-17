@@ -1,20 +1,33 @@
 import React, {useState} from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faThumbsUp, faThumbsDown, faCommentDots} from '@fortawesome/free-regular-svg-icons';
 import '@fortawesome/fontawesome-svg-core';
 import {prettyDate} from "../../helpers/dateConverter";
 import TextWithMentions from "../TextWithMentions";
-import EditEntity from "./EditEntity";
 import './listEntity.scss';
+import EntityFields from "../EntityFields";
 
-const ListEntity = ({data, type, showDropdown = false, delFunc, updateFunc}) => {
-  const {id, text, user_id, created_at, likes_count, dislikes_count, comments_count, liked, mentioned_users = [], user = {}} = data;
+const ListEntity = ({data, type, showDropdown = false, delFunc, updateFunc, tagsList = [], getTagsFunc}) => {
+  const {
+    id,
+    text,
+    user_id,
+    created_at,
+    likes_count,
+    dislikes_count,
+    comments_count,
+    liked,
+    tags = [],
+    mentioned_users = [],
+    user = {}
+  } = data;
   const {login, avatar, name} = user;
 
   const [editMode, setEditMode] = useState(false);
-  const [textAreaValue, setTextAreaValue] = useState(text);
+  const [textValue, setTextValue] = useState(text);
+  const [currentTags, setTags] = useState(tags);
 
   const handleImageError = (e) => {
     e.target.src = '/storage/avatars/default.jpg';
@@ -32,7 +45,7 @@ const ListEntity = ({data, type, showDropdown = false, delFunc, updateFunc}) => 
 
   const handleSaveClick = (e) => {
     e.preventDefault();
-    updateFunc(id, textAreaValue);
+    updateFunc(id, textValue, currentTags);
     setEditMode(false);
   }
 
@@ -76,32 +89,56 @@ const ListEntity = ({data, type, showDropdown = false, delFunc, updateFunc}) => 
                 : <Skeleton/>
               }
             </div>
-            <div className="col-lg-12 post-text px-3">
-              {editMode
-                ? <EditEntity saveFunc={handleSaveClick} setValueFunc={setTextAreaValue} value={textAreaValue}/>
-                : text
+            {editMode
+              ?
+              <EntityFields
+                setTextFunc={setTextValue}
+                finalFunc={handleSaveClick}
+                setTagsFunc={setTags}
+                getDropdownTagsFunc={getTagsFunc}
+                text={textValue}
+                currentTags={currentTags}
+                dropdownTags={tagsList}
+                type={type}
+                rows={4}
+              />
+              : <div className="col-lg-12 post-text px-3">
+                {text
                   ? <TextWithMentions text={text} mentions={mentioned_users}/>
                   : <Skeleton count={type === "post" ? 3 : 2}/>}
-            </div>
+              </div>
+            }
             {type === "post"
               ?
-              <div className="col-lg-12 post-buttons row">
-                <div className="col-lg-4">
-                  <span className={"up-span " + (liked === true ? "liked" : "")}>
-                    <FontAwesomeIcon icon={faThumbsUp}/> {likes_count}
-                  </span>
+              <>
+                {
+                  (currentTags.length !== 0 && !editMode) &&
+                  <div className="col-lg-12 post-current-tags">
+                    {currentTags.map((tag, i) =>
+                      <span key={`tag ${i}`} className="tag">
+                        {tag.name}
+                      </span>
+                    )}
+                  </div>
+                }
+                <div className="col-lg-12 post-buttons row">
+                  <div className="col-lg-4">
+              <span className={"up-span " + (liked === true ? "liked" : "")}>
+              <FontAwesomeIcon icon={faThumbsUp}/> {likes_count}
+              </span>
+                  </div>
+                  <div className="col-lg-4">
+              <span className={"down-span " + (liked === false ? "disliked" : "")}>
+              <FontAwesomeIcon icon={faThumbsDown}/> {dislikes_count}
+              </span>
+                  </div>
+                  <div className="col-lg-4">
+              <span className="comment-span">
+              <FontAwesomeIcon icon={faCommentDots}/> {comments_count}
+              </span>
+                  </div>
                 </div>
-                <div className="col-lg-4">
-                  <span className={"down-span " + (liked === false ? "disliked" : "")}>
-                    <FontAwesomeIcon icon={faThumbsDown}/> {dislikes_count}
-                  </span>
-                </div>
-                <div className="col-lg-4">
-                    <span className="comment-span">
-                      <FontAwesomeIcon icon={faCommentDots}/> {comments_count}
-                    </span>
-                </div>
-              </div>
+              </>
               : null}
           </div>
         </div>

@@ -1,0 +1,35 @@
+%field-style {
+  border: 1px solid rgb(200, 201, 201);
+  background-color: #fcfcfc;
+  border-radius: 20px;
+  padding: 10px 15px;
+  resize: none;
+  font-weight: 500;
+  color: #525252;
+}
+
+.edit-entity {
+  .textarea-div {
+    margin-bottom: 10px;
+
+    textarea {
+      @extend %field-style;
+    }
+  }
+
+  .tags-dropdown-div {
+    input {
+      @extend %field-style;
+    }
+  }
+
+  .tags-div {
+    .tag {
+      padding: 9px 14px;
+      border-radius: 15px;
+      background-color: rgb(239, 239, 239);
+      color: #7b7b7b;
+      margin-right: 7px;
+    }
+  }
+}

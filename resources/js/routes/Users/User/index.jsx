@@ -80,18 +80,21 @@ const User = (props) => {
         && <AddEntity
           type="post"
           placeholder="Write new post"
-          addFunc={addPost}
+          addEntityFunc={addPost}
           tagsList={tags.data}
           showTagsInput={true}
           getTagsFunc={getTags}
         />
         }
         <UserPosts
+          type="post"
           delFunc={deletePost}
           updateFunc={updatePost}
+          tagsList={tags.data}
           showDropdown={theSameUser}
           loading={userPosts.loading}
           posts={userPosts.data.data}
+          getTagsFunc={getTags}
         />
       </div>
     </div>

@@ -46,7 +46,7 @@ const PostPage = (props) => {
       <AddEntity
         type="comment"
         placeholder="Share your opinion"
-        addFunc={addComment}
+        addEntityFunc={addComment}
       />
       <PostComments
         comments={postComments.data.data}

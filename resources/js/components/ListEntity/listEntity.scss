@@ -63,7 +63,6 @@
         }
 
         .dropdown-item {
-          //z-index: 5;
           cursor: pointer;
           background-color: #ffffff;
 
@@ -78,19 +77,21 @@
     .post-text {
       color: #000000;
 
-      textarea {
-        border: 1px solid rgb(200, 201, 201);
-        background-color: #fcfcfc;
-        border-radius: 20px;
-        padding: 10px 15px;
-        resize: none;
-        font-weight: 500;
-        color: #525252;
-      }
-
       span {
         cursor: pointer;
         color: #1da1f2;
+      }
+    }
+
+    .post-current-tags {
+      margin-top: 15px;
+
+      .tag {
+        padding: 9px 14px;
+        border-radius: 15px;
+        background-color: rgb(239, 239, 239);
+        color: #7b7b7b;
+        margin-right: 7px;
       }
     }
 

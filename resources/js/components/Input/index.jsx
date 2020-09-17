@@ -16,6 +16,7 @@ const Input = (props) => {
         className="form-control component-input"
         id={id}
         type={type}
+        onClick={e => e.preventDefault()}
         placeholder={placeholder}
         onChange={onChangeFunc}
         {...field}

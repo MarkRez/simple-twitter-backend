@@ -17337,7 +17337,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".add-entity {\n  background-color: #ffffff;\n  border: 1px solid #e6ecf0;\n  padding: 15px 20px 15px 20px;\n}\n.add-entity .text-aria-div textarea {\n  border: 1px solid #c8c9c9;\n  background-color: #fcfcfc;\n  border-radius: 20px;\n  padding: 10px 15px;\n  resize: none;\n  font-weight: 500;\n  color: #525252;\n}\n.add-entity .tags-div {\n  padding-top: 7px;\n}\n.add-entity .tags-div .tag {\n  padding: 9px 14px;\n  border-radius: 15px;\n  background-color: #efefef;\n  color: #7b7b7b;\n  margin-right: 5px;\n  line-height: 1.25em;\n  vertical-align: middle;\n}\n.add-entity .tags-div .tag span {\n  cursor: pointer;\n  font-size: 1.25em;\n}\n.add-entity .tags-div .tag span:hover {\n  color: #575757;\n}", ""]);
+exports.push([module.i, ".add-entity {\n  background-color: #ffffff;\n  border: 1px solid #e6ecf0;\n  padding: 15px 20px 15px 20px;\n}\n.add-entity .text-aria-div textarea {\n  border: 1px solid #c8c9c9;\n  background-color: #fcfcfc;\n  border-radius: 20px;\n  padding: 10px 15px;\n  resize: none;\n  font-weight: 500;\n  color: #525252;\n}\n.add-entity .tags-div {\n  padding-top: 7px;\n}\n.add-entity .tags-div .tag {\n  padding: 9px 14px;\n  border-radius: 15px;\n  background-color: #efefef;\n  color: #7b7b7b;\n  margin-right: 7px;\n  line-height: 1.25em;\n  vertical-align: middle;\n}\n.add-entity .tags-div .tag span {\n  cursor: pointer;\n  font-size: 1.25em;\n}\n.add-entity .tags-div .tag span:hover {\n  color: #575757;\n}", ""]);
 
 // exports
 
@@ -17376,6 +17376,25 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 // module
 exports.push([module.i, ".dropdown-input {\n  top: inherit;\n  left: inherit;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/components/EntityFields/entityFields.scss":
+/*!***************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/postcss-loader/src??ref--6-2!./node_modules/sass-loader/dist/cjs.js??ref--6-3!./resources/js/components/EntityFields/entityFields.scss ***!
+  \***************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".edit-entity .tags-dropdown-div input, .edit-entity .textarea-div textarea {\n  border: 1px solid #c8c9c9;\n  background-color: #fcfcfc;\n  border-radius: 20px;\n  padding: 10px 15px;\n  resize: none;\n  font-weight: 500;\n  color: #525252;\n}\n\n.edit-entity .textarea-div {\n  margin-bottom: 10px;\n}\n.edit-entity .tags-div .tag {\n  padding: 9px 14px;\n  border-radius: 15px;\n  background-color: #efefef;\n  color: #7b7b7b;\n  margin-right: 7px;\n}", ""]);
 
 // exports
 
@@ -17489,7 +17508,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".entity {\n  background-color: #ffffff;\n  border: 1px solid #e6ecf0;\n  padding: 15px 20px 15px 20px;\n  margin-top: -1px;\n  transition: background-color 0.3s ease;\n}\n.entity:hover {\n  background-color: #fafafa;\n}\n.entity .post-img img {\n  border-radius: 50%;\n  max-width: 50px;\n  height: 50px;\n}\n.entity .post-text-buttons .post-author {\n  margin-bottom: 5px;\n}\n.entity .post-text-buttons .post-author a {\n  font-weight: 700;\n  color: #000000;\n}\n.entity .post-text-buttons .post-author a:hover {\n  text-decoration: underline;\n}\n.entity .post-text-buttons .post-author .react-loading-skeleton {\n  max-width: 250px;\n  line-height: 20px;\n}\n.entity .post-text-buttons .post-author .dropdown-div {\n  margin-left: auto;\n}\n.entity .post-text-buttons .post-author .dropdown-div button {\n  border: none;\n  transform: rotate(90deg);\n  font-size: 1.4em;\n  color: #6f6f6f;\n  font-weight: 800;\n  width: 30px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 50%;\n  padding: 0;\n  background-color: #e8e8e8;\n  transition: background-color 0.3s ease;\n}\n.entity .post-text-buttons .post-author .dropdown-div button:hover {\n  background-color: #8f8f8f;\n}\n.entity .post-text-buttons .post-author .dropdown-div button:focus {\n  border: none;\n  outline: none;\n}\n.entity .post-text-buttons .post-author .dropdown-div .dropdown-item {\n  cursor: pointer;\n  background-color: #ffffff;\n}\n.entity .post-text-buttons .post-author .dropdown-div .dropdown-item:hover {\n  background-color: #dcdcdc;\n}\n.entity .post-text-buttons .post-text {\n  color: #000000;\n}\n.entity .post-text-buttons .post-text textarea {\n  border: 1px solid #c8c9c9;\n  background-color: #fcfcfc;\n  border-radius: 20px;\n  padding: 10px 15px;\n  resize: none;\n  font-weight: 500;\n  color: #525252;\n}\n.entity .post-text-buttons .post-text span {\n  cursor: pointer;\n  color: #1da1f2;\n}\n.entity .post-text-buttons .post-buttons {\n  margin-top: 25px;\n}\n.entity .post-text-buttons .post-buttons span {\n  color: #6d6d6d;\n  padding: 9px 15px;\n  transition: all 0.3s;\n  border-radius: 30px;\n  cursor: pointer;\n}\n.entity .post-text-buttons .post-buttons span.liked {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.entity .post-text-buttons .post-buttons span.disliked {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.entity .post-text-buttons .post-buttons span.up-span:hover {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.entity .post-text-buttons .post-buttons span.down-span:hover {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.entity .post-text-buttons .post-buttons span.comment-span:hover {\n  color: #3498db;\n  background-color: #e3f4ff;\n}\n.entity .post-text-buttons .post-buttons span svg {\n  font-size: 1.25em;\n  margin-right: 5px;\n}", ""]);
+exports.push([module.i, ".entity {\n  background-color: #ffffff;\n  border: 1px solid #e6ecf0;\n  padding: 15px 20px 15px 20px;\n  margin-top: -1px;\n  transition: background-color 0.3s ease;\n}\n.entity:hover {\n  background-color: #fafafa;\n}\n.entity .post-img img {\n  border-radius: 50%;\n  max-width: 50px;\n  height: 50px;\n}\n.entity .post-text-buttons .post-author {\n  margin-bottom: 5px;\n}\n.entity .post-text-buttons .post-author a {\n  font-weight: 700;\n  color: #000000;\n}\n.entity .post-text-buttons .post-author a:hover {\n  text-decoration: underline;\n}\n.entity .post-text-buttons .post-author .react-loading-skeleton {\n  max-width: 250px;\n  line-height: 20px;\n}\n.entity .post-text-buttons .post-author .dropdown-div {\n  margin-left: auto;\n}\n.entity .post-text-buttons .post-author .dropdown-div button {\n  border: none;\n  transform: rotate(90deg);\n  font-size: 1.4em;\n  color: #6f6f6f;\n  font-weight: 800;\n  width: 30px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 50%;\n  padding: 0;\n  background-color: #e8e8e8;\n  transition: background-color 0.3s ease;\n}\n.entity .post-text-buttons .post-author .dropdown-div button:hover {\n  background-color: #8f8f8f;\n}\n.entity .post-text-buttons .post-author .dropdown-div button:focus {\n  border: none;\n  outline: none;\n}\n.entity .post-text-buttons .post-author .dropdown-div .dropdown-item {\n  cursor: pointer;\n  background-color: #ffffff;\n}\n.entity .post-text-buttons .post-author .dropdown-div .dropdown-item:hover {\n  background-color: #dcdcdc;\n}\n.entity .post-text-buttons .post-text {\n  color: #000000;\n}\n.entity .post-text-buttons .post-text span {\n  cursor: pointer;\n  color: #1da1f2;\n}\n.entity .post-text-buttons .post-current-tags {\n  margin-top: 15px;\n}\n.entity .post-text-buttons .post-current-tags .tag {\n  padding: 9px 14px;\n  border-radius: 15px;\n  background-color: #efefef;\n  color: #7b7b7b;\n  margin-right: 7px;\n}\n.entity .post-text-buttons .post-buttons {\n  margin-top: 25px;\n}\n.entity .post-text-buttons .post-buttons span {\n  color: #6d6d6d;\n  padding: 9px 15px;\n  transition: all 0.3s;\n  border-radius: 30px;\n  cursor: pointer;\n}\n.entity .post-text-buttons .post-buttons span.liked {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.entity .post-text-buttons .post-buttons span.disliked {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.entity .post-text-buttons .post-buttons span.up-span:hover {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n.entity .post-text-buttons .post-buttons span.down-span:hover {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n.entity .post-text-buttons .post-buttons span.comment-span:hover {\n  color: #3498db;\n  background-color: #e3f4ff;\n}\n.entity .post-text-buttons .post-buttons span svg {\n  font-size: 1.25em;\n  margin-right: 5px;\n}", ""]);
 
 // exports
 
@@ -80554,20 +80573,9 @@ if(false) {}
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Button */ "./resources/js/components/Button/index.jsx");
-/* harmony import */ var _addEntity_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./addEntity.scss */ "./resources/js/components/AddEntity/addEntity.scss");
-/* harmony import */ var _addEntity_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_addEntity_scss__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-loading-skeleton */ "./node_modules/react-loading-skeleton/lib/index.js");
-/* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _DropdownInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../DropdownInput */ "./resources/js/components/DropdownInput/index.jsx");
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
+/* harmony import */ var _addEntity_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./addEntity.scss */ "./resources/js/components/AddEntity/addEntity.scss");
+/* harmony import */ var _addEntity_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_addEntity_scss__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _EntityFields__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../EntityFields */ "./resources/js/components/EntityFields/index.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -80584,26 +80592,18 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
-
 var AddEntity = function AddEntity(_ref) {
-  var addFunc = _ref.addFunc,
+  var addEntityFunc = _ref.addEntityFunc,
       getTagsFunc = _ref.getTagsFunc,
-      _ref$rows = _ref.rows,
-      rows = _ref$rows === void 0 ? 2 : _ref$rows,
       _ref$type = _ref.type,
       type = _ref$type === void 0 ? "" : _ref$type,
-      _ref$loading = _ref.loading,
-      loading = _ref$loading === void 0 ? false : _ref$loading,
       placeholder = _ref.placeholder,
-      tagsList = _ref.tagsList,
-      _ref$showTagsInput = _ref.showTagsInput,
-      showTagsInput = _ref$showTagsInput === void 0 ? false : _ref$showTagsInput;
+      tagsList = _ref.tagsList;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
       _useState2 = _slicedToArray(_useState, 2),
-      textAreaValue = _useState2[0],
-      setTextAreaValue = _useState2[1];
+      textValue = _useState2[0],
+      setTextValue = _useState2[1];
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState4 = _slicedToArray(_useState3, 2),
@@ -80613,80 +80613,27 @@ var AddEntity = function AddEntity(_ref) {
   var handleClickAdd = function handleClickAdd(e) {
     e.preventDefault();
 
-    if (textAreaValue) {
-      addFunc(textAreaValue, tags);
-      setTextAreaValue('');
+    if (textValue) {
+      addEntityFunc(textValue, tags);
+      setTextValue('');
       setTags([]);
     }
   };
 
-  var handleTextAreaChange = function handleTextAreaChange(e) {
-    e.preventDefault();
-    setTextAreaValue(e.target.value);
-  };
-
-  var addTag = function addTag(id) {
-    for (var i = 0; i < tagsList.length; i += 1) {
-      if (tagsList[i].id === id) {
-        var exist = false;
-        tags.forEach(function (tag) {
-          if (tag.id === id) {
-            exist = true;
-          }
-        });
-        !exist && setTags([].concat(_toConsumableArray(tags), [tagsList[i]]));
-        break;
-      }
-    }
-  };
-
-  var deleteTag = function deleteTag(id) {
-    var withoutDeleted = tags.filter(function (tag) {
-      return tag.id !== id;
-    });
-    setTags(withoutDeleted);
-  };
-
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "add-entity w-100"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "row px-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-lg-12 text-aria-div"
-  }, type ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
-    className: "w-100 mb-2",
-    rows: rows,
-    onChange: handleTextAreaChange,
-    value: textAreaValue,
-    placeholder: placeholder
-  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    height: 40
-  })), showTagsInput && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, tags.length < 3 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-lg-6 tags-dropdown-div"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DropdownInput__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    onChangeFunc: getTagsFunc,
-    onClickFunc: addTag,
-    items: tagsList
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-lg-6 tags-div"
-  }, tags.map(function (tag, i) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      key: "tag ".concat(i),
-      className: "tag"
-    }, tag.name, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      onClick: function onClick() {
-        return deleteTag(tag.id);
-      }
-    }, " \xD7"));
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-lg-12 button-div text-right"
-  }, type ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    onClickFunc: handleClickAdd,
-    style: "add"
-  }, "Add ", type) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    height: 35,
-    width: 100
-  }))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EntityFields__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    setTextFunc: setTextValue,
+    finalFunc: handleClickAdd,
+    setTagsFunc: setTags,
+    getDropdownTagsFunc: getTagsFunc,
+    text: textValue,
+    currentTags: tags,
+    dropdownTags: tagsList,
+    type: type,
+    placeholder: placeholder,
+    rows: 3
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (AddEntity);
@@ -80819,8 +80766,9 @@ var DropdownInput = function DropdownInput(_ref) {
         key: item.id,
         className: "dropdown-item",
         type: "button",
-        onClick: function onClick() {
-          return onClickFunc(item.id);
+        onClick: function onClick(e) {
+          e.preventDefault();
+          onClickFunc(item.id);
         }
       }, item.name);
     });
@@ -80845,6 +80793,154 @@ var DropdownInput = function DropdownInput(_ref) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (DropdownInput);
+
+/***/ }),
+
+/***/ "./resources/js/components/EntityFields/entityFields.scss":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/EntityFields/entityFields.scss ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--6-3!./entityFields.scss */ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/components/EntityFields/entityFields.scss");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./resources/js/components/EntityFields/index.jsx":
+/*!********************************************************!*\
+  !*** ./resources/js/components/EntityFields/index.jsx ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Button */ "./resources/js/components/Button/index.jsx");
+/* harmony import */ var _DropdownInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../DropdownInput */ "./resources/js/components/DropdownInput/index.jsx");
+/* harmony import */ var _entityFields_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./entityFields.scss */ "./resources/js/components/EntityFields/entityFields.scss");
+/* harmony import */ var _entityFields_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_entityFields_scss__WEBPACK_IMPORTED_MODULE_3__);
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+
+
+
+
+
+var EntityFields = function EntityFields(_ref) {
+  var setTextFunc = _ref.setTextFunc,
+      finalFunc = _ref.finalFunc,
+      getDropdownTagsFunc = _ref.getDropdownTagsFunc,
+      setTagsFunc = _ref.setTagsFunc,
+      _ref$text = _ref.text,
+      text = _ref$text === void 0 ? '' : _ref$text,
+      _ref$currentTags = _ref.currentTags,
+      currentTags = _ref$currentTags === void 0 ? [] : _ref$currentTags,
+      dropdownTags = _ref.dropdownTags,
+      _ref$type = _ref.type,
+      type = _ref$type === void 0 ? '' : _ref$type,
+      _ref$rows = _ref.rows,
+      rows = _ref$rows === void 0 ? 4 : _ref$rows,
+      placeholder = _ref.placeholder;
+
+  var handleTextAreaChange = function handleTextAreaChange(e) {
+    e.preventDefault();
+    setTextFunc(e.target.value);
+  };
+
+  var addTag = function addTag(id) {
+    for (var i = 0; i < dropdownTags.length; i += 1) {
+      if (dropdownTags[i].id === id) {
+        var exist = false;
+        currentTags.forEach(function (tag) {
+          if (tag.id === id) {
+            exist = true;
+          }
+        });
+        !exist && setTagsFunc([].concat(_toConsumableArray(currentTags), [dropdownTags[i]]));
+        break;
+      }
+    }
+  };
+
+  var deleteTag = function deleteTag(e, id) {
+    e.preventDefault();
+    var withoutDeleted = currentTags.filter(function (tag) {
+      return tag.id !== id;
+    });
+    setTagsFunc(withoutDeleted);
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row edit-entity pl-2 w-100"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-lg-12 textarea-div"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+    className: "w-100",
+    onClick: function onClick(e) {
+      return e.preventDefault();
+    },
+    value: text,
+    placeholder: placeholder,
+    onChange: handleTextAreaChange,
+    rows: rows
+  })), type === "post" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, currentTags.length < 3 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-lg-6 tags-dropdown-div"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DropdownInput__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    onChangeFunc: getDropdownTagsFunc,
+    onClickFunc: addTag,
+    items: dropdownTags
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-lg-6 tags-div"
+  }, currentTags.map(function (tag, i) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      key: "tag ".concat(i),
+      className: "tag"
+    }, tag.name, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      onClick: function onClick(e) {
+        return deleteTag(e, tag.id);
+      }
+    }, " \xD7"));
+  }))) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-lg-12 text-right"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    onClickFunc: finalFunc,
+    style: "add"
+  }, "Save")));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (EntityFields);
 
 /***/ }),
 
@@ -81073,6 +81169,9 @@ var Input = function Input(props) {
     className: "form-control component-input",
     id: id,
     type: type,
+    onClick: function onClick(e) {
+      return e.preventDefault();
+    },
     placeholder: placeholder,
     onChange: onChangeFunc
   }, field)), errors && errors[field.name] && touched[field.name] ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
@@ -81284,49 +81383,6 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./resources/js/components/ListEntity/EditEntity/index.jsx":
-/*!*****************************************************************!*\
-  !*** ./resources/js/components/ListEntity/EditEntity/index.jsx ***!
-  \*****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Button */ "./resources/js/components/Button/index.jsx");
-
-
-
-var EditEntity = function EditEntity(_ref) {
-  var setValueFunc = _ref.setValueFunc,
-      saveFunc = _ref.saveFunc,
-      value = _ref.value;
-
-  var handleTextAreaChange = function handleTextAreaChange(e) {
-    e.preventDefault();
-    setValueFunc(e.target.value);
-  };
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
-    className: "w-100",
-    onClick: function onClick(e) {
-      return e.preventDefault();
-    },
-    value: value,
-    onChange: handleTextAreaChange,
-    rows: "4"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    onClickFunc: saveFunc,
-    style: "add"
-  }, "Save"));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (EditEntity);
-
-/***/ }),
-
 /***/ "./resources/js/components/ListEntity/index.jsx":
 /*!******************************************************!*\
   !*** ./resources/js/components/ListEntity/index.jsx ***!
@@ -81346,9 +81402,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js");
 /* harmony import */ var _helpers_dateConverter__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../helpers/dateConverter */ "./resources/js/helpers/dateConverter.js");
 /* harmony import */ var _TextWithMentions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../TextWithMentions */ "./resources/js/components/TextWithMentions/index.jsx");
-/* harmony import */ var _EditEntity__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./EditEntity */ "./resources/js/components/ListEntity/EditEntity/index.jsx");
-/* harmony import */ var _listEntity_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./listEntity.scss */ "./resources/js/components/ListEntity/listEntity.scss");
-/* harmony import */ var _listEntity_scss__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_listEntity_scss__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _listEntity_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./listEntity.scss */ "./resources/js/components/ListEntity/listEntity.scss");
+/* harmony import */ var _listEntity_scss__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_listEntity_scss__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _EntityFields__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../EntityFields */ "./resources/js/components/EntityFields/index.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -81378,7 +81434,10 @@ var ListEntity = function ListEntity(_ref) {
       _ref$showDropdown = _ref.showDropdown,
       showDropdown = _ref$showDropdown === void 0 ? false : _ref$showDropdown,
       delFunc = _ref.delFunc,
-      updateFunc = _ref.updateFunc;
+      updateFunc = _ref.updateFunc,
+      _ref$tagsList = _ref.tagsList,
+      tagsList = _ref$tagsList === void 0 ? [] : _ref$tagsList,
+      getTagsFunc = _ref.getTagsFunc;
   var id = data.id,
       text = data.text,
       user_id = data.user_id,
@@ -81387,6 +81446,8 @@ var ListEntity = function ListEntity(_ref) {
       dislikes_count = data.dislikes_count,
       comments_count = data.comments_count,
       liked = data.liked,
+      _data$tags = data.tags,
+      tags = _data$tags === void 0 ? [] : _data$tags,
       _data$mentioned_users = data.mentioned_users,
       mentioned_users = _data$mentioned_users === void 0 ? [] : _data$mentioned_users,
       _data$user = data.user,
@@ -81402,8 +81463,13 @@ var ListEntity = function ListEntity(_ref) {
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(text),
       _useState4 = _slicedToArray(_useState3, 2),
-      textAreaValue = _useState4[0],
-      setTextAreaValue = _useState4[1];
+      textValue = _useState4[0],
+      setTextValue = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(tags),
+      _useState6 = _slicedToArray(_useState5, 2),
+      currentTags = _useState6[0],
+      setTags = _useState6[1];
 
   var handleImageError = function handleImageError(e) {
     e.target.src = '/storage/avatars/default.jpg';
@@ -81421,7 +81487,7 @@ var ListEntity = function ListEntity(_ref) {
 
   var handleSaveClick = function handleSaveClick(e) {
     e.preventDefault();
-    updateFunc(id, textAreaValue);
+    updateFunc(id, textValue, currentTags);
     setEditMode(false);
   };
 
@@ -81467,18 +81533,31 @@ var ListEntity = function ListEntity(_ref) {
   }, editMode ? "Cancel" : 'Edit'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "dropdown-item",
     onClick: handleDeleteClick
-  }, "Delete"))) : null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Delete"))) : null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, null)), editMode ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EntityFields__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    setTextFunc: setTextValue,
+    finalFunc: handleSaveClick,
+    setTagsFunc: setTags,
+    getDropdownTagsFunc: getTagsFunc,
+    text: textValue,
+    currentTags: currentTags,
+    dropdownTags: tagsList,
+    type: type,
+    rows: 4
+  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-12 post-text px-3"
-  }, editMode ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EditEntity__WEBPACK_IMPORTED_MODULE_8__["default"], {
-    saveFunc: handleSaveClick,
-    setValueFunc: setTextAreaValue,
-    value: textAreaValue
-  }) : text ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TextWithMentions__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, text ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TextWithMentions__WEBPACK_IMPORTED_MODULE_7__["default"], {
     text: text,
     mentions: mentioned_users
   }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, {
     count: type === "post" ? 3 : 2
-  })), type === "post" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  })), type === "post" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, currentTags.length !== 0 && !editMode && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-lg-12 post-current-tags"
+  }, currentTags.map(function (tag, i) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      key: "tag ".concat(i),
+      className: "tag"
+    }, tag.name);
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-12 post-buttons row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-4"
@@ -81498,7 +81577,7 @@ var ListEntity = function ListEntity(_ref) {
     className: "comment-span"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
     icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faCommentDots"]
-  }), " ", comments_count))) : null))));
+  }), " ", comments_count)))) : null))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ListEntity);
@@ -82546,7 +82625,7 @@ var updateUserPost = function updateUserPost(id, payload) {
     meta: {
       mutations: _defineProperty({}, _constants__WEBPACK_IMPORTED_MODULE_0__["FETCH_USER_POSTS"], {
         updateData: function updateData(currentData, mutationData) {
-          return _objectSpread(_objectSpread({}, current), {}, {
+          return _objectSpread(_objectSpread({}, currentData), {}, {
             data: currentData.data.map(function (post) {
               return post.id === id ? mutationData : post;
             })
@@ -83660,7 +83739,7 @@ var PostPage = function PostPage(props) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddEntity__WEBPACK_IMPORTED_MODULE_5__["default"], {
     type: "comment",
     placeholder: "Share your opinion",
-    addFunc: addComment
+    addEntityFunc: addComment
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PostComments__WEBPACK_IMPORTED_MODULE_4__["default"], {
     comments: postComments.data.data,
     loading: postComments.loading
@@ -84079,7 +84158,10 @@ var UserPosts = function UserPosts(_ref) {
       loading = _ref.loading,
       showDropdown = _ref.showDropdown,
       delFunc = _ref.delFunc,
-      updateFunc = _ref.updateFunc;
+      updateFunc = _ref.updateFunc,
+      type = _ref.type,
+      getTagsFunc = _ref.getTagsFunc,
+      tagsList = _ref.tagsList;
   var postsList = [];
 
   if (posts) {
@@ -84093,7 +84175,9 @@ var UserPosts = function UserPosts(_ref) {
         showDropdown: showDropdown,
         loading: loading,
         data: post,
-        type: "post"
+        type: type,
+        getTagsFunc: getTagsFunc,
+        tagsList: tagsList
       }));
     });
   }
@@ -84231,16 +84315,19 @@ var User = function User(props) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, user.data.name ? "".concat(user.data.name, " posts") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7___default.a, null)), theSameUser && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddEntity__WEBPACK_IMPORTED_MODULE_6__["default"], {
     type: "post",
     placeholder: "Write new post",
-    addFunc: addPost,
+    addEntityFunc: addPost,
     tagsList: tags.data,
     showTagsInput: true,
     getTagsFunc: getTags
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserPosts__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    type: "post",
     delFunc: deletePost,
     updateFunc: updatePost,
+    tagsList: tags.data,
     showDropdown: theSameUser,
     loading: userPosts.loading,
-    posts: userPosts.data.data
+    posts: userPosts.data.data,
+    getTagsFunc: getTags
   })));
 };
 

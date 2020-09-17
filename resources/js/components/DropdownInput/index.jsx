@@ -11,7 +11,10 @@ const DropdownInput = ({items = [], onChangeFunc, onClickFunc}) => {
         key={item.id}
         className="dropdown-item"
         type="button"
-        onClick={()=>onClickFunc(item.id)}
+        onClick={(e) => {
+          e.preventDefault();
+          onClickFunc(item.id);
+        }}
       >
         {item.name}
       </button>)

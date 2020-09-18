@@ -4,7 +4,7 @@ import {Field, Form, Formik} from "formik";
 import * as Yup from "yup";
 import { loginPasswordSchema } from "../../../helpers/schemas";
 import Button from "../../../components/Button";
-import Input from "../../../components/Input";
+import Input from "../../../components/Inputs/Input";
 
 const SignUpSchema = Yup.object({
   name: Yup.string()

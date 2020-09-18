@@ -2,8 +2,8 @@ import React, {useState, useEffect, useRef} from "react";
 import * as Yup from "yup";
 import {Field, Form, Formik} from "formik";
 import Skeleton from "react-loading-skeleton";
-import Input from "../../../components/Input";
-import InputFile from "../../../components/inputFile";
+import Input from "../../../components/Inputs/Input";
+import InputFile from "../../../components/Inputs/inputFile";
 import Button from "../../../components/Button";
 import './editProfileForm.scss';
 

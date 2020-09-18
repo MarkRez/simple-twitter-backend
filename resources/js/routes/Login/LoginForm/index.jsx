@@ -3,7 +3,7 @@ import { Formik, Form, Field } from 'formik';
 import './loginForm.scss'
 import { loginPasswordSchema } from "../../../helpers/schemas";
 import Button from "../../../components/Button";
-import Input from "../../../components/Input";
+import Input from "../../../components/Inputs/Input";
 
 const LoginForm = ({ message, logInFunc }) => {
   return (

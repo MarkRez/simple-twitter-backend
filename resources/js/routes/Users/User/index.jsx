@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import UserInfo from "./UserInfo";
-import UserPosts from "./UserPosts";
+import EntityList from "../../../components/EntityList";
 import allActions from "../../../redux/actions";
 import {
   userSelector,
@@ -42,7 +42,6 @@ const User = (props) => {
 
   const addPost = (text, tags) => {
     dispatch(allActions.usersActions.addUserPost({text, tags}));
-    dispatch(tagsReset);
   }
 
   const deletePost = (id) => {
@@ -51,7 +50,14 @@ const User = (props) => {
 
   const updatePost = (id, text, tags) => {
     dispatch(allActions.usersActions.updateUserPost(id, {text, tags}));
-    dispatch(tagsReset);
+  }
+
+  const addReactionToPost = (id, reactionType) => {
+    dispatch(allActions.usersActions.reactionToUserPost(id, {reactionType}));
+  }
+
+  const deleteReactionFromPost = (id) => {
+    dispatch(allActions.usersActions.deleteReactionFromUserPost(id));
   }
 
   if (user.error) {
@@ -79,14 +85,15 @@ const User = (props) => {
           getTagsFunc={getTags}
         />
         }
-        <UserPosts
+        <EntityList
           type="post"
           delFunc={deletePost}
           updateFunc={updatePost}
           showDropdown={theSameUser}
-          loading={userPosts.loading}
-          posts={userPosts.data.data}
+          entities={userPosts.data.data}
           getTagsFunc={getTags}
+          setReactionFunc={addReactionToPost}
+          deleteReactionFunc={deleteReactionFromPost}
         />
       </div>
     </div>

@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import allActions from "../../redux/actions";
 import PostInfo from "./PostInfo";
-import PostComments from "./PostComments";
 import AddEntity from "../../components/AddEntity";
 import {
   currentPostSelector,
@@ -10,6 +9,7 @@ import {
   currentPostReset,
   currentPostCommentsReset
 } from "../../helpers/selectors";
+import EntityList from "../../components/EntityList";
 
 const PostPage = (props) => {
   const dispatch = useDispatch();
@@ -48,9 +48,8 @@ const PostPage = (props) => {
         placeholder="Share your opinion"
         addEntityFunc={addComment}
       />
-      <PostComments
-        comments={postComments.data.data}
-        loading={postComments.loading}
+      <EntityList
+        entities={postComments.data.data}
       />
     </div>
   )

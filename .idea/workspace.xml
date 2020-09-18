@@ -20,17 +20,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc0d50ca-a6dd-447d-ba43-1778eb7ff56d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/LikeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/EntityList/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LikesController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Like.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Like.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_28_114820_create_likes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_28_114820_create_likes_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_28_120013_create_blocked_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_28_120013_create_blocked_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_28_120455_create_followings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_28_120455_create_followings_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/helpers/selectors.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/helpers/selectors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/redux/actions/feedActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/redux/actions/feedActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/redux/actions/postsActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/redux/actions/postsActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/redux/actions/userActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/redux/actions/userActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/DropdownInput/dropdownInput.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Inputs/DropdownInput/dropdownInput.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/DropdownInput/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Inputs/DropdownInput/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/EntityFields/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/EntityFields/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Input/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Inputs/Input/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Input/input.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Inputs/Input/input.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/ListEntity/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ListEntity/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/inputFile/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Inputs/inputFile/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/redux/actions/usersActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/redux/actions/usersActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/redux/constants/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/redux/reducers/feedReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/redux/reducers/feedReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/redux/reducers/userReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/redux/reducers/userReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/routes/EditProfile/EditProfileForm/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes/EditProfile/EditProfileForm/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/routes/Feed/PostsList/index.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/routes/Feed/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes/Feed/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/routes/Login/LoginForm/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes/Login/LoginForm/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/routes/PostPage/PostComments/index.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/routes/PostPage/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes/PostPage/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/routes/Registration/RegistrationForm/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes/Registration/RegistrationForm/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/routes/Users/User/UserPosts/index.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/routes/Users/User/UserPosts/userPosts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/EntityList/entityList.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/routes/Users/User/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes/Users/User/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,6 +197,7 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/js/components" />
+      <recent name="$PROJECT_DIR$/resources/js/components/Inputs" />
       <recent name="$PROJECT_DIR$/storage/app/public" />
       <recent name="$PROJECT_DIR$/storage" />
     </key>
@@ -206,7 +224,7 @@
       <workItem from="1600232204591" duration="27685000" />
       <workItem from="1600319946175" duration="22881000" />
       <workItem from="1600406618475" duration="50000" />
-      <workItem from="1600408267128" duration="1065000" />
+      <workItem from="1600408267128" duration="12524000" />
     </task>
     <servers />
   </component>
@@ -230,10 +248,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="588" y="214" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1600161687056" />
-    <state x="722" y="241" width="523" height="624" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1600258838412">
+    <state x="722" y="241" width="523" height="624" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1600417862904">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="722" y="241" width="523" height="624" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1600258838412" />
+    <state x="722" y="241" width="523" height="624" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1600417862904" />
     <state x="726" y="301" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600347510188">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -278,10 +296,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="774" y="467" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1053@67.27.1853.1053" timestamp="1600238111890" />
-    <state x="657" y="253" width="672" height="677" key="run.anything.popup" timestamp="1600334519746">
+    <state x="657" y="253" width="672" height="677" key="run.anything.popup" timestamp="1600416043485">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="657" y="253" width="672" height="677" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1600334519746" />
+    <state x="657" y="253" width="672" height="677" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1600416043485" />
     <state x="980" y="349" width="672" height="678" key="search.everywhere.popup" timestamp="1598613858018">
       <screen x="74" y="27" width="2486" height="1413" />
     </state>

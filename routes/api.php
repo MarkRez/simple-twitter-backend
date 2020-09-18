@@ -11,7 +11,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('posts', 'PostController');
     Route::get('posts/{post}/comments', 'CommentController@index');
     Route::post('posts/{post}/comments', 'CommentController@store');
+    Route::post('posts/{post}/like', 'LikeController@store');
+    Route::delete('posts/{post}/like', 'LikeController@destroy');
     Route::get('users/{user}/posts', 'PostController@index');
+
 
     Route::get('/tags', 'TagController@index');
 

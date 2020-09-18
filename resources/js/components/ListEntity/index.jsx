@@ -9,7 +9,17 @@ import TextWithMentions from "../TextWithMentions";
 import './listEntity.scss';
 import EntityFields from "../EntityFields";
 
-const ListEntity = ({data, type, showDropdown = false, delFunc, updateFunc, getTagsFunc}) => {
+const ListEntity = (
+  {
+    data,
+    type,
+    showDropdown = false,
+    delFunc,
+    updateFunc,
+    getTagsFunc,
+    setReactionFunc,
+    deleteReactionFunc
+  }) => {
   const {
     id,
     text,
@@ -57,6 +67,14 @@ const ListEntity = ({data, type, showDropdown = false, delFunc, updateFunc, getT
         setTagsForDropdown(tags.data)
       }
     );
+  }
+
+  const handleReactionClick = (reactionType) => {
+    if (reactionType) {
+      liked ? deleteReactionFunc(id) : setReactionFunc(id, true);
+    } else {
+      (liked === false) ? deleteReactionFunc(id) : setReactionFunc(id, false);
+    }
   }
 
   return (
@@ -134,12 +152,12 @@ const ListEntity = ({data, type, showDropdown = false, delFunc, updateFunc, getT
                 }
                 <div className="col-lg-12 post-buttons row">
                   <div className="col-lg-4">
-                    <span className={"up-span " + (liked === true ? "liked" : "")}>
+                    <span onClick={() => handleReactionClick(true)} className={"up-span " + (liked === true ? "liked" : "")}>
                       <FontAwesomeIcon icon={faThumbsUp}/> {likes_count}
                     </span>
                   </div>
                   <div className="col-lg-4">
-                    <span className={"down-span " + (liked === false ? "disliked" : "")}>
+                    <span onClick={() => handleReactionClick(false)} className={"down-span " + (liked === false ? "disliked" : "")}>
                       <FontAwesomeIcon icon={faThumbsDown}/> {dislikes_count}
                     </span>
                   </div>

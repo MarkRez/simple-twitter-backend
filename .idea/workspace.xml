@@ -20,34 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc0d50ca-a6dd-447d-ba43-1778eb7ff56d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/LikeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/EntityList/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/IconWithCount/iconWithCount.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/IconWithCount/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/redux/actions/reactionActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LikesController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Like.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Like.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_28_114820_create_likes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_28_114820_create_likes_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_28_120013_create_blocked_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_28_120013_create_blocked_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_28_120455_create_followings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_28_120455_create_followings_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/DropdownInput/dropdownInput.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Inputs/DropdownInput/dropdownInput.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/DropdownInput/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Inputs/DropdownInput/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/EntityFields/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/EntityFields/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Input/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Inputs/Input/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Input/input.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Inputs/Input/input.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/ListEntity/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ListEntity/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/inputFile/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Inputs/inputFile/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/redux/actions/postsActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/redux/actions/postsActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/redux/actions/usersActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/redux/actions/usersActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/routes/EditProfile/EditProfileForm/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes/EditProfile/EditProfileForm/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/routes/Feed/PostsList/index.jsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/routes/Feed/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes/Feed/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/routes/Login/LoginForm/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes/Login/LoginForm/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/routes/PostPage/PostComments/index.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/routes/PostPage/PostInfo/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes/PostPage/PostInfo/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/routes/PostPage/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes/PostPage/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/routes/Registration/RegistrationForm/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes/Registration/RegistrationForm/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/routes/Users/User/UserPosts/index.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/routes/Users/User/UserPosts/userPosts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/EntityList/entityList.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/routes/Users/User/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes/Users/User/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +206,7 @@
       <workItem from="1600232204591" duration="27685000" />
       <workItem from="1600319946175" duration="22881000" />
       <workItem from="1600406618475" duration="50000" />
-      <workItem from="1600408267128" duration="12524000" />
+      <workItem from="1600408267128" duration="15450000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,13 @@
 export const FETCH_CURRENT_POST = 'FETCH_CURRENT_POST';
 export const FETCH_CURRENT_POST_COMMENTS = 'FETCH_CURRENT_POST_COMMENTS';
-export const ADD_POST_COMMENT = 'ADD_POST_COMMENT';
+const ADD_POST_COMMENT = 'ADD_POST_COMMENT';
+const ADD_REACTION_TO_POST = 'ADD_REACTION_TO_POST'
+const DELETE_REACTION_FROM_POST = 'DELETE_REACTION_FROM_POST';
+
+import {
+  deleteReactionFromPostRequest,
+  reactionToPostRequest
+} from "./reactionActions";
 
 const getPost = (id) => ({
   type: FETCH_CURRENT_POST,
@@ -39,8 +46,30 @@ const addPostComments = (id, payload) => ({
   },
 });
 
+const updatePostMeta = () => ({
+  mutations: {
+    [FETCH_CURRENT_POST]: {
+      updateData: (currentData, mutationData) => (mutationData)
+    },
+  },
+});
+
+const reactionToPost = (id, payload) => ({
+  type: ADD_REACTION_TO_POST,
+  request: reactionToPostRequest(id, payload),
+  meta: updatePostMeta()
+});
+
+const deleteReactionFromPost = (id) => ({
+  type: DELETE_REACTION_FROM_POST,
+  request: deleteReactionFromPostRequest(id),
+  meta: updatePostMeta()
+});
+
 export default {
   getPost,
   getPostComments,
-  addPostComments
+  addPostComments,
+  reactionToPost,
+  deleteReactionFromPost
 };

@@ -9,18 +9,16 @@ import './postInfo.scss';
 import TextWithMentions from "../../../components/TextWithMentions";
 
 
-const PostInfo = ({ post = {}, loading }) => {
+const PostInfo = ({ post = {}, loading, deleteReactionFunc, setReactionFunc }) => {
   const { text, created_at, likes_count, dislikes_count, liked, mentioned_users=[], user = {} } = post;
   const { name, login, avatar, id } = user;
 
-  const handleLikeClick = (e) => {
-    e.preventDefault();
-    // likeFunc();
-  }
-
-  const handleDislikeClick = (e) => {
-    e.preventDefault();
-    // dislikeFunc();
+  const handleReactionClick = (reactionType) => {
+    if (reactionType) {
+      liked ? deleteReactionFunc() : setReactionFunc(true);
+    } else {
+      (liked === false) ? deleteReactionFunc() : setReactionFunc(false);
+    }
   }
 
   const handleImageError = (e) => {
@@ -63,12 +61,12 @@ const PostInfo = ({ post = {}, loading }) => {
           </div>
           <div className="col-lg-6 buttons-div d-flex justify-content-end">
             <div className="col-lg-4">
-              <span className={"up-span " + (liked === true ? "liked" : "")} onClick={handleLikeClick}>
+              <span className={"up-span " + (liked === true ? "liked" : "")} onClick={() => handleReactionClick(true)}>
                 <FontAwesomeIcon icon={faThumbsUp} /> {likes_count}
               </span>
             </div>
             <div className="col-lg-4">
-              <span className={"down-span "  + (liked === false ? "disliked" : "")} onClick={handleDislikeClick}>
+              <span className={"down-span "  + (liked === false ? "disliked" : "")} onClick={() => handleReactionClick(false)}>
                 <FontAwesomeIcon icon={faThumbsDown} /> {dislikes_count}
               </span>
             </div>

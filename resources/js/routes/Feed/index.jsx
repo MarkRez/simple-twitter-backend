@@ -21,6 +21,7 @@ const Feed = () => {
       />
       <EntityList
         entities={feedPosts}
+        type="post"
       />
       {feedIsLoading && "Loading ..."}
     </div>

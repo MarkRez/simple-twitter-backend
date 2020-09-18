@@ -1,10 +1,15 @@
 export const FETCH_USER = 'FETCH_USER';
 export const FETCH_USER_POSTS = 'FETCH_USER_POSTS';
-export const DELETE_USER_POST = 'DELETE_USER_POST';
-export const ADD_USER_POST = 'ADD_USER_POST';
-export const UPDATE_USER_POST = 'UPDATE_USER_POST';
-export const REACTION_TO_USER_POST = 'REACTION_TO_USER_POST';
-export const DELETE_REACTION_FROM_USER_POST = 'DELETE_REACTION_FROM_USER_POST';
+const DELETE_USER_POST = 'DELETE_USER_POST';
+const ADD_USER_POST = 'ADD_USER_POST';
+const UPDATE_USER_POST = 'UPDATE_USER_POST';
+const ADD_REACTION_TO_USER_POST = 'ADD_REACTION_TO_USER_POST';
+const DELETE_REACTION_FROM_USER_POST = 'DELETE_REACTION_FROM_POST';
+
+import {
+  deleteReactionFromPostRequest,
+  reactionToPostRequest
+} from "./reactionActions";
 
 const getUser = (id) => ({
   type: FETCH_USER,
@@ -84,21 +89,14 @@ const updateUserPost = (id, payload) => ({
 });
 
 const reactionToUserPost = (id, payload) => ({
-  type: REACTION_TO_USER_POST,
-  request: {
-    url: `/posts/${id}/like`,
-    method: 'post',
-    data: payload
-  },
+  type: ADD_REACTION_TO_USER_POST,
+  request: reactionToPostRequest(id, payload),
   meta: updateUserPostMeta(id)
 });
 
 const deleteReactionFromUserPost = (id) => ({
   type: DELETE_REACTION_FROM_USER_POST,
-  request: {
-    url: `/posts/${id}/like`,
-    method: 'delete',
-  },
+  request: deleteReactionFromPostRequest(id),
   meta: updateUserPostMeta(id)
 });
 

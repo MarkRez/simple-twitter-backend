@@ -31,6 +31,14 @@ const PostPage = (props) => {
     dispatch(allActions.postsActions.addPostComments(postId, {text}));
   }
 
+  const addReactionToPost = (reactionType) => {
+    dispatch(allActions.postsActions.reactionToPost(postId, {reactionType}));
+  }
+
+  const deleteReactionFromPost = () => {
+    dispatch(allActions.postsActions.deleteReactionFromPost(postId));
+  }
+
   if (post.error) {
     return post.error.response.status === 404
       ? <h1>Post not found!</h1>
@@ -42,6 +50,8 @@ const PostPage = (props) => {
       <PostInfo
         post={post.data}
         loading={post.loading}
+        setReactionFunc={addReactionToPost}
+        deleteReactionFunc={deleteReactionFromPost}
       />
       <AddEntity
         type="comment"

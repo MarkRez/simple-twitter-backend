@@ -82404,14 +82404,14 @@ var allActions = {
 /*!****************************************************!*\
   !*** ./resources/js/redux/actions/postsActions.js ***!
   \****************************************************/
-/*! exports provided: FETCH_CURRENT_POST, FETCH_CURRENT_POST_COMMENTS, ADD_POST_COMMENT, default */
+/*! exports provided: FETCH_CURRENT_POST, FETCH_CURRENT_POST_COMMENTS, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_CURRENT_POST", function() { return FETCH_CURRENT_POST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_CURRENT_POST_COMMENTS", function() { return FETCH_CURRENT_POST_COMMENTS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_POST_COMMENT", function() { return ADD_POST_COMMENT; });
+/* harmony import */ var _reactionActions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reactionActions */ "./resources/js/redux/actions/reactionActions.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -82433,6 +82433,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var FETCH_CURRENT_POST = 'FETCH_CURRENT_POST';
 var FETCH_CURRENT_POST_COMMENTS = 'FETCH_CURRENT_POST_COMMENTS';
 var ADD_POST_COMMENT = 'ADD_POST_COMMENT';
+var ADD_REACTION_TO_POST = 'ADD_REACTION_TO_POST';
+var DELETE_REACTION_FROM_POST = 'DELETE_REACTION_FROM_POST';
+
 
 var getPost = function getPost(id) {
   return {
@@ -82474,11 +82477,66 @@ var addPostComments = function addPostComments(id, payload) {
   };
 };
 
+var updatePostMeta = function updatePostMeta() {
+  return {
+    mutations: _defineProperty({}, FETCH_CURRENT_POST, {
+      updateData: function updateData(currentData, mutationData) {
+        return mutationData;
+      }
+    })
+  };
+};
+
+var reactionToPost = function reactionToPost(id, payload) {
+  return {
+    type: ADD_REACTION_TO_POST,
+    request: Object(_reactionActions__WEBPACK_IMPORTED_MODULE_0__["reactionToPostRequest"])(id, payload),
+    meta: updatePostMeta()
+  };
+};
+
+var deleteReactionFromPost = function deleteReactionFromPost(id) {
+  return {
+    type: DELETE_REACTION_FROM_POST,
+    request: Object(_reactionActions__WEBPACK_IMPORTED_MODULE_0__["deleteReactionFromPostRequest"])(id),
+    meta: updatePostMeta()
+  };
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   getPost: getPost,
   getPostComments: getPostComments,
-  addPostComments: addPostComments
+  addPostComments: addPostComments,
+  reactionToPost: reactionToPost,
+  deleteReactionFromPost: deleteReactionFromPost
 });
+
+/***/ }),
+
+/***/ "./resources/js/redux/actions/reactionActions.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/redux/actions/reactionActions.js ***!
+  \*******************************************************/
+/*! exports provided: reactionToPostRequest, deleteReactionFromPostRequest */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reactionToPostRequest", function() { return reactionToPostRequest; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteReactionFromPostRequest", function() { return deleteReactionFromPostRequest; });
+var reactionToPostRequest = function reactionToPostRequest(id, payload) {
+  return {
+    url: "/posts/".concat(id, "/like"),
+    method: 'post',
+    data: payload
+  };
+};
+var deleteReactionFromPostRequest = function deleteReactionFromPostRequest(id) {
+  return {
+    url: "/posts/".concat(id, "/like"),
+    method: 'delete'
+  };
+};
 
 /***/ }),
 
@@ -82609,18 +82667,14 @@ var updateProfileData = function updateProfileData(data) {
 /*!****************************************************!*\
   !*** ./resources/js/redux/actions/usersActions.js ***!
   \****************************************************/
-/*! exports provided: FETCH_USER, FETCH_USER_POSTS, DELETE_USER_POST, ADD_USER_POST, UPDATE_USER_POST, REACTION_TO_USER_POST, DELETE_REACTION_FROM_USER_POST, default */
+/*! exports provided: FETCH_USER, FETCH_USER_POSTS, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_USER", function() { return FETCH_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_USER_POSTS", function() { return FETCH_USER_POSTS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_USER_POST", function() { return DELETE_USER_POST; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_USER_POST", function() { return ADD_USER_POST; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_USER_POST", function() { return UPDATE_USER_POST; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REACTION_TO_USER_POST", function() { return REACTION_TO_USER_POST; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_REACTION_FROM_USER_POST", function() { return DELETE_REACTION_FROM_USER_POST; });
+/* harmony import */ var _reactionActions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reactionActions */ "./resources/js/redux/actions/reactionActions.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -82644,8 +82698,9 @@ var FETCH_USER_POSTS = 'FETCH_USER_POSTS';
 var DELETE_USER_POST = 'DELETE_USER_POST';
 var ADD_USER_POST = 'ADD_USER_POST';
 var UPDATE_USER_POST = 'UPDATE_USER_POST';
-var REACTION_TO_USER_POST = 'REACTION_TO_USER_POST';
-var DELETE_REACTION_FROM_USER_POST = 'DELETE_REACTION_FROM_USER_POST';
+var ADD_REACTION_TO_USER_POST = 'ADD_REACTION_TO_USER_POST';
+var DELETE_REACTION_FROM_USER_POST = 'DELETE_REACTION_FROM_POST';
+
 
 var getUser = function getUser(id) {
   return {
@@ -82737,12 +82792,8 @@ var updateUserPost = function updateUserPost(id, payload) {
 
 var reactionToUserPost = function reactionToUserPost(id, payload) {
   return {
-    type: REACTION_TO_USER_POST,
-    request: {
-      url: "/posts/".concat(id, "/like"),
-      method: 'post',
-      data: payload
-    },
+    type: ADD_REACTION_TO_USER_POST,
+    request: Object(_reactionActions__WEBPACK_IMPORTED_MODULE_0__["reactionToPostRequest"])(id, payload),
     meta: updateUserPostMeta(id)
   };
 };
@@ -82750,10 +82801,7 @@ var reactionToUserPost = function reactionToUserPost(id, payload) {
 var deleteReactionFromUserPost = function deleteReactionFromUserPost(id) {
   return {
     type: DELETE_REACTION_FROM_USER_POST,
-    request: {
-      url: "/posts/".concat(id, "/like"),
-      method: 'delete'
-    },
+    request: Object(_reactionActions__WEBPACK_IMPORTED_MODULE_0__["deleteReactionFromPostRequest"])(id),
     meta: updateUserPostMeta(id)
   };
 };
@@ -83185,7 +83233,8 @@ var Feed = function Feed() {
       return dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_2__["default"].feedActions.nextPage());
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_EntityList__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    entities: feedPosts
+    entities: feedPosts,
+    type: "post"
   }), feedIsLoading && "Loading ...");
 };
 
@@ -83498,7 +83547,9 @@ __webpack_require__.r(__webpack_exports__);
 var PostInfo = function PostInfo(_ref) {
   var _ref$post = _ref.post,
       post = _ref$post === void 0 ? {} : _ref$post,
-      loading = _ref.loading;
+      loading = _ref.loading,
+      deleteReactionFunc = _ref.deleteReactionFunc,
+      setReactionFunc = _ref.setReactionFunc;
   var text = post.text,
       created_at = post.created_at,
       likes_count = post.likes_count,
@@ -83513,12 +83564,12 @@ var PostInfo = function PostInfo(_ref) {
       avatar = user.avatar,
       id = user.id;
 
-  var handleLikeClick = function handleLikeClick(e) {
-    e.preventDefault(); // likeFunc();
-  };
-
-  var handleDislikeClick = function handleDislikeClick(e) {
-    e.preventDefault(); // dislikeFunc();
+  var handleReactionClick = function handleReactionClick(reactionType) {
+    if (reactionType) {
+      liked ? deleteReactionFunc() : setReactionFunc(true);
+    } else {
+      liked === false ? deleteReactionFunc() : setReactionFunc(false);
+    }
   };
 
   var handleImageError = function handleImageError(e) {
@@ -83572,14 +83623,18 @@ var PostInfo = function PostInfo(_ref) {
     className: "col-lg-4"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "up-span " + (liked === true ? "liked" : ""),
-    onClick: handleLikeClick
+    onClick: function onClick() {
+      return handleReactionClick(true);
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
     icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faThumbsUp"]
   }), " ", likes_count)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-4"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "down-span " + (liked === false ? "disliked" : ""),
-    onClick: handleDislikeClick
+    onClick: function onClick() {
+      return handleReactionClick(false);
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
     icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faThumbsDown"]
   }), " ", dislikes_count))))));
@@ -83664,6 +83719,16 @@ var PostPage = function PostPage(props) {
     }));
   };
 
+  var addReactionToPost = function addReactionToPost(reactionType) {
+    dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_2__["default"].postsActions.reactionToPost(postId, {
+      reactionType: reactionType
+    }));
+  };
+
+  var deleteReactionFromPost = function deleteReactionFromPost() {
+    dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_2__["default"].postsActions.deleteReactionFromPost(postId));
+  };
+
   if (post.error) {
     return post.error.response.status === 404 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Post not found!") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Internal server error!");
   }
@@ -83672,7 +83737,9 @@ var PostPage = function PostPage(props) {
     className: "post-page"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PostInfo__WEBPACK_IMPORTED_MODULE_3__["default"], {
     post: post.data,
-    loading: post.loading
+    loading: post.loading,
+    setReactionFunc: addReactionToPost,
+    deleteReactionFunc: deleteReactionFromPost
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddEntity__WEBPACK_IMPORTED_MODULE_4__["default"], {
     type: "comment",
     placeholder: "Share your opinion",

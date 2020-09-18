@@ -1,10 +1,9 @@
 import apis from "../../api";
-import {
-  ADD_FEED_POSTS,
-  SET_FEED_LOADING,
-  SET_FEED_CURRENT_PAGE,
-  SET_FEED_TOTAL_PAGES
-} from '../constants';
+export const ADD_FEED_POSTS = 'ADD_FEED_POSTS';
+export const SET_FEED_LOADING = 'SET_FEED_LOADING';
+export const SET_FEED_CURRENT_PAGE = 'SET_FEED_CURRENT_PAGE';
+export const SET_FEED_TOTAL_PAGES = 'SET_FEED_TOTAL_PAGES';
+export const FETCH_FEED = 'FETCH_FEED';
 
 const setFeedPosts = (posts) => ({
   type: ADD_FEED_POSTS,

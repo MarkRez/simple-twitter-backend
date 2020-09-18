@@ -1,9 +1,8 @@
 import {cleanObject} from "../../helpers/anotherMethods";
 
-import {
-  SET_LOGGED_IN,
-  FETCH_PROFILE
-} from '../constants';
+export const SET_LOGGED_IN = 'SET_LOGGED_IN';
+export const FETCH_PROFILE = 'FETCH_PROFILE';
+
 import apis from "../../api";
 
 const setLoggedIn = (loggedIn) => ({

@@ -50,8 +50,7 @@ class PostController extends Controller
             'text' => $request->text,
         ]);
 
-        $post->tags()->detach();
-        $post->tags()->attach(array_map( function($tag)
+        $post->tags()->sync(array_map( function($tag)
             {
                 return ['tag_id' => $tag['id']];
             }, $request->tags)

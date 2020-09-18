@@ -1,14 +1,8 @@
 import {getQuerySelector, resetRequests} from "@redux-requests/core";
-
-import {
-  FETCH_PROFILE,
-  FETCH_CURRENT_POST,
-  FETCH_CURRENT_POST_COMMENTS,
-  FETCH_USER,
-  FETCH_USER_POSTS,
-  FETCH_FEED,
-  FETCH_TAGS
-} from "../redux/constants";
+import {FETCH_PROFILE} from "../redux/actions/userActions";
+import {FETCH_CURRENT_POST, FETCH_CURRENT_POST_COMMENTS} from "../redux/actions/postsActions";
+import {FETCH_USER, FETCH_USER_POSTS} from "../redux/actions/usersActions";
+import {FETCH_FEED} from "../redux/actions/feedActions";
 
 const skeletonArr = [{id: "skltn 1"}, {id: "skltn 2"}, {id: "skltn 3"}, {id: "skltn 4"}, {id: "skltn 5"}];
 

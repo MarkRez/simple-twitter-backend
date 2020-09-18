@@ -1,8 +1,6 @@
-import {
-  FETCH_CURRENT_POST,
-  FETCH_CURRENT_POST_COMMENTS,
-  ADD_POST_COMMENT
-} from '../constants';
+export const FETCH_CURRENT_POST = 'FETCH_CURRENT_POST';
+export const FETCH_CURRENT_POST_COMMENTS = 'FETCH_CURRENT_POST_COMMENTS';
+export const ADD_POST_COMMENT = 'ADD_POST_COMMENT';
 
 const getPost = (id) => ({
   type: FETCH_CURRENT_POST,

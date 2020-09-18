@@ -3,7 +3,7 @@ import {
   SET_FEED_LOADING,
   SET_FEED_CURRENT_PAGE,
   SET_FEED_TOTAL_PAGES
-} from '../constants';
+} from '../actions/feedActions';
 
 export const initialState = {
   feedPosts: [],

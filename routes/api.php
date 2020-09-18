@@ -7,6 +7,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/profile', 'ProfileController@index');
     Route::put('/profile', 'ProfileController@update');
     Route::apiResource('users', 'UserController')->only('index', 'show');
+    Route::post('users/{user}/follow', 'FollowController@store');
+    Route::delete('users/{user}/follow', 'FollowController@destroy');
 
     Route::apiResource('posts', 'PostController');
     Route::get('posts/{post}/comments', 'CommentController@index');

@@ -5,11 +5,15 @@ import {Link} from "react-router-dom";
 import {ROUTES} from "../../../../helpers/routes";
 import './userInfo.scss';
 
-const UserInfo = ({ userData, followFunc, theSameUser, loading }) => {
+const UserInfo = ({ userData, followFunc, unFollowFunc, theSameUser, loading }) => {
   const { name, avatar, followers_count, followings_count, followed, login } = userData;
 
   const handleImageError = (e) => {
       e.target.src = '/storage/avatars/default.jpg';
+  }
+
+  const handleClickFollow = () => {
+    followed ? unFollowFunc() : followFunc();
   }
 
   return (
@@ -35,7 +39,7 @@ const UserInfo = ({ userData, followFunc, theSameUser, loading }) => {
                 { theSameUser !== undefined
                   ? (theSameUser
                     ? <Link to={ROUTES.EDIT}><Button style="twitter">Edit profile</Button></Link>
-                    :<Button onClickFunc={followFunc} style="twitter">{followed ? "Unfollow" : "Follow"}</Button>)
+                    :<Button onClickFunc={handleClickFollow} style="twitter">{followed ? "Unfollow" : "Follow"}</Button>)
                   : <Skeleton width={125} height={30}/>
                 }
               </div>

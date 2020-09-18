@@ -36,8 +36,12 @@ const User = (props) => {
     };
   }, [userId]);
 
-  const followUser = (e) => {
-    e.preventDefault();
+  const followUser = () => {
+    dispatch(allActions.usersActions.followUser(userId));
+  }
+
+  const unFollowUser = () => {
+    dispatch(allActions.usersActions.unFollowUser(userId));
   }
 
   const addPost = (text, tags) => {
@@ -74,6 +78,7 @@ const User = (props) => {
           loading={user.loading}
           theSameUser={theSameUser}
           followFunc={followUser}
+          unFollowFunc={unFollowUser}
         />
         <h2>{user.data.name ? `${user.data.name} posts` : <Skeleton/>}</h2>
         {theSameUser

@@ -82693,6 +82693,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+
 var FETCH_USER = 'FETCH_USER';
 var FETCH_USER_POSTS = 'FETCH_USER_POSTS';
 var DELETE_USER_POST = 'DELETE_USER_POST';
@@ -82700,7 +82701,32 @@ var ADD_USER_POST = 'ADD_USER_POST';
 var UPDATE_USER_POST = 'UPDATE_USER_POST';
 var ADD_REACTION_TO_USER_POST = 'ADD_REACTION_TO_USER_POST';
 var DELETE_REACTION_FROM_USER_POST = 'DELETE_REACTION_FROM_POST';
+var FOLLOW_USER = 'FOLLOW_USER';
+var UN_FOLLOW_USER = 'UN_FOLLOW_USER';
 
+var updateUserPostMeta = function updateUserPostMeta(id) {
+  return {
+    mutations: _defineProperty({}, FETCH_USER_POSTS, {
+      updateData: function updateData(currentData, mutationData) {
+        return _objectSpread(_objectSpread({}, currentData), {}, {
+          data: currentData.data.map(function (post) {
+            return post.id === id ? mutationData : post;
+          })
+        });
+      }
+    })
+  };
+};
+
+var updateUserMeta = function updateUserMeta(id) {
+  return {
+    mutations: _defineProperty({}, FETCH_USER, {
+      updateData: function updateData(currentData, mutationData) {
+        return mutationData;
+      }
+    })
+  };
+};
 
 var getUser = function getUser(id) {
   return {
@@ -82764,20 +82790,6 @@ var addUserPost = function addUserPost(payload) {
   };
 };
 
-var updateUserPostMeta = function updateUserPostMeta(id) {
-  return {
-    mutations: _defineProperty({}, FETCH_USER_POSTS, {
-      updateData: function updateData(currentData, mutationData) {
-        return _objectSpread(_objectSpread({}, currentData), {}, {
-          data: currentData.data.map(function (post) {
-            return post.id === id ? mutationData : post;
-          })
-        });
-      }
-    })
-  };
-};
-
 var updateUserPost = function updateUserPost(id, payload) {
   return {
     type: UPDATE_USER_POST,
@@ -82806,6 +82818,28 @@ var deleteReactionFromUserPost = function deleteReactionFromUserPost(id) {
   };
 };
 
+var followUser = function followUser(id) {
+  return {
+    type: FOLLOW_USER,
+    request: {
+      url: "/users/".concat(id, "/follow"),
+      method: 'post'
+    },
+    meta: updateUserMeta(id)
+  };
+};
+
+var unFollowUser = function unFollowUser(id) {
+  return {
+    type: UN_FOLLOW_USER,
+    request: {
+      url: "/users/".concat(id, "/follow"),
+      method: 'delete'
+    },
+    meta: updateUserMeta(id)
+  };
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   getUser: getUser,
   getUserPosts: getUserPosts,
@@ -82813,7 +82847,9 @@ var deleteReactionFromUserPost = function deleteReactionFromUserPost(id) {
   addUserPost: addUserPost,
   updateUserPost: updateUserPost,
   reactionToUserPost: reactionToUserPost,
-  deleteReactionFromUserPost: deleteReactionFromUserPost
+  deleteReactionFromUserPost: deleteReactionFromUserPost,
+  followUser: followUser,
+  unFollowUser: unFollowUser
 });
 
 /***/ }),
@@ -84045,6 +84081,7 @@ __webpack_require__.r(__webpack_exports__);
 var UserInfo = function UserInfo(_ref) {
   var userData = _ref.userData,
       followFunc = _ref.followFunc,
+      unFollowFunc = _ref.unFollowFunc,
       theSameUser = _ref.theSameUser,
       loading = _ref.loading;
   var name = userData.name,
@@ -84056,6 +84093,10 @@ var UserInfo = function UserInfo(_ref) {
 
   var handleImageError = function handleImageError(e) {
     e.target.src = '/storage/avatars/default.jpg';
+  };
+
+  var handleClickFollow = function handleClickFollow() {
+    followed ? unFollowFunc() : followFunc();
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -84090,7 +84131,7 @@ var UserInfo = function UserInfo(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
     style: "twitter"
   }, "Edit profile")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    onClickFunc: followFunc,
+    onClickFunc: handleClickFollow,
     style: "twitter"
   }, followed ? "Unfollow" : "Follow") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, {
     width: 125,
@@ -84187,8 +84228,12 @@ var User = function User(props) {
     };
   }, [userId]);
 
-  var followUser = function followUser(e) {
-    e.preventDefault();
+  var followUser = function followUser() {
+    dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].usersActions.followUser(userId));
+  };
+
+  var unFollowUser = function unFollowUser() {
+    dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].usersActions.unFollowUser(userId));
   };
 
   var addPost = function addPost(text, tags) {
@@ -84231,7 +84276,8 @@ var User = function User(props) {
     userData: user.data,
     loading: user.loading,
     theSameUser: theSameUser,
-    followFunc: followUser
+    followFunc: followUser,
+    unFollowFunc: unFollowUser
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, user.data.name ? "".concat(user.data.name, " posts") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7___default.a, null)), theSameUser && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddEntity__WEBPACK_IMPORTED_MODULE_6__["default"], {
     type: "post",
     placeholder: "Write new post",

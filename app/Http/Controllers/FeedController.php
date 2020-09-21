@@ -14,7 +14,7 @@ class FeedController extends Controller
 
         $leadsIds = $user->leads->pluck('id');
 
-        $post = Post::whereIn('user_id', $leadsIds)->orderBy('updated_at', 'desc')->paginate(10);
+        $post = Post::whereIn('user_id', $leadsIds)->orderBy('updated_at', 'desc')->paginate(15);
 
         return $post;
     }

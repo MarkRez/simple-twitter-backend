@@ -82243,9 +82243,7 @@ var currentUserPostsReset = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE
 
 var feedSelector = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["getQuerySelector"])({
   type: _redux_actions_feedActions__WEBPACK_IMPORTED_MODULE_4__["FETCH_FEED"],
-  defaultData: {
-    data: skeletonArr.slice(0, 4)
-  }
+  multiple: true
 });
 var feedReset = Object(_redux_requests_core__WEBPACK_IMPORTED_MODULE_0__["resetRequests"])([_redux_actions_feedActions__WEBPACK_IMPORTED_MODULE_4__["FETCH_FEED"]]);
 
@@ -82324,138 +82322,54 @@ if(false) {}
 /*!***************************************************!*\
   !*** ./resources/js/redux/actions/feedActions.js ***!
   \***************************************************/
-/*! exports provided: ADD_FEED_POSTS, SET_FEED_LOADING, SET_FEED_CURRENT_PAGE, SET_FEED_TOTAL_PAGES, FETCH_FEED, default */
+/*! exports provided: FETCH_FEED, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_FEED_POSTS", function() { return ADD_FEED_POSTS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_FEED_LOADING", function() { return SET_FEED_LOADING; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_FEED_CURRENT_PAGE", function() { return SET_FEED_CURRENT_PAGE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_FEED_TOTAL_PAGES", function() { return SET_FEED_TOTAL_PAGES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_FEED", function() { return FETCH_FEED; });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api */ "./resources/js/api/index.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
 
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
-var ADD_FEED_POSTS = 'ADD_FEED_POSTS';
-var SET_FEED_LOADING = 'SET_FEED_LOADING';
-var SET_FEED_CURRENT_PAGE = 'SET_FEED_CURRENT_PAGE';
-var SET_FEED_TOTAL_PAGES = 'SET_FEED_TOTAL_PAGES';
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var FETCH_FEED = 'FETCH_FEED';
 
-var setFeedPosts = function setFeedPosts(posts) {
+var getFeed = function getFeed(page) {
   return {
-    type: ADD_FEED_POSTS,
-    posts: posts
-  };
-};
-
-var setFeedLoading = function setFeedLoading(status) {
-  return {
-    type: SET_FEED_LOADING,
-    status: status
-  };
-};
-
-var setCurrentPage = function setCurrentPage(page) {
-  return {
-    type: SET_FEED_CURRENT_PAGE,
-    page: page
-  };
-};
-
-var setTotalPages = function setTotalPages(pages) {
-  return {
-    type: SET_FEED_TOTAL_PAGES,
-    pages: pages
-  };
-};
-
-var getFeed = function getFeed() {
-  return /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(dispatch, getState) {
-      var state, response;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              state = getState();
-
-              if (state.feed.feedLoading) {
-                _context.next = 12;
-                break;
-              }
-
-              _context.prev = 2;
-              dispatch(setFeedLoading(true));
-              _context.next = 6;
-              return _api__WEBPACK_IMPORTED_MODULE_1__["default"].getFeed(state.feed.feedCurrentPage);
-
-            case 6:
-              response = _context.sent;
-              dispatch(setTotalPages(response.data.last_page));
-              dispatch(setFeedPosts(response.data.data));
-
-            case 9:
-              _context.prev = 9;
-              dispatch(setFeedLoading(false));
-              return _context.finish(9);
-
-            case 12:
-            case "end":
-              return _context.stop();
-          }
+    type: FETCH_FEED,
+    request: {
+      url: "/feed?page=".concat(page),
+      method: 'get'
+    },
+    meta: {
+      mutations: _defineProperty({}, FETCH_FEED, {
+        updateData: function updateData(currentData, mutationData) {
+          console.log(currentData, mutationData);
+          return _objectSpread(_objectSpread({}, currentData), {}, {
+            data: [currentData.data].concat(_toConsumableArray(mutationData.data))
+          }, mutationData);
         }
-      }, _callee, null, [[2,, 9, 12]]);
-    }));
-
-    return function (_x, _x2) {
-      return _ref.apply(this, arguments);
-    };
-  }();
-};
-
-var nextPage = function nextPage() {
-  return /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(dispatch, getState) {
-      var state, currentPage;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              state = getState();
-              currentPage = state.feed.feedCurrentPage;
-
-              if (!state.feed.feedLoading && !(currentPage + 1 > state.feed.feedTotalPages)) {
-                dispatch(setCurrentPage(state.feed.feedCurrentPage + 1));
-                dispatch(getFeed());
-              }
-
-            case 3:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
-
-    return function (_x3, _x4) {
-      return _ref2.apply(this, arguments);
-    };
-  }();
+      })
+    }
+  };
 };
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  getFeed: getFeed,
-  setFeedLoading: setFeedLoading,
-  nextPage: nextPage
+  getFeed: getFeed
 });
 
 /***/ }),
@@ -82978,60 +82892,11 @@ var unBlockUser = function unBlockUser(id) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Feed", function() { return Feed; });
-/* harmony import */ var _actions_feedActions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/feedActions */ "./resources/js/redux/actions/feedActions.js");
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-var initialState = {
-  feedPosts: [],
-  feedLoading: false,
-  feedCurrentPage: 1,
-  feedTotalPages: undefined
-};
+var initialState = {};
 var Feed = function Feed() {
   var store = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case _actions_feedActions__WEBPACK_IMPORTED_MODULE_0__["ADD_FEED_POSTS"]:
-      return _objectSpread(_objectSpread({}, store), {}, {
-        feedPosts: [].concat(_toConsumableArray(store.feedPosts), _toConsumableArray(action.posts))
-      });
-
-    case _actions_feedActions__WEBPACK_IMPORTED_MODULE_0__["SET_FEED_LOADING"]:
-      return _objectSpread(_objectSpread({}, store), {}, {
-        feedLoading: action.status
-      });
-
-    case _actions_feedActions__WEBPACK_IMPORTED_MODULE_0__["SET_FEED_CURRENT_PAGE"]:
-      return _objectSpread(_objectSpread({}, store), {}, {
-        feedCurrentPage: action.page
-      });
-
-    case _actions_feedActions__WEBPACK_IMPORTED_MODULE_0__["SET_FEED_TOTAL_PAGES"]:
-      return _objectSpread(_objectSpread({}, store), {}, {
-        feedTotalPages: action.pages
-      });
-
-    default:
-      return store;
-  }
+  return store;
 };
 
 /***/ }),
@@ -83357,8 +83222,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../redux/actions */ "./resources/js/redux/actions/index.js");
-/* harmony import */ var _components_HandleScroll__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/HandleScroll */ "./resources/js/components/HandleScroll/index.js");
-/* harmony import */ var _components_EntityList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/EntityList */ "./resources/js/components/EntityList/index.jsx");
+/* harmony import */ var _helpers_selectors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../helpers/selectors */ "./resources/js/helpers/selectors.js");
+/* harmony import */ var _components_HandleScroll__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/HandleScroll */ "./resources/js/components/HandleScroll/index.js");
+/* harmony import */ var _components_EntityList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/EntityList */ "./resources/js/components/EntityList/index.jsx");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
@@ -83367,22 +83246,35 @@ __webpack_require__.r(__webpack_exports__);
 
 var Feed = function Feed() {
   var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useDispatch"])();
-  var feed = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(function (state) {
-    return state.feed;
-  });
-  var feedPosts = feed.feedPosts;
-  var feedIsLoading = feed.feedLoading;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(1),
+      _useState2 = _slicedToArray(_useState, 2),
+      scrollPage = _useState2[0],
+      setScrollPage = _useState2[1];
+
+  var feed = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_3__["feedSelector"]);
+  var totalPages = feed.data.last_page;
+  var feedIsLoading = feed.loading;
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_2__["default"].feedActions.getFeed());
+    dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_2__["default"].feedActions.getFeed(scrollPage));
+    return function () {
+      dispatch(_helpers_selectors__WEBPACK_IMPORTED_MODULE_3__["feedReset"]);
+    };
   }, []);
+
+  var nextPage = function nextPage() {
+    if (!feedIsLoading && !(scrollPage + 1 > totalPages)) {
+      setScrollPage(scrollPage + 1);
+      dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_2__["default"].feedActions.getFeed(scrollPage + 1));
+    }
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "feed-page"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HandleScroll__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    handleFunc: function handleFunc() {
-      return dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_2__["default"].feedActions.nextPage());
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_EntityList__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    entities: feedPosts,
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HandleScroll__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    handleFunc: nextPage
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_EntityList__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    entities: feed.data.data,
     type: "post"
   }), feedIsLoading && "Loading ...");
 };

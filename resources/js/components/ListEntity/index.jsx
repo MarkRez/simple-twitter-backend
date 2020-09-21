@@ -1,13 +1,13 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faThumbsUp, faThumbsDown, faCommentDots} from '@fortawesome/free-regular-svg-icons';
 import '@fortawesome/fontawesome-svg-core';
 import {prettyDate} from "../../helpers/dateConverter";
 import TextWithMentions from "../TextWithMentions";
 import './listEntity.scss';
 import EntityFields from "../EntityFields";
+import IconWithCount from "../IconWithCount";
 
 const ListEntity = (
   {
@@ -152,20 +152,29 @@ const ListEntity = (
                 }
                 <div className="col-lg-12 post-buttons row">
                   <div className="col-lg-4">
-                    <span onClick={() => handleReactionClick(true)} className={"up-span " + (liked === true ? "liked" : "")}>
-                      <FontAwesomeIcon icon={faThumbsUp}/> {likes_count}
-                    </span>
+                    <IconWithCount
+                      icon={faThumbsUp}
+                      onclickFunc={() => handleReactionClick(true)}
+                      count={likes_count}
+                      styles={"up-span " + (liked === true ? "liked" : "")}
+                    />
                   </div>
                   <div className="col-lg-4">
-                    <span onClick={() => handleReactionClick(false)} className={"down-span " + (liked === false ? "disliked" : "")}>
-                      <FontAwesomeIcon icon={faThumbsDown}/> {dislikes_count}
-                    </span>
+                    <IconWithCount
+                      icon={faThumbsDown}
+                      onclickFunc={() => handleReactionClick(false)}
+                      count={dislikes_count}
+                      styles={"down-span " + (liked === false ? "disliked" : "")}
+                    />
                   </div>
                   <div className="col-lg-4">
                     <Link to={`/posts/${id}`}>
-                      <span className="comment-span">
-                        <FontAwesomeIcon icon={faCommentDots}/> {comments_count}
-                      </span>
+                      <IconWithCount
+                        icon={faCommentDots}
+                        onclickFunc={() => handleReactionClick(false)}
+                        count={comments_count}
+                        styles="comment-span"
+                      />
                     </Link>
                   </div>
                 </div>

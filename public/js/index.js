@@ -17439,6 +17439,25 @@ exports.push([module.i, "header {\n  border-bottom: 1px solid #e6ecf0;\n  margin
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/components/IconWithCount/iconWithCount.scss":
+/*!*****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/postcss-loader/src??ref--6-2!./node_modules/sass-loader/dist/cjs.js??ref--6-3!./resources/js/components/IconWithCount/iconWithCount.scss ***!
+  \*****************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".icon-with-count-comp.up-span:hover, .icon-with-count-comp.liked {\n  color: #2ecc71;\n  background-color: #ebfdf3;\n}\n\n.icon-with-count-comp.down-span:hover, .icon-with-count-comp.disliked {\n  color: #e74c3c;\n  background-color: #ffecea;\n}\n\n.icon-with-count-comp {\n  color: #6d6d6d;\n  padding: 9px 15px;\n  transition: all 0.3s;\n  border-radius: 30px;\n  cursor: pointer;\n}\n.icon-with-count-comp.comment-span:hover {\n  color: #3498db;\n  background-color: #e3f4ff;\n}\n.icon-with-count-comp svg {\n  font-size: 1.25em;\n  margin-right: 5px;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/components/Inputs/DropdownInput/dropdownInput.scss":
 /*!************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader!./node_modules/postcss-loader/src??ref--6-2!./node_modules/sass-loader/dist/cjs.js??ref--6-3!./resources/js/components/Inputs/DropdownInput/dropdownInput.scss ***!
@@ -81139,6 +81158,71 @@ var Header = function Header(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/components/IconWithCount/iconWithCount.scss":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/IconWithCount/iconWithCount.scss ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--6-3!./iconWithCount.scss */ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/components/IconWithCount/iconWithCount.scss");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./resources/js/components/IconWithCount/index.jsx":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/IconWithCount/index.jsx ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _iconWithCount_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./iconWithCount.scss */ "./resources/js/components/IconWithCount/iconWithCount.scss");
+/* harmony import */ var _iconWithCount_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_iconWithCount_scss__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+
+
+
+
+var IconWithCount = function IconWithCount(_ref) {
+  var icon = _ref.icon,
+      count = _ref.count,
+      onclickFunc = _ref.onclickFunc,
+      styles = _ref.styles;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    onClick: onclickFunc,
+    className: "icon-with-count-comp  " + styles
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
+    icon: icon
+  }), " ", count);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (IconWithCount);
+
+/***/ }),
+
 /***/ "./resources/js/components/Inputs/DropdownInput/dropdownInput.scss":
 /*!*************************************************************************!*\
   !*** ./resources/js/components/Inputs/DropdownInput/dropdownInput.scss ***!
@@ -81544,14 +81628,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-loading-skeleton */ "./node_modules/react-loading-skeleton/lib/index.js");
 /* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-/* harmony import */ var _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/free-regular-svg-icons */ "./node_modules/@fortawesome/free-regular-svg-icons/index.es.js");
-/* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js");
-/* harmony import */ var _helpers_dateConverter__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../helpers/dateConverter */ "./resources/js/helpers/dateConverter.js");
-/* harmony import */ var _TextWithMentions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../TextWithMentions */ "./resources/js/components/TextWithMentions/index.jsx");
-/* harmony import */ var _listEntity_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./listEntity.scss */ "./resources/js/components/ListEntity/listEntity.scss");
-/* harmony import */ var _listEntity_scss__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_listEntity_scss__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _EntityFields__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../EntityFields */ "./resources/js/components/EntityFields/index.jsx");
+/* harmony import */ var _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/free-regular-svg-icons */ "./node_modules/@fortawesome/free-regular-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js");
+/* harmony import */ var _helpers_dateConverter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../helpers/dateConverter */ "./resources/js/helpers/dateConverter.js");
+/* harmony import */ var _TextWithMentions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../TextWithMentions */ "./resources/js/components/TextWithMentions/index.jsx");
+/* harmony import */ var _listEntity_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./listEntity.scss */ "./resources/js/components/ListEntity/listEntity.scss");
+/* harmony import */ var _listEntity_scss__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_listEntity_scss__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _EntityFields__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../EntityFields */ "./resources/js/components/EntityFields/index.jsx");
+/* harmony import */ var _IconWithCount__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../IconWithCount */ "./resources/js/components/IconWithCount/index.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -81683,7 +81767,7 @@ var ListEntity = function ListEntity(_ref) {
     className: "col-lg-12 post-author px-3 d-flex"
   }, created_at ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/users/".concat(user_id)
-  }, name), " \xB7 @", login, " \xB7 ", Object(_helpers_dateConverter__WEBPACK_IMPORTED_MODULE_6__["prettyDate"])(created_at), showDropdown ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, name), " \xB7 @", login, " \xB7 ", Object(_helpers_dateConverter__WEBPACK_IMPORTED_MODULE_5__["prettyDate"])(created_at), showDropdown ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "dropdown-div"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
@@ -81700,7 +81784,7 @@ var ListEntity = function ListEntity(_ref) {
   }, editMode ? "Cancel" : 'Edit'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "dropdown-item",
     onClick: handleDeleteClick
-  }, "Delete"))) : null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, null)), editMode ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EntityFields__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }, "Delete"))) : null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, null)), editMode ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EntityFields__WEBPACK_IMPORTED_MODULE_8__["default"], {
     setTextFunc: setTextValue,
     finalFunc: handleSaveClick,
     setTagsFunc: setTags,
@@ -81713,7 +81797,7 @@ var ListEntity = function ListEntity(_ref) {
     buttonText: "Save"
   }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-12 post-text px-3"
-  }, text ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TextWithMentions__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, text ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TextWithMentions__WEBPACK_IMPORTED_MODULE_6__["default"], {
     text: text,
     mentions: mentioned_users
   }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -81729,31 +81813,34 @@ var ListEntity = function ListEntity(_ref) {
     className: "col-lg-12 post-buttons row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    onClick: function onClick() {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_IconWithCount__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faThumbsUp"],
+    onclickFunc: function onclickFunc() {
       return handleReactionClick(true);
     },
-    className: "up-span " + (liked === true ? "liked" : "")
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-    icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faThumbsUp"]
-  }), " ", likes_count)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    count: likes_count,
+    styles: "up-span " + (liked === true ? "liked" : "")
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    onClick: function onClick() {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_IconWithCount__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faThumbsDown"],
+    onclickFunc: function onclickFunc() {
       return handleReactionClick(false);
     },
-    className: "down-span " + (liked === false ? "disliked" : "")
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-    icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faThumbsDown"]
-  }), " ", dislikes_count)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    count: dislikes_count,
+    styles: "down-span " + (liked === false ? "disliked" : "")
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-4"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/posts/".concat(id)
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "comment-span"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-    icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faCommentDots"]
-  }), " ", comments_count))))) : null))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_IconWithCount__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCommentDots"],
+    onclickFunc: function onclickFunc() {
+      return handleReactionClick(false);
+    },
+    count: comments_count,
+    styles: "comment-span"
+  }))))) : null))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ListEntity);
@@ -83570,6 +83657,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _postInfo_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./postInfo.scss */ "./resources/js/routes/PostPage/PostInfo/postInfo.scss");
 /* harmony import */ var _postInfo_scss__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_postInfo_scss__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _components_TextWithMentions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../components/TextWithMentions */ "./resources/js/components/TextWithMentions/index.jsx");
+/* harmony import */ var _components_IconWithCount__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../components/IconWithCount */ "./resources/js/components/IconWithCount/index.jsx");
+
 
 
 
@@ -83624,6 +83713,7 @@ var PostInfo = function PostInfo(_ref) {
     to: "/users/".concat(id)
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "img-fluid",
+    onError: handleImageError,
     src: avatar,
     alt: name
   })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -83657,23 +83747,23 @@ var PostInfo = function PostInfo(_ref) {
     className: "col-lg-6 buttons-div d-flex justify-content-end"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "up-span " + (liked === true ? "liked" : ""),
-    onClick: function onClick() {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_IconWithCount__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faThumbsUp"],
+    count: likes_count,
+    onclickFunc: function onclickFunc() {
       return handleReactionClick(true);
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
-    icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faThumbsUp"]
-  }), " ", likes_count)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    },
+    styles: "up-span " + (liked === true ? "liked" : "")
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "down-span " + (liked === false ? "disliked" : ""),
-    onClick: function onClick() {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_IconWithCount__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faThumbsDown"],
+    count: dislikes_count,
+    onclickFunc: function onclickFunc() {
       return handleReactionClick(false);
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
-    icon: _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faThumbsDown"]
-  }), " ", dislikes_count))))));
+    },
+    styles: "down-span " + (liked === false ? "disliked" : "")
+  }))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PostInfo);

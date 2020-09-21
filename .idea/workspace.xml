@@ -21,11 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="fc0d50ca-a6dd-447d-ba43-1778eb7ff56d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/redux/actions/usersActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/redux/actions/usersActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/routes/Users/User/UserInfo/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes/Users/User/UserInfo/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/routes/Users/User/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes/Users/User/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/IconWithCount/iconWithCount.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/IconWithCount/iconWithCount.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/IconWithCount/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/IconWithCount/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/ListEntity/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ListEntity/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/routes/PostPage/PostInfo/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes/PostPage/PostInfo/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +201,8 @@
       <workItem from="1600232204591" duration="27685000" />
       <workItem from="1600319946175" duration="22881000" />
       <workItem from="1600406618475" duration="50000" />
-      <workItem from="1600408267128" duration="21856000" />
+      <workItem from="1600408267128" duration="22136000" />
+      <workItem from="1600666108474" duration="1972000" />
     </task>
     <servers />
   </component>

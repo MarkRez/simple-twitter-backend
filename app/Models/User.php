@@ -46,16 +46,14 @@ class User extends Authenticatable
 
     public function getFollowedAttribute()
     {
-        $currentUserId = Auth::id();
-        $follow = $this->followers()->wherePivot('follower_id', $currentUserId)->first();
+        $follow = $this->followers()->wherePivot('follower_id', Auth::id())->first();
 
         return (bool) $follow;
     }
 
     public function getBlockedAttribute()
     {
-        $currentUserId = Auth::id();
-        $block = $this->blocked()->wherePivot('user_id', $currentUserId)->first();
+        $block = $this->blocked()->wherePivot('user_id', Auth::id())->first();
 
         return (bool) $block;
     }

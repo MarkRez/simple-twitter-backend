@@ -21,13 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="fc0d50ca-a6dd-447d-ba43-1778eb7ff56d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/redux/actions/usersActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/redux/actions/usersActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/routes/Users/User/UserInfo/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes/Users/User/UserInfo/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/routes/Users/User/UserInfo/userInfo.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes/Users/User/UserInfo/userInfo.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/routes/Users/User/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes/Users/User/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +203,7 @@
       <workItem from="1600319946175" duration="22881000" />
       <workItem from="1600406618475" duration="50000" />
       <workItem from="1600408267128" duration="22136000" />
-      <workItem from="1600666108474" duration="6337000" />
+      <workItem from="1600666108474" duration="9749000" />
     </task>
     <servers />
   </component>

@@ -73,46 +73,51 @@ const User = (props) => {
   }
 
   if (user.error) {
-    return user.error.response.status === 404
-      ? <h1>User not found!</h1>
-      : <h1>Internal server error!</h1>
+    switch (user.error.response.status) {
+      case 403:
+        return <h1>{user.error.response.data}</h1>
+      case 404:
+        return <h1>User not found!</h1>
+      default:
+        return <h1>Internal server error!</h1>
+    }
   }
 
-  return (
-    <div className="user-page">
-      <div className="row">
-        <UserInfo
-          userData={user.data}
-          loading={user.loading}
-          theSameUser={theSameUser}
-          followFunc={followUser}
-          unFollowFunc={unFollowUser}
-          blockFunc={blockUser}
-          unBlockFunc={unBlockUser}
-        />
-        <h2>{user.data.name ? `${user.data.name} posts` : <Skeleton/>}</h2>
-        {theSameUser
-        && <AddEntity
-          type="post"
-          placeholder="Write new post"
-          addEntityFunc={addPost}
-          showTagsInput={true}
-          getTagsFunc={getTags}
-        />
-        }
-        <EntityList
-          type="post"
-          delFunc={deletePost}
-          updateFunc={updatePost}
-          showDropdown={theSameUser}
-          entities={userPosts.data.data}
-          getTagsFunc={getTags}
-          setReactionFunc={addReactionToPost}
-          deleteReactionFunc={deleteReactionFromPost}
-        />
+    return (
+      <div className="user-page">
+        <div className="row">
+          <UserInfo
+            userData={user.data}
+            loading={user.loading}
+            theSameUser={theSameUser}
+            followFunc={followUser}
+            unFollowFunc={unFollowUser}
+            blockFunc={blockUser}
+            unBlockFunc={unBlockUser}
+          />
+          <h2>{user.data.name ? `${user.data.name} posts` : <Skeleton/>}</h2>
+          {theSameUser
+          && <AddEntity
+            type="post"
+            placeholder="Write new post"
+            addEntityFunc={addPost}
+            showTagsInput={true}
+            getTagsFunc={getTags}
+          />
+          }
+          <EntityList
+            type="post"
+            delFunc={deletePost}
+            updateFunc={updatePost}
+            showDropdown={theSameUser}
+            entities={userPosts.data.data}
+            getTagsFunc={getTags}
+            setReactionFunc={addReactionToPost}
+            deleteReactionFunc={deleteReactionFromPost}
+          />
+        </div>
       </div>
-    </div>
-  )
-}
+    )
+  }
 
-export default User;
+  export default User;

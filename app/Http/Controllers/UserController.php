@@ -16,6 +16,10 @@ class UserController extends Controller
 
     public function show(User $user)
     {
+        if (Auth::user()->blocked()->wherePivot('user_id', $user->id)->exists() && $user->id !== Auth::id()) {
+            return response('User blocked you!', 403);
+        }
+
         return $user;
     }
 }

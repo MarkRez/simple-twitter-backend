@@ -19,6 +19,10 @@ class PostController extends Controller
 
     public function index(User $user)
     {
+        if (Auth::user()->blocked()->wherePivot('user_id', $user->id)->exists() && $user->id !== Auth::id()) {
+            return response('User blocked you!', 403);
+        }
+
         return $user->posts()->orderBy('created_at', 'desc')->paginate(10);
     }
 

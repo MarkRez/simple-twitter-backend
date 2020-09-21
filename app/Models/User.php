@@ -16,7 +16,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'login',
     ];
-    protected $appends = ['followed', 'followings_count', 'followers_count'];
+    protected $appends = ['followed', 'blocked', 'followings_count', 'followers_count'];
 
     protected $hidden = [
         'email', 'password', 'remember_token', 'updated_at', 'created_at', 'laravel_through_key'
@@ -41,15 +41,23 @@ class User extends Authenticatable
     }
 
     public function blocked() {
-        return $this->belongsToMany(User::class, 'blocked_users', 'user_id', 'blocked_user_id');
+        return $this->belongsToMany(User::class, 'blocked_users', 'blocked_user_id', 'user_id');
     }
 
-    public function getFollowedAttribute($value)
+    public function getFollowedAttribute()
     {
         $currentUserId = Auth::id();
         $follow = $this->followers()->wherePivot('follower_id', $currentUserId)->first();
 
         return (bool) $follow;
+    }
+
+    public function getBlockedAttribute()
+    {
+        $currentUserId = Auth::id();
+        $block = $this->blocked()->wherePivot('user_id', $currentUserId)->first();
+
+        return (bool) $block;
     }
 
     public function getFollowingsCountAttribute()

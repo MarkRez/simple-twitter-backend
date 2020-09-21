@@ -17660,7 +17660,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".user-info {\n  padding: 0;\n  margin-bottom: 30px;\n  border: 1px solid #e6ecf0;\n  border-radius: 10px;\n}\n.user-info .user-info-inner {\n  padding: 0 15px 15px 15px;\n}\n.user-info .user-info-inner .img-div-wrapper {\n  min-height: 175px;\n  background-color: #63a4ff;\n  background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);\n  border-radius: 10px;\n  margin-bottom: 30px;\n}\n.user-info .user-info-inner .img-div-wrapper .img-div {\n  position: absolute;\n  bottom: -60px;\n  left: 0;\n  right: 0;\n  margin-left: auto;\n  margin-right: auto;\n  width: 150px;\n  height: 150px;\n}\n.user-info .user-info-inner .img-div-wrapper .img-div img {\n  border-radius: 50%;\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  border: 2px solid #ffffff;\n}\n.user-info .user-info-inner .user-info-div {\n  color: #5f5f5f;\n}\n.user-info .user-info-inner .user-info-div span {\n  color: #000000;\n  font-weight: 800;\n}\n.user-info .user-info-inner .user-info-div .p-name {\n  margin-bottom: -8px;\n  font-size: 1.2em;\n  color: #000000;\n  font-weight: 800;\n}", ""]);
+exports.push([module.i, ".user-info {\n  padding: 0;\n  margin-bottom: 30px;\n  border: 1px solid #e6ecf0;\n  border-radius: 10px;\n}\n.user-info .user-info-inner {\n  padding: 0 15px 15px 15px;\n}\n.user-info .user-info-inner .img-div-wrapper {\n  min-height: 175px;\n  background-color: #63a4ff;\n  background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);\n  border-radius: 10px;\n  margin-bottom: 30px;\n}\n.user-info .user-info-inner .img-div-wrapper .img-div {\n  position: absolute;\n  bottom: -60px;\n  left: 0;\n  right: 0;\n  margin-left: auto;\n  margin-right: auto;\n  width: 150px;\n  height: 150px;\n}\n.user-info .user-info-inner .img-div-wrapper .img-div img {\n  border-radius: 50%;\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  border: 2px solid #ffffff;\n}\n.user-info .user-info-inner .user-info-div {\n  color: #5f5f5f;\n}\n.user-info .user-info-inner .user-info-div span {\n  color: #000000;\n  font-weight: 800;\n}\n.user-info .user-info-inner .user-info-div .p-name {\n  margin-bottom: -8px;\n  font-size: 1.2em;\n  color: #000000;\n  font-weight: 800;\n}\n.user-info .user-info-inner .buttons-div button:first-child {\n  margin-bottom: 8px;\n}", ""]);
 
 // exports
 
@@ -82790,6 +82790,8 @@ var ADD_REACTION_TO_USER_POST = 'ADD_REACTION_TO_USER_POST';
 var DELETE_REACTION_FROM_USER_POST = 'DELETE_REACTION_FROM_POST';
 var FOLLOW_USER = 'FOLLOW_USER';
 var UN_FOLLOW_USER = 'UN_FOLLOW_USER';
+var BLOCK_USER = 'BLOCK_USER';
+var UN_BLOCK_USER = 'UN_BLOCK_USER';
 
 var updateUserPostMeta = function updateUserPostMeta(id) {
   return {
@@ -82927,6 +82929,28 @@ var unFollowUser = function unFollowUser(id) {
   };
 };
 
+var blockUser = function blockUser(id) {
+  return {
+    type: BLOCK_USER,
+    request: {
+      url: "/users/".concat(id, "/block"),
+      method: 'post'
+    },
+    meta: updateUserMeta(id)
+  };
+};
+
+var unBlockUser = function unBlockUser(id) {
+  return {
+    type: UN_BLOCK_USER,
+    request: {
+      url: "/users/".concat(id, "/block"),
+      method: 'delete'
+    },
+    meta: updateUserMeta(id)
+  };
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   getUser: getUser,
   getUserPosts: getUserPosts,
@@ -82936,7 +82960,9 @@ var unFollowUser = function unFollowUser(id) {
   reactionToUserPost: reactionToUserPost,
   deleteReactionFromUserPost: deleteReactionFromUserPost,
   followUser: followUser,
-  unFollowUser: unFollowUser
+  unFollowUser: unFollowUser,
+  blockUser: blockUser,
+  unBlockUser: unBlockUser
 });
 
 /***/ }),
@@ -84172,6 +84198,8 @@ var UserInfo = function UserInfo(_ref) {
   var userData = _ref.userData,
       followFunc = _ref.followFunc,
       unFollowFunc = _ref.unFollowFunc,
+      blockFunc = _ref.blockFunc,
+      unBlockFunc = _ref.unBlockFunc,
       theSameUser = _ref.theSameUser,
       loading = _ref.loading;
   var name = userData.name,
@@ -84179,6 +84207,7 @@ var UserInfo = function UserInfo(_ref) {
       followers_count = userData.followers_count,
       followings_count = userData.followings_count,
       followed = userData.followed,
+      blocked = userData.blocked,
       login = userData.login;
 
   var handleImageError = function handleImageError(e) {
@@ -84187,6 +84216,10 @@ var UserInfo = function UserInfo(_ref) {
 
   var handleClickFollow = function handleClickFollow() {
     followed ? unFollowFunc() : followFunc();
+  };
+
+  var handleClickBlock = function handleClickBlock() {
+    blocked ? unBlockFunc() : blockFunc();
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -84220,10 +84253,13 @@ var UserInfo = function UserInfo(_ref) {
     to: _helpers_routes__WEBPACK_IMPORTED_MODULE_4__["ROUTES"].EDIT
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
     style: "twitter"
-  }, "Edit profile")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, "Edit profile")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
     onClickFunc: handleClickFollow,
     style: "twitter"
-  }, followed ? "Unfollow" : "Follow") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  }, followed ? "Unfollow" : "Follow"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    onClickFunc: handleClickBlock,
+    style: "twitter"
+  }, blocked ? "Unblock" : "Block")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2___default.a, {
     width: 125,
     height: 30
   }))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -84326,6 +84362,14 @@ var User = function User(props) {
     dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].usersActions.unFollowUser(userId));
   };
 
+  var blockUser = function blockUser() {
+    dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].usersActions.blockUser(userId));
+  };
+
+  var unBlockUser = function unBlockUser() {
+    dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].usersActions.unBlockUser(userId));
+  };
+
   var addPost = function addPost(text, tags) {
     dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].usersActions.addUserPost({
       text: text,
@@ -84367,7 +84411,9 @@ var User = function User(props) {
     loading: user.loading,
     theSameUser: theSameUser,
     followFunc: followUser,
-    unFollowFunc: unFollowUser
+    unFollowFunc: unFollowUser,
+    blockFunc: blockUser,
+    unBlockFunc: unBlockUser
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, user.data.name ? "".concat(user.data.name, " posts") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_7___default.a, null)), theSameUser && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddEntity__WEBPACK_IMPORTED_MODULE_6__["default"], {
     type: "post",
     placeholder: "Write new post",

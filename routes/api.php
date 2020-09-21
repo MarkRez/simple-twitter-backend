@@ -9,6 +9,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('users', 'UserController')->only('index', 'show');
     Route::post('users/{user}/follow', 'FollowController@store');
     Route::delete('users/{user}/follow', 'FollowController@destroy');
+    Route::post('users/{user}/block', 'BlockController@store');
+    Route::delete('users/{user}/block', 'BlockController@destroy');
 
     Route::apiResource('posts', 'PostController');
     Route::get('posts/{post}/comments', 'CommentController@index');

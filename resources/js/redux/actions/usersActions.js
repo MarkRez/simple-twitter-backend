@@ -12,6 +12,8 @@ const ADD_REACTION_TO_USER_POST = 'ADD_REACTION_TO_USER_POST';
 const DELETE_REACTION_FROM_USER_POST = 'DELETE_REACTION_FROM_POST';
 const FOLLOW_USER = 'FOLLOW_USER';
 const UN_FOLLOW_USER = 'UN_FOLLOW_USER';
+const BLOCK_USER = 'BLOCK_USER';
+const UN_BLOCK_USER = 'UN_BLOCK_USER';
 
 const updateUserPostMeta = (id) => ({
   mutations: {
@@ -128,6 +130,24 @@ const unFollowUser = (id) => ({
   meta: updateUserMeta(id)
 })
 
+const blockUser = (id) => ({
+  type: BLOCK_USER,
+  request: {
+    url: `/users/${id}/block`,
+    method: 'post',
+  },
+  meta: updateUserMeta(id)
+})
+
+const unBlockUser = (id) => ({
+  type: UN_BLOCK_USER,
+  request: {
+    url: `/users/${id}/block`,
+    method: 'delete',
+  },
+  meta: updateUserMeta(id)
+})
+
 
 export default {
   getUser,
@@ -138,5 +158,7 @@ export default {
   reactionToUserPost,
   deleteReactionFromUserPost,
   followUser,
-  unFollowUser
+  unFollowUser,
+  blockUser,
+  unBlockUser
 };

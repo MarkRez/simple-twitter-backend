@@ -44,6 +44,14 @@ const User = (props) => {
     dispatch(allActions.usersActions.unFollowUser(userId));
   }
 
+  const blockUser = () => {
+    dispatch(allActions.usersActions.blockUser(userId));
+  }
+
+  const unBlockUser = () => {
+    dispatch(allActions.usersActions.unBlockUser(userId));
+  }
+
   const addPost = (text, tags) => {
     dispatch(allActions.usersActions.addUserPost({text, tags}));
   }
@@ -79,6 +87,8 @@ const User = (props) => {
           theSameUser={theSameUser}
           followFunc={followUser}
           unFollowFunc={unFollowUser}
+          blockFunc={blockUser}
+          unBlockFunc={unBlockUser}
         />
         <h2>{user.data.name ? `${user.data.name} posts` : <Skeleton/>}</h2>
         {theSameUser

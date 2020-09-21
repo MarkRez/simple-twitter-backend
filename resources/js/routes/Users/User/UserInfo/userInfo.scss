@@ -49,5 +49,11 @@
         font-weight: 800;
       }
     }
+
+    .buttons-div {
+      button:first-child {
+        margin-bottom: 8px;
+      }
+    }
   }
 }

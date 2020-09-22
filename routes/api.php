@@ -19,6 +19,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('posts/{post}/like', 'LikeController@destroy');
     Route::get('users/{user}/posts', 'PostController@index');
 
+    Route::get('/messages', 'MessageController@dialogs');
+    Route::get('/messages/{user}', 'MessageController@index');
+    Route::post('/messages/{user}', 'MessageController@create');
 
     Route::get('/tags', 'TagController@index');
 

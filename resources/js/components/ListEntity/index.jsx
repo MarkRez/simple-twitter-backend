@@ -171,7 +171,6 @@ const ListEntity = (
                     <Link to={`/posts/${id}`}>
                       <IconWithCount
                         icon={faCommentDots}
-                        onclickFunc={() => handleReactionClick(false)}
                         count={comments_count}
                         styles="comment-span"
                       />

@@ -7,19 +7,15 @@ const getFeed = (page) => ({
     method: 'get',
   },
   meta: {
-    mutations: {
-      [FETCH_FEED]: {
-        updateData: (currentData, mutationData) => {
-          console.log(currentData, mutationData);
-          return ({
-            ...currentData,
-            data: [currentData.data, ...mutationData.data],
-            ...mutationData
-          })
+    getData: (newData, currentData) => {
+      return currentData
+        ? {
+          ...newData,
+          data: [...currentData.data, ...newData.data],
         }
-      },
-    },
-  },
+        : {...newData}
+    }
+  }
 });
 
 export default {

@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\SendMessageRequest;
+use App\Models\User;
 
 class MessageController extends Controller
 {
-    public function index() {
-        return "messages";
+    public function dilogs() {
+        return "dialogs";
     }
 
-    public function show($id) {
-        return "dialog with $id user";
+    public function index(User $user) {
+        return "messages from one dialog";
     }
 
-    public function sendMessage($id, Request $request) {
-        return "message to $id";
+    public function create(User $user, SendMessageRequest $request) {
+        return "Send message";
     }
 }

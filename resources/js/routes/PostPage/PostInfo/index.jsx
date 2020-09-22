@@ -12,7 +12,6 @@ import IconWithCount from "../../../components/IconWithCount";
 const PostInfo = ({post = {}, loading, deleteReactionFunc, setReactionFunc}) => {
   const {text, created_at, likes_count, dislikes_count, liked, mentioned_users = [], user = {}} = post;
   const {name, login, avatar, id} = user;
-  console.log(post)
 
   const handleReactionClick = (reactionType) => {
     if (reactionType) {

@@ -17,7 +17,10 @@ export const updateProfile = payload => api.post('/profile', payload, {headers: 
 // export const addPost = payload => api.post(`/posts`, payload);
 // export const deletePost = id => api.delete(`/posts/${id}`);
 
-export const getFeed = page => api.get(`/feed?page=${page}`);
+export const getDialogMessages = id => api.get(`/messages/${id}`);
+export const getDialogs = () => api.get('/messages');
+
+// export const getFeed = page => api.get(`/feed?page=${page}`);
 export const getTags = name => api.get(`/tags?name=${name}`);
 
 const apis = {
@@ -25,8 +28,9 @@ const apis = {
   logOut,
   register,
   updateProfile,
-  getFeed,
-  getTags
+  getTags,
+  getDialogMessages,
+  getDialogs
 };
 
 export default apis;

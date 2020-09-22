@@ -30,6 +30,14 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    public function sentMessages() {
+        return $this->hasMany(Message::class, 'sender_id');
+    }
+
+    public function receivedMessages() {
+        return $this->hasMany(Message::class, 'recipient_id');
+    }
+
     // подписчики
     public function followers() {
         return $this->belongsToMany(User::class, 'followings', 'lead_id', 'follower_id');

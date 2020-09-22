@@ -80376,6 +80376,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./redux/actions */ "./resources/js/redux/actions/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _helpers_selectors__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./helpers/selectors */ "./resources/js/helpers/selectors.js");
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./api */ "./resources/js/api/index.js");
+
 
 
 
@@ -80501,7 +80503,7 @@ if(false) {}
 /*!***********************************!*\
   !*** ./resources/js/api/index.js ***!
   \***********************************/
-/*! exports provided: logIn, logOut, register, updateProfile, getFeed, getTags, default */
+/*! exports provided: logIn, logOut, register, updateProfile, getDialogMessages, getDialogs, getTags, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -80510,7 +80512,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logOut", function() { return logOut; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "register", function() { return register; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateProfile", function() { return updateProfile; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFeed", function() { return getFeed; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDialogMessages", function() { return getDialogMessages; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDialogs", function() { return getDialogs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTags", function() { return getTags; });
 /* harmony import */ var _helpers_axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/axios */ "./resources/js/helpers/axios.js");
 
@@ -80538,9 +80541,13 @@ var updateProfile = function updateProfile(payload) {
 // export const addPost = payload => api.post(`/posts`, payload);
 // export const deletePost = id => api.delete(`/posts/${id}`);
 
-var getFeed = function getFeed(page) {
-  return api.get("/feed?page=".concat(page));
+var getDialogMessages = function getDialogMessages(id) {
+  return api.get("/messages/".concat(id));
 };
+var getDialogs = function getDialogs() {
+  return api.get('/messages');
+}; // export const getFeed = page => api.get(`/feed?page=${page}`);
+
 var getTags = function getTags(name) {
   return api.get("/tags?name=".concat(name));
 };
@@ -80549,8 +80556,9 @@ var apis = {
   logOut: logOut,
   register: register,
   updateProfile: updateProfile,
-  getFeed: getFeed,
-  getTags: getTags
+  getTags: getTags,
+  getDialogMessages: getDialogMessages,
+  getDialogs: getDialogs
 };
 /* harmony default export */ __webpack_exports__["default"] = (apis);
 
@@ -81052,7 +81060,7 @@ var HandleScroll = function HandleScroll(_ref) {
   }, []);
 
   var handleScroll = function handleScroll() {
-    if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 200) {
+    if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 600) {
       handleFunc();
     }
   };
@@ -82325,6 +82333,7 @@ if(false) {}
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_FEED", function() { return FETCH_FEED; });
+/* harmony import */ var _reactionActions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reactionActions */ "./resources/js/redux/actions/reactionActions.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -82343,7 +82352,10 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+
 var FETCH_FEED = 'FETCH_FEED';
+var ADD_REACTION_TO_FEED_POST = 'ADD_REACTION_TO_FEED_POST';
+var DELETE_REACTION_FROM_FEED_POST = 'DELETE_REACTION_FROM_FEED_POST';
 
 var getFeed = function getFeed(page) {
   return {
@@ -82362,8 +82374,40 @@ var getFeed = function getFeed(page) {
   };
 };
 
+var updatePostMeta = function updatePostMeta(id) {
+  return {
+    mutations: _defineProperty({}, FETCH_FEED, {
+      updateData: function updateData(currentData, mutationData) {
+        return _objectSpread(_objectSpread({}, currentData), {}, {
+          data: currentData.data.map(function (post) {
+            return post.id === id ? mutationData : post;
+          })
+        });
+      }
+    })
+  };
+};
+
+var reactionToFeedPost = function reactionToFeedPost(id, payload) {
+  return {
+    type: ADD_REACTION_TO_FEED_POST,
+    request: Object(_reactionActions__WEBPACK_IMPORTED_MODULE_0__["reactionToPostRequest"])(id, payload),
+    meta: updatePostMeta(id)
+  };
+};
+
+var deleteReactionFromFeedPost = function deleteReactionFromFeedPost(id) {
+  return {
+    type: DELETE_REACTION_FROM_FEED_POST,
+    request: Object(_reactionActions__WEBPACK_IMPORTED_MODULE_0__["deleteReactionFromPostRequest"])(id),
+    meta: updatePostMeta(id)
+  };
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  getFeed: getFeed
+  getFeed: getFeed,
+  reactionToFeedPost: reactionToFeedPost,
+  deleteReactionFromFeedPost: deleteReactionFromFeedPost
 });
 
 /***/ }),
@@ -83219,18 +83263,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_selectors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../helpers/selectors */ "./resources/js/helpers/selectors.js");
 /* harmony import */ var _components_HandleScroll__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/HandleScroll */ "./resources/js/components/HandleScroll/index.js");
 /* harmony import */ var _components_EntityList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/EntityList */ "./resources/js/components/EntityList/index.jsx");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 
 
 
@@ -83240,27 +83272,36 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var Feed = function Feed() {
   var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useDispatch"])();
-
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(1),
-      _useState2 = _slicedToArray(_useState, 2),
-      scrollPage = _useState2[0],
-      setScrollPage = _useState2[1];
-
+  var scrollPage = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(1);
+  var totalPages = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(1);
+  var feedIsLoading = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(false);
   var feed = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(_helpers_selectors__WEBPACK_IMPORTED_MODULE_3__["feedSelector"]);
-  var totalPages = feed.data.last_page;
-  var feedIsLoading = feed.loading;
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_2__["default"].feedActions.getFeed(scrollPage));
+    dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_2__["default"].feedActions.getFeed(scrollPage.current));
     return function () {
       dispatch(_helpers_selectors__WEBPACK_IMPORTED_MODULE_3__["feedReset"]);
     };
   }, []);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    totalPages.current = feed.data.last_page;
+    feedIsLoading.current = feed.loading;
+  }, [feed]);
 
   var nextPage = function nextPage() {
-    if (!feedIsLoading && !(scrollPage + 1 > totalPages)) {
-      setScrollPage(scrollPage + 1);
-      dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_2__["default"].feedActions.getFeed(scrollPage + 1));
+    if (!feedIsLoading.current && !(scrollPage.current + 1 > totalPages.current)) {
+      dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_2__["default"].feedActions.getFeed(scrollPage.current + 1));
+      scrollPage.current += 1;
     }
+  };
+
+  var addReactionToPost = function addReactionToPost(id, reactionType) {
+    dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_2__["default"].feedActions.reactionToFeedPost(id, {
+      reactionType: reactionType
+    }));
+  };
+
+  var deleteReactionFromPost = function deleteReactionFromPost(id) {
+    dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_2__["default"].feedActions.deleteReactionFromFeedPost(id));
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -83268,9 +83309,11 @@ var Feed = function Feed() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HandleScroll__WEBPACK_IMPORTED_MODULE_4__["default"], {
     handleFunc: nextPage
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_EntityList__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    setReactionFunc: addReactionToPost,
+    deleteReactionFunc: deleteReactionFromPost,
     entities: feed.data.data,
     type: "post"
-  }), feedIsLoading && "Loading ...");
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Feed);
@@ -83509,11 +83552,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../redux/actions */ "./resources/js/redux/actions/index.js");
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../api */ "./resources/js/api/index.js");
 
 
 
-var Messages = function Messages(_ref) {
-  var dialogs = _ref.dialogs;
+
+
+var Messages = function Messages() {
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    _api__WEBPACK_IMPORTED_MODULE_3__["default"].getDialogMessages(1);
+    _api__WEBPACK_IMPORTED_MODULE_3__["default"].getDialogs();
+  }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "messages-page"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Messages"));
@@ -83600,7 +83650,6 @@ var PostInfo = function PostInfo(_ref) {
       login = user.login,
       avatar = user.avatar,
       id = user.id;
-  console.log(post);
 
   var handleReactionClick = function handleReactionClick(reactionType) {
     if (reactionType) {

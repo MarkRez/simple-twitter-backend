@@ -7,7 +7,7 @@ const HandleScroll = ({ handleFunc }) => {
   }, []);
 
   const handleScroll = () => {
-    if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 200) {
+    if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 600) {
       handleFunc();
     }
   }

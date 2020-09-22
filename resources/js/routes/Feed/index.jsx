@@ -1,29 +1,42 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import allActions from "../../redux/actions";
-import { feedSelector, feedReset } from "../../helpers/selectors";
+import {feedSelector, feedReset} from "../../helpers/selectors";
 import HandleScroll from "../../components/HandleScroll";
 import EntityList from "../../components/EntityList";
 
 const Feed = () => {
   const dispatch = useDispatch();
-  const [scrollPage, setScrollPage] = useState(1);
+  const scrollPage = useRef(1);
+  const totalPages = useRef(1);
+  const feedIsLoading = useRef(false);
   const feed = useSelector(feedSelector);
-  const totalPages = feed.data.last_page;
-  const feedIsLoading = feed.loading;
 
-  useEffect(()=> {
-    dispatch(allActions.feedActions.getFeed(scrollPage));
+  useEffect(() => {
+    dispatch(allActions.feedActions.getFeed(scrollPage.current));
     return () => {
       dispatch(feedReset);
     }
   }, [])
 
+  useEffect(() => {
+    totalPages.current = feed.data.last_page
+    feedIsLoading.current = feed.loading;
+  }, [feed])
+
   const nextPage = () => {
-    if (!feedIsLoading && !(scrollPage + 1 > totalPages)) {
-      setScrollPage(scrollPage + 1);
-      dispatch(allActions.feedActions.getFeed(scrollPage + 1));
+    if (!feedIsLoading.current && !(scrollPage.current + 1 > totalPages.current)) {
+      dispatch(allActions.feedActions.getFeed(scrollPage.current + 1));
+      scrollPage.current += 1
     }
+  }
+
+  const addReactionToPost = (id, reactionType) => {
+    dispatch(allActions.feedActions.reactionToFeedPost(id, {reactionType}));
+  }
+
+  const deleteReactionFromPost = (id) => {
+    dispatch(allActions.feedActions.deleteReactionFromFeedPost(id));
   }
 
   return (
@@ -32,10 +45,11 @@ const Feed = () => {
         handleFunc={nextPage}
       />
       <EntityList
+        setReactionFunc={addReactionToPost}
+        deleteReactionFunc={deleteReactionFromPost}
         entities={feed.data.data}
         type="post"
       />
-      {feedIsLoading && "Loading ..."}
     </div>
   )
 };

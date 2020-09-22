@@ -9,14 +9,14 @@ class BlockController extends Controller
 {
     public function store(User $user)
     {
-        $user->blocked()->syncWithoutDetaching(Auth::id());
+        Auth::user()->blocked()->syncWithoutDetaching($user->id);
 
         return $user;
     }
 
     public function destroy(User $user)
     {
-        $user->blocked()->detach(Auth::id());
+        Auth::user()->blocked()->detach($user->id);
 
         return $user;
     }

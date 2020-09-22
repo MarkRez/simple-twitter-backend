@@ -12,6 +12,7 @@ import Feed from "./routes/Feed";
 import PostPage from "./routes/PostPage";
 import EditProfile from "./routes/EditProfile";
 import Messages from "./routes/Messages";
+import Notifications from "./components/Notifications";
 import {Layout} from "./components/Layout";
 import {ROUTES} from "./helpers/routes";
 import allActions from "./redux/actions";
@@ -89,6 +90,10 @@ const App = () => {
         </Switch>
       </Layout>
       <Footer/>
+      {data && <Notifications
+        token={localStorage.getItem('_token')}
+        userId={data.id}
+      />}
     </>
   );
 };

@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Models\Comment;
 use App\Models\User;
+use App\Events\UserWasMentioned;
 
 class CommentObserver
 {
@@ -18,6 +19,7 @@ class CommentObserver
                 $comment->mentions()->create([
                     'user_id' => $user->id,
                 ]);
+                $user->notify(new UserWasMentioned($comment->id));
             }
         }
     }

@@ -49,7 +49,7 @@ class User extends Authenticatable
     }
 
     public function blocked() {
-        return $this->belongsToMany(User::class, 'blocked_users', 'blocked_user_id', 'user_id');
+        return $this->belongsToMany(User::class, 'blocked_users', 'user_id', 'blocked_user_id');
     }
 
     public function getFollowedAttribute()
@@ -59,9 +59,9 @@ class User extends Authenticatable
         return (bool) $follow;
     }
 
-    public function getBlockedAttribute()
+    public function getBlockedAttribute($value)
     {
-        $block = $this->blocked()->wherePivot('user_id', Auth::id())->first();
+        $block = $this->blocked()->wherePivot('blocked_user_id', $this->id)->first();
 
         return (bool) $block;
     }
@@ -92,5 +92,10 @@ class User extends Authenticatable
         ]);
 
         return new NewAccessToken($token, $plainTextToken);
+    }
+
+    public function receivesBroadcastNotificationsOn()
+    {
+        return 'App.User.' . $this->id;
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Traits;
+use App\Events\UserWasMentioned;
 use App\Models\Mention;
 use App\Models\User;
 
@@ -32,6 +33,7 @@ trait MentionTrait
                 $this->mentions()->create([
                     'user_id' => $user->id,
                 ]);
+                $user->notify(new UserWasMentioned($this->id));
             }
         }
     }

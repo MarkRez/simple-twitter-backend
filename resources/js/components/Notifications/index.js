@@ -8,8 +8,8 @@ const Notifications = ({ token, userId }) => {
     broadcaster: 'pusher',
     key: process.env.MIX_PUSHER_APP_KEY,
     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-    encrypted: true,
-    authEndpoint: 'http://127.0.0.1:8000/api/broadcasting/auth',
+    forceTLS:true,
+    authEndpoint: 'http://127.0.0.1:8000/broadcasting/auth',
     auth: {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -17,6 +17,7 @@ const Notifications = ({ token, userId }) => {
       },
     },
   };
+  console.log(options)
 
   const echo = new Echo(options);
 

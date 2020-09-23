@@ -33,7 +33,7 @@ class UserWasMentioned extends Notification implements ShouldQueue
     public function toArray($notifiable)
     {
         return [
-            'comment_id' => $this->mention,
+            'id' => $this->mention,
         ];
      }
 

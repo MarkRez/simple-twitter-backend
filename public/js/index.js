@@ -87978,10 +87978,10 @@ var Notifications = function Notifications(_ref) {
       userId = _ref.userId;
   var options = {
     broadcaster: 'pusher',
-    key: "test_key_777",
-    cluster: "mt1",
-    encrypted: true,
-    authEndpoint: 'http://127.0.0.1:8000/api/broadcasting/auth',
+    key: "0d0fe06d002b52df5e1f",
+    cluster: "eu",
+    forceTLS: true,
+    authEndpoint: 'http://127.0.0.1:8000/broadcasting/auth',
     auth: {
       headers: {
         Authorization: "Bearer ".concat(token),
@@ -87989,6 +87989,7 @@ var Notifications = function Notifications(_ref) {
       }
     }
   };
+  console.log(options);
   var echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_2__["default"](options);
   echo["private"]("App.User.".concat(userId)).notification(function (data) {
     console.log('notification');

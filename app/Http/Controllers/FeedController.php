@@ -12,7 +12,7 @@ class FeedController extends Controller
 
         $leadIds = $user->leads->pluck('id');
 
-        $feed = Feed::getPostsFromFollowed($leadIds)->latest()->paginate(15);
+        $feed = Feed::getPostsFromFollowed($leadIds)->paginate(15);
 
         return $feed;
     }

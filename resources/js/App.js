@@ -13,6 +13,7 @@ import PostPage from "./routes/PostPage";
 import EditProfile from "./routes/EditProfile";
 import Messages from "./routes/Messages";
 import Notifications from "./components/Notifications";
+import ReactNotification from "react-notifications-component";
 import {Layout} from "./components/Layout";
 import {ROUTES} from "./helpers/routes";
 import allActions from "./redux/actions";
@@ -36,6 +37,7 @@ const App = () => {
 
   return (
     <>
+      <ReactNotification />
       <Header
         isAuthenticated={userLoggedIn}
       />

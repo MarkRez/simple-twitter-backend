@@ -18,11 +18,15 @@ use Illuminate\Queue\SerializesModels;
 class UserWasMentioned extends Notification implements ShouldQueue
 {
     use Queueable;
-    private $mention;
+    private $sourceId;
+    private $mentionSource;
+    private $mentionText;
 
-    public function __construct($mention)
+    public function __construct($sourceType ,$Id, $text)
     {
-        $this->mention = $mention;
+        $this->mentionSource = $sourceType;
+        $this->sourceId = $Id;
+        $this->mentionText = $text;
     }
 
     public function via($notifiable)
@@ -33,7 +37,9 @@ class UserWasMentioned extends Notification implements ShouldQueue
     public function toArray($notifiable)
     {
         return [
-            'id' => $this->mention,
+            'source_id' => $this->sourceId,
+            'mention_source' => $this->mentionSource,
+            'text' => $this->mentionText,
         ];
      }
 

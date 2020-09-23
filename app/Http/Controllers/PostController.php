@@ -8,22 +8,12 @@ use App\Http\Requests\PostUpdateRequest;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
-    public function __construct()
+    public function index(User $user, Request $request)
     {
-        $this->middleware('auth');
-    }
-
-    public function index(User $user)
-    {
-        if ($user->blocked()->wherePivot('blocked_user_id', Auth::id())->exists() && $user->id !== Auth::id()) {
-            return response('User blocked you!', 403);
-        }
-
-        return $user->posts()->orderBy('created_at', 'desc')->paginate(10);
+        return $user->posts()->latest()->paginate(10);
     }
 
     public function show(Post $post)
@@ -35,7 +25,7 @@ class PostController extends Controller
 
     public function store(PostCreateRequest $request)
     {
-        $post = Auth::user()->posts()->create([
+        $post =  $request->user()->posts()->create([
             'text' => $request->text,
         ]);
 

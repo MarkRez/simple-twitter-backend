@@ -2,17 +2,16 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Post;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class PostUpdateRequest extends FormRequest
 {
-    public function authorize()
+    public function authorize(Request $request)
     {
-        $post = $this->route('post');
-        $userId = Auth::id();
-
-        return $userId === $post->user_id;
+        $postCreatorId = $this->route('post')->user_id;
+        return Post::checkAuthor($postCreatorId);
     }
 
     public function rules()

@@ -3,20 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class BlockController extends Controller
 {
-    public function store(User $user)
+    public function store(User $user, Request $request)
     {
-        Auth::user()->blocked()->syncWithoutDetaching($user->id);
+        $request->user()->blockedUsers()->syncWithoutDetaching($user->id);
 
         return $user;
     }
 
-    public function destroy(User $user)
+    public function destroy(User $user, Request $request)
     {
-        Auth::user()->blocked()->detach($user->id);
+        $request->user()->blockedUsers()->detach($user->id);
 
         return $user;
     }

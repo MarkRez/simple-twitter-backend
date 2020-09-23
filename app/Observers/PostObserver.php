@@ -3,27 +3,18 @@
 namespace App\Observers;
 
 use App\Models\Post;
-use App\Models\User;
+use App\Traits\MentionTrait;
 
 class PostObserver
 {
+    use MentionTrait;
     public function saved(Post $post)
     {
-        $post->mentions()->delete();
-        $mentionPattern = "/(@(\w+[.]?\w+)+)/";
-        preg_match_all($mentionPattern, $post->text, $mentionList);
-        foreach ($mentionList[0] as &$mention) {
-            $user = User::where('login', trim($mention, "@"))->first();
-            if ($user) {
-                $post->mentions()->create([
-                    'user_id' => $user->id,
-                ]);
-            }
-        }
+        $post->parseMentions();
     }
 
     public function deleted(Post $post)
     {
-        $post->mentions()->delete();
+        $post->deleteMentions();
     }
 }

@@ -87978,7 +87978,7 @@ var Notifications = function Notifications(_ref) {
       userId = _ref.userId;
   var options = {
     broadcaster: 'pusher',
-    key: "",
+    key: "test_key_777",
     cluster: "mt1",
     encrypted: true,
     authEndpoint: 'http://127.0.0.1:8000/api/broadcasting/auth',

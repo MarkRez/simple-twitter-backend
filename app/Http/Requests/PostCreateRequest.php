@@ -15,7 +15,7 @@ class PostCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'text' => 'required',
+            'text' => 'required|string',
             'tags' => 'array|max:3'
         ];
     }

@@ -2,20 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
-use App\Models\User;
+use App\Models\Feed;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class FeedController extends Controller
 {
-    public function get() {
-        $user = Auth::user();
+    public function get(Request $request) {
+        $user = $request->user();
 
-        $leadsIds = $user->leads->pluck('id');
+        $leadIds = $user->leads->pluck('id');
 
-        $post = Post::whereIn('user_id', $leadsIds)->orderBy('updated_at', 'desc')->paginate(15);
+        $feed = Feed::getPostsFromFollowed($leadIds)->latest()->paginate(15);
 
-        return $post;
+        return $feed;
     }
 }

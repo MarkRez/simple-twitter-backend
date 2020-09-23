@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Services\FileUploadService;
-use Faker\Provider\File;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
-    public function index() {
-        $user = Auth::user();
+    public function index(Request $request) {
+        $user = $request->user();
 
         return [
             'email' => $user->email,
@@ -23,11 +22,10 @@ class ProfileController extends Controller
     }
 
     public function update(ProfileUpdateRequest $request) {
-        $user = Auth::user();
+        $user = $request->user();
 
         if ($request->has('avatar')) {
-            $path = FileUploadService::uploadAvatar($request->avatar);
-            $user->avatar = $path;
+            $user->avatar = FileUploadService::uploadAvatar($request->avatar);
         }
 
         if ($request->has('password')) {

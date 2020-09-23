@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use App\Traits\MentionTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
+    use MentionTrait;
     protected $fillable = ['text', 'user_id'];
     protected $with = ['user', 'mentionedUsers:users.id,users.login'];
 
@@ -15,19 +17,5 @@ class Comment extends Model
 
     public function user() {
         return $this->belongsTo(User::class);
-    }
-
-    public function mentions()
-    {
-        return $this->morphMany(Mention::class, 'mentionable');
-    }
-
-    public function mentionedUsers() {
-        return $this->hasManyThrough(User::class,
-            Mention::class,
-            'mentionable_id',
-            'id',
-            'id',
-            'user_id')->where('mentionable_type', self::class);
     }
 }

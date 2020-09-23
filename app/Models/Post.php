@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\MentionTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
 class Post extends Model
 {
+    use MentionTrait;
     protected $fillable = ['text'];
     protected $appends = ['liked'];
     protected $with = ['user', 'mentionedUsers:users.id,users.login', 'tags'];
@@ -49,17 +51,14 @@ class Post extends Model
         return $like ? (bool) $like->liked : null;
     }
 
-    public function mentions()
+    public function getLikeByUser($userId)
     {
-        return $this->morphMany(Mention::class, 'mentionable');
+        return $this->reactions()->where('user_id', $userId);
     }
 
-    public function mentionedUsers() {
-        return $this->hasManyThrough(User::class,
-            Mention::class,
-            'mentionable_id',
-            'id',
-            'id',
-            'user_id')->where('mentionable_type', self::class);
+    static public function checkAuthor ($userId) {
+
+        return $userId === Auth::id();
     }
+
 }

@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     public function login(LoginRequest $request) {
-        $user = User::where('login', $request->login)->first();
+        $user = User::getByLogin($request->login);
 
-        if (! $user || ! Hash::check($request->password, $user->password)) {
+        if (!$user || !Hash::check($request->password, $user->password)) {
             return abort(401, 'Invalid login or password');
         }
 
@@ -21,13 +21,14 @@ class AuthController extends Controller
     }
 
     public function register(RegisterRequest $request) {
-        $user = new User();
-        $user->login = $request->login;
-        $user->email = $request->email;
-        $user->name = $request->name;
-        $user->password = Hash::make($request->password);
-        return $user->save();
+        User::create([
+            'login' => $request->login,
+            'email' => $request->email,
+            'name' => $request->name,
+            'password' => Hash::make($request->password)
+        ]);
 
+        return response('User created', 200);
     }
 
     public function logOut (Request $request) {

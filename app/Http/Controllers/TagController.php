@@ -11,7 +11,7 @@ class TagController extends Controller
     {
         $tags = [];
         if ($request->name) {
-            $tags = Tag::where('name', 'LIKE', "%$request->name%")->take(5)->get();
+            $tags = Tag::getTagsByName($request->name, 5);
         }
 
         return $tags;

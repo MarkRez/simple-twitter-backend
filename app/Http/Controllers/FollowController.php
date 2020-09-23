@@ -3,20 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class FollowController extends Controller
 {
-    public function store(User $user)
+    public function store(User $user, Request $request)
     {
-        $user->followers()->syncWithoutDetaching(Auth::id());
+        $user->followers()->syncWithoutDetaching($request->user()->id);
 
         return $user;
     }
 
-    public function destroy(User $user)
+    public function destroy(User $user, Request $request)
     {
-        $user->followers()->detach(Auth::id());
+        $user->followers()->detach($request->user()->id);
 
         return $user;
     }

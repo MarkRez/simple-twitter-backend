@@ -4,16 +4,14 @@ namespace App\Http\Requests;
 
 use App\Models\Post;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class PostDeleteRequest extends FormRequest
 {
-    public function authorize(Post $post)
+    public function authorize(Request $request)
     {
         $postCreatorId = $this->route('post')->user_id;
-        $userId = Auth::id();
-
-        return $userId === $postCreatorId;
+        return Post::checkAuthor($postCreatorId);
     }
 
     public function rules()

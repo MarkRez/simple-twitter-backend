@@ -14,7 +14,7 @@ class User extends Authenticatable
     use Notifiable, HasApiTokens;
 
     protected $fillable = [
-        'name', 'email', 'login',
+        'name', 'email', 'login', 'password'
     ];
     protected $appends = ['followed', 'blocked', 'followings_count', 'followers_count'];
 
@@ -25,6 +25,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getId() {
+        return $this->id;
+    }
+
+    static public function getByLogin($login) {
+        return User::where('login', $login)->first();
+    }
 
     public function posts() {
         return $this->hasMany(Post::class);
@@ -48,8 +56,14 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'followings', 'follower_id', 'lead_id');
     }
 
-    public function blocked() {
+    public function blockedUsers() {
         return $this->belongsToMany(User::class, 'blocked_users', 'user_id', 'blocked_user_id');
+    }
+
+    static public function getUserBlocked($userId) {
+        $user = User::find($userId);
+
+        return ($user->blockedUsers()->wherePivot('blocked_user_id',  Auth::id())->exists() && $user->id !==  Auth::id());
     }
 
     public function getFollowedAttribute()
@@ -59,9 +73,9 @@ class User extends Authenticatable
         return (bool) $follow;
     }
 
-    public function getBlockedAttribute($value)
+    public function getBlockedAttribute()
     {
-        $block = $this->blocked()->wherePivot('blocked_user_id', $this->id)->first();
+        $block = $this->blockedUsers()->wherePivot('blocked_user_id', $this->id)->first();
 
         return (bool) $block;
     }

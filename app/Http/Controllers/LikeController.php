@@ -4,13 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class LikeController extends Controller
 {
-    public function store(Request $request, Post $post)
+    public function store(Post $post, Request $request)
     {
-        $user = Auth::user();
+        $user = $request->user();
         $post->reactions()->updateOrCreate(
             [
                 'user_id' => $user->id
@@ -22,10 +21,10 @@ class LikeController extends Controller
         return $post->fresh();
     }
 
-    public function destroy(Post $post)
+    public function destroy(Post $post, Request $request)
     {
-        $user = Auth::user();
-        $post->reactions()->where('user_id', $user->id)->delete();
+        $user = $request->user();
+        $post->getLikeByUser($user->id)->delete();
 
         return $post->fresh();
     }

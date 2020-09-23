@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/profile', 'ProfileController@index');
     Route::put('/profile', 'ProfileController@update');
-    Route::apiResource('users', 'UserController')->only('index', 'show');
+    Route::apiResource('users', 'UserController')->only('show')->middleware('blocked.user');
     Route::post('users/{user}/follow', 'FollowController@store');
     Route::delete('users/{user}/follow', 'FollowController@destroy');
     Route::post('users/{user}/block', 'BlockController@store');
@@ -17,7 +17,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('posts/{post}/comments', 'CommentController@store');
     Route::post('posts/{post}/like', 'LikeController@store');
     Route::delete('posts/{post}/like', 'LikeController@destroy');
-    Route::get('users/{user}/posts', 'PostController@index');
+    Route::get('users/{user}/posts', 'PostController@index')->middleware('blocked.user');
 
     Route::get('/messages', 'MessageController@dialogs');
     Route::get('/messages/{user}', 'MessageController@index');

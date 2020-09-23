@@ -24,6 +24,7 @@ trait MentionTrait
 
     public function parseMentions()
     {
+        $oldMentions = $this->mentions()->pluck('user_id')->all();
         $this->deleteMentions();
         $mentionPattern = "/(@(\w+[.]?\w+)+)/";
         preg_match_all($mentionPattern, $this->text, $mentionList);
@@ -33,7 +34,10 @@ trait MentionTrait
                 $this->mentions()->create([
                     'user_id' => $user->id,
                 ]);
-                $user->notify(new UserWasMentioned($this->id));
+
+                if (!in_array($user->id, $oldMentions)) {
+                    $user->notify(new UserWasMentioned($this->id));
+                }
             }
         }
     }

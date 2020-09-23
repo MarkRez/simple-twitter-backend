@@ -87989,7 +87989,6 @@ var Notifications = function Notifications(_ref) {
       }
     }
   };
-  console.log(options);
   var echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_2__["default"](options);
   echo["private"]("App.User.".concat(userId)).notification(function (data) {
     console.log('notification');

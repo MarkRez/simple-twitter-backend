@@ -17,7 +17,6 @@ const Notifications = ({ token, userId }) => {
       },
     },
   };
-  console.log(options)
 
   const echo = new Echo(options);
 

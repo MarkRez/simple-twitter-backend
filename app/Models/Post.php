@@ -78,4 +78,13 @@ class Post extends Model
     {
         $this->getLikeByUser($userId)->delete();
     }
+
+    public function setTags($tags)
+    {
+        $this->tags()->sync(array_map( function($tag)
+            {
+                return ['tag_id' => $tag['id']];
+            }, $tags)
+        );
+    }
 }

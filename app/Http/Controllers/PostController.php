@@ -28,11 +28,7 @@ class PostController extends Controller
             'text' => $request->text,
         ]);
 
-        $post->tags()->attach(array_map( function($tag)
-            {
-                return ['tag_id' => $tag['id']];
-            }, $request->tags)
-        );
+        $post->setTags($request->tags);
 
         return new PostResource($post);
     }
@@ -43,11 +39,7 @@ class PostController extends Controller
             'text' => $request->text,
         ]);
 
-        $post->tags()->sync(array_map( function($tag)
-            {
-                return ['tag_id' => $tag['id']];
-            }, $request->tags)
-        );
+        $post->setTags($request->tags);
 
         return new PostResource($post);
     }
@@ -59,9 +51,7 @@ class PostController extends Controller
 
     public function getFeed(Request $request)
     {
-        $user = $request->user();
-
-        $leadIds = $user->leads->pluck('id');
+        $leadIds = $request->user()->leads->pluck('id');
 
         $feed = PostResource::collection(Post::getPostsFromFollowed($leadIds)->paginate(15));
 

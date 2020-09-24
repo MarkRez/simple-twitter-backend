@@ -102,4 +102,14 @@ class User extends Authenticatable
     {
         $this->followers()->detach($followerId);
     }
+
+    public function addBlockedUser($userId)
+    {
+        $this->blockedUsers()->syncWithoutDetaching($userId);
+    }
+
+    public function removeBlockedUser($userId)
+    {
+        $this->blockedUsers()->detach($userId);
+    }
 }

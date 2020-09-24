@@ -29,7 +29,7 @@ trait MentionTrait
         $mentionPattern = "/(@(\w+[.]?\w+)+)/";
         preg_match_all($mentionPattern, $this->text, $mentionList);
         foreach ($mentionList[0] as &$mention) {
-            $user = User::where('login', trim($mention, "@"))->first();
+            $user = User::getByLogin(trim($mention, "@"));
             if ($user) {
                 $this->mentions()->create([
                     'user_id' => $user->id,

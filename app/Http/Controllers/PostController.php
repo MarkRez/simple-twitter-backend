@@ -5,22 +5,21 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PostCreateRequest;
 use App\Http\Requests\PostDeleteRequest;
 use App\Http\Requests\PostUpdateRequest;
+use App\Http\Resources\PostResource;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index(User $user, Request $request)
+    public function index(User $user)
     {
-        return $user->posts()->latest()->paginate(10);
+        return PostResource::collection($user->posts()->paginate(10));
     }
 
     public function show(Post $post)
     {
-        $post->load('user');
-
-        return $post;
+        return new PostResource($post);
     }
 
     public function store(PostCreateRequest $request)
@@ -35,7 +34,7 @@ class PostController extends Controller
             }, $request->tags)
         );
 
-        return $post->refresh()->load(['user', 'mentionedUsers:users.id,users.login', 'tags']);
+        return new PostResource($post);
     }
 
     public function update(PostUpdateRequest $request, Post $post)
@@ -50,11 +49,22 @@ class PostController extends Controller
             }, $request->tags)
         );
 
-        return $post->refresh()->load(['user', 'mentionedUsers:users.id,users.login', 'tags']);
+        return new PostResource($post);
     }
 
     public function destroy(PostDeleteRequest $request, Post $post)
     {
         return $post->delete();
+    }
+
+    public function getFeed(Request $request)
+    {
+        $user = $request->user();
+
+        $leadIds = $user->leads->pluck('id');
+
+        $feed = PostResource::collection(Post::getPostsFromFollowed($leadIds)->paginate(15));
+
+        return $feed;
     }
 }

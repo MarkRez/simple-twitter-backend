@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -11,13 +12,13 @@ class BlockController extends Controller
     {
         $request->user()->blockedUsers()->syncWithoutDetaching($user->id);
 
-        return $user;
+        return new UserResource($user);
     }
 
     public function destroy(User $user, Request $request)
     {
         $request->user()->blockedUsers()->detach($user->id);
 
-        return $user;
+        return new UserResource($user);
     }
 }

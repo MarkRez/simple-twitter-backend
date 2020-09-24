@@ -23,7 +23,6 @@ const ListEntity = (
   const {
     id,
     text,
-    user_id,
     created_at,
     likes_count,
     dislikes_count,
@@ -33,7 +32,7 @@ const ListEntity = (
     mentioned_users = [],
     user = {}
   } = data;
-  const {login, avatar, name} = user;
+  const {login, avatar, name, id: user_id} = user;
 
   const [editMode, setEditMode] = useState(false);
   const [textValue, setTextValue] = useState(text);

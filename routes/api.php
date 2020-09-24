@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/profile', 'ProfileController@index');
     Route::put('/profile', 'ProfileController@update');
-    Route::apiResource('users', 'UserController')->only('show')->middleware('blocked.user');
+    Route::get('users/{user}', 'UserController')->middleware('blocked.user');
     Route::post('users/{user}/follow', 'FollowController@store');
     Route::delete('users/{user}/follow', 'FollowController@destroy');
     Route::post('users/{user}/block', 'BlockController@store');
@@ -26,7 +26,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('/tags', 'TagController@index');
 
-    Route::get('/feed', 'FeedController@get');
+    Route::get('/feed', 'PostController@getFeed');
 
     Route::post('/logout', 'AuthController@logOut');
 });

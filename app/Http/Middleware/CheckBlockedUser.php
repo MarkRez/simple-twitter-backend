@@ -10,7 +10,7 @@ class CheckBlockedUser
     public function handle($request, Closure $next)
     {
         $user = $request->route('user');
-        if (User::getUserBlocked($user->id) && $user->id !==  $request->user()->id) {
+        if ($user->hasBlockedUser($request->user()->id) && $user->id !==  $request->user()->id) {
             return response('User blocked you!', 403);
         }
 

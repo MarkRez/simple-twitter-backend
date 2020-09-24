@@ -16,7 +16,6 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'login', 'password'
     ];
-    protected $appends = ['followed', 'blocked', 'followings_count', 'followers_count'];
 
     protected $hidden = [
         'email', 'password', 'remember_token', 'updated_at', 'created_at', 'laravel_through_key'
@@ -26,16 +25,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getId() {
-        return $this->id;
-    }
-
-    static public function getByLogin($login) {
-        return User::where('login', $login)->first();
-    }
-
     public function posts() {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class)->latest();
     }
 
     public function sentMessages() {
@@ -60,34 +51,19 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'blocked_users', 'user_id', 'blocked_user_id');
     }
 
-    static public function getUserBlocked($userId) {
-        $user = User::find($userId);
 
-        return ($user->blockedUsers()->wherePivot('blocked_user_id',  Auth::id())->exists() && $user->id !==  Auth::id());
-    }
-
-    public function getFollowedAttribute()
+    public function hasFollowedUser($userId)
     {
-        $follow = $this->followers()->wherePivot('follower_id', Auth::id())->first();
+        $follow = $this->leads()->where('lead_id', $userId)->first();
 
         return (bool) $follow;
     }
 
-    public function getBlockedAttribute()
+    public function hasBlockedUser($userId)
     {
-        $block = $this->blockedUsers()->wherePivot('blocked_user_id', $this->id)->first();
+        $block = $this->blockedUsers()->where('blocked_user_id', $userId)->first();
 
         return (bool) $block;
-    }
-
-    public function getFollowingsCountAttribute()
-    {
-        return $this->leads()->count();
-    }
-
-    public function getFollowersCountAttribute()
-    {
-        return $this->followers()->count();
     }
 
     /**
@@ -111,5 +87,19 @@ class User extends Authenticatable
     public function receivesBroadcastNotificationsOn()
     {
         return 'App.User.' . $this->id;
+    }
+
+    static public function getByLogin($login) {
+        return self::where('login', $login)->first();
+    }
+
+    public function addFollower($followerId)
+    {
+        $this->followers()->syncWithoutDetaching($followerId);
+    }
+
+    public function removeFollower($followerId)
+    {
+        $this->followers()->detach($followerId);
     }
 }

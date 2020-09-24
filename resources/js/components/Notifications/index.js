@@ -1,8 +1,8 @@
 import React from "react";
 import Pusher from "pusher-js";
 import Echo from 'laravel-echo';
-import ReactNotification from 'react-notifications-component';
 import { store } from 'react-notifications-component';
+import 'animate.css/animate.compat.css'
 import 'react-notifications-component/dist/theme.css'
 
 const Notifications = ({ token, userId }) => {
@@ -24,9 +24,8 @@ const Notifications = ({ token, userId }) => {
   const echo = new Echo(options);
 
   echo.private(`App.User.${userId}`).notification((data) => {
-    console.log('notification:', data);
     store.addNotification({
-      title: "You was mentioned!",
+      title: `You was mentioned in ${data.mention_source.toLowerCase()}!`,
       message: data.text,
       type: "default",
       insert: "top",
@@ -35,7 +34,6 @@ const Notifications = ({ token, userId }) => {
       animationOut: ["animate__animated", "animate__fadeOut"],
       dismiss: {
         duration: 5000,
-        onScreen: true
       }
     });
   });

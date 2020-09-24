@@ -10,9 +10,6 @@ class Post extends Model
 {
     use MentionTrait;
     protected $fillable = ['text'];
-    protected $appends = ['liked'];
-    protected $with = ['user', 'mentionedUsers:users.id,users.login', 'tags'];
-    protected $withCount = ['likes', 'dislikes', 'comments'];
 
     public function user()
     {
@@ -26,7 +23,7 @@ class Post extends Model
 
     public function comments()
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class)->latest();
     }
 
     public function reactions()
@@ -44,7 +41,7 @@ class Post extends Model
         return $this->reactions()->where('liked', false);
     }
 
-    public function getLikedAttribute()
+    public function getLiked()
     {
         $like = $this->reactions()->where('user_id', Auth::id())->first();
 
@@ -56,9 +53,29 @@ class Post extends Model
         return $this->reactions()->where('user_id', $userId);
     }
 
-    static public function checkAuthor ($userId) {
-
+    static public function checkAuthor ($userId)
+    {
         return $userId === Auth::id();
     }
 
+    static public function getPostsFromFollowed($leadIds)
+    {
+        return self::whereIn('user_id', $leadIds)->latest();
+    }
+
+    public function addReaction($userId, $reactionType)
+    {
+        $this->reactions()->updateOrCreate(
+            [
+                'user_id' => $userId
+            ],
+            [
+                'liked' => $reactionType,
+            ]);
+    }
+
+    public function removeReaction($userId)
+    {
+        $this->getLikeByUser($userId)->delete();
+    }
 }

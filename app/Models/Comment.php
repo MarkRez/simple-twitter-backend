@@ -9,7 +9,6 @@ class Comment extends Model
 {
     use MentionTrait;
     protected $fillable = ['text', 'user_id'];
-    protected $with = ['user', 'mentionedUsers:users.id,users.login'];
 
     public function posts() {
         return $this->belongsTo(Post::Class);

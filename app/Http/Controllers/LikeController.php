@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PostResource;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -9,23 +10,15 @@ class LikeController extends Controller
 {
     public function store(Post $post, Request $request)
     {
-        $user = $request->user();
-        $post->reactions()->updateOrCreate(
-            [
-                'user_id' => $user->id
-            ],
-            [
-                'liked' => $request->reactionType,
-            ]);
+        $post->addReaction($request->user()->id, $request->reactionType);
 
-        return $post->fresh();
+        return new PostResource($post);
     }
 
     public function destroy(Post $post, Request $request)
     {
-        $user = $request->user();
-        $post->getLikeByUser($user->id)->delete();
+        $post->removeReaction($request->user()->id);
 
-        return $post->fresh();
+        return new PostResource($post);
     }
 }

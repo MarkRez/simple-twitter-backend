@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Http\Resources\ProfileResource;
 use App\Services\FileUploadService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -10,15 +11,7 @@ use Illuminate\Support\Facades\Hash;
 class ProfileController extends Controller
 {
     public function index(Request $request) {
-        $user = $request->user();
-
-        return [
-            'email' => $user->email,
-            'login' => $user->login,
-            'name' => $user->name,
-            'id' => $user->id,
-            'avatar' => $user->avatar
-        ];
+        return new ProfileResource($request->user());
     }
 
     public function update(ProfileUpdateRequest $request) {

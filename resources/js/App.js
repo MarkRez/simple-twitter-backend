@@ -19,7 +19,6 @@ import {ROUTES} from "./helpers/routes";
 import allActions from "./redux/actions";
 import {useSelector, useDispatch} from 'react-redux';
 import {profileSelector} from "./helpers/selectors";
-import apis from "./api";
 
 const App = () => {
   const dispatch = useDispatch();

@@ -17,7 +17,7 @@ class MessageController extends Controller
 
     public function index(Request $request, User $user)
     {
-        return Message::getDialogMessages($request->user()->id, $user->id);
+        return Message::getDialogMessages($request->user()->id, $user->id)->paginate(15);
     }
 
     public function create(User $user, SendMessageRequest $request)

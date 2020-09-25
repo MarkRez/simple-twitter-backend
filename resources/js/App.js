@@ -90,6 +90,7 @@ const App = () => {
           />
           <ProtectedRoute
             Component={DialogPage}
+            currentUserId={data.id}
             exact
             path={ROUTES.DIALOG}
           />

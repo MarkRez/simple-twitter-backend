@@ -12,3 +12,7 @@ export const cropText = (text) => {
     return `${text.slice(0, 500)} ...`
   }
 };
+
+export const handleImageError = (e) => {
+  e.target.src = '/storage/avatars/default.jpg';
+}

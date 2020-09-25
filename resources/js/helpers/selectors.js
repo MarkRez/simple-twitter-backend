@@ -3,7 +3,7 @@ import {FETCH_PROFILE} from "../redux/actions/userActions";
 import {FETCH_CURRENT_POST, FETCH_CURRENT_POST_COMMENTS} from "../redux/actions/postsActions";
 import {FETCH_USER, FETCH_USER_POSTS} from "../redux/actions/usersActions";
 import {FETCH_FEED} from "../redux/actions/feedActions";
-import {FETCH_DIALOGS} from "../redux/actions/messagesActions";
+import {FETCH_DIALOGS, FETCH_DIALOG_MESSAGES} from "../redux/actions/messagesActions";
 
 const skeletonArr = [{id: "skltn 1"}, {id: "skltn 2"}, {id: "skltn 3"}, {id: "skltn 4"}, {id: "skltn 5"}];
 
@@ -31,7 +31,7 @@ export const currentUserPostsReset = resetRequests([FETCH_USER_POSTS]);
 // feed selectors
 export const feedSelector = getQuerySelector({
   type: FETCH_FEED,
-  multiple: true
+  defaultData: {data: []}
 });
 export const feedReset = resetRequests([FETCH_FEED]);
 
@@ -40,4 +40,9 @@ export const dialogsSelector = getQuerySelector({
   type: FETCH_DIALOGS,
   defaultData: skeletonArr.slice(0, 5)
 });
+export const dialogMessagesSelector = getQuerySelector({
+  type: FETCH_DIALOG_MESSAGES,
+  defaultData: {data: []}
+});
 export const dialogsReset = resetRequests([FETCH_DIALOGS]);
+export const dialogMessagesReset = resetRequests([FETCH_DIALOG_MESSAGES]);

@@ -1,0 +1,40 @@
+import React from 'react';
+import './dialogsList.scss';
+import Skeleton from "react-loading-skeleton";
+import {Link} from "react-router-dom";
+import {ROUTES} from "../../../helpers/routes";
+
+const DialogsList = ({dialogs}) => {
+  const handleImageError = (e) => {
+    e.target.src = '/storage/avatars/default.jpg';
+  }
+
+  return (
+    <div className="dialogs-list w-100 p-0">
+      {dialogs.map(dialog =>
+        <Link key={dialog.id} to={`${ROUTES.MESSAGES}/${dialog.id}`}>
+          <div className='dialog w-100'>
+            <div className="row">
+              <div className="col-lg-1">
+                { dialog.avatar
+                  ? <img src={dialog.avatar} onError={handleImageError} alt="name" className="img-fluid"/>
+                  : <Skeleton height={50} width={50} circle={true}/>
+                }
+              </div>
+              <div className="col-lg-11">
+                <p>
+                  {dialog.name || <Skeleton width={100} height={20}/>}
+                </p>
+                <p>
+                  {dialog.last_message || <Skeleton />}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </Link>
+      )}
+    </div>
+  )
+}
+
+export default DialogsList;

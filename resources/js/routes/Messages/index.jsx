@@ -1,18 +1,25 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import allActions from "../../redux/actions";
-import apis from "../../api";
+import {dialogsSelector, dialogsReset} from "../../helpers/selectors";
+import DialogsList from "./DialogsList";
 
 const Messages = () => {
+  const dispatch = useDispatch();
+  const dialogs = useSelector(dialogsSelector);
 
   useEffect(() => {
-      apis.getDialogMessages(1);
-      apis.getDialogs();
+    dispatch(allActions.messagesActions.getDialogs());
+    return () => {
+      dispatch(dialogsReset);
+    }
   }, []);
 
   return (
     <div className="messages-page">
-      <h1>Messages</h1>
+      <DialogsList
+        dialogs={dialogs.data}
+      />
     </div>
   )
 }

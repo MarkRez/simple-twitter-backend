@@ -12,6 +12,7 @@ import Feed from "./routes/Feed";
 import PostPage from "./routes/PostPage";
 import EditProfile from "./routes/EditProfile";
 import Messages from "./routes/Messages";
+import DialogPage from "./routes/Messages/DialogPage";
 import Notifications from "./components/Notifications";
 import ReactNotification from "react-notifications-component";
 import {Layout} from "./components/Layout";
@@ -86,6 +87,11 @@ const App = () => {
             Component={Messages}
             exact
             path={ROUTES.MESSAGES}
+          />
+          <ProtectedRoute
+            Component={DialogPage}
+            exact
+            path={ROUTES.DIALOG}
           />
           <Route component={NotFound}/>
         </Switch>

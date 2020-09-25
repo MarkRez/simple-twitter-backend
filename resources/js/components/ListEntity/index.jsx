@@ -83,7 +83,7 @@ const ListEntity = (
           {avatar
             ?
             <Link to={`/users/${user_id}`}>
-              <img src={avatar} onError={handleImageError} alt="name" className="img-fluid"/>
+              <img src={avatar} onError={handleImageError} alt={login} className="img-fluid"/>
             </Link>
             : <Skeleton height={50} width={50} circle={true}/>
           }

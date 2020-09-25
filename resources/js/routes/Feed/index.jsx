@@ -17,7 +17,7 @@ const Feed = () => {
     return () => {
       dispatch(feedReset);
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     totalPages.current = feed.data.last_page

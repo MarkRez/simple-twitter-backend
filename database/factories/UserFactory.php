@@ -12,6 +12,6 @@ $factory->define(User::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'name' => $faker->firstName,
         'password' => Hash::make('password'),
-        // password
+        'avatar' => $faker->imageUrl($width = 400, $height = 400)
     ];
 });

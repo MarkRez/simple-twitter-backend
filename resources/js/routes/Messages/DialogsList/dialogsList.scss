@@ -1,0 +1,35 @@
+.dialogs-list {
+  .dialog {
+    background-color: #ffffff;
+    border: 1px solid rgb(230, 236, 240);
+    padding: 15px 20px 15px 20px;
+    margin-top: -1px;
+
+    &:hover {
+      background-color: #fafafa;
+    }
+
+    img {
+      border-radius: 50%;
+      max-width: 50px;
+      height: 50px;
+    }
+
+    p {
+      margin-bottom: 0;
+
+      &:first-child {
+        margin-bottom: 0.5rem;
+        font-size: 1.2em;
+        font-weight: 800;
+        color: #1f1f1f;
+      }
+
+      &:last-child {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}

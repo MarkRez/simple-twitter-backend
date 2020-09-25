@@ -20,7 +20,6 @@ class Message extends Model
     {
         return self::whereIn('sender_id', [$user1, $user2])
             ->whereIn('recipient_id', [$user1, $user2])
-            ->latest()
-            ->paginate(15);
+            ->latest();
     }
 }

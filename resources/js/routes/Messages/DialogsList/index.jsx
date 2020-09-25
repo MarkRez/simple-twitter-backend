@@ -26,7 +26,7 @@ const DialogsList = ({dialogs}) => {
                   {dialog.name || <Skeleton width={100} height={20}/>}
                 </p>
                 <p>
-                  {dialog.last_message || <Skeleton />}}
+                  {dialog.last_message || <Skeleton />}
                 </p>
               </div>
             </div>

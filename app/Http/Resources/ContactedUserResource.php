@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class DialogResource extends JsonResource
+class ContactedUserResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,9 +18,7 @@ class DialogResource extends JsonResource
             'name' => $this->name,
             'id' => $this->id,
             'avatar' => $this->avatar,
-            'last_message' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit',
+            'last_message' => $this->getLastMessageWithUser($request->user()->id),
             ];
     }
 }

@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Sanctum\NewAccessToken;
@@ -115,6 +114,11 @@ class User extends Authenticatable
         $contactedUsersIds = array_unique(array_merge($recipientIds, $senderIds));
 
         return self::whereIn('id', $contactedUsersIds)->get();
+    }
+
+    public function getLastMessageWithUser($userId)
+    {
+        return Message::getDialogMessages($this->id, $userId)->select('text')->take(1)->first()->text;
     }
 
     /**

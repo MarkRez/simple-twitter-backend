@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SendMessageRequest;
-use App\Http\Resources\DialogResource;
+use App\Http\Resources\ContactedUserResource;
 use App\Models\Message;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -12,7 +12,7 @@ class MessageController extends Controller
 {
     public function dialogs(Request $request)
     {
-        return DialogResource::collection($request->user()->getContactedUsers());
+        return ContactedUserResource::collection($request->user()->getContactedUsers());
     }
 
     public function index(Request $request, User $user)

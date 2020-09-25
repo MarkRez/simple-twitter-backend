@@ -4,6 +4,7 @@ import allActions from "../../../redux/actions";
 import {dialogMessagesSelector, dialogMessagesReset} from "../../../helpers/selectors";
 import DialogMessagesList from "./DialogMessagesList";
 import DialogInfo from "./DialogInfo";
+import SendMessage from "./SendMessage";
 
 const DialogPage = ({ currentUserId,...props}) => {
   const dispatch = useDispatch();
@@ -23,7 +24,9 @@ const DialogPage = ({ currentUserId,...props}) => {
       <DialogInfo
         user={user}
       />
-      {/*<SendMessage />*/}
+      <SendMessage
+
+      />
       <DialogMessagesList
         currentUserId={currentUserId}
         messages={messages}

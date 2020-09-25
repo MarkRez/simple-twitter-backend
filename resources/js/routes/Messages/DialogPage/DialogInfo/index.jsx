@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import './DialogInfo.scss';
+import './dialogInfo.scss';
 import {handleImageError} from "../../../../helpers/anotherMethods";
 import Skeleton from "react-loading-skeleton";
 

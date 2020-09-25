@@ -116,9 +116,16 @@ class User extends Authenticatable
         return self::whereIn('id', $contactedUsersIds)->get();
     }
 
+    public function getMessagesWithUser($userId)
+    {
+        return Message::whereIn('sender_id', [$this->id, $userId])
+            ->whereIn('recipient_id', [$this->id, $userId])
+            ->latest();
+    }
+
     public function getLastMessageWithUser($userId)
     {
-        return Message::getDialogMessages($this->id, $userId)->select('text')->take(1)->first()->text;
+        return self::getMessagesWithUser($userId)->select('text')->take(1)->first()->text;
     }
 
     /**

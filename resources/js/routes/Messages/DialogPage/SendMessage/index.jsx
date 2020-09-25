@@ -10,7 +10,6 @@ const SendMessage = ({sendMessageFunc}) => {
   const handleClickSend = () => {
     // sendMessageFunc(textAreaValue);
     setTextAreaValue('');
-
   }
 
   const handleChangeText = (e) => {
@@ -19,7 +18,12 @@ const SendMessage = ({sendMessageFunc}) => {
 
   return (
     <div className="send-message row">
-      <textarea onChange={handleChangeText} value={textAreaValue} placeholder={`Type message here...`} className="w-100" rows={1}/>
+      <textarea
+        onChange={handleChangeText}
+        value={textAreaValue} placeholder={`Type message here...`}
+        className="w-100"
+        rows={1}
+      />
       <span onClick={handleClickSend}>
         <FontAwesomeIcon icon={faPaperPlane}/>
       </span>

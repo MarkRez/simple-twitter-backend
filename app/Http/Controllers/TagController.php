@@ -11,7 +11,7 @@ class TagController extends Controller
     public function __invoke(Request $request)
     {
         if ($request->name) {
-            return TagResource::collection(Tag::getTagsByName($request->name, 5));
+            return TagResource::collection(Tag::getByName($request->name, 5));
         }
     }
 }

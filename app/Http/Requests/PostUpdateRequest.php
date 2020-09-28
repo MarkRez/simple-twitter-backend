@@ -10,8 +10,7 @@ class PostUpdateRequest extends FormRequest
 {
     public function authorize(Request $request)
     {
-        $postCreatorId = $this->route('post')->user_id;
-        return Post::checkAuthor($postCreatorId);
+        return $this->route('post')->checkAuthor($request->user()->id);
     }
 
     public function rules()

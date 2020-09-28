@@ -23,7 +23,7 @@ export const currentPostCommentsReset = resetRequests([FETCH_CURRENT_POST_COMMEN
 export const userSelector = getQuerySelector({type: FETCH_USER, defaultData: false});
 export const userPostsSelector = getQuerySelector({
   type: FETCH_USER_POSTS,
-  defaultData: {data: skeletonArr.slice(0, 3)}
+  defaultData: {data: skeletonArr.slice(0, 3), meta: {}}
 });
 export const currentUserReset = resetRequests([FETCH_USER]);
 export const currentUserPostsReset = resetRequests([FETCH_USER_POSTS]);
@@ -31,7 +31,7 @@ export const currentUserPostsReset = resetRequests([FETCH_USER_POSTS]);
 // feed selectors
 export const feedSelector = getQuerySelector({
   type: FETCH_FEED,
-  defaultData: {data: []}
+  defaultData: {data: skeletonArr.slice(0, 5), meta: {}}
 });
 export const feedReset = resetRequests([FETCH_FEED]);
 

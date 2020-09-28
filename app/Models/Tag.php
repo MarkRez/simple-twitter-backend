@@ -11,7 +11,7 @@ class Tag extends Model
         return $this->belongsToMany(Post::Class);
     }
 
-    static public function getTagsByName($name, $numberOfTags)
+    static public function getByName($name, $numberOfTags)
     {
         return Tag::where('name', 'LIKE', "%$name%")->take($numberOfTags)->get();
     }

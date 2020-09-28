@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class Post extends Model
 {
     use MentionTrait;
+
     protected $fillable = ['text'];
 
     public function user()
@@ -45,17 +46,17 @@ class Post extends Model
     {
         $like = $this->reactions()->where('user_id', Auth::id())->first();
 
-        return $like ? (bool) $like->liked : null;
+        return $like ? (bool)$like->liked : null;
     }
 
-    public function getLikeByUser($userId)
+    public function getReactionByUser($userId)
     {
         return $this->reactions()->where('user_id', $userId);
     }
 
-    static public function checkAuthor ($userId)
+    public function checkAuthor($userId)
     {
-        return $userId === Auth::id();
+        return $this->user_id === $userId;
     }
 
     static public function getPostsFromFollowed($leadIds)
@@ -76,13 +77,12 @@ class Post extends Model
 
     public function removeReaction($userId)
     {
-        $this->getLikeByUser($userId)->delete();
+        $this->getReactionByUser($userId)->delete();
     }
 
     public function setTags($tags)
     {
-        $this->tags()->sync(array_map( function($tag)
-            {
+        $this->tags()->sync(array_map(function ($tag) {
                 return ['tag_id' => $tag['id']];
             }, $tags)
         );

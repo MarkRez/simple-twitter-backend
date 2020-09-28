@@ -20,7 +20,7 @@ const Feed = () => {
   }, []);
 
   useEffect(() => {
-    totalPages.current = feed.data.last_page
+    totalPages.current = feed.data.meta.last_page
     feedIsLoading.current = feed.loading;
   }, [feed])
 
@@ -41,14 +41,14 @@ const Feed = () => {
 
   return (
     <div className="feed-page">
-      <HandleScroll
-        handleFunc={nextPage}
-      />
       <EntityList
         setReactionFunc={addReactionToPost}
         deleteReactionFunc={deleteReactionFromPost}
         entities={feed.data.data}
         type="post"
+      />
+      <HandleScroll
+        handleFunc={nextPage}
       />
     </div>
   )

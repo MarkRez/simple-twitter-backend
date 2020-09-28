@@ -42,11 +42,21 @@ const getUser = (id) => ({
   }
 });
 
-const getUserPosts = (id) => ({
+const getUserPosts = (id, page) => ({
   type: FETCH_USER_POSTS,
   request: {
-    url: `users/${id}/posts`,
+    url: `users/${id}/posts?page=${page}`,
     method: 'get',
+  },
+  meta: {
+    getData: (newData, currentData) => {
+      return currentData
+        ? {
+          ...newData,
+          data: [...currentData.data, ...newData.data],
+        }
+        : {...newData}
+    }
   }
 });
 

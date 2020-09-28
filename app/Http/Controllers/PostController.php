@@ -24,9 +24,7 @@ class PostController extends Controller
 
     public function store(PostCreateRequest $request)
     {
-        $post =  $request->user()->posts()->create([
-            'text' => $request->text,
-        ]);
+        $post = $request->user()->addNewPost($request->text);
 
         $post->setTags($request->tags);
 

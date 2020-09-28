@@ -7,7 +7,6 @@ use App\Http\Requests\SendMessageRequest;
 use App\Http\Resources\ContactedUserResource;
 use App\Http\Resources\MessageResource;
 use App\Http\Resources\MessagesCollection;
-use App\Models\Message;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -26,7 +25,7 @@ class MessageController extends Controller
     public function create(User $user, SendMessageRequest $request)
     {
         $newMessage = $request->user()->sendMessage($user->id, $request->text);
-        event(new UserReceivedMessage($newMessage, class_basename($this)));
+        event(new UserReceivedMessage($newMessage));
         return new MessageResource($newMessage);
     }
 }

@@ -42,6 +42,14 @@ class Post extends Model
         return $this->reactions()->where('liked', false);
     }
 
+    public function addComment($commentText)
+    {
+        return $this->comments()->create([
+            'text' => $commentText,
+            'user_id' => Auth::id(),
+        ]);
+    }
+
     public function getLiked()
     {
         $like = $this->reactions()->where('user_id', Auth::id())->first();

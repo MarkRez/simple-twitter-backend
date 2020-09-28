@@ -36,13 +36,11 @@ class User extends Authenticatable
         return $this->hasMany(Message::class, 'recipient_id');
     }
 
-    // подписчики
     public function followers()
     {
         return $this->belongsToMany(User::class, 'followings', 'lead_id', 'follower_id');
     }
 
-    // подписки
     public function leads()
     {
         return $this->belongsToMany(User::class, 'followings', 'follower_id', 'lead_id');
@@ -53,6 +51,12 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'blocked_users', 'user_id', 'blocked_user_id');
     }
 
+    public function addNewPost($postText)
+    {
+        return $this->posts()->create([
+            'text' => $postText,
+        ]);
+    }
 
     public function hasFollowedUser($userId)
     {
@@ -125,7 +129,7 @@ class User extends Authenticatable
 
     public function sendMessage($userId, $text)
     {
-       return $this->sentMessages()->create([
+        return $this->sentMessages()->create([
             'recipient_id' => $userId,
             'text' => $text
         ]);

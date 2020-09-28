@@ -11,6 +11,7 @@ const Feed = () => {
   const totalPages = useRef(1);
   const feedIsLoading = useRef(false);
   const feed = useSelector(feedSelector);
+  feedIsLoading.current = feed.loading;
 
   useEffect(() => {
     dispatch(allActions.feedActions.getFeed(scrollPage.current));
@@ -21,7 +22,6 @@ const Feed = () => {
 
   useEffect(() => {
     totalPages.current = feed.data.meta.last_page
-    feedIsLoading.current = feed.loading;
   }, [feed])
 
   const nextPage = () => {

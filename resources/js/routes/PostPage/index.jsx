@@ -21,15 +21,15 @@ const PostPage = (props) => {
 
   const post = useSelector(currentPostSelector);
   const postComments = useSelector(currentPostCommentsSelector);
+  commentsIsLoading.current = postComments.loading;
 
   useEffect(() => {
     totalPages.current = postComments.data.meta.last_page
-    commentsIsLoading.current = postComments.loading;
   }, [postComments])
 
   useEffect(() => {
     dispatch(allActions.postsActions.getPost(postId));
-    dispatch(allActions.postsActions.getPostComments(postId));
+    dispatch(allActions.postsActions.getPostComments(postId, scrollPage.current));
     return () => {
       dispatch(currentPostReset);
       dispatch(currentPostCommentsReset);

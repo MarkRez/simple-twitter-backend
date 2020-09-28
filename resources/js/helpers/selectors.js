@@ -42,7 +42,7 @@ export const dialogsSelector = getQuerySelector({
 });
 export const dialogMessagesSelector = getQuerySelector({
   type: FETCH_DIALOG_MESSAGES,
-  defaultData: {data: {data: [], user: {}}}
+  defaultData: {data: {data: [], user: {}}, meta:{}}
 });
 export const dialogsReset = resetRequests([FETCH_DIALOGS]);
 export const dialogMessagesReset = resetRequests([FETCH_DIALOG_MESSAGES]);

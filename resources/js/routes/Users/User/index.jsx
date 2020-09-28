@@ -25,15 +25,15 @@ const User = (props) => {
   const user = useSelector(userSelector);
   const userPosts = useSelector(userPostsSelector);
   const currentUser = useSelector(profileSelector);
+  postsIsLoading.current = userPosts.loading;
 
   useEffect(() => {
     totalPages.current = userPosts.data.meta.last_page
-    postsIsLoading.current = userPosts.loading;
   }, [userPosts])
 
   useEffect(() => {
     dispatch(allActions.usersActions.getUser(userId));
-    dispatch(allActions.usersActions.getUserPosts(userId));
+    dispatch(allActions.usersActions.getUserPosts(userId, scrollPage.current));
     return () => {
       dispatch(currentUserReset);
       dispatch(currentUserPostsReset);

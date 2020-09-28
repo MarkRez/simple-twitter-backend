@@ -8,7 +8,7 @@ const getDialogs = () => ({
   request: {
     url: `/messages`,
     method: 'get',
-  }
+  },
 });
 
 const getDialogMessages = (id, page) => ({
@@ -16,6 +16,16 @@ const getDialogMessages = (id, page) => ({
   request: {
     url: `/messages/${id}?page=${page}`,
     method: 'get',
+  },
+  meta: {
+    getData: (newData, currentData) => {
+      return currentData
+        ? {
+          ...newData,
+          data: {data: [...currentData.data.data, ...newData.data.data], user: currentData.data.user},
+        }
+        : {...newData}
+    },
   }
 });
 

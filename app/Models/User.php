@@ -128,6 +128,14 @@ class User extends Authenticatable
         return self::getMessagesWithUser($userId)->select('text')->take(1)->first()->text;
     }
 
+    public function sendMessage($userId, $text)
+    {
+       return $this->sentMessages()->create([
+            'recipient_id' => $userId,
+            'text' => $text
+        ]);
+    }
+
     /**
      * Create a new personal access token for the user.
      *

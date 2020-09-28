@@ -18,7 +18,7 @@ class MessagesCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'data' => $this->collection,
+            'data' => MessageResource::collection($this->collection),
             'user' => new ContactedUserResource($this->user)
         ];
     }

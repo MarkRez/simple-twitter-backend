@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SendMessageRequest;
 use App\Http\Resources\ContactedUserResource;
+use App\Http\Resources\MessageResource;
 use App\Http\Resources\MessagesCollection;
 use App\Models\Message;
 use App\Models\User;
@@ -23,6 +24,6 @@ class MessageController extends Controller
 
     public function create(User $user, SendMessageRequest $request)
     {
-        return "Send message";
+        return new MessageResource($request->user()->sendMessage($user->id, $request->text));
     }
 }

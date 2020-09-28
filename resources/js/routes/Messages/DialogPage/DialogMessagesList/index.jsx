@@ -4,7 +4,6 @@ import {Link} from "react-router-dom";
 import {prettyDate} from "../../../../helpers/dateConverter";
 
 const DialogMessagesList = ({ messages, currentUserId }) => {
-
   if(!currentUserId) {
     return <div className="w-100 text-center">
       <h4>Loading...</h4>

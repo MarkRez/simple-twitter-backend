@@ -68,11 +68,6 @@ class User extends Authenticatable
         return (bool)$block;
     }
 
-    public function receivesBroadcastNotificationsOn()
-    {
-        return 'App.User.' . $this->id;
-    }
-
     static public function getByLogin($login)
     {
         return self::where('login', $login)->first();

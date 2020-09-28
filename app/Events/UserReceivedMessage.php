@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Http\Resources\MessageResource;
 use App\Models\Mention;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
@@ -15,20 +16,16 @@ use Illuminate\Notifications\Messages\BroadcastMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Queue\SerializesModels;
 
-class UserWasMentioned implements ShouldBroadcast
+class UserReceivedMessage implements ShouldBroadcast
 {
     use Queueable;
-    private $sourceId;
-    private $mentionSource;
-    private $mentionText;
-    private $mentionedUser;
+    private $message;
+    private $messageSource;
 
-    public function __construct($sourceType ,$Id, $text, $userId)
+    public function __construct($message, $source)
     {
-        $this->mentionSource = $sourceType;
-        $this->sourceId = $Id;
-        $this->mentionText = $text;
-        $this->mentionedUser = $userId;
+        $this->message = $message;
+        $this->messageSource = $source;
     }
 
     public function via()
@@ -39,19 +36,18 @@ class UserWasMentioned implements ShouldBroadcast
     public function broadcastWith()
     {
         return [
-            'source_id' => $this->sourceId,
-            'source' => $this->mentionSource,
-            'text' => $this->mentionText,
+            'message' => new MessageResource($this->message),
+            'source' => $this->messageSource,
         ];
-     }
+    }
 
     public function broadcastAs()
     {
-        return 'user.mentioned';
+        return 'message.received';
     }
 
     public function broadcastOn()
     {
-        return new PrivateChannel('App.User.' . $this->mentionedUser);
+        return new PrivateChannel('App.User.' . $this->message->recipient_id);
     }
 }

@@ -36,8 +36,7 @@ trait MentionTrait
                 ]);
 
                 if (!in_array($user->id, $oldMentions)) {
-                    $source = class_basename($this);
-                    $user->notify(new UserWasMentioned($source, $this->id, $this->text));
+                    event(new UserWasMentioned(class_basename($this), $this->id, $this->text, $user->id));
                 }
             }
         }

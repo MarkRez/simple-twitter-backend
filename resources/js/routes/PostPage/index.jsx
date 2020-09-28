@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import allActions from "../../redux/actions";
 import PostInfo from "./PostInfo";
@@ -10,13 +10,22 @@ import {
   currentPostCommentsReset
 } from "../../helpers/selectors";
 import EntityList from "../../components/EntityList";
+import HandleScroll from "../../components/HandleScroll";
 
 const PostPage = (props) => {
   const dispatch = useDispatch();
   const postId = props.computedMatch.params.id;
+  const scrollPage = useRef(1);
+  const totalPages = useRef(1);
+  const commentsIsLoading = useRef(false);
 
   const post = useSelector(currentPostSelector);
   const postComments = useSelector(currentPostCommentsSelector);
+
+  useEffect(() => {
+    totalPages.current = postComments.data.meta.last_page
+    commentsIsLoading.current = postComments.loading;
+  }, [postComments])
 
   useEffect(() => {
     dispatch(allActions.postsActions.getPost(postId));
@@ -26,6 +35,13 @@ const PostPage = (props) => {
       dispatch(currentPostCommentsReset);
     };
   }, []);
+
+  const nextPage = () => {
+    if (!commentsIsLoading.current && !(scrollPage.current + 1 > totalPages.current)) {
+      dispatch(allActions.postsActions.getPostComments(postId ,scrollPage.current + 1));
+      scrollPage.current += 1
+    }
+  }
 
   const addComment = (text) => {
     dispatch(allActions.postsActions.addPostComments(postId, {text}));
@@ -60,6 +76,9 @@ const PostPage = (props) => {
       />
       <EntityList
         entities={postComments.data.data}
+      />
+      <HandleScroll
+        handleFunc={nextPage}
       />
     </div>
   )

@@ -14,7 +14,7 @@ export const profileSelector = getQuerySelector({type: FETCH_PROFILE, defaultDat
 export const currentPostSelector = getQuerySelector({type: FETCH_CURRENT_POST, defaultData: false});
 export const currentPostCommentsSelector = getQuerySelector({
   type: FETCH_CURRENT_POST_COMMENTS,
-  defaultData: {data: skeletonArr.slice(0, 3)}
+  defaultData: {data: skeletonArr.slice(0, 3), meta: {}}
 });
 export const currentPostReset = resetRequests([FETCH_CURRENT_POST]);
 export const currentPostCommentsReset = resetRequests([FETCH_CURRENT_POST_COMMENTS]);

@@ -17,11 +17,21 @@ const getPost = (id) => ({
   }
 });
 
-const getPostComments = (id) => ({
+const getPostComments = (id, page) => ({
   type: FETCH_CURRENT_POST_COMMENTS,
   request: {
-    url: `/posts/${id}/comments`,
+    url: `/posts/${id}/comments?page=${page}`,
     method: 'get',
+  },
+  meta: {
+    getData: (newData, currentData) => {
+      return currentData
+        ? {
+          ...newData,
+          data: [...currentData.data, ...newData.data],
+        }
+        : {...newData}
+    }
   }
 });
 

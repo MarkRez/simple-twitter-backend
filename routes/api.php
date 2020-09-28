@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->group(function () {
@@ -24,7 +22,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/messages/{user}', 'MessageController@index');
     Route::post('/messages/{user}', 'MessageController@create');
 
-    Route::get('/tags', 'TagController@index');
+    Route::get('/tags', 'TagController');
 
     Route::get('/feed', 'PostController@getFeed');
 
@@ -33,8 +31,3 @@ Route::middleware('auth:sanctum')->group(function () {
 
 Route::post('/login', 'AuthController@login');
 Route::post('/registration', 'AuthController@register');
-
-
-
-//
-//Auth::routes();

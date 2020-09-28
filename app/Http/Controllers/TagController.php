@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\TagResource;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
-    public function index(Request $request)
+    public function __invoke(Request $request)
     {
-        $tags = [];
         if ($request->name) {
-            $tags = Tag::getTagsByName($request->name, 5);
+            return TagResource::collection(Tag::getTagsByName($request->name, 5));
         }
-
-        return $tags;
     }
 }

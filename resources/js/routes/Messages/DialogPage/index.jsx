@@ -1,5 +1,5 @@
 import React, {useEffect, useRef} from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import allActions from "../../../redux/actions";
 import {dialogMessagesSelector, dialogMessagesReset} from "../../../helpers/selectors";
 import DialogMessagesList from "./DialogMessagesList";
@@ -7,14 +7,14 @@ import DialogInfo from "./DialogInfo";
 import SendMessage from "./SendMessage";
 import HandleScroll from "../../../components/HandleScroll";
 
-const DialogPage = ({ currentUserId,...props}) => {
+const DialogPage = ({currentUserId, ...props}) => {
   const dispatch = useDispatch();
   const userId = props.computedMatch.params.id;
   const scrollPage = useRef(1);
   const totalPages = useRef(1);
   const messagesIsLoading = useRef(false);
 
-  const {data:{data: {data: messages, user}, meta}, loading} = useSelector(dialogMessagesSelector);
+  const {data: {data: {data: messages, user}, meta}, loading, pristine} = useSelector(dialogMessagesSelector);
   messagesIsLoading.current = loading;
 
   useEffect(() => {
@@ -22,16 +22,23 @@ const DialogPage = ({ currentUserId,...props}) => {
   }, [messages])
 
   useEffect(() => {
-    dispatch(allActions.messagesActions.getDialogMessages(userId, scrollPage.current));
+    if (currentUserId) {
+      (Number(currentUserId) !== Number(userId)) && dispatch(allActions.messagesActions.getDialogMessages(userId, scrollPage.current));
+    }
     return () => {
       dispatch(dialogMessagesReset);
     }
-  }, []);
+  }, [currentUserId]);
+
+  if (Number(currentUserId) === Number(userId)) {
+    return <div className="text-center">
+      <h3>You can't send messages to yourself!</h3>
+    </div>
+  }
 
   const nextPage = async () => {
     if (!messagesIsLoading.current && !(scrollPage.current + 1 > totalPages.current)) {
-      const r = await dispatch(allActions.messagesActions.getDialogMessages(userId ,scrollPage.current + 1));
-      console.log({r});
+      const r = await dispatch(allActions.messagesActions.getDialogMessages(userId, scrollPage.current + 1));
       scrollPage.current += 1
     }
   }
@@ -51,6 +58,8 @@ const DialogPage = ({ currentUserId,...props}) => {
       <DialogMessagesList
         currentUserId={currentUserId}
         messages={messages}
+        loading={loading}
+        pristine={pristine}
       />
       <HandleScroll
         handleFunc={nextPage}

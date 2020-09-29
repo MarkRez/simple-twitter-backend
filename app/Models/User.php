@@ -137,12 +137,15 @@ class User extends Authenticatable
         return self::getMessagesWithUser($userId)->take(1)->first();
     }
 
-    public function sendMessage($userId, $text)
+    public function sendMessage($recipient, $text)
     {
-        return $this->sentMessages()->create([
-            'recipient_id' => $userId,
+        $message = $this->sentMessages()->make([
             'text' => $text
         ]);
+
+        $recipient->receivedMessages()->save($message);
+
+        return $message;
     }
 
     /**

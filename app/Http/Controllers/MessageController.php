@@ -24,7 +24,7 @@ class MessageController extends Controller
 
     public function create(User $user, SendMessageRequest $request)
     {
-        $newMessage = $request->user()->sendMessage($user->id, $request->text);
+        $newMessage = $request->user()->sendMessage($user, $request->text);
         event(new NewDirectMessage($newMessage));
         return new MessageResource($newMessage);
     }

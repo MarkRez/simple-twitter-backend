@@ -10,7 +10,7 @@ class LikeController extends Controller
 {
     public function store(Post $post, Request $request)
     {
-        $post->addReaction($request->user()->id, $request->reactionType);
+        $post->setReaction($request->user()->id, $request->reactionType);
 
         return new PostResource($post);
     }

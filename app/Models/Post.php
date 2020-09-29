@@ -80,7 +80,7 @@ class Post extends Model
         return self::whereIn('user_id', $leadIds)->latest();
     }
 
-    public function addReaction($userId, $reactionType)
+    public function setReaction($userId, $reactionType)
     {
         $this->reactions()->updateOrCreate(
             [

@@ -8,6 +8,8 @@ import {prettyDate} from "../../../helpers/dateConverter";
 import './postInfo.scss';
 import TextWithMentions from "../../../components/TextWithMentions";
 import IconWithCount from "../../../components/IconWithCount";
+import {ROUTES} from "../../../helpers/routes";
+import {handleImageError} from "../../../helpers/anotherMethods";
 
 const PostInfo = ({post = {}, loading, deleteReactionFunc, setReactionFunc}) => {
   const {text, created_at, likes_count, dislikes_count, liked, mentioned_users = [], user = {}} = post;
@@ -21,10 +23,6 @@ const PostInfo = ({post = {}, loading, deleteReactionFunc, setReactionFunc}) => 
     }
   }
 
-  const handleImageError = (e) => {
-    e.target.src = '/storage/avatars/default.jpg';
-  }
-
   return (
     <div className="post-info">
       <div className="col-lg-12 post-user-info">
@@ -32,7 +30,7 @@ const PostInfo = ({post = {}, loading, deleteReactionFunc, setReactionFunc}) => 
           <div className="col-lg-1 img-div">
             {!loading
               ?
-              <Link to={`/users/${id}`}>
+              <Link to={ROUTES.USERS + `/${id}`}>
                 <img className="img-fluid" onError={handleImageError} src={avatar} alt={name}/>
               </Link>
               : <Skeleton height={50} width={50} circle={true}/>
@@ -41,7 +39,7 @@ const PostInfo = ({post = {}, loading, deleteReactionFunc, setReactionFunc}) => 
           <div className="col-lg-10 name-login-div">
             {!loading
               ? <>
-                <p><Link to={`/users/${id}`}>{name}</Link></p>
+                <p><Link to={ROUTES.USERS + `/${id}`}>{name}</Link></p>
                 <span>@{login}</span>
               </>
               : <div className="col-lg-3">

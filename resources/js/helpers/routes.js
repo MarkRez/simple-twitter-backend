@@ -1,11 +1,10 @@
 export const ROUTES = {
   LOGIN: '/login',
   REGISTRATION: '/registration',
-  USER: '/users/:id',
-  POST: '/posts/:id',
+  USERS: '/users',
+  POSTS: '/posts',
   FEED: '/feed',
   MESSAGES: '/messages',
-  DIALOG: '/messages/:id',
   RECOVERY: '/recovery',
   EDIT: '/edit-profile'
 };

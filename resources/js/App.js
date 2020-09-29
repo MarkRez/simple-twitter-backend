@@ -65,7 +65,7 @@ const App = () => {
           <ProtectedRoute
             Component={User}
             exact
-            path={ROUTES.USER}
+            path={`${ROUTES.USERS}/:id`}
           />
           <ProtectedRoute
             Component={Feed}
@@ -75,7 +75,7 @@ const App = () => {
           <ProtectedRoute
             Component={PostPage}
             exact
-            path={ROUTES.POST}
+            path={`${ROUTES.POSTS}/:id`}
           />
           <ProtectedRoute
             Component={EditProfile}
@@ -92,7 +92,7 @@ const App = () => {
             Component={DialogPage}
             currentUserId={data.id}
             exact
-            path={ROUTES.DIALOG}
+            path={`${ROUTES.MESSAGES}/:id`}
           />
           <Route component={NotFound}/>
         </Switch>

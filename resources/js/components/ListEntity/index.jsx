@@ -8,6 +8,8 @@ import TextWithMentions from "../TextWithMentions";
 import './listEntity.scss';
 import EntityFields from "../EntityFields";
 import IconWithCount from "../IconWithCount";
+import {ROUTES} from "../../helpers/routes";
+import {handleImageError} from "../../helpers/anotherMethods";
 
 const ListEntity = (
   {
@@ -38,10 +40,6 @@ const ListEntity = (
   const [textValue, setTextValue] = useState(text);
   const [currentTags, setTags] = useState(tags);
   const [tagsForDropdown, setTagsForDropdown] = useState([]);
-
-  const handleImageError = (e) => {
-    e.target.src = '/storage/avatars/default.jpg';
-  }
 
   const handleDeleteClick = (e) => {
     e.preventDefault();
@@ -82,7 +80,7 @@ const ListEntity = (
         <div className="post-img col-1">
           {avatar
             ?
-            <Link to={`/users/${user_id}`}>
+            <Link to={ROUTES.USERS + `/${user_id}`}>
               <img src={avatar} onError={handleImageError} alt={login} className="img-fluid"/>
             </Link>
             : <Skeleton height={50} width={50} circle={true}/>
@@ -93,7 +91,7 @@ const ListEntity = (
             <div className="col-lg-12 post-author px-3 d-flex">
               {created_at
                 ? <>
-                  <Link to={`/users/${user_id}`}>{name}</Link> · @{login} · {prettyDate(created_at)}
+                  <Link to={ROUTES.USERS + `/${user_id}`}>{name}</Link> · @{login} · {prettyDate(created_at)}
                   {showDropdown
                     ?
                     <div className="dropdown-div">
@@ -167,7 +165,7 @@ const ListEntity = (
                     />
                   </div>
                   <div className="col-lg-4">
-                    <Link to={`/posts/${id}`}>
+                    <Link to={ROUTES.POSTS + `/${id}`}>
                       <IconWithCount
                         icon={faCommentDots}
                         count={comments_count}

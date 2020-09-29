@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Like extends Model
 {
-    protected $fillable = ['liked', 'user_id'];
+    protected $fillable = ['liked'];
 
     public function post()
     {

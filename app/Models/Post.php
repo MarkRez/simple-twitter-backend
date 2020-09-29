@@ -17,6 +17,11 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function reactedUsers()
+    {
+        return $this->belongsToMany(User::class, 'likes', 'post_id', 'user_id');
+    }
+
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
@@ -82,13 +87,7 @@ class Post extends Model
 
     public function setReaction($userId, $reactionType)
     {
-        $this->reactions()->updateOrCreate(
-            [
-                'user_id' => $userId
-            ],
-            [
-                'liked' => $reactionType,
-            ]);
+        $this->reactedUsers()->syncWithoutDetaching([$userId => ['liked' => $reactionType]]);
     }
 
     public function removeReaction($userId)

@@ -12,14 +12,13 @@ class MessagesCollection extends ResourceCollection
     {
         parent::__construct($resource);
         $this->user = $user;
-
     }
 
     public function toArray($request)
     {
         return [
             'data' => MessageResource::collection($this->collection),
-            'user' => new ContactedUserResource($this->user)
+            'user' => new ShortUserResource($this->user)
         ];
     }
 }

@@ -124,7 +124,7 @@ class User extends Authenticatable
 
     public function getLastMessageWithUser($userId)
     {
-        return self::getMessagesWithUser($userId)->select('text')->take(1)->first()->text;
+        return self::getMessagesWithUser($userId)->take(1)->first();
     }
 
     public function sendMessage($userId, $text)

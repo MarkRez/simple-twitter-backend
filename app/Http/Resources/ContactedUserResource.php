@@ -18,7 +18,7 @@ class ContactedUserResource extends JsonResource
             'name' => $this->name,
             'id' => $this->id,
             'avatar' => $this->avatar,
-            'last_message' => $this->getLastMessageWithUser($request->user()->id),
+            'last_message' => $this->getLastMessageWithUser($request->user()->id)->text,
             ];
     }
 }

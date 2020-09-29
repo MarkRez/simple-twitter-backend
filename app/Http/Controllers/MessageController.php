@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\UserReceivedMessage;
+use App\Events\NewDirectMessage;
 use App\Http\Requests\SendMessageRequest;
 use App\Http\Resources\ContactedUserResource;
 use App\Http\Resources\MessageResource;
@@ -25,7 +25,7 @@ class MessageController extends Controller
     public function create(User $user, SendMessageRequest $request)
     {
         $newMessage = $request->user()->sendMessage($user->id, $request->text);
-        event(new UserReceivedMessage($newMessage));
+        event(new NewDirectMessage($newMessage));
         return new MessageResource($newMessage);
     }
 }

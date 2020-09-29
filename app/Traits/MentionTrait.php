@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Traits;
-use App\Events\UserWasMentioned;
+use App\Events\MentionUser;
 use App\Models\Mention;
 use App\Models\User;
 
@@ -36,7 +36,7 @@ trait MentionTrait
                 ]);
 
                 if (!in_array($user->id, $oldMentions)) {
-                    event(new UserWasMentioned(class_basename($this), $this->id, $this->text, $user->id));
+                    event(new MentionUser(class_basename($this), $this->id, $this->text, $user->id));
                 }
             }
         }

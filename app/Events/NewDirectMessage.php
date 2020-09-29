@@ -7,7 +7,7 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class UserReceivedMessage implements ShouldBroadcast
+class NewDirectMessage implements ShouldBroadcast
 {
     use Queueable;
     private $message;

@@ -6,7 +6,7 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class UserWasMentioned implements ShouldBroadcast
+class MentionUser implements ShouldBroadcast
 {
     use Queueable;
     private $sourceId;

@@ -52,11 +52,11 @@ const updateProfileData = (data) => async (dispatch) => {
   form.append('_method', 'put');
 
   try {
-    const response = await apis.updateProfile(form);
-    await dispatch(getProfileData());
-    return response;
+    return await apis.updateProfile(form);
   } catch (error) {
     // throw new Error(error);
+  } finally {
+    await dispatch(getProfileData());
   }
 };
 

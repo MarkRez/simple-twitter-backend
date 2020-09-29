@@ -6,6 +6,7 @@ import Input from "../../../components/Inputs/Input";
 import InputFile from "../../../components/Inputs/inputFile";
 import Button from "../../../components/Button";
 import './editProfileForm.scss';
+import {handleImageError} from "../../../helpers/anotherMethods";
 
 const EditProfileSchema = Yup.object({
   name: Yup.string()
@@ -45,10 +46,6 @@ const EditProfileForm = ({userData, updateFunc}) => {
   const {email, name, avatar} = userData;
   const photoRef = useRef(null);
   const [updatedAvatar, setUpdatedAvatar] = useState('');
-
-  const handleImageError = (e) => {
-    e.target.src = '/storage/avatars/default.jpg';
-  }
 
   const handleFileUpload = (event, setFieldValue) => {
     const reader = new FileReader();

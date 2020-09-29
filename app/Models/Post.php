@@ -24,7 +24,12 @@ class Post extends Model
 
     public function comments()
     {
-        return $this->hasMany(Comment::class)->latest();
+        return $this->hasMany(Comment::class);
+    }
+
+    public function latestComments()
+    {
+        return $this->comments()->latest();
     }
 
     public function reactions()

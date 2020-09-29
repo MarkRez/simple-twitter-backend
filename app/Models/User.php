@@ -23,7 +23,12 @@ class User extends Authenticatable
 
     public function posts()
     {
-        return $this->hasMany(Post::class)->latest();
+        return $this->hasMany(Post::class);
+    }
+
+    public function latestPosts()
+    {
+        return $this->posts()->latest();
     }
 
     public function sentMessages()

@@ -9,7 +9,7 @@ use App\Models\Post;
 class CommentController extends Controller
 {
     public function index(Post $post) {
-        return CommentResource::collection($post->comments()->paginate(10));
+        return CommentResource::collection($post->latestComments()->paginate(10));
     }
 
     public function store(CommentCreateRequest $request, Post $post)

@@ -4,13 +4,10 @@ import Skeleton from "react-loading-skeleton";
 import {Link} from "react-router-dom";
 import {ROUTES} from "../../../../helpers/routes";
 import './userInfo.scss';
+import {handleImageError} from "../../../../helpers/anotherMethods";
 
 const UserInfo = ({userData, followFunc, unFollowFunc, blockFunc, unBlockFunc, theSameUser, loading}) => {
-  const {name, avatar, followers_count, followings_count, followed, blocked, login} = userData;
-
-  const handleImageError = (e) => {
-    e.target.src = '/storage/avatars/default.jpg';
-  }
+  const {id, name, avatar, followers_count, followings_count, followed, blocked, login} = userData;
 
   const handleClickFollow = () => {
     followed ? unFollowFunc() : followFunc();
@@ -47,9 +44,10 @@ const UserInfo = ({userData, followFunc, unFollowFunc, blockFunc, unBlockFunc, t
                     : <>
                       <Button onClickFunc={handleClickFollow}
                               style="twitter">{followed ? "Unfollow" : "Follow"}</Button>
-                      <br/>
                       <Button onClickFunc={handleClickBlock}
                               style="twitter">{blocked ? "Unblock" : "Block"}</Button>
+                      <br/>
+                      <Link to={ROUTES.MESSAGES + `/${id}`}><Button style="add">Send message</Button></Link>
                     </>
                   : <Skeleton width={125} height={30}/>
                 }

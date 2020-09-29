@@ -51,8 +51,12 @@
     }
 
     .buttons-div {
-      button:first-child {
-        margin-bottom: 8px;
+      & > button:first-child {
+        margin-right: 8px;
+      }
+
+      button:last-child {
+        margin-top:10px;
       }
     }
   }

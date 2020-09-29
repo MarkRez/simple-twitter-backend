@@ -14,16 +14,6 @@ trait MentionTrait
 
     public function mentionedUsers()
     {
-        return $this->hasManyThrough(User::class,
-            Mention::class,
-            'mentionable_id',
-            'id',
-            'id',
-            'user_id')->where('mentionable_type', self::class);
-    }
-
-    public function mentionedUsersMany()
-    {
         return $this->belongsToMany(User::class, 'mentions', 'mentionable_id', 'user_id')
             ->where('mentionable_type', self::class);
     }
@@ -37,7 +27,7 @@ trait MentionTrait
         foreach ($mentionList[0] as &$mention) {
             $user = User::getByLogin(trim($mention, "@"));
             if ($user) {
-                $this->mentionedUsersMany()->syncWithoutDetaching([$user->id => ['mentionable_type' => self::class]]);
+                $this->mentionedUsers()->syncWithoutDetaching([$user->id => ['mentionable_type' => self::class]]);
 
                 if (!in_array($user->id, $oldMentions)) {
                     event(new MentionUser(class_basename($this), $this->id, $this->text, $user->id));

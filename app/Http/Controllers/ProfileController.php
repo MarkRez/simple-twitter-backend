@@ -30,6 +30,6 @@ class ProfileController extends Controller
 
         $user->email = $request->email;
         $user->name = $request->name;
-        return new ProfileResource($user->save());
+        return $user->save();
     }
 }

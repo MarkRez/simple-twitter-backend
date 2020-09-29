@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use MentionTrait;
-    protected $fillable = ['text', 'user_id'];
+    protected $fillable = ['text'];
 
     public function posts() {
         return $this->belongsTo(Post::Class);

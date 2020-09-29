@@ -49,10 +49,13 @@ class Post extends Model
 
     public function addComment($commentText)
     {
-        return $this->comments()->create([
+        $comment = Auth::user()->comments()->make([
             'text' => $commentText,
-            'user_id' => Auth::id(),
         ]);
+
+        $this->comments()->save($comment);
+
+        return $comment;
     }
 
     public function getLiked()

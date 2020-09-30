@@ -9,6 +9,7 @@ const skeletonArr = [{id: "skltn 1"}, {id: "skltn 2"}, {id: "skltn 3"}, {id: "sk
 
 // profile selectors
 export const profileSelector = getQuerySelector({type: FETCH_PROFILE, defaultData: false});
+export const profileReset = resetRequests([FETCH_PROFILE]);
 
 // post selectors
 export const currentPostSelector = getQuerySelector({type: FETCH_CURRENT_POST, defaultData: false});

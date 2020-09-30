@@ -5,12 +5,14 @@ import allActions from '../../redux/actions';
 import './header.scss';
 import { ROUTES } from "../../helpers/routes";
 import Skeleton from "react-loading-skeleton";
+import {profileReset} from "../../helpers/selectors";
 
 const Header = ({ isAuthenticated }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const handleClick = () => {
+    dispatch(profileReset);
     dispatch(allActions.userActions.logOut())
       .then(res => history.push(ROUTES.LOGIN));
   }

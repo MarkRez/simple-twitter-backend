@@ -5,6 +5,7 @@
 use App\Models\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 $factory->define(User::class, function (Faker $faker) {
     return [
@@ -12,6 +13,7 @@ $factory->define(User::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'name' => $faker->firstName,
         'password' => Hash::make('password'),
-        'avatar' => $faker->imageUrl($width = 400, $height = 400)
+        'avatar' => $faker->imageUrl($width = 400, $height = 400),
+        'email_verification_token' => $faker->regexify('[A-Za-z0-9]{32}')
     ];
 });

@@ -12,7 +12,7 @@ class User extends Authenticatable
 {
     use Notifiable, HasApiTokens;
 
-    protected $fillable = ['name', 'email', 'login', 'password'];
+    protected $fillable = ['name', 'email', 'login', 'password', 'email_verified', 'email_verification_token'];
     protected $hidden = [
         'email', 'password', 'remember_token', 'updated_at', 'created_at', 'laravel_through_key'
     ];

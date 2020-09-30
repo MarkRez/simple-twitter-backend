@@ -6,6 +6,7 @@ use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -13,13 +14,14 @@ class AuthController extends Controller
 {
     public function login(LoginRequest $request)
     {
-        $user = User::getByLogin($request->login);
+        $credentials = $request->only('login', 'password');
 
-        if (!$user || !Hash::check($request->password, $user->password)) {
-            return abort(401, 'Invalid login or password');
+        if (Auth::attempt($credentials)) {
+            $user = User::getByLogin($request->login);
+            return $user->createToken($request->login)->plainTextToken;
         }
 
-        return $user->createToken($request->login)->plainTextToken;
+            return abort(401, 'Invalid login or password');
     }
 
     public function register(RegisterRequest $request)

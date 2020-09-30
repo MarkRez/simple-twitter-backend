@@ -20,6 +20,7 @@ import {ROUTES} from "./helpers/routes";
 import allActions from "./redux/actions";
 import {useSelector, useDispatch} from 'react-redux';
 import {profileSelector} from "./helpers/selectors";
+import PasswordRecovery from "./routes/PasswordRecovery";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -56,6 +57,11 @@ const App = () => {
             component={(props) => <Login {...props} />}
             exact
             path={ROUTES.LOGIN}
+          />
+          <Route
+            component={(props) => <PasswordRecovery {...props} />}
+            exact
+            path={ROUTES.RECOVERY}
           />
           <Route
             component={(props) => <Registration {...props} />}

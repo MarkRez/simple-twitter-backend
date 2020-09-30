@@ -50,6 +50,8 @@ return [
         ],
 
         'mailgun' => [
+            'domain' => env('MAIL_GUN_DOMAIN'),
+            'secret' => env('MAIL_GUN_API_KEY'),
             'transport' => 'mailgun',
         ],
 
@@ -84,8 +86,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'simple.twitter@simple.com'),
+        'name' => env('MAIL_FROM_NAME', 'Simple Twitter'),
     ],
 
     /*

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
+use App\Services\MailService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -21,18 +22,20 @@ class AuthController extends Controller
             return $user->createToken($request->login)->plainTextToken;
         }
 
-            return abort(401, 'Invalid login or password');
+        return abort(401, 'Invalid login or password');
     }
 
     public function register(RegisterRequest $request)
     {
-        User::create([
+        $user = User::create([
             'login' => $request->login,
             'email' => $request->email,
             'name' => $request->name,
             'password' => Hash::make($request->password),
-            'email_verification_token' => Str::random(15)
+            'email_verification_token' => Str::random(32)
         ]);
+
+        MailService::sendEmailVerificationToken($user->email, $user->email_verification_token);
 
         return response('User created', 200);
     }

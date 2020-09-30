@@ -92,6 +92,11 @@ class User extends Authenticatable
         return self::where('login', $login)->first();
     }
 
+    static public function getByVerificationToken($token)
+    {
+        return self::where('email_verification_token', $token)->first();
+    }
+
     public function addFollower($followerId)
     {
         $this->followers()->syncWithoutDetaching($followerId);

@@ -11,7 +11,7 @@ const DialogMessagesList = ({messages, currentUserId, loading, pristine}) => {
 
   if (!pristine && !loading && !messages.length) {
     return <div className="w-100 mt-3 text-center">
-      <h5>Send your first message.</h5>
+      <h5>No messages.</h5>
     </div>
   }
 

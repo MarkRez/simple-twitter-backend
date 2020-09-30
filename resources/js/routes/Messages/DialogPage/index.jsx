@@ -15,7 +15,7 @@ const DialogPage = ({currentUserId, ...props}) => {
   const totalPages = useRef(1);
   const messagesIsLoading = useRef(false);
 
-  const {data: {data: {data: messages, user}, meta}, loading, pristine} = useSelector(dialogMessagesSelector);
+  const {data: {data: {data: messages, user}, meta}, loading, pristine, error} = useSelector(dialogMessagesSelector);
   messagesIsLoading.current = loading;
 
   useEffect(() => {
@@ -44,6 +44,21 @@ const DialogPage = ({currentUserId, ...props}) => {
 
   const sendMessage = (message) => {
     dispatch(allActions.messagesActions.sendMessage(userId, {text: message}));
+  }
+
+  if (error) {
+    let message = '';
+    switch (error.response.status) {
+      case 403:
+        message = error.response.data;
+        break;
+      case 404:
+        message = 'User not found!';
+        break;
+      default:
+        message = 'Internal server error!'
+    }
+    return <ErrorComponent>{message}</ErrorComponent>
   }
 
   return (

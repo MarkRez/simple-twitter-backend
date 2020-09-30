@@ -1,9 +1,12 @@
 import React from "react";
+import PasswordRecoveryForms from "./PasswordRecoveryForms";
 
 const PasswordRecovery = () => {
 
   return (
-    <h2>Password recovery page.</h2>
+    <div className="password-recovery-page">
+      <PasswordRecoveryForms />
+    </div>
   );
 }
 

@@ -28,9 +28,9 @@ const Notifications = ({token, userId}) => {
     },
   };
 
-  const echo = new Echo(options);
-
   useEffect(()=>{
+    const echo = new Echo(options);
+
     echo.private(`App.User.${userId}`)
       .listen('.user.mentioned', (data) => {
         store.addNotification({

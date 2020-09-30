@@ -6,7 +6,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/profile', 'ProfileController@index');
     Route::put('/profile', 'ProfileController@update');
     Route::get('users/{user}', 'UserController')->middleware('blocked.user');
-    Route::post('users/{user}/follow', 'FollowController@store');
+    Route::post('users/{user}/follow', 'FollowController@store')->middleware('blocked.user');
     Route::delete('users/{user}/follow', 'FollowController@destroy');
     Route::post('users/{user}/block', 'BlockController@store');
     Route::delete('users/{user}/block', 'BlockController@destroy');
@@ -19,8 +19,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('users/{user}/posts', 'PostController@index')->middleware('blocked.user');
 
     Route::get('/messages', 'MessageController@dialogs');
-    Route::get('/messages/{user}', 'MessageController@index');
-    Route::post('/messages/{user}', 'MessageController@create');
+    Route::get('/messages/{user}', 'MessageController@index')->middleware('blocked.user');
+    Route::post('/messages/{user}', 'MessageController@create')->middleware('blocked.user');
 
     Route::get('/tags', 'TagController');
 

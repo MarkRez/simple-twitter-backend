@@ -11,7 +11,8 @@ use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
-    public function login(LoginRequest $request) {
+    public function login(LoginRequest $request)
+    {
         $user = User::getByLogin($request->login);
 
         if (!$user || !Hash::check($request->password, $user->password)) {
@@ -21,7 +22,8 @@ class AuthController extends Controller
         return $user->createToken($request->login)->plainTextToken;
     }
 
-    public function register(RegisterRequest $request) {
+    public function register(RegisterRequest $request)
+    {
         User::create([
             'login' => $request->login,
             'email' => $request->email,
@@ -33,7 +35,24 @@ class AuthController extends Controller
         return response('User created', 200);
     }
 
-    public function logOut (Request $request) {
+    public function verifyEmail(Request $request)
+    {
+        $user = User::getByVerificationToken($request->token);
+
+        if ($user) {
+            $user->update([
+                'email_verification_token' => NULL,
+                'email_verified' => true,
+            ]);
+
+            return 'Email confirmed successfully!';
+        }
+
+        return 'Invalid token or user already verified!';
+    }
+
+    public function logOut(Request $request)
+    {
         $request->user()->currentAccessToken()->delete();
     }
 }

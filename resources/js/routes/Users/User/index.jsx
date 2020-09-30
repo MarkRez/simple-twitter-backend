@@ -14,6 +14,7 @@ import AddEntity from "../../../components/AddEntity";
 import Skeleton from "react-loading-skeleton";
 import {getTags} from "../../../api";
 import HandleScroll from "../../../components/HandleScroll";
+import ErrorComponent from "../../../components/ErrorComponent";
 
 const User = (props) => {
   const dispatch = useDispatch();
@@ -89,14 +90,18 @@ const User = (props) => {
   }
 
   if (user.error) {
+    let message = '';
     switch (user.error.response.status) {
       case 403:
-        return <h1>{user.error.response.data}</h1>
+        message = user.error.response.data;
+        break;
       case 404:
-        return <h1>User not found!</h1>
+        message = 'User not found!';
+        break;
       default:
-        return <h1>Internal server error!</h1>
+        message = 'Internal server error!'
     }
+    return <ErrorComponent>{message}</ErrorComponent>
   }
 
     return (

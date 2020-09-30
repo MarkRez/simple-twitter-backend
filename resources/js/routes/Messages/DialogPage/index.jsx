@@ -6,6 +6,7 @@ import DialogMessagesList from "./DialogMessagesList";
 import DialogInfo from "./DialogInfo";
 import SendMessage from "./SendMessage";
 import HandleScroll from "../../../components/HandleScroll";
+import ErrorComponent from "../../../components/ErrorComponent";
 
 const DialogPage = ({currentUserId, ...props}) => {
   const dispatch = useDispatch();
@@ -31,9 +32,7 @@ const DialogPage = ({currentUserId, ...props}) => {
   }, [currentUserId]);
 
   if (Number(currentUserId) === Number(userId)) {
-    return <div className="text-center">
-      <h3>You can't send messages to yourself!</h3>
-    </div>
+    return (<ErrorComponent> You can't send messages to yourself!</ErrorComponent>);
   }
 
   const nextPage = async () => {

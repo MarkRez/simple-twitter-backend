@@ -3,7 +3,7 @@ import axios from '../helpers/axios';
 const api = axios;
 
 export const logIn = payload => api.post('/login', payload);
-export const logOut = () => api.post('/logout');
+export const logOut = payload => api.post('/logout', payload);
 export const register = payload => api.post(`/registration`, payload);
 
 // export const getProfile = () => api.get('/profile');

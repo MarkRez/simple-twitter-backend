@@ -19,12 +19,12 @@ const logIn = () => {
 };
 
 const logOut = () => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(setLoggedIn(false));
     try {
-      apis.logOut();
+      await apis.logOut();
     } finally {
-      localStorage.removeItem('_token');
+      await localStorage.removeItem('_token');
     }
   }
 };

@@ -11,8 +11,8 @@ const Header = ({ isAuthenticated }) => {
   const history = useHistory();
 
   const handleClick = () => {
-    dispatch(allActions.userActions.logOut());
-    history.push(ROUTES.LOGIN);
+    dispatch(allActions.userActions.logOut())
+      .then(res => history.push(ROUTES.LOGIN));
   }
 
   return (

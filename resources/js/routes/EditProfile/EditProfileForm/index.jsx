@@ -2,9 +2,9 @@ import React, {useState, useEffect, useRef} from "react";
 import * as Yup from "yup";
 import {Field, Form, Formik} from "formik";
 import Skeleton from "react-loading-skeleton";
-import {Input} from "../../../components/Inputs";
-import {InputFile} from "../../../components/Inputs";
-import Button from "../../../components/Button";
+import {Input} from "../../../components/UI/Inputs";
+import {InputFile} from "../../../components/UI/Inputs";
+import Button from "../../../components/UI/Button";
 import './editProfileForm.scss';
 import {handleImageError} from "../../../helpers/anotherMethods";
 

@@ -6,7 +6,7 @@ import Echo from 'laravel-echo';
 import {store} from 'react-notifications-component';
 import 'animate.css/animate.compat.css'
 import 'react-notifications-component/dist/theme.css'
-import allActions from "../../store/actions";
+import allActions from "../../../store/actions";
 
 const Notifications = ({token, userId}) => {
   const dispatch = useDispatch();

@@ -5,8 +5,8 @@ import {dialogMessagesSelector, dialogMessagesReset} from "../../../store/select
 import DialogMessagesList from "./DialogMessagesList";
 import DialogInfo from "./DialogInfo";
 import SendMessage from "./SendMessage";
-import HandleScroll from "../../../components/HandleScroll";
-import ErrorComponent from "../../../components/ErrorComponent";
+import HandleScroll from "../../../components/HelperComponents/HandleScroll";
+import ErrorComponent from "../../../components/UI/ErrorComponent";
 
 const DialogPage = ({currentUserId, ...props}) => {
   const dispatch = useDispatch();

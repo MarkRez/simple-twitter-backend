@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import UserInfo from "./UserInfo";
-import EntityList from "../../../components/EntityList";
+import EntityList from "../../../components/EntityComponents/EntityList";
 import allActions from "../../../store/actions";
 import {
   userSelector,
@@ -10,11 +10,11 @@ import {
   currentUserReset,
   currentUserPostsReset,
 } from "../../../store/selectors";
-import AddEntity from "../../../components/AddEntity";
+import AddEntity from "../../../components/EntityComponents/AddEntity";
 import Skeleton from "react-loading-skeleton";
 import {getTags} from "../../../api";
-import HandleScroll from "../../../components/HandleScroll";
-import ErrorComponent from "../../../components/ErrorComponent";
+import HandleScroll from "../../../components/HelperComponents/HandleScroll";
+import ErrorComponent from "../../../components/UI/ErrorComponent";
 
 const User = (props) => {
   const dispatch = useDispatch();

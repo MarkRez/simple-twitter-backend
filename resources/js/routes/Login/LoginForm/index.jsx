@@ -2,8 +2,8 @@ import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import './loginForm.scss'
 import { loginPasswordSchema } from "../../../helpers/schemas";
-import Button from "../../../components/Button";
-import { Input } from "../../../components/Inputs";
+import Button from "../../../components/UI/Button";
+import { Input } from "../../../components/UI/Inputs";
 
 const LoginForm = ({ message, logInFunc }) => {
   return (

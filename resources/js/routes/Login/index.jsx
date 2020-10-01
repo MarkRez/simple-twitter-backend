@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import LoginForm from "./LoginForm";
 import axios from '../../helpers/axios';
-import allActions from "../../redux/actions";
+import allActions from "../../store/actions";
 import apis from "../../api";
 
 const Login = (props) => {

@@ -3,9 +3,7 @@ import client from "../helpers/axios";
 import thunk from 'redux-thunk';
 import {handleRequests} from '@redux-requests/core';
 import {createDriver} from '@redux-requests/axios';
-import {User} from "../redux/reducers/userReducer";
-import {Feed} from "../redux/reducers/feedReducer";
-
+import {User} from "./reducers/userReducer";
 
 export const configureStore = () => {
   const {requestsReducer, requestsMiddleware} = handleRequests({
@@ -15,7 +13,6 @@ export const configureStore = () => {
   const reducers = combineReducers({
     requests: requestsReducer,
     user: User,
-    feed: Feed,
   });
 
   const composeEnhancers =

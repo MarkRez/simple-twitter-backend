@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import EditProfileForm from "./EditProfileForm";
-import allActions from "../../redux/actions";
+import allActions from "../../store/actions";
 
 const EditProfile = ({ currentUser }) => {
   const history = useHistory();

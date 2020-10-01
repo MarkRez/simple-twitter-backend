@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import allActions from "../../redux/actions";
-import {feedSelector, feedReset} from "../../helpers/selectors";
+import allActions from "../../store/actions";
+import {feedSelector, feedReset} from "../../store/selectors";
 import HandleScroll from "../../components/HandleScroll";
 import EntityList from "../../components/EntityList";
 

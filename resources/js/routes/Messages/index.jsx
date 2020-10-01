@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import allActions from "../../redux/actions";
-import {dialogsSelector, dialogsReset} from "../../helpers/selectors";
+import allActions from "../../store/actions";
+import {dialogsSelector, dialogsReset} from "../../store/selectors";
 import DialogsList from "./DialogsList";
 
 const Messages = () => {

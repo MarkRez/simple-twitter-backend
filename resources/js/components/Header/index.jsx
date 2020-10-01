@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-import allActions from '../../redux/actions';
+import allActions from '../../store/actions';
 import './header.scss';
 import { ROUTES } from "../../helpers/routes";
 import Skeleton from "react-loading-skeleton";
-import {profileReset} from "../../helpers/selectors";
+import {profileReset} from "../../store/selectors";
 
 const Header = ({ isAuthenticated }) => {
   const dispatch = useDispatch();

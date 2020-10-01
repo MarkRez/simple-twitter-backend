@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import allActions from "../../../redux/actions";
-import {dialogMessagesSelector, dialogMessagesReset} from "../../../helpers/selectors";
+import allActions from "../../../store/actions";
+import {dialogMessagesSelector, dialogMessagesReset} from "../../../store/selectors";
 import DialogMessagesList from "./DialogMessagesList";
 import DialogInfo from "./DialogInfo";
 import SendMessage from "./SendMessage";

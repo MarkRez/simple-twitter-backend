@@ -2,14 +2,14 @@ import React, {useEffect, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import UserInfo from "./UserInfo";
 import EntityList from "../../../components/EntityList";
-import allActions from "../../../redux/actions";
+import allActions from "../../../store/actions";
 import {
   userSelector,
   userPostsSelector,
   profileSelector,
   currentUserReset,
   currentUserPostsReset,
-} from "../../../helpers/selectors";
+} from "../../../store/selectors";
 import AddEntity from "../../../components/AddEntity";
 import Skeleton from "react-loading-skeleton";
 import {getTags} from "../../../api";

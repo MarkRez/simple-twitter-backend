@@ -17,9 +17,9 @@ import Notifications from "./components/Notifications";
 import ReactNotification from "react-notifications-component";
 import {Layout} from "./components/Layout";
 import {ROUTES} from "./helpers/routes";
-import allActions from "./redux/actions";
+import allActions from "./store/actions";
 import {useSelector, useDispatch} from 'react-redux';
-import {profileSelector} from "./helpers/selectors";
+import {profileSelector} from "./store/selectors";
 import PasswordRecovery from "./routes/PasswordRecovery";
 
 const App = () => {

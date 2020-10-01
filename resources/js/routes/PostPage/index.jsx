@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import allActions from "../../redux/actions";
+import allActions from "../../store/actions";
 import PostInfo from "./PostInfo";
 import AddEntity from "../../components/AddEntity";
 import {
@@ -8,7 +8,7 @@ import {
   currentPostCommentsSelector,
   currentPostReset,
   currentPostCommentsReset
-} from "../../helpers/selectors";
+} from "../../store/selectors";
 import EntityList from "../../components/EntityList";
 import HandleScroll from "../../components/HandleScroll";
 

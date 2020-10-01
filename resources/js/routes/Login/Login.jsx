@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import LoginForm from "./LoginForm";
+import LoginForm from "./LoginForm/LoginForm";
 import axios from '../../helpers/axios';
 import allActions from "../../store/actions";
 import apis from "../../api";

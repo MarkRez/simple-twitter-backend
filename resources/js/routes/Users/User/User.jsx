@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import UserInfo from "./UserInfo";
+import UserInfo from "./UserInfo/UserInfo";
 import {EntityList, AddEntity} from "../../../components/EntityComponents";
 import allActions from "../../../store/actions";
 import {

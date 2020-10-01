@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import allActions from "../../store/actions";
-import PostInfo from "./PostInfo";
+import PostInfo from "./PostInfo/PostInfo";
 import {EntityList, AddEntity} from "../../components/EntityComponents";
 import {HandleScroll} from "../../components/HelperComponents";
 import {

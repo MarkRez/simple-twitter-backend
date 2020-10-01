@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import axios from '../../helpers/axios';
-import RegistrationForm from "./RegistrationForm";
+import RegistrationForm from "./RegistrationForm/RegistrationForm";
 import apis from "../../api";
 import {ROUTES} from "../../helpers/routes";
 

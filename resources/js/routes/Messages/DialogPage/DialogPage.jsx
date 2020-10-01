@@ -2,9 +2,9 @@ import React, {useEffect, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import allActions from "../../../store/actions";
 import {dialogMessagesSelector, dialogMessagesReset} from "../../../store/selectors";
-import DialogMessagesList from "./DialogMessagesList";
-import DialogInfo from "./DialogInfo";
-import SendMessage from "./SendMessage";
+import DialogMessagesList from "./DialogMessagesList/DialogMessagesList";
+import DialogInfo from "./DialogInfo/DialogInfo";
+import SendMessage from "./SendMessage/SendMessage";
 import {HandleScroll} from "../../../components/HelperComponents";
 import {ErrorComponent} from "../../../components/UI";
 

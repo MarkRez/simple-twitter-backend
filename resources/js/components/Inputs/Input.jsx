@@ -1,7 +1,7 @@
 import React from "react";
-import './input.scss'
+import './styles/input.scss'
 
-const Input = (props) => {
+export const Input = (props) => {
   const {  id, labelText, placeholder, onChangeFunc, type, field, form = {} }= props;
   const { errors, touched } = form;
   return (
@@ -27,5 +27,3 @@ const Input = (props) => {
     </>
   );
 };
-
-export default Input;

@@ -1,6 +1,6 @@
-import React, {useRef} from "react";
+import React from "react";
 
-const InputFile = (props) => {
+export const InputFile = (props) => {
   const {  id, field: { value, ...fieldProps}, onChange, inputRef}= props;
 
   return (
@@ -23,5 +23,3 @@ const InputFile = (props) => {
     </>
   );
 };
-
-export default InputFile;

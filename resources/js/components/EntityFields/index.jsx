@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../Button";
-import DropdownInput from "../Inputs/DropdownInput";
+import { DropdownInput } from "../Inputs";
 import './entityFields.scss';
 
 const EntityFields = (

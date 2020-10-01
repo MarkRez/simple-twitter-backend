@@ -2,12 +2,12 @@ import React from 'react';
 import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import allActions from '../../store/actions';
-import './header.scss';
+import './styles/header.scss';
 import { ROUTES } from "../../helpers/routes";
 import Skeleton from "react-loading-skeleton";
 import {profileReset} from "../../store/selectors";
 
-const Header = ({ isAuthenticated }) => {
+export const Header = ({ isAuthenticated }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -42,5 +42,3 @@ const Header = ({ isAuthenticated }) => {
     </header>
   );
 }
-
-export default Header;

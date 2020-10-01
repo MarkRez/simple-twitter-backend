@@ -1,8 +1,7 @@
 import React from 'react';
-import './footer.scss';
-// import { Link } from 'react-router-dom';
+import './styles/footer.scss';
 
-const Footer = (props) => {
+export const Footer = (props) => {
     return (
         <footer className="">
           <div className="container-fluid">
@@ -13,5 +12,3 @@ const Footer = (props) => {
         </footer>
     );
 }
-
-export default Footer;

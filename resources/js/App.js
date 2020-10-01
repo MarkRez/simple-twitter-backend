@@ -1,8 +1,7 @@
 import React, {useEffect} from 'react';
 import './App.scss';
 import {Redirect, Route, Switch} from 'react-router-dom';
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import {Header, Layout, Footer} from "./components/InterfaceComponents";
 import Login from "./routes/Login";
 import Registration from "./routes/Registration";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -15,7 +14,6 @@ import Messages from "./routes/Messages";
 import DialogPage from "./routes/Messages/DialogPage";
 import Notifications from "./components/Notifications";
 import ReactNotification from "react-notifications-component";
-import {Layout} from "./components/Layout";
 import {ROUTES} from "./helpers/routes";
 import allActions from "./store/actions";
 import {useSelector, useDispatch} from 'react-redux';

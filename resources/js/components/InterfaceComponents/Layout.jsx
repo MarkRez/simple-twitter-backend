@@ -1,5 +1,5 @@
 import React from "react";
-import './layout.scss';
+import './styles/layout.scss';
 import { authenticatedLinks, NonAuthenticatedLinks } from '../../helpers/layoutLinks';
 import Skeleton from "react-loading-skeleton";
 import MenuItem from "./MenuItem";

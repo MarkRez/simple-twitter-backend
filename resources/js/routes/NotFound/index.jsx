@@ -1,5 +1,5 @@
 import React from 'react';
-import ErrorComponent from "../../components/UI/ErrorComponent";
+import {ErrorComponent} from "../../components/UI";
 
 const NotFound = () => {
   return (

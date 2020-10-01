@@ -1,9 +1,9 @@
 import React from "react";
-import Button from "../../UI/Button";
+import {Button} from "../../UI";
 import { DropdownInput } from "../../UI/Inputs";
 import './entityFields.scss';
 
-const EntityFields = (
+export const EntityFields = (
   {
     setTextFunc,
     finalFunc,
@@ -80,5 +80,3 @@ const EntityFields = (
     </div>
   )
 }
-
-export default EntityFields;

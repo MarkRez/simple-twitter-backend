@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../../../components/UI/Button";
+import {Button} from "../../../../components/UI";
 import Skeleton from "react-loading-skeleton";
 import {Link} from "react-router-dom";
 import {ROUTES} from "../../../../helpers/routes";

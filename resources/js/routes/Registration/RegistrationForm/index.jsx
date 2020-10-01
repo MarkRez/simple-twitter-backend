@@ -3,7 +3,7 @@ import './registrationForm.scss'
 import {Field, Form, Formik} from "formik";
 import * as Yup from "yup";
 import { loginPasswordSchema } from "../../../helpers/schemas";
-import Button from "../../../components/UI/Button";
+import {Button} from "../../../components/UI";
 import { Input } from "../../../components/UI/Inputs";
 
 const SignUpSchema = Yup.object({

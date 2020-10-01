@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import './loginForm.scss'
 import { loginPasswordSchema } from "../../../helpers/schemas";
-import Button from "../../../components/UI/Button";
+import {Button} from "../../../components/UI";
 import { Input } from "../../../components/UI/Inputs";
 
 const LoginForm = ({ message, logInFunc }) => {

@@ -1,7 +1,7 @@
 import React from "react";
 import './button.scss'
 
-const Button = ({ children, onClickFunc, type, style, disabled = false }) => {
+export const Button = ({ children, onClickFunc, type, style, disabled = false }) => {
   return (
     <button
       className={'button-component btn btn-' + style}
@@ -14,5 +14,3 @@ const Button = ({ children, onClickFunc, type, style, disabled = false }) => {
   );
 
 };
-
-export default Button;

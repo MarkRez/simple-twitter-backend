@@ -2,8 +2,8 @@ import React, {useEffect, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import allActions from "../../store/actions";
 import {feedSelector, feedReset} from "../../store/selectors";
-import HandleScroll from "../../components/HelperComponents/HandleScroll";
-import EntityList from "../../components/EntityComponents/EntityList";
+import {HandleScroll } from "../../components/HelperComponents";
+import {EntityList} from "../../components/EntityComponents";
 
 const Feed = () => {
   const dispatch = useDispatch();

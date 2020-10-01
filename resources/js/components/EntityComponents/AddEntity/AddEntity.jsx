@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import './addEntity.scss'
-import EntityFields from "../EntityFields";
+import {EntityFields} from "../";
 
-const AddEntity = (
+export const AddEntity = (
   {
     addEntityFunc,
     getTagsFunc,
@@ -46,5 +46,3 @@ const AddEntity = (
     </div>
   )
 };
-
-export default AddEntity;

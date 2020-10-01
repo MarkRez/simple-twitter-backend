@@ -3,13 +3,13 @@ import {Link} from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import {faThumbsUp, faThumbsDown, faCommentDots} from '@fortawesome/free-regular-svg-icons';
 import '@fortawesome/fontawesome-svg-core';
-import {prettyDate} from "../../../helpers/dateConverter";
-import TextWithMentions from "../../HelperComponents/TextWithMentions";
+import {prettyDate} from "../../../../helpers/dateConverter";
+import {TextWithMentions} from "../../../HelperComponents";
 import './listEntity.scss';
-import EntityFields from "../EntityFields";
-import IconWithCount from "../../UI/IconWithCount";
-import {ROUTES} from "../../../helpers/routes";
-import {handleImageError} from "../../../helpers/anotherMethods";
+import {EntityFields} from "../../";
+import {IconWithCount} from "../../../UI";
+import {ROUTES} from "../../../../helpers/routes";
+import {handleImageError} from "../../../../helpers/anotherMethods";
 
 const ListEntity = (
   {

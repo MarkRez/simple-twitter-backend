@@ -1,7 +1,7 @@
 import React from "react";
 import {useHistory} from "react-router-dom";
 
-const TextWithMentions = ({text, mentions}) => {
+export const TextWithMentions = ({text, mentions}) => {
   const history = useHistory();
   let textWithMentions = '';
 
@@ -39,5 +39,3 @@ const TextWithMentions = ({text, mentions}) => {
     </>
   )
 }
-
-export default TextWithMentions;

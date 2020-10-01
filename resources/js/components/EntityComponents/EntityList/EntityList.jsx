@@ -1,8 +1,8 @@
 import React from "react";
 import './entityList.scss';
-import ListEntity from "../ListEntity";
+import ListEntity from "./ListEntity/ListEntity";
 
-const EntityList = (
+export const EntityList = (
   {
     entities,
     ...props
@@ -20,5 +20,3 @@ const EntityList = (
     </div>
   )
 }
-
-export default EntityList;

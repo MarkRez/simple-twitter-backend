@@ -2,7 +2,7 @@ import React from "react";
 import './styles/layout.scss';
 import { authenticatedLinks, NonAuthenticatedLinks } from '../../helpers/layoutLinks';
 import Skeleton from "react-loading-skeleton";
-import MenuItem from "./MenuItem";
+import MenuItem from "./MenuItem/MenuItem";
 
 export const Layout = ({ children, isAuthenticated, user, loading }) => {
   let menuItems = [];

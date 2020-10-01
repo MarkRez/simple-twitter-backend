@@ -1,7 +1,7 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 
-const ProtectedRoute = (props) => {
+export const ProtectedRoute = (props) => {
     const { Component, redirectLink = 'login', ...rest } = props;
     const isAuthenticated = localStorage.getItem('_token');
 
@@ -11,5 +11,3 @@ const ProtectedRoute = (props) => {
       <Redirect to={{ pathname: `/${redirectLink}` }} />
     );
 }
-
-export default ProtectedRoute;

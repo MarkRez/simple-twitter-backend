@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const HandleScroll = ({ handleFunc }) => {
+export const HandleScroll = ({ handleFunc }) => {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -14,5 +14,3 @@ const HandleScroll = ({ handleFunc }) => {
 
   return true;
 }
-
-export default HandleScroll;

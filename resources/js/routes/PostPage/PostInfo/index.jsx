@@ -6,8 +6,8 @@ import Skeleton from "react-loading-skeleton";
 import {Link} from "react-router-dom";
 import {prettyDate} from "../../../helpers/dateConverter";
 import './postInfo.scss';
-import TextWithMentions from "../../../components/HelperComponents/TextWithMentions";
-import IconWithCount from "../../../components/UI/IconWithCount";
+import {TextWithMentions} from "../../../components/HelperComponents";
+import {IconWithCount} from "../../../components/UI";
 import {ROUTES} from "../../../helpers/routes";
 import {handleImageError} from "../../../helpers/anotherMethods";
 

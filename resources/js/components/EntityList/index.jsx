@@ -7,19 +7,12 @@ const EntityList = (
     entities,
     ...props
   }) => {
-  let List = [];
+  const List = (entities || []).map(post => (<ListEntity
+    key={post.id}
+    data={post}
+    {...props}
+  />));
 
-  if (entities) {
-    List = entities.map(post => {
-      return (
-        <ListEntity
-          key={post.id}
-          data={post}
-          {...props}
-        />
-      )
-    });
-  }
 
   return (
     <div className="user-posts w-100 p-0">

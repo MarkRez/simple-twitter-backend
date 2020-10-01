@@ -23,12 +23,9 @@ const AddEntity = (
     }
   }
 
-  const getTagsForDropdown = (name) => {
-    getTagsFunc(name).then(
-      tags => {
-        setTagsForDropdown(tags.data)
-      }
-    );
+  const getTagsForDropdown = async (name) => {
+    const response = await getTagsFunc(name)
+    setTagsForDropdown(response.data)
   }
 
   return (

@@ -3,7 +3,7 @@ import client from "../helpers/axios";
 import thunk from 'redux-thunk';
 import {handleRequests} from '@redux-requests/core';
 import {createDriver} from '@redux-requests/axios';
-import {User} from "./reducers/userReducer";
+import {User} from "./auth/userReducer";
 
 export const configureStore = () => {
   const {requestsReducer, requestsMiddleware} = handleRequests({

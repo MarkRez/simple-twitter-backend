@@ -1,4 +1,4 @@
-import userActions from './userActions';
+import userActions from '../auth/userActions';
 import postsActions from './postsActions';
 import usersActions from "./usersActions";
 import feedActions from "./feedActions";

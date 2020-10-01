@@ -1,4 +1,4 @@
-import { SET_LOGGED_IN } from "../actions/userActions";
+import { SET_LOGGED_IN } from "./userActions";
 
 export const initialState = {
   loggedIn: null,

@@ -41,16 +41,6 @@ const ListEntity = (
   const [currentTags, setTags] = useState(tags);
   const [tagsForDropdown, setTagsForDropdown] = useState([]);
 
-  const handleDeleteClick = (e) => {
-    e.preventDefault();
-    onDeleteClick(id);
-  }
-
-  const changeMode = (e) => {
-    e.preventDefault();
-    setEditMode(!editMode);
-  }
-
   const handleSaveClick = (e) => {
     e.preventDefault();
     setEditMode(false);
@@ -106,8 +96,8 @@ const ListEntity = (
                         &#8250;
                       </button>
                       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <span className="dropdown-item" onClick={changeMode}>{editMode ? "Cancel" : 'Edit'}</span>
-                        <span className="dropdown-item" onClick={handleDeleteClick}>Delete</span>
+                        <span className="dropdown-item" onClick={() => setEditMode(!editMode)}>{editMode ? "Cancel" : 'Edit'}</span>
+                        <span className="dropdown-item" onClick={() => onDeleteClick(id)}>Delete</span>
                       </div>
                     </div>
                     : null}

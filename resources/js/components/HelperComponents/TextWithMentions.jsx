@@ -5,11 +5,6 @@ export const TextWithMentions = ({text, mentions}) => {
   const history = useHistory();
   let textWithMentions = '';
 
-  const changePage = (e, id) => {
-    e.preventDefault();
-    history.push(`/users/${id}`)
-  }
-
   if (text) {
     const reg = new RegExp(/(@(?:\w+[.]?\w+)+)/, 'g');
     const parts = text.split(reg);
@@ -21,7 +16,7 @@ export const TextWithMentions = ({text, mentions}) => {
             if (mention[0].split('@')[1] === mentions[i].login) {
               return <span
                 key={`mention ${index}`}
-                onClick={(e) => changePage(e, mentions[i].id)}
+                onClick={() => history.push(`/users/${mentions[i].id}`)}
               >
                 {mention}
               </span>;

@@ -50,7 +50,7 @@ const UserInfo = ({userData, follow, unFollow, block, unBlock, theSameUser, load
                     ? <Link to={ROUTES.EDIT}><Button style="twitter">Edit profile</Button></Link>
                     : <>
                       <Button handleClick={handleClickFollow}
-                              style="twitter">{followed ? "unFollow" : "Follow"}</Button>
+                              style="twitter">{followed ? "Unfollow" : "Follow"}</Button>
                       <Button handleClick={handleClickBlock}
                               style="twitter">{blocked ? "Unblock" : "Block"}</Button>
                       <br/>

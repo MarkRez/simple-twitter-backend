@@ -1,0 +1,13 @@
+@import "./indents";
+
+%field-style {
+  border: 1px solid $gray-5;
+  background-color: $gray-1;
+  border-radius: 20px;
+  padding: $small-paddings;
+  resize: none;
+  font-weight: 500;
+  color: $gray-7;
+}
+
+$font-fredoka: 'Fredoka One', cursive, sans-serif;

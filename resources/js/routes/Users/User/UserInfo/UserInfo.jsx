@@ -3,8 +3,8 @@ import {Button} from "../../../../components/UI";
 import Skeleton from "react-loading-skeleton";
 import {Link} from "react-router-dom";
 import {ROUTES} from "../../../../helpers/routes";
-import './userInfo.scss';
 import {handleImageError} from "../../../../helpers/anotherMethods";
+import './userInfo.scss';
 
 const UserInfo = ({userData, followFunc, unFollowFunc, blockFunc, unBlockFunc, theSameUser, loading}) => {
   const {id, name, avatar, followers_count, followings_count, followed, blocked, login} = userData;
@@ -18,13 +18,18 @@ const UserInfo = ({userData, followFunc, unFollowFunc, blockFunc, unBlockFunc, t
   }
 
   return (
-    <div className="user-info w-100">
+    <div className="user-info w-100 p-0 mb-5">
       <div className="user-info-inner">
         <div className="row">
           <div className="col-lg-12 img-div-wrapper">
-            <div className="img-div">
+            <div className="position-absolute img-div mx-auto">
               {!loading
-                ? <img src={avatar} onError={handleImageError} alt="name" className="img-thumbnail img-circle"/>
+                ? <img
+                  src={avatar}
+                  onError={handleImageError}
+                  alt="name"
+                  className="img-thumbnail img-circle rounded-circle h-100 w-100"
+                />
                 : <Skeleton height={150} width={150} circle={true}/>
               }
             </div>
@@ -32,9 +37,11 @@ const UserInfo = ({userData, followFunc, unFollowFunc, blockFunc, unBlockFunc, t
           {!loading
             ? <>
               <div className="col-lg-7 user-info-div">
-                <p className="p-name">{name}</p>
+                <p className="p-name mb-n2">{name}</p>
                 <p>@{login}</p>
-                <p><span>{followings_count}</span> Following <span className="ml-3">{followers_count}</span> Followers
+                <p>
+                  <span>{followings_count}</span> Following
+                  <span className="ml-3">{followers_count}</span> Followers
                 </p>
               </div>
               <div className="col-lg-5 buttons-div text-right">

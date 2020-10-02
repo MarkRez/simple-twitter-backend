@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import './addEntity.scss'
 import {EntityFields} from "../";
+import './addEntity.scss'
 
 export const AddEntity = (
   {
@@ -29,7 +29,7 @@ export const AddEntity = (
   }
 
   return (
-    <div className="add-entity w-100">
+    <div className="add-entity p-3 w-100">
       <EntityFields
         setTextFunc={setTextValue}
         finalFunc={handleClickAdd}

@@ -7,10 +7,10 @@ import { Input } from "../../../components/UI/Inputs";
 
 const LoginForm = ({ message, logInFunc }) => {
   return (
-    <div className="login-form container">
+    <div className="login-form container mb-6">
       <div className="row justify-content-center">
         <div className="col-lg-6">
-          {message && <ul className="error-message">{message}</ul>}
+          {message && <ul className="error-message py-3 px-4 rounded">{message}</ul>}
           <Formik
             initialValues={{
               login: '',

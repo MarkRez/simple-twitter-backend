@@ -17,14 +17,14 @@ const SendMessage = ({ sendMessageFunc }) => {
   }
 
   return (
-    <div className="send-message row">
+    <div className="send-message position-relative row">
       <textarea
         onChange={handleChangeText}
         value={textAreaValue} placeholder={`Type message here...`}
-        className="w-100"
+        className="w-100 overflow-auto"
         rows={1}
       />
-      <span onClick={handleClickSend}>
+      <span className="position-absolute rounded-circle pl-2" onClick={handleClickSend}>
         <FontAwesomeIcon icon={faPaperPlane}/>
       </span>
     </div>

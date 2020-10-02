@@ -1,12 +1,10 @@
-.login-form {
-  margin-bottom: 50px;
+@import '@root/styles/colors';
 
+.login-form {
   .error-message {
     width: 400px;
-    padding: 15px 25px;
-    color: #ff0000;
-    background-color: #f8aeba;
-    border: 2px solid #ce0101;
-    border-radius: 5px;
+    color: red;
+    background-color: $light-pink;
+    border: 2px solid $dark-red;
   }
 }

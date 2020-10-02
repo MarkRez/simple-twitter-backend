@@ -1,8 +1,8 @@
 import React from "react";
-import './styles/layout.scss';
 import { authenticatedLinks, NonAuthenticatedLinks } from '../../helpers/layoutLinks';
 import Skeleton from "react-loading-skeleton";
 import MenuItem from "./MenuItem/MenuItem";
+import './styles/layout.scss';
 
 export const Layout = ({ children, isAuthenticated, user, loading }) => {
   let menuItems = [];
@@ -27,7 +27,7 @@ export const Layout = ({ children, isAuthenticated, user, loading }) => {
     <div className="container-fluid layout">
       <div className="row">
         <nav className="col-md-2 d-none d-md-block sidebar">
-          <div className="sidebar-sticky">
+          <div className="sidebar-sticky p-3">
             <ul className="nav flex-column">
               { isAuthenticated !== null && !loading
                 ? menuItems

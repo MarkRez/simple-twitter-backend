@@ -4,7 +4,7 @@ import './button.scss'
 export const Button = ({ children, onClickFunc, type, style, disabled = false }) => {
   return (
     <button
-      className={'button-component btn btn-' + style}
+      className={'button-component py-2 px-3 btn btn-' + style}
       type={type}
       onClick={onClickFunc}
       disabled={disabled}

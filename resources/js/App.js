@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import './App.scss';
 import {Redirect, Route, Switch} from 'react-router-dom';
 import {Header, Layout, Footer} from "./components/InterfaceComponents";
 import Login from "./routes/Login/Login";
@@ -19,6 +18,7 @@ import allActions from "./store/actions";
 import {useSelector, useDispatch} from 'react-redux';
 import {profileSelector} from "./store/selectors";
 import PasswordRecovery from "./routes/PasswordRecovery/PasswordRecovery";
+import './App.scss';
 
 const App = () => {
   const dispatch = useDispatch();

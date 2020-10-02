@@ -1,16 +1,18 @@
+@import '@root/styles/indents';
+@import '@root/styles/colors';
+
 %liked-stl {
-  color: #2ecc71;
-  background-color: #ebfdf3;
+  color: $light-green;
+  background-color: rgba($light-green, 0.08);
 }
 
 %disliked-stl {
-  color: #e74c3c;
-  background-color: #ffecea;
+  color: $light-red;
+  background-color: rgba($light-red, 0.08);
 }
 
 .icon-with-count-comp {
-  color: #6d6d6d;
-  padding: 9px 15px;
+  color: $gray-6;
   transition: all .3s;
   border-radius: 30px;
   cursor: pointer;
@@ -37,8 +39,8 @@
 
   &.comment-span {
     &:hover {
-      color: #3498db;
-      background-color: #e3f4ff;
+      color: $twitter-blue;
+      background-color: rgba($twitter-blue, 0.1);
     }
 
   }

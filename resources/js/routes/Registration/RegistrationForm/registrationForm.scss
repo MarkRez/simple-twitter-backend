@@ -1,18 +1,16 @@
-.registration-form {
-  margin-bottom: 30px;
+@import '@root/styles/colors';
 
+.registration-form {
   .error-messages {
     width: 400px;
-    padding: 15px 25px;
-    color: #ff0000;
-    background-color: #f8aeba;
-    border: 2px solid #ce0101;
-    border-radius: 5px;
+    color: red;
+    background-color: $light-pink;
+    border: 2px solid $dark-red;
   }
 
   form {
     small {
-      color: #ff0000!important;
+      color: red !important;
     }
   }
 }

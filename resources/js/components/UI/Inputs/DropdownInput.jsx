@@ -1,6 +1,6 @@
 import React from "react";
-import './styles/dropdownInput.scss';
 import { Input } from "./Input";
+import './styles/dropdownInput.scss';
 
 export const DropdownInput = ({items = [], onChangeFunc, onClickFunc}) => {
   let itemsList = [];

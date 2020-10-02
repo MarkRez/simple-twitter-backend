@@ -137,12 +137,13 @@ const EditProfileForm = ({userData, updateFunc}) => {
                     id="avatar"
                     inputRef={photoRef}
                   />
-                  <div className="current-avatar-div">
+                  <div className="current-avatar-div position-relative mt-3">
                     {
                       !avatar ? <Skeleton width={150} height={150}/> :
                         <img onClick={() => photoRef.current.click()}
                              src={updatedAvatar ? updatedAvatar : avatar}
                              onError={handleImageError}
+                             className="rounded"
                         />
                     }
                   </div>

@@ -1,10 +1,13 @@
+@import "@root/styles/colors";
+@import '@root/styles/anotherConstants';
+
 .input-component-label {
-  font-family: 'Fredoka One', cursive;
-  color: #555555;
+  font-family: $font-fredoka;
+  color: $gray-6;
 }
 
 .small-error {
-  color: #ff0000 !important;
+  color: red !important;
 }
 
 .component-input {

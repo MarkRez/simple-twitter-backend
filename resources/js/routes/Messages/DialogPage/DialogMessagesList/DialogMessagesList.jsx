@@ -16,14 +16,14 @@ const DialogMessagesList = ({messages, currentUserId, loading, pristine}) => {
   }
 
   return (
-    <div className="dialog-messages-list row">
+    <div className="dialog-messages-list py-4 row">
       {messages.map(message => (
           <div
             key={message.id}
-            className={"col-lg-12 message d-flex " + (currentUserId === message.sender_id ? "message-from-me" : "message-from-another")}
+            className={"col-lg-12 message mb-3 d-flex " + (currentUserId === message.sender_id ? "message-from-me" : "message-from-another")}
           >
-            <div className="message-inner">
-              <div className="message-text">
+            <div className="message-inner py-3 px-4">
+              <div className="message-text mb-2">
                 {message.text}
               </div>
               <div className="message-time">

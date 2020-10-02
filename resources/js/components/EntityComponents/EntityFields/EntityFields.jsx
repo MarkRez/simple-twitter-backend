@@ -44,8 +44,8 @@ export const EntityFields = (
   }
 
   return (
-    <div className="row edit-entity pl-2 w-100">
-      <div className="col-lg-12 textarea-div">
+    <div className="row entity-fields pl-2 w-100">
+      <div className="col-lg-12 textarea-div mb-2">
         <textarea
           className="w-100"
           onClick={e => e.preventDefault()}
@@ -63,9 +63,9 @@ export const EntityFields = (
               <DropdownInput onChangeFunc={getDropdownTagsFunc} onClickFunc={addTag} items={dropdownTags}/>
             </div>
             }
-            <div className="col-lg-6 tags-div">
+            <div className="col-lg-6 tags-div pt-1">
               {currentTags.map((tag, i) =>
-                  <span key={`tag ${i}`} className="tag">
+                  <span key={`tag ${i}`} className="tag py-2 px-3 mr-2 mt-1">
                     {tag.name}
                   <span onClick={(e) => deleteTag(e, tag.id)}> &times;</span>
             </span>

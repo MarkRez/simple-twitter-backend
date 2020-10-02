@@ -29,10 +29,10 @@ const RegistrationForm = ({ messages, registerFunc }) => {
   }
 
   return (
-    <div className="registration-form">
+    <div className="registration-form mb-6">
       <div className="row justify-content-center">
         <div className="col-lg-6">
-          {messages && <p className="error-messages">{errorMessages}</p>}
+          {messages && <p className="error-messages py-3 px-4 rounded">{errorMessages}</p>}
           <Formik
             initialValues={{
               name: '',

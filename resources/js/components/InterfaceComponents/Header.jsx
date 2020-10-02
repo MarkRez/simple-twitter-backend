@@ -2,10 +2,10 @@ import React from 'react';
 import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import allActions from '../../store/actions';
-import './styles/header.scss';
 import { ROUTES } from "../../helpers/routes";
 import Skeleton from "react-loading-skeleton";
 import {profileReset} from "../../store/selectors";
+import './styles/header.scss';
 
 export const Header = ({ isAuthenticated }) => {
   const dispatch = useDispatch();
@@ -18,11 +18,11 @@ export const Header = ({ isAuthenticated }) => {
   }
 
   return (
-    <header className="fixed-top">
+    <header className="fixed-top py-3 px-5">
       <div className="container-fluid">
         <div className="row">
-          <b>Simple Twitter</b>
-          <div className="nav-div">
+          <span className="logo">Simple Twitter</span>
+          <div className="nav-div ml-auto">
             {
               isAuthenticated !== null
                 ? (!isAuthenticated

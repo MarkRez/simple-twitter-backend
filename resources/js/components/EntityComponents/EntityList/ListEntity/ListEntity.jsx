@@ -5,11 +5,11 @@ import {faThumbsUp, faThumbsDown, faCommentDots} from '@fortawesome/free-regular
 import '@fortawesome/fontawesome-svg-core';
 import {prettyDate} from "../../../../helpers/dateConverter";
 import {TextWithMentions} from "../../../HelperComponents";
-import './listEntity.scss';
 import {EntityFields} from "../../";
 import {IconWithCount} from "../../../UI";
 import {ROUTES} from "../../../../helpers/routes";
 import {handleImageError} from "../../../../helpers/anotherMethods";
+import './listEntity.scss';
 
 const ListEntity = (
   {
@@ -75,13 +75,13 @@ const ListEntity = (
   }
 
   return (
-    <div className="entity w-100">
+    <div className="entity w-100 py-3 px-4">
       <div className="row">
         <div className="post-img col-1">
           {avatar
             ?
             <Link to={ROUTES.USERS + `/${user_id}`}>
-              <img src={avatar} onError={handleImageError} alt={login} className="img-fluid"/>
+              <img src={avatar} onError={handleImageError} alt={login} className="img-fluid rounded-circle"/>
             </Link>
             : <Skeleton height={50} width={50} circle={true}/>
           }
@@ -94,13 +94,14 @@ const ListEntity = (
                   <Link to={ROUTES.USERS + `/${user_id}`}>{name}</Link> · @{login} · {prettyDate(created_at)}
                   {showDropdown
                     ?
-                    <div className="dropdown-div">
+                    <div className="dropdown-div ml-auto">
                       <button
                         type="button"
                         id="dropdownMenuButton"
                         data-toggle="dropdown"
                         aria-haspopup="true"
                         aria-expanded="false"
+                        className="rounded-circle border-0 p-0"
                       >
                         &#8250;
                       </button>
@@ -111,7 +112,7 @@ const ListEntity = (
                     </div>
                     : null}
                 </>
-                : <Skeleton/>
+                : <Skeleton height={20} width={250}/>
               }
             </div>
             {editMode
@@ -139,15 +140,15 @@ const ListEntity = (
               <>
                 {
                   (currentTags.length !== 0 && !editMode) &&
-                  <div className="col-lg-12 post-current-tags">
+                  <div className="col-lg-12 post-current-tags mt-3">
                     {currentTags.map((tag, i) =>
-                      <span key={`tag ${i}`} className="tag">
+                      <span key={`tag ${i}`} className="tag py-2 px-3 mr-2">
                         {tag.name}
                       </span>
                     )}
                   </div>
                 }
-                <div className="col-lg-12 post-buttons row">
+                <div className="col-lg-12 post-buttons mt-4 row">
                   <div className="col-lg-4">
                     <IconWithCount
                       icon={faThumbsUp}

@@ -33,7 +33,7 @@ const Login = (props) => {
   return (
     <div className="login-page">
       <LoginForm
-        logInFunc={logIn}
+        onSubmitClick={logIn}
         message={message}
       />
     </div>

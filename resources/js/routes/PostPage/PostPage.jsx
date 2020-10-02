@@ -65,19 +65,19 @@ const PostPage = (props) => {
       <PostInfo
         post={post.data}
         loading={post.loading}
-        setReactionFunc={addReactionToPost}
-        deleteReactionFunc={deleteReactionFromPost}
+        onSetReactionClick={addReactionToPost}
+        onDeleteReactionClick={deleteReactionFromPost}
       />
       <AddEntity
         type="comment"
         placeholder="Share your opinion"
-        addEntityFunc={addComment}
+        onAddClick={addComment}
       />
       <EntityList
         entities={postComments.data.data}
       />
       <HandleScroll
-        handleFunc={nextPage}
+        onScroll={nextPage}
       />
     </div>
   )

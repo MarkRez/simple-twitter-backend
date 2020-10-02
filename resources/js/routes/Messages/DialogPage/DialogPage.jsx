@@ -67,7 +67,7 @@ const DialogPage = ({currentUserId, ...props}) => {
         user={user}
       />
       <SendMessage
-        sendMessageFunc={sendMessage}
+        onSubmitClick={sendMessage}
       />
       <DialogMessagesList
         currentUserId={currentUserId}
@@ -76,7 +76,7 @@ const DialogPage = ({currentUserId, ...props}) => {
         pristine={pristine}
       />
       <HandleScroll
-        handleFunc={nextPage}
+        onScroll={nextPage}
       />
     </div>
   );

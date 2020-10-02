@@ -4,8 +4,8 @@ import './addEntity.scss'
 
 export const AddEntity = (
   {
-    addEntityFunc,
-    getTagsFunc,
+    onAddClick,
+    getTags,
     type = "",
     placeholder,
   }) => {
@@ -19,22 +19,22 @@ export const AddEntity = (
       setTextValue('');
       setTags([]);
       setTagsForDropdown([]);
-      addEntityFunc(textValue, tags);
+      onAddClick(textValue, tags);
     }
   }
 
   const getTagsForDropdown = async (name) => {
-    const response = await getTagsFunc(name)
+    const response = await getTags(name)
     setTagsForDropdown(response.data)
   }
 
   return (
     <div className="add-entity p-3 w-100">
       <EntityFields
-        setTextFunc={setTextValue}
-        finalFunc={handleClickAdd}
-        setTagsFunc={setTags}
-        getDropdownTagsFunc={getTagsForDropdown}
+        onTextChange={setTextValue}
+        onSubmitClick={handleClickAdd}
+        setTags={setTags}
+        getDropdownTags={getTagsForDropdown}
         text={textValue}
         currentTags={tags}
         dropdownTags={tagsForDropdown}

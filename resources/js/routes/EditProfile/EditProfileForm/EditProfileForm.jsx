@@ -41,7 +41,7 @@ const EditProfileSchema = Yup.object({
     })
 });
 
-const EditProfileForm = ({userData, updateFunc}) => {
+const EditProfileForm = ({userData, onUpdateClick}) => {
   const {email, name, avatar} = userData;
   const photoRef = useRef(null);
   const [updatedAvatar, setUpdatedAvatar] = useState('');
@@ -72,7 +72,7 @@ const EditProfileForm = ({userData, updateFunc}) => {
             }}
             validationSchema={EditProfileSchema}
             onSubmit={values => {
-              updateFunc(values);
+              onUpdateClick(values);
             }}
           >
             {({errors, touched, setFieldValue}) => (

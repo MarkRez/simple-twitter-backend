@@ -42,13 +42,13 @@ const Feed = () => {
   return (
     <div className="feed-page">
       <EntityList
-        setReactionFunc={addReactionToPost}
-        deleteReactionFunc={deleteReactionFromPost}
+        onSetReactionClick={addReactionToPost}
+        onDeleteReactionClick={deleteReactionFromPost}
         entities={feed.data.data}
         type="post"
       />
       <HandleScroll
-        handleFunc={nextPage}
+        onScroll={nextPage}
       />
     </div>
   )

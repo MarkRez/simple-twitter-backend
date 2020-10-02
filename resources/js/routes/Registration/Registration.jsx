@@ -29,7 +29,7 @@ const Registration = () => {
   return (
     <div className="registration-page">
       <RegistrationForm
-        registerFunc={register}
+        onSubmitClick={register}
         messages={messages}
       />
     </div>

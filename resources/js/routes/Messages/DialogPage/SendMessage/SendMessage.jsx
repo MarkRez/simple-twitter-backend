@@ -4,11 +4,11 @@ import {faPaperPlane} from '@fortawesome/free-regular-svg-icons';
 import '@fortawesome/fontawesome-svg-core';
 import './sendMessage.scss';
 
-const SendMessage = ({ sendMessageFunc }) => {
+const SendMessage = ({ onSubmitClick }) => {
   const [textAreaValue, setTextAreaValue] = useState('');
 
   const handleClickSend = () => {
-    sendMessageFunc(textAreaValue);
+    onSubmitClick(textAreaValue);
     setTextAreaValue('');
   }
 

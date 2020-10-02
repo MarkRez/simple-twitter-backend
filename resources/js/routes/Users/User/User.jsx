@@ -110,33 +110,33 @@ const User = (props) => {
             userData={user.data}
             loading={user.loading}
             theSameUser={theSameUser}
-            followFunc={followUser}
-            unFollowFunc={unFollowUser}
-            blockFunc={blockUser}
-            unBlockFunc={unBlockUser}
+            follow={followUser}
+            unFollow={unFollowUser}
+            block={blockUser}
+            unBlock={unBlockUser}
           />
           <h2>{user.data.name ? `${user.data.name} posts` : <Skeleton/>}</h2>
           {theSameUser
           && <AddEntity
             type="post"
             placeholder="Write new post"
-            addEntityFunc={addPost}
+            onAddClick={addPost}
             showTagsInput={true}
-            getTagsFunc={getTags}
+            getTags={getTags}
           />
           }
           <EntityList
             type="post"
-            delFunc={deletePost}
-            updateFunc={updatePost}
+            onDeleteClick={deletePost}
+            onUpdateClick={updatePost}
             showDropdown={theSameUser}
             entities={userPosts.data.data}
-            getTagsFunc={getTags}
-            setReactionFunc={addReactionToPost}
-            deleteReactionFunc={deleteReactionFromPost}
+            getTags={getTags}
+            onSetReactionClick={addReactionToPost}
+            onDeleteReactionClick={deleteReactionFromPost}
           />
           <HandleScroll
-            handleFunc={nextPage}
+            onScroll={nextPage}
           />
         </div>
       </div>

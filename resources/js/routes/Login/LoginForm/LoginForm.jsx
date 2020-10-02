@@ -5,7 +5,7 @@ import { loginPasswordSchema } from "../../../helpers/schemas";
 import {Button} from "../../../components/UI";
 import { Input } from "../../../components/UI/Inputs";
 
-const LoginForm = ({ message, logInFunc }) => {
+const LoginForm = ({ message, onSubmitClick }) => {
   return (
     <div className="login-form container mb-6">
       <div className="row justify-content-center">
@@ -18,7 +18,7 @@ const LoginForm = ({ message, logInFunc }) => {
             }}
             validationSchema={loginPasswordSchema}
             onSubmit={values => {
-              logInFunc(values);
+              onSubmitClick(values);
             }}
           >
             {({ errors, touched }) => (

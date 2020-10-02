@@ -5,10 +5,10 @@ import './entityFields.scss';
 
 export const EntityFields = (
   {
-    setTextFunc,
-    finalFunc,
-    getDropdownTagsFunc,
-    setTagsFunc,
+    onTextChange,
+    onSubmitClick,
+    getDropdownTags,
+    setTags,
     text = '',
     currentTags = [],
     dropdownTags,
@@ -19,7 +19,7 @@ export const EntityFields = (
   }) => {
   const handleTextAreaChange = (e) => {
     e.preventDefault();
-    setTextFunc(e.target.value);
+    onTextChange(e.target.value);
   }
 
   const addTag = (id) => {
@@ -31,7 +31,7 @@ export const EntityFields = (
             exist = true;
           }
         })
-        !exist && setTagsFunc([...currentTags, dropdownTags[i]]);
+        !exist && setTags([...currentTags, dropdownTags[i]]);
         break;
       }
     }
@@ -40,7 +40,7 @@ export const EntityFields = (
   const deleteTag = (e, id) => {
     e.preventDefault();
     const withoutDeleted = currentTags.filter(tag => tag.id !== id);
-    setTagsFunc(withoutDeleted);
+    setTags(withoutDeleted);
   }
 
   return (
@@ -60,7 +60,7 @@ export const EntityFields = (
           ? <>
             {currentTags.length < 3 &&
             <div className="col-lg-6 tags-dropdown-div">
-              <DropdownInput onChangeFunc={getDropdownTagsFunc} onClickFunc={addTag} items={dropdownTags}/>
+              <DropdownInput handleChange={getDropdownTags} handleClick={addTag} items={dropdownTags}/>
             </div>
             }
             <div className="col-lg-6 tags-div pt-1">
@@ -75,7 +75,7 @@ export const EntityFields = (
           : null
       }
       <div className="col-lg-12 text-right">
-        <Button onClickFunc={finalFunc} style='add'>{buttonText}</Button>
+        <Button handleClick={onSubmitClick} style='add'>{buttonText}</Button>
       </div>
     </div>
   )

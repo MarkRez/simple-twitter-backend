@@ -11,15 +11,15 @@ import {ROUTES} from "../../../helpers/routes";
 import {handleImageError} from "../../../helpers/anotherMethods";
 import './postInfo.scss';
 
-const PostInfo = ({post = {}, loading, deleteReactionFunc, setReactionFunc}) => {
+const PostInfo = ({post = {}, loading, onDeleteReactionClick, onSetReactionClick}) => {
   const {text, created_at, likes_count, dislikes_count, liked, mentioned_users = [], user = {}} = post;
   const {name, login, avatar, id} = user;
 
   const handleReactionClick = (reactionType) => {
     if (reactionType) {
-      liked ? deleteReactionFunc() : setReactionFunc(true);
+      liked ? onDeleteReactionClick() : onSetReactionClick(true);
     } else {
-      (liked === false) ? deleteReactionFunc() : setReactionFunc(false);
+      (liked === false) ? onDeleteReactionClick() : onSetReactionClick(false);
     }
   }
 
@@ -62,7 +62,7 @@ const PostInfo = ({post = {}, loading, deleteReactionFunc, setReactionFunc}) => 
               <IconWithCount
                 icon={faThumbsUp}
                 count={likes_count}
-                onclickFunc={() => handleReactionClick(true)}
+                handleClick={() => handleReactionClick(true)}
                 styles={"up-span " + (liked === true ? "liked" : "")}
               />
             </div>
@@ -70,7 +70,7 @@ const PostInfo = ({post = {}, loading, deleteReactionFunc, setReactionFunc}) => 
               <IconWithCount
                 icon={faThumbsDown}
                 count={dislikes_count}
-                onclickFunc={() => handleReactionClick(false)}
+                handleClick={() => handleReactionClick(false)}
                 styles={"down-span " + (liked === false ? "disliked" : "")}
               />
             </div>

@@ -2,7 +2,7 @@ import React from "react";
 import { Input } from "./Input";
 import './styles/dropdownInput.scss';
 
-export const DropdownInput = ({items = [], onChangeFunc, onClickFunc}) => {
+export const DropdownInput = ({items = [], handleChange, handleClick}) => {
   let itemsList = [];
 
   if (items.length > 0) {
@@ -13,16 +13,16 @@ export const DropdownInput = ({items = [], onChangeFunc, onClickFunc}) => {
         type="button"
         onClick={(e) => {
           e.preventDefault();
-          onClickFunc(item.id);
+          handleClick(item.id);
         }}
       >
         {item.name}
       </button>)
   }
 
-  const handleChange = (e) => {
+  const handleInputChange = (e) => {
     e.preventDefault();
-    onChangeFunc(e.target.value);
+    handleChange(e.target.value);
   }
 
   return (
@@ -30,7 +30,7 @@ export const DropdownInput = ({items = [], onChangeFunc, onClickFunc}) => {
       <Input
         type="text"
         placeholder="Add tags"
-        onChangeFunc={handleChange}
+        handleChange={handleInputChange}
       />
       <div
         className="dropdown-menu dropdown-input"

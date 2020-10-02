@@ -16,11 +16,11 @@ const ListEntity = (
     data,
     type,
     showDropdown = false,
-    delFunc,
-    updateFunc,
-    getTagsFunc,
-    setReactionFunc,
-    deleteReactionFunc
+    onDeleteClick,
+    onUpdateClick,
+    getTags,
+    onSetReactionClick,
+    onDeleteReactionClick
   }) => {
   const {
     id,
@@ -43,7 +43,7 @@ const ListEntity = (
 
   const handleDeleteClick = (e) => {
     e.preventDefault();
-    delFunc(id);
+    onDeleteClick(id);
   }
 
   const changeMode = (e) => {
@@ -55,11 +55,11 @@ const ListEntity = (
     e.preventDefault();
     setEditMode(false);
     setTagsForDropdown([]);
-    updateFunc(id, textValue, currentTags);
+    onUpdateClick(id, textValue, currentTags);
   }
 
   const getTagsForDropdown = (name) => {
-    getTagsFunc(name).then(
+    getTags(name).then(
       tags => {
         setTagsForDropdown(tags.data)
       }
@@ -68,9 +68,9 @@ const ListEntity = (
 
   const handleReactionClick = (reactionType) => {
     if (reactionType) {
-      liked ? deleteReactionFunc(id) : setReactionFunc(id, true);
+      liked ? onDeleteReactionClick(id) : onSetReactionClick(id, true);
     } else {
-      (liked === false) ? deleteReactionFunc(id) : setReactionFunc(id, false);
+      (liked === false) ? onDeleteReactionClick(id) : onSetReactionClick(id, false);
     }
   }
 
@@ -118,10 +118,10 @@ const ListEntity = (
             {editMode
               ?
               <EntityFields
-                setTextFunc={setTextValue}
-                finalFunc={handleSaveClick}
-                setTagsFunc={setTags}
-                getDropdownTagsFunc={getTagsForDropdown}
+                onTextChange={setTextValue}
+                onSubmitClick={handleSaveClick}
+                setTags={setTags}
+                getDropdownTags={getTagsForDropdown}
                 text={textValue}
                 currentTags={currentTags}
                 dropdownTags={tagsForDropdown}
@@ -152,7 +152,7 @@ const ListEntity = (
                   <div className="col-lg-4">
                     <IconWithCount
                       icon={faThumbsUp}
-                      onclickFunc={() => handleReactionClick(true)}
+                      handleClick={() => handleReactionClick(true)}
                       count={likes_count}
                       styles={"up-span " + (liked === true ? "liked" : "")}
                     />
@@ -160,7 +160,7 @@ const ListEntity = (
                   <div className="col-lg-4">
                     <IconWithCount
                       icon={faThumbsDown}
-                      onclickFunc={() => handleReactionClick(false)}
+                      handleClick={() => handleReactionClick(false)}
                       count={dislikes_count}
                       styles={"down-span " + (liked === false ? "disliked" : "")}
                     />

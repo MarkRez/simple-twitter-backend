@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export const HandleScroll = ({ handleFunc }) => {
+export const HandleScroll = ({ onScroll }) => {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -8,7 +8,7 @@ export const HandleScroll = ({ handleFunc }) => {
 
   const handleScroll = () => {
     if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 600) {
-      handleFunc();
+      onScroll();
     }
   }
 

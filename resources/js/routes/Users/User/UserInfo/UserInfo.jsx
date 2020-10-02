@@ -6,15 +6,15 @@ import {ROUTES} from "../../../../helpers/routes";
 import {handleImageError} from "../../../../helpers/anotherMethods";
 import './userInfo.scss';
 
-const UserInfo = ({userData, followFunc, unFollowFunc, blockFunc, unBlockFunc, theSameUser, loading}) => {
+const UserInfo = ({userData, follow, unFollow, block, unBlock, theSameUser, loading}) => {
   const {id, name, avatar, followers_count, followings_count, followed, blocked, login} = userData;
 
   const handleClickFollow = () => {
-    followed ? unFollowFunc() : followFunc();
+    followed ? unFollow() : follow();
   }
 
   const handleClickBlock = () => {
-    blocked ? unBlockFunc() : blockFunc();
+    blocked ? unBlock() : block();
   }
 
   return (
@@ -49,9 +49,9 @@ const UserInfo = ({userData, followFunc, unFollowFunc, blockFunc, unBlockFunc, t
                   ? theSameUser
                     ? <Link to={ROUTES.EDIT}><Button style="twitter">Edit profile</Button></Link>
                     : <>
-                      <Button onClickFunc={handleClickFollow}
-                              style="twitter">{followed ? "Unfollow" : "Follow"}</Button>
-                      <Button onClickFunc={handleClickBlock}
+                      <Button handleClick={handleClickFollow}
+                              style="twitter">{followed ? "unFollow" : "Follow"}</Button>
+                      <Button handleClick={handleClickBlock}
                               style="twitter">{blocked ? "Unblock" : "Block"}</Button>
                       <br/>
                       <Link to={ROUTES.MESSAGES + `/${id}`}><Button style="add">Send message</Button></Link>

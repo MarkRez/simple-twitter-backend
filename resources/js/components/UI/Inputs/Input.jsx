@@ -2,7 +2,7 @@ import React from "react";
 import './styles/input.scss'
 
 export const Input = (props) => {
-  const {  id, labelText, placeholder, onChangeFunc, type, field, form = {} }= props;
+  const {  id, labelText, placeholder, handleChange, type, field, form = {} }= props;
   const { errors, touched } = form;
   return (
     <>
@@ -18,7 +18,7 @@ export const Input = (props) => {
         type={type}
         onClick={e => e.preventDefault()}
         placeholder={placeholder}
-        onChange={onChangeFunc}
+        onChange={handleChange}
         {...field}
       />
       {

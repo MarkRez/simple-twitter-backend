@@ -19,7 +19,7 @@ const SignUpSchema = Yup.object({
     .required('Required'),
 }).concat(loginPasswordSchema);
 
-const RegistrationForm = ({ messages, registerFunc }) => {
+const RegistrationForm = ({ messages, onSubmitClick }) => {
   const errorMessages = [];
 
   if (messages) {
@@ -43,7 +43,7 @@ const RegistrationForm = ({ messages, registerFunc }) => {
             }}
             validationSchema={SignUpSchema}
             onSubmit={values => {
-              registerFunc(values);
+              onSubmitClick(values);
             }}
           >
             {({ errors, touched }) => (

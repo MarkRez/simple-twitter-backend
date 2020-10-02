@@ -22,7 +22,7 @@ const EditProfile = ({ currentUser }) => {
       </div>
       <EditProfileForm
         userData={currentUser}
-        updateFunc={updateProfile}
+        onUpdateClick={updateProfile}
       />
     </div>
   )

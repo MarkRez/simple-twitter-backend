@@ -11,4 +11,11 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.react('resources/js/index.js', 'public/js');
+mix.react('resources/js/index.js', 'public/js')
+  .webpackConfig({
+    resolve: {
+      alias: {
+        '@root': path.resolve('resources/js/')
+      }
+    }
+  })

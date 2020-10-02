@@ -18,9 +18,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('posts/{post}/like', 'LikeController@destroy');
     Route::get('users/{user}/posts', 'PostController@index')->middleware('blocked.user');
 
-    Route::get('/messages', 'MessageController@dialogs');
-    Route::get('/messages/{user}', 'MessageController@index')->middleware('blocked.user');
-    Route::post('/messages/{user}', 'MessageController@create')->middleware('blocked.user');
+    Route::get('/dialogs', 'DialogController');
+    Route::get('/dialogs/{dialog}/messages', 'MessageController@index')->middleware('blocked.user');
+    Route::post('/dialogs/{dialog}/messages', 'MessageController@create')->middleware('blocked.user');
 
     Route::get('/tags', 'TagController');
 

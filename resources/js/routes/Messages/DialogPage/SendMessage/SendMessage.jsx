@@ -7,9 +7,11 @@ import './sendMessage.scss';
 const SendMessage = ({ onSubmitClick }) => {
   const [textAreaValue, setTextAreaValue] = useState('');
 
-  const handleClickSend = () => {
-    onSubmitClick(textAreaValue);
-    setTextAreaValue('');
+  const handleSendClick = () => {
+    if (textAreaValue) {
+      onSubmitClick(textAreaValue);
+      setTextAreaValue('');
+    }
   }
 
   const handleChangeText = (e) => {
@@ -24,7 +26,7 @@ const SendMessage = ({ onSubmitClick }) => {
         className="w-100 overflow-auto"
         rows={1}
       />
-      <span className="position-absolute rounded-circle pl-2" onClick={handleClickSend}>
+      <span className="position-absolute rounded-circle pl-2" onClick={handleSendClick}>
         <FontAwesomeIcon icon={faPaperPlane}/>
       </span>
     </div>

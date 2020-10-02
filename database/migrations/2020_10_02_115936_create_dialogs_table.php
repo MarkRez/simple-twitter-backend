@@ -15,6 +15,7 @@ class CreateDialogsTable extends Migration
     {
         Schema::create('dialogs', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
         });
     }
 

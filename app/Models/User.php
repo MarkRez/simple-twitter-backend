@@ -36,14 +36,9 @@ class User extends Authenticatable
         return $this->posts()->latest();
     }
 
-    public function sentMessages()
+    public function dialogs()
     {
-        return $this->hasMany(Message::class, 'sender_id');
-    }
-
-    public function receivedMessages()
-    {
-        return $this->hasMany(Message::class, 'recipient_id');
+        return $this->belongsToMany(Dialog::class);
     }
 
     public function interestedPosts()
@@ -115,47 +110,6 @@ class User extends Authenticatable
     public function removeBlockedUser($userId)
     {
         $this->blockedUsers()->detach($userId);
-    }
-
-    public function getContactedUsers()
-    {
-        $recipientIds = array_column(
-            $this->sentMessages()
-                ->distinct()
-                ->get('recipient_id')
-                ->toArray(), 'recipient_id');
-        $senderIds = array_column(
-            $this->receivedMessages()
-                ->distinct()
-                ->get('sender_id')
-                ->toArray(), 'sender_id');
-
-        $contactedUsersIds = array_unique(array_merge($recipientIds, $senderIds));
-
-        return self::whereIn('id', $contactedUsersIds)->get();
-    }
-
-    public function getMessagesWithUser($userId)
-    {
-        return Message::whereIn('sender_id', [$this->id, $userId])
-            ->whereIn('recipient_id', [$this->id, $userId])
-            ->latest();
-    }
-
-    public function getLastMessageWithUser($userId)
-    {
-        return self::getMessagesWithUser($userId)->take(1)->first();
-    }
-
-    public function sendMessage($recipient, $text)
-    {
-        $message = $this->sentMessages()->make([
-            'text' => $text
-        ]);
-
-        $recipient->receivedMessages()->save($message);
-
-        return $message;
     }
 
     /**

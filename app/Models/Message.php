@@ -8,13 +8,8 @@ class Message extends Model
 {
     protected $fillable = ['text'];
 
-    public function sender()
+    public function dialog()
     {
-        return $this->belongsTo(User::class, 'sender_id');
-    }
-
-    public function recipient()
-    {
-        return $this->belongsTo(User::class, 'recipient_id');
+        return $this->belongsTo(Dialog::class);
     }
 }

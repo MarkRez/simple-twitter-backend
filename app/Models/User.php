@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
@@ -39,6 +40,26 @@ class User extends Authenticatable
     public function dialogs()
     {
         return $this->belongsToMany(Dialog::class);
+    }
+
+    public function getDialogWithUser($userId)
+    {
+        $dialog = $this->dialogs()->whereHas('users', function (Builder $query) use ($userId) {
+            $query->where('user_id', $userId);
+        })->has('users', '=', 2)->first();
+
+        if (!$dialog) {
+            $dialog = $this->startDialog($userId);
+        }
+
+        return $dialog->id;
+    }
+
+    public function startDialog($userId)
+    {
+        $dialog = Dialog::create();
+        $dialog->users()->attach([$this->id, $userId]);
+        return $dialog;
     }
 
     public function interestedPosts()

@@ -2,6 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import UserInfo from "./UserInfo/UserInfo";
 import {EntityList, AddEntity} from "../../../components/EntityComponents";
+import { useHistory } from "react-router-dom";
 import allActions from "../../../store/actions";
 import {
   userSelector,
@@ -11,11 +12,13 @@ import {
   currentUserPostsReset,
 } from "../../../store/selectors";
 import Skeleton from "react-loading-skeleton";
-import {getTags} from "../../../api";
+import {getTags, getDialogId} from "../../../api";
 import {HandleScroll} from "../../../components/HelperComponents";
 import {ErrorComponent} from "../../../components/UI";
+import {ROUTES} from "../../../helpers/routes";
 
 const User = (props) => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const userId = props.computedMatch.params.id;
   const scrollPage = useRef(1);
@@ -88,6 +91,11 @@ const User = (props) => {
     dispatch(allActions.usersActions.deleteReactionFromUserPost(id));
   }
 
+  const openDialog = async () => {
+    const res = await getDialogId(userId);
+    history.push(ROUTES.MESSAGES + `/${res.data}`)
+  }
+
   if (user.error) {
     let message = '';
     switch (user.error.response.status) {
@@ -114,6 +122,7 @@ const User = (props) => {
             unFollow={unFollowUser}
             block={blockUser}
             unBlock={unBlockUser}
+            onSendMessageClick={openDialog}
           />
           <h2>{user.data.name ? `${user.data.name} posts` : <Skeleton/>}</h2>
           {theSameUser

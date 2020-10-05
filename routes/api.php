@@ -10,6 +10,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('users/{user}/follow', 'FollowController@destroy');
     Route::post('users/{user}/block', 'BlockController@store');
     Route::delete('users/{user}/block', 'BlockController@destroy');
+    Route::get('/users/{user}/dialog', 'DialogController@getDialogId');
 
     Route::apiResource('posts', 'PostController');
     Route::get('posts/{post}/comments', 'CommentController@index');
@@ -18,9 +19,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('posts/{post}/like', 'LikeController@destroy');
     Route::get('users/{user}/posts', 'PostController@index')->middleware('blocked.user');
 
-    Route::get('/dialogs', 'DialogController');
-    Route::get('/dialogs/{dialog}/messages', 'MessageController@index')->middleware('blocked.user');
-    Route::post('/dialogs/{dialog}/messages', 'MessageController@create')->middleware('blocked.user');
+    Route::get('/dialogs', 'DialogController@index');
+    Route::get('/dialogs/{dialog}/messages', 'MessageController@index');
+    Route::post('/dialogs/{dialog}/messages', 'MessageController@create');
 
     Route::get('/tags', 'TagController');
 

@@ -17,7 +17,7 @@ const DialogMessagesList = ({messages, currentUserId, loading, pristine}) => {
 
   return (
     <div className="dialog-messages-list py-4 row">
-      {messages.map(message => (
+      {(messages || []).map(message => (
           <div
             key={message.id}
             className={"col-lg-12 message mb-3 d-flex " + (currentUserId === message.sender_id ? "message-from-me" : "message-from-another")}

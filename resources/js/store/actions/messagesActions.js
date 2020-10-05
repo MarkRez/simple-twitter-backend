@@ -6,7 +6,7 @@ const RECEIVED_MESSAGE = 'RECEIVED_MESSAGE';
 const getDialogs = () => ({
   type: FETCH_DIALOGS,
   request: {
-    url: `/messages`,
+    url: `/dialogs`,
     method: 'get',
   },
 });
@@ -14,7 +14,7 @@ const getDialogs = () => ({
 const getDialogMessages = (id, page) => ({
   type: FETCH_DIALOG_MESSAGES,
   request: {
-    url: `/messages/${id}?page=${page}`,
+    url: `/dialogs/${id}/messages?page=${page}`,
     method: 'get',
   },
   meta: {
@@ -32,7 +32,7 @@ const getDialogMessages = (id, page) => ({
 const sendMessage = (id, message) => ({
   type: SEND_MESSAGE,
   request: {
-    url: `/messages/${id}`,
+    url: `/dialogs/${id}/messages`,
     method: 'post',
     data: message
   },

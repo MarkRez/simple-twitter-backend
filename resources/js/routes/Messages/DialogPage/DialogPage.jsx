@@ -15,7 +15,7 @@ const DialogPage = ({currentUserId, ...props}) => {
   const totalPages = useRef(1);
   const messagesIsLoading = useRef(false);
 
-  const {data: {data: {data: messages, user}, meta}, loading, pristine, error} = useSelector(dialogMessagesSelector);
+  const {data: {data: {messages, user}, meta}, loading, pristine, error} = useSelector(dialogMessagesSelector);
   messagesIsLoading.current = loading;
 
   useEffect(() => {

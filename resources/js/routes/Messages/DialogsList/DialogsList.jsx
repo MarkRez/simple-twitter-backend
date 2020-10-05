@@ -7,7 +7,7 @@ import './dialogsList.scss';
 
 const DialogsList = ({ dialogs }) => (
   <div className="dialogs-list w-100 p-0">
-    {dialogs.map(dialog =>
+    {(dialogs || []).map(dialog =>
       <Link key={dialog.id} to={`${ROUTES.MESSAGES}/${dialog.id}`}>
         <div className='dialog w-100 py-3 px-4'>
           <div className="row">

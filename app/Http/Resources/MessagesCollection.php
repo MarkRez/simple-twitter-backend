@@ -17,8 +17,8 @@ class MessagesCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'data' => MessageResource::collection($this->collection),
-            'user' => new ShortUserResource($this->user)
+            'messages' => MessageResource::collection($this->collection),
+            'user' => new ShortUserResource($this->user),
         ];
     }
 }

@@ -16,7 +16,7 @@ const Login = (props) => {
       const response = await apis.logIn(values);
       if (response.status === 200) {
         setMessage('');
-        localStorage.setItem('_token', response.data);
+        localStorage.setItem('_token', response.data.token);
         dispatch (allActions.userActions.logIn());
         history.push('/')
       }

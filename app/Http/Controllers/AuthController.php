@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
+use App\Http\Resources\TokenResource;
 use App\Models\User;
 use App\Services\MailService;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $user = User::getByLogin($request->login);
-            return $user->createToken($request->login)->plainTextToken;
+            return new TokenResource($user->createToken($request->login));
         }
 
         return abort(401, 'Invalid login or password');
@@ -50,10 +51,10 @@ class AuthController extends Controller
                 'email_verified' => true,
             ]);
 
-            return 'Email confirmed successfully!';
+            return response('Email confirmed successfully!', 200);
         }
 
-        return 'Invalid token or user already verified!';
+        return abort(400, 'Invalid token or user already verified!');
     }
 
     public function logOut(Request $request)

@@ -27,17 +27,10 @@ export const EntityFields = (
   }
 
   const addTag = (id) => {
-    for (let i = 0; i < dropdownTags.length; i += 1) {
-      if (dropdownTags[i].id === id) {
-        let exist = false;
-        currentTags.forEach(tag => {
-          if (tag.id === id) {
-            exist = true;
-          }
-        })
-        !exist && setTags([...currentTags, dropdownTags[i]]);
-        break;
-      }
+    const tag = dropdownTags.find((t) => t.id === id);
+    const isExists = !!currentTags.find((t) => t.id === id);
+    if (tag && !isExists) {
+      setTags([...currentTags, tag]);
     }
   }
 
@@ -76,7 +69,7 @@ export const EntityFields = (
                 ? <>
                   {currentTags.length < 3 &&
                   <div className="col-lg-6 tags-dropdown-div">
-                    <DropdownInput handleChange={getDropdownTags} handleClick={addTag} items={dropdownTags}/>
+                    <DropdownInput handleChange={getDropdownTags} handleClick={addTag} items={(dropdownTags || []).filter(t => !currentTags.map(c => c.id).includes(t.id))}/>
                   </div>
                   }
                   <div className="col-lg-6 tags-div pt-1">

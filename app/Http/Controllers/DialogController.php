@@ -9,7 +9,7 @@ class DialogController extends Controller
 {
     public function index(Request $request)
     {
-        return DialogResource::collection($request->user()->dialogs);
+        return DialogResource::collection($request->user()->notEmptyDialogs()->get()->sortByDesc('lastMessage.created_at'));
     }
 
     public function getDialogId(Request $request, User $user)

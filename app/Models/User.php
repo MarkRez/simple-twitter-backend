@@ -42,6 +42,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Dialog::class);
     }
 
+    public function notEmptyDialogs()
+    {
+        return $this->dialogs()->has('messages');
+    }
+
     public function sentMessages()
     {
         return $this->hasMany(Message::class, 'sender_id');

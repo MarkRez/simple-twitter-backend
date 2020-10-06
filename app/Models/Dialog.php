@@ -31,6 +31,6 @@ class Dialog extends Model
 
     public function lastMessage()
     {
-        return $this->latestMessages()->take(1)->first();
+        return $this->hasOne(Message::class)->latest();
     }
 }

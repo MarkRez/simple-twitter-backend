@@ -12,7 +12,7 @@ class DialogResource extends JsonResource
             'name' => $this->name,
             'id' => $this->id,
             'user' => new ShortUserResource($this->dialogUsers()->first()),
-            'last_message' => $this->lastMessage()->text,
+            'last_message' => $this->lastMessage->text,
         ];
     }
 }

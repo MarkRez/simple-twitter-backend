@@ -11,10 +11,12 @@ class NewDirectMessage implements ShouldBroadcast
 {
     use Queueable;
     private $message;
+    private $recipientId;
 
-    public function __construct($message)
+    public function __construct($message, $recipientId)
     {
         $this->message = $message;
+        $this->recipientId = $recipientId;
     }
 
     public function via()
@@ -36,6 +38,6 @@ class NewDirectMessage implements ShouldBroadcast
 
     public function broadcastOn()
     {
-        return new PrivateChannel('App.User.' . $this->message->recipient_id);
+        return new PrivateChannel('App.User.' . $this->recipientId);
     }
 }

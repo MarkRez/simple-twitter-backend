@@ -42,6 +42,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Dialog::class);
     }
 
+    public function sentMessages()
+    {
+        return $this->hasMany(Message::class, 'sender_id');
+    }
+
     public function getDialogWithUser($userId)
     {
         $dialog = $this->dialogs()->whereHas('users', function (Builder $query) use ($userId) {
@@ -60,6 +65,17 @@ class User extends Authenticatable
         $dialog = Dialog::create();
         $dialog->users()->attach([$this->id, $userId]);
         return $dialog;
+    }
+
+    public function sendMessage($dialog, $text)
+    {
+        $message = $this->sentMessages()->make([
+            'text' => $text
+        ]);
+
+        $dialog->messages()->save($message);
+
+        return $message;
     }
 
     public function interestedPosts()

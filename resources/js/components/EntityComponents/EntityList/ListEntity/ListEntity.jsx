@@ -47,12 +47,9 @@ const ListEntity = (
     onUpdateClick(id, textValue, currentTags);
   }
 
-  const getTagsForDropdown = (name) => {
-    getTags(name).then(
-      tags => {
-        setTagsForDropdown(tags.data)
-      }
-    );
+  const getTagsForDropdown = async (name) => {
+    const tags = await getTags(name);
+    setTagsForDropdown(tags.data);
   }
 
   const handleReactionClick = (reactionType) => {
@@ -95,7 +92,8 @@ const ListEntity = (
                         &#8250;
                       </button>
                       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <span className="dropdown-item" onClick={() => setEditMode(!editMode)}>{editMode ? "Cancel" : 'Edit'}</span>
+                        <span className="dropdown-item"
+                              onClick={() => setEditMode(!editMode)}>{editMode ? "Cancel" : 'Edit'}</span>
                         <span className="dropdown-item" onClick={() => onDeleteClick(id)}>Delete</span>
                       </div>
                     </div>

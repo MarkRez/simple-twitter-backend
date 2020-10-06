@@ -11,10 +11,10 @@ export const Header = ({ isAuthenticated }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const handleClick = () => {
+  const handleClick = async () => {
     dispatch(profileReset);
-    dispatch(allActions.authActions.logOut())
-      .then(res => history.push(ROUTES.LOGIN));
+    await dispatch(allActions.authActions.logOut());
+    history.push(ROUTES.LOGIN);
   }
 
   return (

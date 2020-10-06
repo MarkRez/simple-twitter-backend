@@ -9,11 +9,11 @@ import './userInfo.scss';
 const UserInfo = ({userData, follow, unFollow, block, unBlock, theSameUser, loading, onSendMessageClick}) => {
   const {id, name, avatar, followers_count, followings_count, followed, blocked, login} = userData;
 
-  const handleClickFollow = () => {
+  const handleFollowClick = () => {
     followed ? unFollow() : follow();
   }
 
-  const handleClickBlock = () => {
+  const handleBlockClick = () => {
     blocked ? unBlock() : block();
   }
 
@@ -49,9 +49,9 @@ const UserInfo = ({userData, follow, unFollow, block, unBlock, theSameUser, load
                   ? theSameUser
                     ? <Link to={ROUTES.EDIT}><Button style="twitter">Edit profile</Button></Link>
                     : <>
-                      <Button handleClick={handleClickFollow}
+                      <Button handleClick={handleFollowClick}
                               style="twitter">{followed ? "Unfollow" : "Follow"}</Button>
-                      <Button handleClick={handleClickBlock}
+                      <Button handleClick={handleBlockClick}
                               style="twitter">{blocked ? "Unblock" : "Block"}</Button>
                       <br/>
                       <Button handleClick={onSendMessageClick} style="add">Send message</Button>

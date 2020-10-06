@@ -13,7 +13,7 @@ export const AddEntity = (
   const [tags, setTags] = useState([]);
   const [tagsForDropdown, setTagsForDropdown] = useState([]);
 
-  const handleClickAdd = () => {
+  const handleAddClick = () => {
     if (textValue) {
       setTextValue('');
       setTags([]);
@@ -31,7 +31,7 @@ export const AddEntity = (
     <div className="add-entity p-3 w-100">
       <EntityFields
         onTextChange={setTextValue}
-        onSubmitClick={handleClickAdd}
+        onSubmitClick={handleAddClick}
         setTags={setTags}
         getDropdownTags={getTagsForDropdown}
         text={textValue}

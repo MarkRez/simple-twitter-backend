@@ -7,6 +7,7 @@ import {store} from 'react-notifications-component';
 import 'animate.css/animate.compat.css'
 import 'react-notifications-component/dist/theme.css'
 import allActions from "../../store/actions";
+import {ROUTES} from "../../helpers/routes";
 
 export const Notifications = ({token, userId}) => {
   const dispatch = useDispatch();
@@ -49,7 +50,7 @@ export const Notifications = ({token, userId}) => {
 
     echo.private(`App.User.${userId}`)
       .listen('.message.received',(data) => {
-        if (currentPath.current !== `/messages/${data.message.sender_id}`) {
+        if (currentPath.current !== ROUTES.MESSAGES) {
           store.addNotification({
             title: `You received a new message!`,
             message: data.message.text,

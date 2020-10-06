@@ -14,6 +14,11 @@ class Dialog extends Model
         return $this->hasMany(Message::class);
     }
 
+    public function latestMessages()
+    {
+        return $this->messages()->latest();
+    }
+
     public function users()
     {
         return $this->belongsToMany(User::class);
@@ -26,6 +31,6 @@ class Dialog extends Model
 
     public function lastMessage()
     {
-        return $this->messages()->take(1)->latest()->first();
+        return $this->latestMessages()->take(1)->first();
     }
 }

@@ -12,7 +12,7 @@ class MessageController extends Controller
 {
     public function index(Dialog $dialog)
     {
-        return new MessagesCollection($dialog->messages()->paginate(15), $dialog->dialogUsers()->first());
+        return new MessagesCollection($dialog->latestMessages()->paginate(15), $dialog->dialogUsers()->first());
     }
 
     public function create(Dialog $dialog, SendMessageRequest $request)

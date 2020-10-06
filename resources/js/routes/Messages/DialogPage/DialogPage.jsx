@@ -62,23 +62,24 @@ const DialogPage = ({currentUserId, ...props}) => {
   }
 
   return (
-    <div className="dialog-page">
-      <DialogInfo
-        user={user}
-      />
-      <SendMessage
-        onSubmitClick={sendMessage}
-      />
-      <DialogMessagesList
-        currentUserId={currentUserId}
-        messages={messages}
-        loading={loading}
-        pristine={pristine}
-      />
-      <HandleScroll
-        onScroll={nextPage}
-      />
-    </div>
+    <HandleScroll
+      onScroll={nextPage}
+    >
+      <div className="dialog-page">
+        <DialogInfo
+          user={user}
+        />
+        <SendMessage
+          onSubmitClick={sendMessage}
+        />
+        <DialogMessagesList
+          currentUserId={currentUserId}
+          messages={messages}
+          loading={loading}
+          pristine={pristine}
+        />
+      </div>
+    </HandleScroll>
   );
 }
 

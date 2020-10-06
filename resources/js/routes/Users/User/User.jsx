@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import UserInfo from "./UserInfo/UserInfo";
 import {EntityList, AddEntity} from "../../../components/EntityComponents";
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import allActions from "../../../store/actions";
 import {
   userSelector,
@@ -45,7 +45,7 @@ const User = (props) => {
 
   const nextPage = () => {
     if (!postsIsLoading.current && !(scrollPage.current + 1 > totalPages.current)) {
-      dispatch(allActions.usersActions.getUserPosts(userId ,scrollPage.current + 1));
+      dispatch(allActions.usersActions.getUserPosts(userId, scrollPage.current + 1));
       scrollPage.current += 1
     }
   }
@@ -111,7 +111,10 @@ const User = (props) => {
     return <ErrorComponent>{message}</ErrorComponent>
   }
 
-    return (
+  return (
+    <HandleScroll
+      onScroll={nextPage}
+    >
       <div className="user-page">
         <div className="row">
           <UserInfo
@@ -144,12 +147,10 @@ const User = (props) => {
             onSetReactionClick={addReactionToPost}
             onDeleteReactionClick={deleteReactionFromPost}
           />
-          <HandleScroll
-            onScroll={nextPage}
-          />
         </div>
       </div>
-    )
-  }
+    </HandleScroll>
+  )
+}
 
-  export default User;
+export default User;

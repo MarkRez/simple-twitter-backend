@@ -37,7 +37,7 @@ const PostPage = (props) => {
 
   const nextPage = () => {
     if (!commentsIsLoading.current && !(scrollPage.current + 1 > totalPages.current)) {
-      dispatch(allActions.postsActions.getPostComments(postId ,scrollPage.current + 1));
+      dispatch(allActions.postsActions.getPostComments(postId, scrollPage.current + 1));
       scrollPage.current += 1
     }
   }
@@ -61,25 +61,26 @@ const PostPage = (props) => {
   }
 
   return (
-    <div className="post-page">
-      <PostInfo
-        post={post.data}
-        loading={post.loading}
-        onSetReactionClick={addReactionToPost}
-        onDeleteReactionClick={deleteReactionFromPost}
-      />
-      <AddEntity
-        type="comment"
-        placeholder="Share your opinion"
-        onAddClick={addComment}
-      />
-      <EntityList
-        entities={postComments.data.data}
-      />
-      <HandleScroll
-        onScroll={nextPage}
-      />
-    </div>
+    <HandleScroll
+      onScroll={nextPage}
+    >
+      <div className="post-page">
+        <PostInfo
+          post={post.data}
+          loading={post.loading}
+          onSetReactionClick={addReactionToPost}
+          onDeleteReactionClick={deleteReactionFromPost}
+        />
+        <AddEntity
+          type="comment"
+          placeholder="Share your opinion"
+          onAddClick={addComment}
+        />
+        <EntityList
+          entities={postComments.data.data}
+        />
+      </div>
+    </HandleScroll>
   )
 }
 

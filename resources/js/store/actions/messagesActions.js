@@ -22,7 +22,7 @@ const getDialogMessages = (id, page) => ({
       return currentData
         ? {
           ...newData,
-          data: {data: [...currentData.data.data, ...newData.data.data], user: currentData.data.user},
+          data: {messages: [...currentData.data.messages, ...newData.data.messages], user: currentData.data.user},
         }
         : {...newData}
     },
@@ -41,7 +41,7 @@ const sendMessage = (id, message) => ({
       [FETCH_DIALOG_MESSAGES]: {
         updateData: (currentMessages, newMessage) => ({
           ...currentMessages,
-          data: {data: [newMessage, ...currentMessages.data.data], user: currentMessages.data.user}
+          data: {messages: [newMessage, ...currentMessages.data.messages], user: currentMessages.data.user}
         })
       },
     },
@@ -56,7 +56,7 @@ const addReceivedMessage = (message) => ({
         updateData: (currentMessages) => {
             return ({
               ...currentMessages,
-              data: {data: [message, ...currentMessages.data.data], user: currentMessages.data.user}
+              data: {messages: [message, ...currentMessages.data.messages], user: currentMessages.data.user}
             })
         },
         local: true,

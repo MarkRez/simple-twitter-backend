@@ -41,8 +41,7 @@ const ListEntity = (
   const [currentTags, setTags] = useState(tags);
   const [tagsForDropdown, setTagsForDropdown] = useState([]);
 
-  const handleSaveClick = (e) => {
-    e.preventDefault();
+  const handleSaveClick = () => {
     setEditMode(false);
     setTagsForDropdown([]);
     onUpdateClick(id, textValue, currentTags);

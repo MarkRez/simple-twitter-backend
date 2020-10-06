@@ -13,8 +13,7 @@ export const AddEntity = (
   const [tags, setTags] = useState([]);
   const [tagsForDropdown, setTagsForDropdown] = useState([]);
 
-  const handleClickAdd = (e) => {
-    e.preventDefault();
+  const handleClickAdd = () => {
     if (textValue) {
       setTextValue('');
       setTags([]);

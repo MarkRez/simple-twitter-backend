@@ -1,15 +1,17 @@
-import userActions from '../auth/userActions';
+import authActions from '../auth/authActions';
+import profileActions from "./profileActions";
 import postsActions from './postsActions';
 import usersActions from "./usersActions";
 import feedActions from "./feedActions";
 import messagesActions from './messagesActions'
 
 const allActions = {
-  userActions,
+  profileActions,
+  authActions,
   postsActions,
   usersActions,
   feedActions,
-  messagesActions
+  messagesActions,
 }
 
 export default allActions;

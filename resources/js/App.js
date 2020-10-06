@@ -23,14 +23,14 @@ import './App.scss';
 const App = () => {
   const dispatch = useDispatch();
   const {data, loading} = useSelector(profileSelector);
-  const userLoggedIn = useSelector(state => state.user.loggedIn);
+  const userLoggedIn = useSelector(state => state.auth.loggedIn);
 
   useEffect(() => {
     const isAuthenticated = localStorage.getItem('_token');
     if (isAuthenticated) {
-      dispatch(allActions.userActions.logIn());
+      dispatch(allActions.authActions.logIn());
     } else {
-      dispatch(allActions.userActions.setLoggedIn(false));
+      dispatch(allActions.authActions.setLoggedIn(false));
     }
   }, []);
 

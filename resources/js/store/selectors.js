@@ -1,5 +1,5 @@
 import {getQuerySelector, resetRequests} from "@redux-requests/core";
-import {FETCH_PROFILE} from "./auth/userActions";
+import {FETCH_PROFILE} from "./actions/profileActions";
 import {FETCH_CURRENT_POST, FETCH_CURRENT_POST_COMMENTS} from "./actions/postsActions";
 import {FETCH_USER, FETCH_USER_POSTS} from "./actions/usersActions";
 import {FETCH_FEED} from "./actions/feedActions";

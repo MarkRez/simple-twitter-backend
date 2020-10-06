@@ -17,7 +17,7 @@ const Login = (props) => {
       if (response.status === 200) {
         setMessage('');
         localStorage.setItem('_token', response.data.token);
-        dispatch (allActions.userActions.logIn());
+        dispatch (allActions.authActions.logIn());
         history.push('/')
       }
     } catch (error) {

@@ -9,7 +9,7 @@ const EditProfile = ({ currentUser }) => {
   const dispatch = useDispatch();
 
   const updateProfile = (values) => {
-    dispatch(allActions.userActions.updateProfileData(values))
+    dispatch(allActions.profileActions.updateProfileData(values))
       .then((res) => {
         history.push(`/users/${currentUser.id}`)
       })

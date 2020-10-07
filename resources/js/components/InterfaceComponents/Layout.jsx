@@ -27,7 +27,7 @@ export const Layout = ({ children, isAuthenticated, user, loading }) => {
     <div className="container-fluid layout">
       <div className="row">
         <nav className="col-md-2 d-none d-md-block sidebar">
-          <div className="sidebar-sticky p-3">
+          <div className="sidebar-sticky p-3 position-fixed">
             <ul className="nav flex-column">
               { isAuthenticated !== null && !loading
                 ? menuItems

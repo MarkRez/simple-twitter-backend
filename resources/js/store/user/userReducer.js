@@ -28,7 +28,11 @@ const User = (state = initialState, action) => {
       }));
     }
     case FETCH_USER_ERROR: {
-      return state.set('user', {error: action.payload.error, loading: false});
+      return state.update('user', (current) => ({
+        ...current,
+        error: action.payload.error,
+        loading: false
+      }));
     }
     case RESET_USER: {
       return state = initialState;

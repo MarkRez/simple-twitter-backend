@@ -19,7 +19,7 @@ export const getUser = (userId) => async (dispatch) => {
   try {
     const response = await fetchUser(userId);
     dispatch(fetchUserSuccess(response.data));
-  } catch ({ error }) {
+  } catch (error) {
     dispatch(fetchUserError(error));
   }
 };

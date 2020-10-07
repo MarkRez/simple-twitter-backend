@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import UserInfo from "./UserInfo/UserInfo";
-import {EntityList, AddEntity} from "../../../components/EntityComponents";
+import {EntitiesList, AddEntity} from "../../../components/EntityComponents";
 import {useHistory} from "react-router-dom";
 import allActions from "../../../store/actions";
 import {
@@ -137,7 +137,7 @@ const User = (props) => {
             getTags={getTags}
           />
           }
-          <EntityList
+          <EntitiesList
             type="post"
             onDeleteClick={deletePost}
             onUpdateClick={updatePost}

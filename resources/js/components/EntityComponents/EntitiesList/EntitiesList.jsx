@@ -1,8 +1,7 @@
 import React from "react";
-import './entityList.scss';
 import ListEntity from "./ListEntity/ListEntity";
 
-export const EntityList = (
+export const EntitiesList = (
   {
     entities,
     ...props

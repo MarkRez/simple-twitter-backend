@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import allActions from "../../store/actions";
 import {feedSelector, feedReset} from "../../store/selectors";
 import {HandleScroll} from "../../components/HelperComponents";
-import {EntityList} from "../../components/EntityComponents";
+import {EntitiesList} from "../../components/EntityComponents";
 
 const Feed = () => {
   const dispatch = useDispatch();
@@ -44,7 +44,7 @@ const Feed = () => {
       onScroll={nextPage}
     >
       <div className="feed-page">
-        <EntityList
+        <EntitiesList
           onSetReactionClick={addReactionToPost}
           onDeleteReactionClick={deleteReactionFromPost}
           entities={feed.data.data}

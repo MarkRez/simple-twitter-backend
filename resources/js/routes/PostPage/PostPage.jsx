@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import allActions from "../../store/actions";
 import PostInfo from "./PostInfo/PostInfo";
-import {EntityList, AddEntity} from "../../components/EntityComponents";
+import {EntitiesList, AddEntity} from "../../components/EntityComponents";
 import {HandleScroll} from "../../components/HelperComponents";
 import {
   currentPostSelector,
@@ -76,7 +76,7 @@ const PostPage = (props) => {
           placeholder="Share your opinion"
           onAddClick={addComment}
         />
-        <EntityList
+        <EntitiesList
           entities={postComments.data.data}
         />
       </div>

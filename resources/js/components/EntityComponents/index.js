@@ -1,3 +1,3 @@
 export * from './AddEntity/AddEntity';
 export * from './EntityFields/EntityFields';
-export * from './EntityList/EntityList';
+export * from './EntitiesList/EntitiesList';

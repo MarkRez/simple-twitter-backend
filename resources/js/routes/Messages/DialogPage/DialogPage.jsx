@@ -53,7 +53,7 @@ const DialogPage = ({currentUserId, ...props}) => {
         message = error.response.data;
         break;
       case 404:
-        message = 'User not found!';
+        message = 'Dialog not found!';
         break;
       default:
         message = 'Internal server error!'

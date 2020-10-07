@@ -26,6 +26,7 @@
         "bootstrap": "^4.5.2",
         "cross-env": "^7.0.2",
         "formik": "^2.1.5",
+        "immutable": "^4.0.0-rc.12",
         "jquery": "^3.5.1",
         "laravel-echo": "^1.8.1",
         "laravel-mix": "^5.0.5",
@@ -44,5 +45,14 @@
         "sass": "^1.26.10",
         "sass-loader": "^10.0.2",
         "yup": "^0.29.3"
+    },
+    "babel": {
+        "presets": [
+            "@babel/preset-env",
+            "@babel/preset-react"
+        ],
+        "plugins": [
+            "@babel/plugin-proposal-class-properties"
+        ]
     }
 }

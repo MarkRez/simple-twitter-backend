@@ -98,7 +98,7 @@ const RegistrationForm = ({ messages, onSubmitClick }) => {
                     labelText="Confirm password"
                   />
                 </div>
-                <Button type="submit" style="primary">
+                <Button type="submit" btnClassName="primary">
                   Register
                 </Button>
               </Form>

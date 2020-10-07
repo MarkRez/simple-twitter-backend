@@ -84,7 +84,7 @@ export const EntityFields = (
                 : null
             }
             <div className="col-lg-12 text-right">
-              <Button type="submit" style='add'>{buttonText}</Button>
+              <Button type="submit" btnClassName='add'>{buttonText}</Button>
             </div>
           </div>
         </Form>

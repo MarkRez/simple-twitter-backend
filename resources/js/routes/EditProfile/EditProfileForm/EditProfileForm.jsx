@@ -148,7 +148,7 @@ const EditProfileForm = ({userData, onUpdateClick}) => {
                     }
                   </div>
                 </div>
-                {userData && <Button type="submit" style="primary"> Save </Button>}
+                {userData && <Button type="submit" btnClassName="primary"> Save </Button>}
               </Form>
             )}
           </Formik>

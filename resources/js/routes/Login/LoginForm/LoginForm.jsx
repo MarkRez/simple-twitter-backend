@@ -43,7 +43,7 @@ const LoginForm = ({ message, onSubmitClick }) => {
                     labelText="Password"
                   />
                 </div>
-                <Button type="submit" style="primary">
+                <Button type="submit" btnClassName="primary">
                   Log in
                 </Button>
               </Form>

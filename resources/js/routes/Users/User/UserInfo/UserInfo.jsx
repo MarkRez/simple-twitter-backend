@@ -47,14 +47,14 @@ const UserInfo = ({userData, follow, unFollow, block, unBlock, theSameUser, load
               <div className="col-lg-5 buttons-div text-right">
                 {theSameUser !== undefined
                   ? theSameUser
-                    ? <Link to={ROUTES.EDIT}><Button style="twitter">Edit profile</Button></Link>
+                    ? <Link to={ROUTES.EDIT}><Button btnClassName="twitter">Edit profile</Button></Link>
                     : <>
-                      <Button handleClick={handleFollowClick}
-                              style="twitter">{followed ? "Unfollow" : "Follow"}</Button>
-                      <Button handleClick={handleBlockClick}
-                              style="twitter">{blocked ? "Unblock" : "Block"}</Button>
+                      <Button onClick={handleFollowClick}
+                              btnClassName="twitter">{followed ? "Unfollow" : "Follow"}</Button>
+                      <Button onClick={handleBlockClick}
+                              btnClassName="twitter">{blocked ? "Unblock" : "Block"}</Button>
                       <br/>
-                      <Button handleClick={onSendMessageClick} style="add">Send message</Button>
+                      <Button onClick={onSendMessageClick} btnClassName="add">Send message</Button>
                     </>
                   : <Skeleton width={125} height={30}/>
                 }

@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {Redirect, Route, Switch} from 'react-router-dom';
+import React, {useEffect, useRef} from 'react';
+import {Redirect, Route, Switch, useLocation} from 'react-router-dom';
 import {Header, Layout, Footer} from "./components/InterfaceComponents";
 import Login from "./routes/Login/Login";
 import Registration from "./routes/Registration/Registration";
@@ -11,19 +11,22 @@ import PostPage from "./routes/PostPage/PostPage";
 import EditProfile from "./routes/EditProfile/EditProfile";
 import Messages from "./routes/Messages/Messages";
 import DialogPage from "./routes/Messages/DialogPage/DialogPage";
-import {Notifications} from "./components/HelperComponents";
-import ReactNotification from "react-notifications-component";
+import ReactNotification, {store} from "react-notifications-component";
 import {ROUTES} from "./helpers/routes";
 import allActions from "./store/actions";
 import {useSelector, useDispatch} from 'react-redux';
 import {profileSelector} from "./store/selectors";
 import PasswordRecovery from "./routes/PasswordRecovery/PasswordRecovery";
 import './App.scss';
+import socketService from "./helpers/socketService";
 
 const App = () => {
   const dispatch = useDispatch();
   const {data, loading} = useSelector(profileSelector);
   const userLoggedIn = useSelector(state => state.auth.loggedIn);
+  const currentPath = useRef('');
+  const location = useLocation();
+  currentPath.current = location.pathname;
 
   useEffect(() => {
     const isAuthenticated = localStorage.getItem('_token');
@@ -34,9 +37,58 @@ const App = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (data) {
+      const echo = socketService(`App.User.${data.id}`, [
+        {
+          listen: '.user.mentioned',
+          callback: (data) => {
+            store.addNotification({
+              title: `You was mentioned in ${data.source.toLowerCase()}!`,
+              message: data.text,
+              type: "default",
+              insert: "top",
+              container: "top-right",
+              animationIn: ["animate__animated", "animate__fadeIn"],
+              animationOut: ["animate__animated", "animate__fadeOut"],
+              dismiss: {
+                duration: 5000,
+              }
+            });
+          }
+        },
+        {
+          listen: '.message.received',
+          callback: (data) => {
+            if (currentPath.current !== ROUTES.MESSAGES) {
+              store.addNotification({
+                title: `You received a new message!`,
+                message: data.message.text,
+                type: "default",
+                insert: "top",
+                container: "top-right",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                  duration: 5000,
+                }
+              });
+            } else {
+              dispatch(allActions.messagesActions.addReceivedMessage(data.message))
+            }
+          }
+        }
+      ]);
+
+      return (() => {
+        echo.disconnect();
+      })
+    }
+  }, [data]);
+
   return (
     <>
-      <ReactNotification />
+      <ReactNotification/>
       <Header
         isAuthenticated={userLoggedIn}
       />
@@ -102,10 +154,6 @@ const App = () => {
         </Switch>
       </Layout>
       <Footer/>
-      {data && <Notifications
-        token={localStorage.getItem('_token')}
-        userId={data.id}
-      />}
     </>
   );
 };

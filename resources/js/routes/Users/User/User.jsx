@@ -3,14 +3,14 @@ import {useSelector, useDispatch} from 'react-redux';
 import UserInfo from "./UserInfo/UserInfo";
 import {EntitiesList, AddEntity} from "../../../components/EntityComponents";
 import {useHistory} from "react-router-dom";
-import allActions from "../../../store/actions";
+import { getUser, resetUser } from "../../../store/user/userActions";
+import allActions from "../../../store/actions"
 import {
-  userSelector,
   userPostsSelector,
   profileSelector,
-  currentUserReset,
   currentUserPostsReset,
 } from "../../../store/selectors";
+import { userSelector } from '../../../store/user/userSelectors';
 import Skeleton from "react-loading-skeleton";
 import {getTags, getDialogId} from "../../../api";
 import {HandleScroll} from "../../../components/HelperComponents";
@@ -25,7 +25,7 @@ const User = (props) => {
   const totalPages = useRef(1);
   const postsIsLoading = useRef(false);
 
-  const user = useSelector(userSelector);
+  const user = useSelector(userSelector).get('user');
   const userPosts = useSelector(userPostsSelector);
   const currentUser = useSelector(profileSelector);
   postsIsLoading.current = userPosts.loading;
@@ -35,10 +35,10 @@ const User = (props) => {
   }, [userPosts])
 
   useEffect(() => {
-    dispatch(allActions.usersActions.getUser(userId));
+    dispatch(getUser(userId));
     dispatch(allActions.usersActions.getUserPosts(userId, scrollPage.current));
     return () => {
-      dispatch(currentUserReset);
+      dispatch(resetUser());
       dispatch(currentUserPostsReset);
     };
   }, [userId]);

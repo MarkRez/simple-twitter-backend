@@ -21,12 +21,10 @@ export const currentPostReset = resetRequests([FETCH_CURRENT_POST]);
 export const currentPostCommentsReset = resetRequests([FETCH_CURRENT_POST_COMMENTS]);
 
 // users selectors
-export const userSelector = getQuerySelector({type: FETCH_USER, defaultData: false});
 export const userPostsSelector = getQuerySelector({
   type: FETCH_USER_POSTS,
   defaultData: {data: skeletonArr.slice(0, 3), meta: {}}
 });
-export const currentUserReset = resetRequests([FETCH_USER]);
 export const currentUserPostsReset = resetRequests([FETCH_USER_POSTS]);
 
 // feed selectors

@@ -1,9 +1,29 @@
+import {getUser as fetchUser} from "../../api";
 import {
   deleteReactionFromPostRequest,
   reactionToPostRequest
-} from "./reactionActions";
+} from "../actions/reactionActions";
 
 export const FETCH_USER = 'FETCH_USER';
+export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS';
+export const FETCH_USER_ERROR = 'FETCH_USER_ERROR';
+export const RESET_USER = 'RESET_USER';
+
+const fetchUserCall = () => ({ type: FETCH_USER });
+const fetchUserSuccess = (data) => ({ type: FETCH_USER_SUCCESS, payload: { data } });
+const fetchUserError = (error) => ({ type: FETCH_USER_ERROR, payload: { error } });
+export const resetUser = () => ({ type: RESET_USER });
+
+export const getUser = (userId) => async (dispatch) => {
+  dispatch(fetchUserCall());
+  try {
+    const response = await fetchUser(userId);
+    dispatch(fetchUserSuccess(response.data));
+  } catch ({ error }) {
+    dispatch(fetchUserError(error));
+  }
+};
+
 export const FETCH_USER_POSTS = 'FETCH_USER_POSTS';
 const DELETE_USER_POST = 'DELETE_USER_POST';
 const ADD_USER_POST = 'ADD_USER_POST';
@@ -32,14 +52,6 @@ const updateUserMeta = (id) => ({
       updateData: (currentData, mutationData) => (mutationData)
     },
   },
-});
-
-const getUser = (id) => ({
-  type: FETCH_USER,
-  request: {
-    url: `/users/${id}`,
-    method: 'get',
-  }
 });
 
 const getUserPosts = (id, page) => ({
@@ -160,7 +172,6 @@ const unBlockUser = (id) => ({
 
 
 export default {
-  getUser,
   getUserPosts,
   deleteUserPost,
   addUserPost,

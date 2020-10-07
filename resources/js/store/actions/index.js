@@ -1,9 +1,9 @@
 import authActions from '../auth/authActions';
-import profileActions from "./profileActions";
-import postsActions from './postsActions';
-import usersActions from "./usersActions";
-import feedActions from "./feedActions";
-import messagesActions from './messagesActions'
+import profileActions from "../profile/profileActions";
+import postsActions from '../posts/postsActions';
+import usersActions from "../user/userActions";
+import feedActions from "../feed/feedActions";
+import messagesActions from '../messages/messagesActions'
 
 const allActions = {
   profileActions,

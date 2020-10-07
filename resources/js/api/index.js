@@ -1,36 +1,41 @@
 import axios from '../helpers/axios';
-
+import {ROUTES} from "../helpers/routes";
 const api = axios;
 
-export const logIn = payload => api.post('/login', payload);
-export const logOut = payload => api.post('/logout', payload);
-export const register = payload => api.post(`/registration`, payload);
+// Auth
+export const logIn = payload => api.post(ROUTES.LOGIN, payload);
+export const logOut = payload => api.post(ROUTES.LOGOUT, payload);
+export const register = payload => api.post(ROUTES.REGISTRATION, payload);
 
-// export const getProfile = () => api.get('/profile');
-export const updateProfile = payload => api.post('/profile', payload, {headers: {'Content-Type': 'multipart/form-data'}});
+// Profile
+export const getProfile = () => api.get(ROUTES.PROFILE);
+export const updateProfile = payload => api.post(ROUTES.PROFILE, payload, {headers: {'Content-Type': 'multipart/form-data'}});
 
-// export const getUser = id => api.get(`/users/${id}`);
-// export const getUserPosts = id => api.get(`users/${id}/posts`);
+// User
+export const getUser = id => api.get(`${ROUTES.USERS}/${id}`);
+export const getUserPosts = (id, page) => api.get(`${ROUTES.USERS}/${id}/posts?page=${page}`);
+export const followUser = id => api.post(`${ROUTES.USERS}/${id}/follow`);
+export const unFollowUser = id => api.delete(`${ROUTES.USERS}/${id}/follow`);
+export const blockUser = id => api.post(`${ROUTES.USERS}/${id}/follow`);
+export const unBlockUser = id => api.delete(`${ROUTES.USERS}/${id}/follow`);
 
-// export const getPost = id => api.get(`/posts/${id}`);
-// export const getPostComments = id => api.get(`/posts/${id}/comments`);
-// export const addPost = payload => api.post(`/posts`, payload);
-// export const deletePost = id => api.delete(`/posts/${id}`);
+// Post
+export const getPost = id => api.get(`${ROUTES.POSTS}/${id}`);
+export const addPost = payload => api.post(`${ROUTES.POSTS}`, payload);
+export const deletePost = id => api.delete(`${ROUTES.POSTS}/${id}`);
+export const getPostComments = (id, page) => api.get(`${ROUTES.POSTS}/${id}/comments?page=${page}`);
+export const addCommentToPost = id => api.post(`${ROUTES.POSTS}/${id}/comments`);
+export const addReactionToPost = (id, payload) => api.post(`${ROUTES.POSTS}/${id}/like`, payload);
+export const deleteReactionFromPost = (id) => api.delete(`${ROUTES.POSTS}/${id}/like`);
 
-// export const getDialogMessages = id => api.get(`/messages/${id}`);
-// export const getDialogs = () => api.get('/messages');
+// Dialogs
+export const getDialogId = id => api.get(`${ROUTES.USERS}/${id}/dialog`);
+export const getDialogs = () => api.get(ROUTES.DIALOGS);
+export const getDialogMessages = (id, page) => api.get(`${ROUTES.DIALOGS}/${id}/messages?page=${page}`);
+export const sendMessage = id => api.post(`${ROUTES.DIALOGS}/${id}/messages`);
 
-export const getDialogId = id => api.get(`/users/${id}/dialog`);
-// export const getFeed = page => api.get(`/feed?page=${page}`);
-export const getTags = name => api.get(`/tags?name=${name}`);
+// Feed
+export const getFeed = page => api.get(`${ROUTES.FEED}?page=${page}`);
 
-const apis = {
-  logIn,
-  logOut,
-  register,
-  updateProfile,
-  getTags,
-  getDialogId
-};
-
-export default apis;
+// Tags
+export const getTags = name => api.get(`${ROUTES.TAGS}?name=${name}`);

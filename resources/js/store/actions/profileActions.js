@@ -1,5 +1,5 @@
 import {cleanObject} from "../../helpers/anotherMethods";
-import apis from "../../api";
+import {updateProfile} from "../../api";
 
 export const FETCH_PROFILE = 'FETCH_PROFILE';
 
@@ -25,7 +25,7 @@ const updateProfileData = (data) => async (dispatch) => {
   form.append('_method', 'put');
 
   try {
-    return await apis.updateProfile(form);
+    return await updateProfile(form);
   } catch (error) {
     // throw new Error(error);
   } finally {

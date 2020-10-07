@@ -2,18 +2,17 @@ import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import LoginForm from "./LoginForm/LoginForm";
-import axios from '../../helpers/axios';
 import allActions from "../../store/actions";
-import apis from "../../api";
+import {logIn} from "../../api";
 
 const Login = (props) => {
   const [message, setMessage] = useState('');
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const logIn = async (values) => {
+  const logInUser = async (values) => {
     try {
-      const response = await apis.logIn(values);
+      const response = await logIn(values);
       if (response.status === 200) {
         setMessage('');
         localStorage.setItem('_token', response.data.token);
@@ -33,7 +32,7 @@ const Login = (props) => {
   return (
     <div className="login-page">
       <LoginForm
-        onSubmitClick={logIn}
+        onSubmitClick={logInUser}
         message={message}
       />
     </div>

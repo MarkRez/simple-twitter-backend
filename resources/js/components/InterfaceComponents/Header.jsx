@@ -13,7 +13,7 @@ export const Header = ({ isAuthenticated }) => {
 
   const handleClick = async () => {
     dispatch(profileReset);
-    await dispatch(allActions.authActions.logOut());
+    await dispatch(allActions.authActions.logOutUser());
     history.push(ROUTES.LOGIN);
   }
 

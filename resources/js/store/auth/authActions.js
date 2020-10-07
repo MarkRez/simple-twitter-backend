@@ -1,4 +1,4 @@
-import apis from "../../api";
+import {logOut} from "../../api";
 import profileActions from "../actions/profileActions";
 
 export const SET_LOGGED_IN = 'SET_LOGGED_IN';
@@ -15,11 +15,11 @@ const logIn = () => {
   }
 };
 
-const logOut = () => {
+const logOutUser = () => {
   return async (dispatch) => {
     dispatch(setLoggedIn(false));
     try {
-      await apis.logOut();
+      await logOut();
     } finally {
       await localStorage.removeItem('_token');
     }
@@ -28,6 +28,6 @@ const logOut = () => {
 
 export default {
   logIn,
-  logOut,
+  logOutUser,
   setLoggedIn,
 }

@@ -22,6 +22,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function emailVerificationToken()
+    {
+        return $this->hasOne(ConfirmationToken::class)->where('token_type', 'email');
+    }
+
+    public function passwordResetToken()
+    {
+        return $this->hasOne(ConfirmationToken::class)->where('token_type', 'password');
+    }
+
     public function comments()
     {
         return $this->hasMany(Comment::class);

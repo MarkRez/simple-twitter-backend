@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Resources\TokenResource;
+use App\Models\ConfirmationToken;
 use App\Models\User;
 use App\Services\MailService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -28,28 +30,26 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request)
     {
-        $user = User::create([
+        User::create([
             'login' => $request->login,
             'email' => $request->email,
             'name' => $request->name,
             'password' => Hash::make($request->password),
-            'email_verification_token' => Str::random(32)
         ]);
-
-        MailService::sendEmailVerificationToken($user->email, $user->email_verification_token);
 
         return response('User created', 200);
     }
 
     public function verifyEmail(Request $request)
     {
-        $user = User::getByVerificationToken($request->token);
+        $token = ConfirmationToken::where('token', $request->token)->first();
 
-        if ($user) {
-            $user->update([
-                'email_verification_token' => NULL,
+        if ($token) {
+            $token->user()->update([
                 'email_verified' => true,
             ]);
+
+            $token->delete();
 
             return response('Email confirmed successfully!', 200);
         }

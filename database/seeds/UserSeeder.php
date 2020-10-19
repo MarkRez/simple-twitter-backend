@@ -15,9 +15,8 @@ class UserSeeder extends Seeder
             'name' => 'Mark',
             'login' => 'mark',
             'email' => 'mark@example.com',
-            'email_verified' => false,
+            'email_verified' => true,
             'password' => Hash::make('1234'),
-            'email_verification_token' => $faker->regexify('[A-Za-z0-9]{32}')
         ]);
     }
 }

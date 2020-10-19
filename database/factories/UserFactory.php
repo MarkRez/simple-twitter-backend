@@ -14,6 +14,6 @@ $factory->define(User::class, function (Faker $faker) {
         'name' => $faker->firstName,
         'password' => Hash::make('password'),
         'avatar' => $faker->imageUrl($width = 400, $height = 400),
-        'email_verification_token' => $faker->regexify('[A-Za-z0-9]{32}')
+        'email_verified' => true,
     ];
 });

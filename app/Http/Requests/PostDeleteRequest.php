@@ -2,15 +2,14 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Post;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class PostDeleteRequest extends FormRequest
 {
-    public function authorize(Request $request)
+    public function authorize()
     {
-        return $this->route('post')->checkAuthor($request->user()->id);
+        return Gate::allows('delete-post', $this->route('post'));
     }
 
     public function rules()

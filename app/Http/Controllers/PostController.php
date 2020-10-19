@@ -12,6 +12,13 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Post::class, null, [
+            'except' => ['index', 'show', 'create']
+        ]);
+    }
+
     public function index(User $user)
     {
         return PostResource::collection($user->latestPosts()->paginate(10));

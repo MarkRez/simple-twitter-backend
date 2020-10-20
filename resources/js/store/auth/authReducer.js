@@ -4,7 +4,7 @@ export const initialState = {
   loggedIn: null,
 };
 
-export const Auth = (store = initialState, action) => {
+const Auth = (store = initialState, action) => {
   switch (action.type) {
     case SET_LOGGED_IN:
       return {
@@ -15,3 +15,5 @@ export const Auth = (store = initialState, action) => {
       return store;
   }
 };
+
+export default Auth;

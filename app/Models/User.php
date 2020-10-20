@@ -13,7 +13,7 @@ class User extends Authenticatable
 {
     use Notifiable, HasApiTokens;
 
-    protected $fillable = ['name', 'email', 'login', 'password', 'email_verified', 'email_verification_token'];
+    protected $fillable = ['name', 'email', 'login', 'password', 'email_verified'];
     protected $hidden = [
         'email', 'password', 'remember_token', 'updated_at', 'created_at', 'laravel_through_key'
     ];
@@ -24,12 +24,12 @@ class User extends Authenticatable
 
     public function emailVerificationToken()
     {
-        return $this->hasOne(ConfirmationToken::class)->where('token_type', 'email');
+        return $this->hasOne(ConfirmationToken::class)->where('token_type', ConfirmationToken::TYPE_CONFIRM_EMAIL);
     }
 
     public function passwordResetToken()
     {
-        return $this->hasOne(ConfirmationToken::class)->where('token_type', 'password');
+        return $this->hasOne(ConfirmationToken::class)->where('token_type', ConfirmationToken::TYPE_CHANGE_PASSWORD);
     }
 
     public function comments()
@@ -139,9 +139,9 @@ class User extends Authenticatable
         return self::where('login', $login)->first();
     }
 
-    static public function getByVerificationToken($token)
+    static public function getByEmail($email)
     {
-        return self::where('email_verification_token', $token)->first();
+        return self::where('email', $email)->first();
     }
 
     public function addFollower($followerId)

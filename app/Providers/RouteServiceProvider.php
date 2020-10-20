@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\ConfirmationToken;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
@@ -30,9 +31,11 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
         parent::boot();
+
+        Route::bind('emailConfirmationToken', function ($value) {
+            return ConfirmationToken::findToken($value, ConfirmationToken::TYPE_CONFIRM_EMAIL);
+        });
     }
 
     /**

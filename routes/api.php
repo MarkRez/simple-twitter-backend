@@ -30,5 +30,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', 'AuthController@logOut');
 });
 
+Route::get('/request-password-reset', 'AuthController@requestPasswordReset');
+Route::post('/reset-password', 'AuthController@resetPassword');
 Route::post('/login', 'AuthController@login');
 Route::post('/registration', 'AuthController@register');

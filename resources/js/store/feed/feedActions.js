@@ -1,6 +1,26 @@
-import {deleteReactionFromPostRequest, reactionToPostRequest} from "./reactionActions";
+import {getFeed as fetchFeed} from "../../api";
+import {deleteReactionFromPostRequest, reactionToPostRequest} from "../actions/reactionActions";
 
 export const FETCH_FEED = 'FETCH_FEED';
+export const FETCH_FEED_SUCCESS = 'FETCH_FEED_SUCCESS';
+export const FETCH_FEED_ERROR = 'FETCH_FEED_ERROR';
+export const RESET_FEED = 'RESET_FEED';
+
+const fetchFeedCall = () => ({ type: FETCH_FEED });
+const fetchFeedSuccess = (data) => ({ type: FETCH_FEED_SUCCESS, payload: { data } });
+const fetchFeedError = (error) => ({ type: FETCH_FEED_ERROR, payload: { error } });
+export const resetFeed = () => ({ type: RESET_FEED });
+
+export const getFeed1 = (page) => async (dispatch) => {
+  dispatch(fetchFeedCall());
+  try {
+    const response = await fetchFeed(page);
+    dispatch(fetchFeedSuccess(response.data));
+  } catch ({ error }) {
+    dispatch(fetchFeedError(error));
+  }
+};
+
 const ADD_REACTION_TO_FEED_POST = 'ADD_REACTION_TO_FEED_POST';
 const DELETE_REACTION_FROM_FEED_POST = 'DELETE_REACTION_FROM_FEED_POST';
 

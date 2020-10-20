@@ -1,5 +1,5 @@
 import {logOut} from "../../api";
-import profileActions from "../actions/profileActions";
+import profileActions from "../profile/profileActions";
 
 export const SET_LOGGED_IN = 'SET_LOGGED_IN';
 

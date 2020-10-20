@@ -14,4 +14,13 @@ class MailService
                 $message->to($userEmail);
             });
     }
+
+    static public function sendPasswordResetLink($userEmail, $userToken) {
+
+        Mail::send('passwordReset', ['token' => $userToken],
+            function ($message) use ($userEmail) {
+                $message->subject('Simple Twitter password reset!');
+                $message->to($userEmail);
+            });
+    }
 }

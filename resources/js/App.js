@@ -11,12 +11,13 @@ import PostPage from "./routes/PostPage/PostPage";
 import EditProfile from "./routes/EditProfile/EditProfile";
 import Messages from "./routes/Messages/Messages";
 import DialogPage from "./routes/Messages/DialogPage/DialogPage";
+import PasswordRecovery from "./routes/PasswordRecovery/PasswordRecovery";
+import PasswordReset from "./routes/PasswordReset/PasswordReset";
 import ReactNotification, {store} from "react-notifications-component";
 import {ROUTES} from "./helpers/routes";
 import allActions from "./store/actions";
 import {useSelector, useDispatch} from 'react-redux';
 import {profileSelector} from "./store/selectors";
-import PasswordRecovery from "./routes/PasswordRecovery/PasswordRecovery";
 import './App.scss';
 import socketService from "./helpers/socketService";
 
@@ -112,6 +113,11 @@ const App = () => {
             component={(props) => <PasswordRecovery {...props} />}
             exact
             path={ROUTES.RECOVERY}
+          />
+          <Route
+            component={(props) => <PasswordReset {...props} />}
+            exact
+            path={ROUTES.RESET}
           />
           <Route
             component={(props) => <Registration {...props} />}

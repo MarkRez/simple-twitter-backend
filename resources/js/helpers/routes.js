@@ -10,5 +10,6 @@ export const ROUTES = {
   DIALOGS: '/dialogs',
   MESSAGES: '/messages',
   RECOVERY: '/recovery',
+  RESET: '/reset',
   EDIT: '/edit-profile'
 };

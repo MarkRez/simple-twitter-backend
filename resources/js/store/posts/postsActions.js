@@ -7,7 +7,7 @@ const DELETE_REACTION_FROM_POST = 'DELETE_REACTION_FROM_POST';
 import {
   deleteReactionFromPostRequest,
   reactionToPostRequest
-} from "./reactionActions";
+} from "../actions/reactionActions";
 
 const getPost = (id) => ({
   type: FETCH_CURRENT_POST,
